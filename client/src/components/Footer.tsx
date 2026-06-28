@@ -104,7 +104,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.threads.com/@earthguide.ranbou"
+                  href="https://www.threads.com/@earthguide.ranbow"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/70 hover:text-background text-sm transition-colors"
