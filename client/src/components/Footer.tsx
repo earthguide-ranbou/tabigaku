@@ -28,7 +28,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/#journeys" className="text-background/70 hover:text-background text-sm transition-colors">
-                  ジャーニー
+                  Journey
                 </Link>
               </li>
               <li>

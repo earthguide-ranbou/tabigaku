@@ -188,7 +188,7 @@ export default function Home() {
 
       {/* Journeys Section - 現在募集中の旅 */}
       <Section id="journeys" background="muted" className="py-24">
-        <SectionHeader title="現在募集中の旅" subtitle="UPCOMING JOURNEYS" centered />
+        <SectionHeader title="現在募集中のJourney" subtitle="UPCOMING JOURNEYS" centered />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
 
           {/* Journey 1: 島旅ジャーニー in 祝島 */}

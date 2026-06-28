@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "ホーム", href: "/" },
   { label: "旅する学校とは", href: "/#about" },
-  { label: "ジャーニー", href: "/#journeys" },
+  { label: "Journey", href: "/#journeys" },
   { label: "神山ガイド", href: "https://kamiyamaguide-zeujjaf9.manus.space", external: true },
   { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },
