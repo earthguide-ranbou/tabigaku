@@ -45,17 +45,17 @@ export default function SponsorPage() {
                 {
                   tier: "シルバー",
                   amount: "¥10,000〜",
-                  benefits: ["ラジオ出演", "活動報告メール"],
+                  benefits: ["限定ラジオ", "活動報告メール"],
                 },
                 {
                   tier: "ゴールド",
                   amount: "¥50,000〜",
-                  benefits: ["ロゴ掲載", "ラジオ出演", "活動報告メール"],
+                  benefits: ["ロゴ掲載", "限定ラジオ", "活動報告メール"],
                 },
                 {
                   tier: "プラチナ",
                   amount: "¥500,000〜",
-                  benefits: ["年間パス", "ロゴ掲載", "ラジオ出演", "活動報告メール"],
+                  benefits: ["年間パス", "ロゴ掲載", "限定ラジオ", "活動報告メール"],
                   featured: true,
                 },
               ].map((plan) => (
