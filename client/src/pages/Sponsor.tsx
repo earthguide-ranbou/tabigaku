@@ -35,16 +35,45 @@ export default function SponsorPage() {
               ご支援いただいた方には、活動報告や子どもたちからのメッセージをお届けします。
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {[
-                { tier: "ブロンズ", amount: "¥3,000/月", benefits: "活動報告メール" },
-                { tier: "シルバー", amount: "¥10,000/月", benefits: "活動報告 + お礼状" },
-                { tier: "ゴールド", amount: "¥30,000/月", benefits: "活動報告 + お礼状 + ロゴ掲載" },
+                {
+                  tier: "ブロンズ",
+                  amount: "¥5,000〜",
+                  benefits: ["活動報告メール"],
+                },
+                {
+                  tier: "シルバー",
+                  amount: "¥10,000〜",
+                  benefits: ["ラジオ出演", "活動報告メール"],
+                },
+                {
+                  tier: "ゴールド",
+                  amount: "¥50,000〜",
+                  benefits: ["ロゴ掲載", "ラジオ出演", "活動報告メール"],
+                },
+                {
+                  tier: "プラチナ",
+                  amount: "¥500,000〜",
+                  benefits: ["年間パス", "ロゴ掲載", "ラジオ出演", "活動報告メール"],
+                  featured: true,
+                },
               ].map((plan) => (
-                <div key={plan.tier} className="bg-muted rounded-xl p-6 text-center">
+                <div
+                  key={plan.tier}
+                  className={`rounded-xl p-6 text-center ${
+                    (plan as any).featured
+                      ? "bg-primary/10 border-2 border-primary shadow-lg"
+                      : "bg-muted"
+                  }`}
+                >
                   <h3 className="font-bold text-lg mb-2">{plan.tier}</h3>
                   <p className="text-2xl font-bold text-primary mb-3">{plan.amount}</p>
-                  <p className="text-sm text-muted-foreground">{plan.benefits}</p>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    {plan.benefits.map((b) => (
+                      <li key={b}>✓ {b}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
