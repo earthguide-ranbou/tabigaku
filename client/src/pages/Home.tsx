@@ -115,7 +115,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-10 bg-card rounded-xl p-6 shadow-lg border border-border">
+            <Link href="/award" className="mt-10 bg-card rounded-xl p-6 shadow-lg border border-border block hover:shadow-xl hover:border-primary/30 transition-all duration-200 cursor-pointer">
               <div className="flex items-start gap-4">
                 <div className="bg-yellow-100 p-3 rounded-full shrink-0">
                   <Award className="w-8 h-8 text-yellow-600" />
@@ -123,17 +123,14 @@ export default function Home() {
                 <div>
                   <h3 className="text-lg font-bold mb-2">安藤財団 特別推奨モデル賞受賞</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    2023年度 安藤スポーツ・食文化振興財団より、私たちの活動「子どもたちといく4泊5日の秋のお遍路巡礼の旅」が表彰されました。
+                    2023年度 安藤スポーツ・食文化振興財団より、私たちの活動「子どもたちといく4泊5日の秋のお遷路巡礼の旅」が表彰されました。
                   </p>
-                  <Link
-                    href="/award"
-                    className="inline-flex items-center gap-2 text-primary font-bold hover:underline underline-offset-4 text-sm cursor-pointer"
-                  >
+                  <span className="inline-flex items-center gap-2 text-primary font-bold text-sm">
                     詳細を見る <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div className="order-1 lg:order-2 relative">
