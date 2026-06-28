@@ -43,75 +43,81 @@
 }
 
 :root {
-  /* 旅する学校 - Warm earth tones inspired by nature and pilgrimage */
-  --primary: oklch(55% .15 45);
-  --primary-foreground: oklch(98% .01 45);
-  --secondary: oklch(85% .05 140);
-  --secondary-foreground: oklch(35% .08 140);
-  --accent: oklch(95% .02 240);
-  --accent-foreground: oklch(45% .12 260);
-  --background: oklch(97% .02 95);
-  --foreground: oklch(25% .02 45);
-  --card: oklch(99% .01 95);
-  --card-foreground: oklch(25% .02 45);
-  --popover: oklch(99% .01 95);
-  --popover-foreground: oklch(25% .02 45);
-  --muted: oklch(92% .03 95);
-  --muted-foreground: oklch(55% .02 45);
+  /* 旅する学校 — 和モダン × エディトリアル */
+  /* Primary: 深い琥珀・柿渋色 */
+  --primary: oklch(48% .18 42);
+  --primary-foreground: oklch(99% .005 42);
+  /* Secondary: 薄い苔色 */
+  --secondary: oklch(88% .04 135);
+  --secondary-foreground: oklch(32% .08 135);
+  /* Accent: 藍白 */
+  --accent: oklch(93% .025 240);
+  --accent-foreground: oklch(38% .14 255);
+  /* Background: 和紙のような温かいオフホワイト */
+  --background: oklch(97.5% .015 90);
+  --foreground: oklch(18% .02 45);
+  /* Card: 少し明るいオフホワイト */
+  --card: oklch(99.5% .008 90);
+  --card-foreground: oklch(18% .02 45);
+  --popover: oklch(99.5% .008 90);
+  --popover-foreground: oklch(18% .02 45);
+  /* Muted: 薄い砂色 */
+  --muted: oklch(93.5% .018 90);
+  --muted-foreground: oklch(50% .018 45);
   --destructive: oklch(57.7% .245 27.325);
   --destructive-foreground: oklch(98.5% 0 0);
-  --border: oklch(88% .02 95);
-  --input: oklch(88% .02 95);
-  --ring: oklch(55% .15 45);
-  --radius: .75rem;
-  --chart-1: oklch(55% .15 45);
-  --chart-2: oklch(65% .12 140);
-  --chart-3: oklch(45% .12 260);
-  --chart-4: oklch(75% .15 85);
-  --chart-5: oklch(60% .1 30);
-  --sidebar: oklch(96% .02 95);
-  --sidebar-foreground: oklch(25% .02 45);
-  --sidebar-primary: oklch(55% .15 45);
-  --sidebar-primary-foreground: oklch(98% .01 45);
-  --sidebar-accent: oklch(92% .03 95);
-  --sidebar-accent-foreground: oklch(25% .02 45);
-  --sidebar-border: oklch(88% .02 95);
-  --sidebar-ring: oklch(55% .15 45);
+  --border: oklch(87% .015 90);
+  --input: oklch(87% .015 90);
+  --ring: oklch(48% .18 42);
+  --radius: 0.5rem;
+  --chart-1: oklch(48% .18 42);
+  --chart-2: oklch(60% .12 135);
+  --chart-3: oklch(42% .14 255);
+  --chart-4: oklch(72% .14 80);
+  --chart-5: oklch(55% .1 28);
+  --sidebar: oklch(96% .015 90);
+  --sidebar-foreground: oklch(18% .02 45);
+  --sidebar-primary: oklch(48% .18 42);
+  --sidebar-primary-foreground: oklch(99% .005 42);
+  --sidebar-accent: oklch(93.5% .018 90);
+  --sidebar-accent-foreground: oklch(18% .02 45);
+  --sidebar-border: oklch(87% .015 90);
+  --sidebar-ring: oklch(48% .18 42);
 }
 
 .dark {
-  --primary: oklch(65% .15 45);
-  --primary-foreground: oklch(98% .01 45);
-  --secondary: oklch(30% .05 140);
-  --secondary-foreground: oklch(90% .05 140);
-  --accent: oklch(25% .05 240);
-  --accent-foreground: oklch(90% .05 240);
-  --background: oklch(15% .02 140);
-  --foreground: oklch(95% .02 95);
-  --card: oklch(18% .02 140);
-  --card-foreground: oklch(95% .02 95);
-  --popover: oklch(18% .02 140);
-  --popover-foreground: oklch(95% .02 95);
-  --muted: oklch(25% .02 140);
-  --muted-foreground: oklch(70% .02 95);
+  --primary: oklch(62% .18 42);
+  --primary-foreground: oklch(99% .005 42);
+  --secondary: oklch(28% .05 135);
+  --secondary-foreground: oklch(88% .04 135);
+  --accent: oklch(22% .05 240);
+  --accent-foreground: oklch(88% .05 240);
+  --background: oklch(13% .015 140);
+  --foreground: oklch(94% .015 90);
+  --card: oklch(16% .015 140);
+  --card-foreground: oklch(94% .015 90);
+  --popover: oklch(16% .015 140);
+  --popover-foreground: oklch(94% .015 90);
+  --muted: oklch(22% .015 140);
+  --muted-foreground: oklch(68% .015 90);
   --destructive: oklch(70.4% .191 22.216);
   --destructive-foreground: oklch(98.5% 0 0);
-  --border: oklch(25% .02 140);
-  --input: oklch(25% .02 140);
-  --ring: oklch(65% .15 45);
-  --chart-1: oklch(65% .15 45);
-  --chart-2: oklch(55% .12 140);
-  --chart-3: oklch(65% .12 260);
-  --chart-4: oklch(75% .15 85);
-  --chart-5: oklch(60% .1 30);
-  --sidebar: oklch(18% .02 140);
-  --sidebar-foreground: oklch(95% .02 95);
-  --sidebar-primary: oklch(65% .15 45);
-  --sidebar-primary-foreground: oklch(98% .01 45);
-  --sidebar-accent: oklch(25% .02 140);
-  --sidebar-accent-foreground: oklch(95% .02 95);
-  --sidebar-border: oklch(25% .02 140);
-  --sidebar-ring: oklch(65% .15 45);
+  --border: oklch(22% .015 140);
+  --input: oklch(22% .015 140);
+  --ring: oklch(62% .18 42);
+  --chart-1: oklch(62% .18 42);
+  --chart-2: oklch(52% .12 135);
+  --chart-3: oklch(62% .14 255);
+  --chart-4: oklch(72% .14 80);
+  --chart-5: oklch(58% .1 28);
+  --sidebar: oklch(16% .015 140);
+  --sidebar-foreground: oklch(94% .015 90);
+  --sidebar-primary: oklch(62% .18 42);
+  --sidebar-primary-foreground: oklch(99% .005 42);
+  --sidebar-accent: oklch(22% .015 140);
+  --sidebar-accent-foreground: oklch(94% .015 90);
+  --sidebar-border: oklch(22% .015 140);
+  --sidebar-ring: oklch(62% .18 42);
 }
 
 @layer base {
@@ -122,19 +128,27 @@
     @apply bg-background text-foreground;
     font-family: 'Zen Kaku Gothic New', sans-serif;
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.8;
     word-break: auto-phrase;
     overflow-wrap: anywhere;
     font-feature-settings: "palt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
+    font-family: 'Zen Old Mincho', serif;
+    letter-spacing: 0.04em;
   }
   p {
     text-wrap: pretty;
   }
   .font-serif {
     font-family: 'Zen Old Mincho', serif;
+    letter-spacing: 0.04em;
+  }
+  .font-sans {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -154,8 +168,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .flex {
@@ -165,16 +179,34 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1280px;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1360px;
     }
+  }
+
+  /* Editorial label — small caps tracking */
+  .label-editorial {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  /* Thin horizontal rule accent */
+  .rule-accent {
+    width: 2.5rem;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 1px;
   }
 }

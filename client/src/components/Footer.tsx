@@ -1,133 +1,121 @@
 import { Link } from "wouter";
 
+const socialLinks = [
+  { label: "Note", href: "https://note.com/shiftdaigaku" },
+  { label: "Instagram", href: "https://www.instagram.com/earthguide.ranbow" },
+  { label: "Facebook", href: "https://www.facebook.com/share/1CsBs21r2B/" },
+  { label: "Threads", href: "https://www.threads.com/@earthguide.ranbow" },
+  { label: "Substack", href: "https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi" },
+];
+
+const navLinks = [
+  { label: "ホーム", href: "/", internal: true },
+  { label: "旅する学校とは", href: "/#about", internal: true },
+  { label: "Journey", href: "/#journeys", internal: true },
+  { label: "神山ガイド", href: "https://kamiyamaguide-zeujjaf9.manus.space" },
+  { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide" },
+  { label: "受賞歴", href: "/award", internal: true },
+  { label: "スポンサーになる", href: "/sponsor", internal: true },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div>
-            <h3 className="text-xl font-serif font-bold mb-4">旅する学校</h3>
-            <p className="text-background/70 text-sm leading-relaxed">
+    <footer className="bg-foreground text-background">
+      {/* Main footer */}
+      <div className="container mx-auto py-16 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+
+          {/* Brand column */}
+          <div className="md:col-span-4">
+            <h3 className="text-2xl font-serif font-black tracking-widest mb-3">旅する学校</h3>
+            <p className="text-background/55 text-sm leading-relaxed mb-6 max-w-xs">
               らんぼうと行くオルタナティブな学びの場。
               旅こそが学校。自然の中で、仲間と共に、
               いのちが喜ぶ体験を積み重ねる。
             </p>
+            {/* Social links */}
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[0.7rem] font-bold tracking-widest uppercase text-background/50 hover:text-background border border-background/20 hover:border-background/50 px-3 py-1.5 rounded-full transition-all duration-200"
+                >
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-widest uppercase">Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/" className="text-background/70 hover:text-background text-sm transition-colors">
-                  ホーム
-                </Link>
-              </li>
-              <li>
-                <Link href="/#about" className="text-background/70 hover:text-background text-sm transition-colors">
-                  旅する学校とは
-                </Link>
-              </li>
-              <li>
-                <Link href="/#journeys" className="text-background/70 hover:text-background text-sm transition-colors">
-                  Journey
-                </Link>
-              </li>
-              <li>
-                <a href="https://kamiyamaguide-zeujjaf9.manus.space" target="_blank" rel="noopener noreferrer" className="text-background/70 hover:text-background text-sm transition-colors">
-                  神山ガイド
-                </a>
-              </li>
-              <li>
-                <a href="https://kamiyamaguide-zeujjaf9.manus.space/guide" target="_blank" rel="noopener noreferrer" className="text-background/70 hover:text-background text-sm transition-colors">
-                  ガイド紹介
-                </a>
-              </li>
-              <li>
-                <Link href="/award" className="text-background/70 hover:text-background text-sm transition-colors">
-                  受賞歴
-                </Link>
-              </li>
-              <li>
-                <Link href="/sponsor" className="text-background/70 hover:text-background text-sm transition-colors">
-                  スポンサーになる
-                </Link>
-              </li>
+
+          {/* Nav column */}
+          <div className="md:col-span-3 md:col-start-6">
+            <h4 className="text-[0.65rem] font-bold tracking-[0.22em] uppercase text-background/40 mb-5">
+              Links
+            </h4>
+            <ul className="space-y-3">
+              {navLinks.map((link) =>
+                link.internal ? (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/65 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-background/65 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              )}
             </ul>
           </div>
-          <div>
-            <h4 className="font-bold mb-4 text-sm tracking-widest uppercase">Contact</h4>
+
+          {/* Contact column */}
+          <div className="md:col-span-3 md:col-start-10">
+            <h4 className="text-[0.65rem] font-bold tracking-[0.22em] uppercase text-background/40 mb-5">
+              Contact
+            </h4>
             <ul className="space-y-3">
               <li>
                 <a
                   href="tel:09075188816"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
+                  className="text-sm text-background/65 hover:text-background transition-colors"
                 >
-                  TEL: 090-7518-8816
+                  090-7518-8816
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:earthguide.jpn@gmail.com"
-                  className="text-background/70 hover:text-background text-sm transition-colors break-all"
+                  className="text-sm text-background/65 hover:text-background transition-colors break-all"
                 >
                   earthguide.jpn@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://note.com/shiftdaigaku"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
-                >
-                  Note
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/earthguide.ranbow"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/share/1CsBs21r2B/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
-                >
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.threads.com/@earthguide.ranbow"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
-                >
-                  Threads
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-background/70 hover:text-background text-sm transition-colors"
-                >
-                  Substack
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-background/20 pt-8 text-center">
-          <p className="text-background/50 text-sm">
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-background/10">
+        <div className="container mx-auto py-5 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-background/35 text-xs tracking-wide">
             © 2024 旅する学校. All rights reserved.
+          </p>
+          <p className="text-background/25 text-xs">
+            らんぼうと行くオルタナティブな学びの場
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ export function Section({
 
   const bgClasses = {
     default: "bg-background text-foreground",
-    muted: "bg-muted text-muted-foreground",
+    muted: "bg-muted text-foreground",
     primary: "bg-primary text-primary-foreground",
     image: "relative text-white overflow-hidden",
   };
@@ -40,7 +40,7 @@ export function Section({
     <section
       ref={ref}
       className={cn(
-        "relative w-full py-16 md:py-24 px-4 md:px-8 overflow-hidden",
+        "relative w-full py-20 md:py-32 overflow-hidden",
         fullHeight && "min-h-screen flex flex-col justify-center",
         bgClasses[background],
         className
@@ -87,32 +87,42 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "mb-12 md:mb-20 max-w-3xl",
+        "mb-14 md:mb-20 max-w-3xl",
         centered && "mx-auto text-center",
         className
       )}
     >
       {subtitle && (
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={cn(
-            "block text-sm md:text-base font-sans font-bold tracking-widest uppercase mb-3",
-            light ? "text-white/80" : "text-primary"
-          )}
+          transition={{ duration: 0.55 }}
+          className={cn("flex items-center gap-3 mb-4", centered && "justify-center")}
         >
-          {subtitle}
-        </motion.span>
+          <span
+            className={cn(
+              "block font-sans font-bold tracking-[0.22em] uppercase text-[0.65rem]",
+              light ? "text-white/70" : "text-primary/80"
+            )}
+          >
+            {subtitle}
+          </span>
+          <span
+            className={cn(
+              "block h-px flex-1 max-w-[3rem]",
+              light ? "bg-white/30" : "bg-primary/30"
+            )}
+          />
+        </motion.div>
       )}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.1 }}
+        transition={{ duration: 0.6, delay: 0.08 }}
         className={cn(
-          "text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight",
+          "text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.2] tracking-wide",
           light ? "text-white" : "text-foreground"
         )}
       >

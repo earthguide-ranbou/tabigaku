@@ -21,9 +21,9 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 60);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,14 +33,17 @@ export default function Navigation() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        scrolled ? "bg-background/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6"
+        scrolled
+          ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_0_0_var(--border)] py-3"
+          : "bg-transparent py-5"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
           <div
             className={cn(
-              "text-xl font-serif font-black tracking-tight transition-colors",
+              "text-lg font-serif font-black tracking-widest transition-colors duration-300",
               scrolled || !isHome ? "text-foreground" : "text-white"
             )}
           >
@@ -49,34 +52,41 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) =>
-            link.external ? (
+        <nav className="hidden lg:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isLast = link.label === "スポンサーになる";
+            const baseClass = cn(
+              "relative text-xs font-medium tracking-wide transition-all duration-200 px-3 py-2 rounded-sm",
+              isLast
+                ? cn(
+                    "ml-4 px-4 py-2 rounded-full border font-bold text-xs tracking-widest transition-all duration-200",
+                    scrolled || !isHome
+                      ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      : "border-white/80 text-white hover:bg-white/15"
+                  )
+                : cn(
+                    "hover:text-primary",
+                    scrolled || !isHome
+                      ? "text-foreground/80 hover:text-foreground"
+                      : "text-white/85 hover:text-white"
+                  )
+            );
+            return link.external ? (
               <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  scrolled || !isHome ? "text-foreground" : "text-white"
-                )}
+                className={baseClass}
               >
                 {link.label}
               </a>
             ) : (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  scrolled || !isHome ? "text-foreground" : "text-white"
-                )}
-              >
+              <Link key={link.label} href={link.href} className={baseClass}>
                 {link.label}
               </Link>
-            )
-          )}
+            );
+          })}
         </nav>
 
         {/* Mobile menu button */}
@@ -88,22 +98,29 @@ export default function Navigation() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="メニュー"
         >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border">
-          <nav className="container mx-auto py-4 flex flex-col gap-4">
-            {navLinks.map((link) =>
-              link.external ? (
+        <div className="lg:hidden bg-background/98 backdrop-blur-xl border-t border-border">
+          <nav className="container mx-auto py-6 flex flex-col gap-1">
+            {navLinks.map((link) => {
+              const isLast = link.label === "スポンサーになる";
+              const cls = cn(
+                "text-sm font-medium py-3 px-2 transition-colors border-b border-border/40 last:border-0",
+                isLast
+                  ? "text-primary font-bold"
+                  : "text-foreground/80 hover:text-foreground"
+              );
+              return link.external ? (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className={cls}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
@@ -112,13 +129,13 @@ export default function Navigation() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                  className={cls}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
-              )
-            )}
+              );
+            })}
           </nav>
         </div>
       )}
