@@ -11,7 +11,7 @@ const navLinks = [
   { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },
   { label: "受賞歴", href: "/award" },
-  { label: "スポンサーになる", href: "/sponsor" },
+  { label: "スポンサーになる", href: "/sponsor#sponsor-content" },
 ];
 
 export default function Navigation() {

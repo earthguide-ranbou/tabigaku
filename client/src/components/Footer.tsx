@@ -92,6 +92,36 @@ export default function Footer() {
                   Instagram
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1CsBs21r2B/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-background text-sm transition-colors"
+                >
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.threads.com/@earthguide.ranbou"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-background text-sm transition-colors"
+                >
+                  Threads
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-background text-sm transition-colors"
+                >
+                  Substack
+                </a>
+              </li>
             </ul>
           </div>
         </div>

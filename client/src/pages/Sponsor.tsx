@@ -24,7 +24,7 @@ export default function SponsorPage() {
             </div>
           </div>
 
-          <div className="bg-card rounded-2xl p-8 shadow-lg border border-border mb-8">
+          <div id="sponsor-content" className="bg-card rounded-2xl p-8 shadow-lg border border-border mb-8">
             <h2 className="text-2xl font-serif font-bold mb-6">子どもたちの冒険を支えてください</h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               旅する学校は、子どもたちが自然の中で本物の体験をするための場を提供しています。
