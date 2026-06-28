@@ -13,9 +13,9 @@ const TOKUSHIMA_SHIMBUN = "/manus-storage/tokushima_shimbun_e14fdcec.jpg";
 const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.png";
 
 // New journey images
-const SHIMA_JOURNEY = "/manus-storage/shima_journey_2ebfd8b8.jpg";
-const CHIKYU_KAZOKU = "/manus-storage/chikyu_kazoku_bb8481e1.jpg";
-const OHENRO_JOURNEY = "/manus-storage/ohenro_journey_147ce8dd.jpg";
+const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
+const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
+const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
