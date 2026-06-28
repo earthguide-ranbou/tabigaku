@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-serif font-bold mb-4">旅する学校</h3>
             <p className="text-background/70 text-sm leading-relaxed">
-              徳島・神山発のオルタナティブな学びの場。
+              らんぼうと行くオルタナティブな学びの場。
               旅こそが学校。自然の中で、仲間と共に、
               いのちが喜ぶ体験を積み重ねる。
             </p>
