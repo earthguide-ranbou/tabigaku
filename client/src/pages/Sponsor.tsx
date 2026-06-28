@@ -80,7 +80,9 @@ export default function SponsorPage() {
 
             <div className="text-center">
               <a
-                href="mailto:earthguide.jpn@gmail.com?subject=スポンサーについて"
+                href="https://share.google/6VQmg2ssLUc3mu2TS"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary/90 transition-all hover:scale-105 shadow-xl"
               >
                 スポンサーに申し込む
