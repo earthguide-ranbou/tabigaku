@@ -8,6 +8,7 @@ const navLinks = [
   { label: "旅する学校とは", href: "/#about" },
   { label: "ジャーニー", href: "/#journeys" },
   { label: "神山ガイド", href: "https://kamiyamaguide-zeujjaf9.manus.space", external: true },
+  { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },
   { label: "受賞歴", href: "/award" },
   { label: "スポンサーになる", href: "/sponsor" },

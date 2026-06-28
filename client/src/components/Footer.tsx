@@ -37,6 +37,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="https://kamiyamaguide-zeujjaf9.manus.space/guide" target="_blank" rel="noopener noreferrer" className="text-background/70 hover:text-background text-sm transition-colors">
+                  ガイド紹介
+                </a>
+              </li>
+              <li>
                 <Link href="/award" className="text-background/70 hover:text-background text-sm transition-colors">
                   受賞歴
                 </Link>
