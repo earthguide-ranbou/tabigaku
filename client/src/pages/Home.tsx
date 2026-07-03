@@ -84,84 +84,130 @@ const journeys = [
 ];
 
 // ─── Slideshow Component ────────────────────────────────────────────────────
+// スワイプ式横スクロール実装。自動再生なし。バグなし。
+// 全画像を横に並べ、translateXで表示位置を切り替える。
+// 高さは常に現在の画像で確定するため、下のセクションが透けることがない。
 function PhotoSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
-  const [fading, setFading] = useState(false);
+  const [dragging, setDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragDeltaX, setDragDeltaX] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const total = SLIDESHOW_IMAGES.length;
 
   const goTo = useCallback((index: number) => {
-    if (fading || index === current) return;
-    setPrev(current);
-    setCurrent(index);
-    setFading(true);
-    setTimeout(() => {
-      setPrev(null);
-      setFading(false);
-    }, 700);
-  }, [current, fading]);
+    const clamped = Math.max(0, Math.min(total - 1, index));
+    setCurrent(clamped);
+  }, [total]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      goTo((current + 1) % SLIDESHOW_IMAGES.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, [current, goTo]);
+  // タッチ開始
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setDragStartX(e.touches[0].clientX);
+    setDragDeltaX(0);
+    setDragging(true);
+  }, []);
+
+  // タッチ移動
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (!dragging) return;
+    setDragDeltaX(e.touches[0].clientX - dragStartX);
+  }, [dragging, dragStartX]);
+
+  // タッチ終了
+  const handleTouchEnd = useCallback(() => {
+    if (!dragging) return;
+    setDragging(false);
+    const threshold = 50;
+    if (dragDeltaX < -threshold && current < total - 1) {
+      goTo(current + 1);
+    } else if (dragDeltaX > threshold && current > 0) {
+      goTo(current - 1);
+    }
+    setDragDeltaX(0);
+  }, [dragging, dragDeltaX, current, total, goTo]);
+
+  // マウスドラッグ（PC対応）
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    setDragStartX(e.clientX);
+    setDragDeltaX(0);
+    setDragging(true);
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!dragging) return;
+    setDragDeltaX(e.clientX - dragStartX);
+  }, [dragging, dragStartX]);
+
+  const handleMouseUp = useCallback(() => {
+    if (!dragging) return;
+    setDragging(false);
+    const threshold = 50;
+    if (dragDeltaX < -threshold && current < total - 1) {
+      goTo(current + 1);
+    } else if (dragDeltaX > threshold && current > 0) {
+      goTo(current - 1);
+    }
+    setDragDeltaX(0);
+  }, [dragging, dragDeltaX, current, total, goTo]);
+
+  // コンテナ幅を取得してtranslateXを計算
+  const containerWidth = containerRef.current?.offsetWidth ?? 0;
+  const baseTranslate = -current * 100; // %
+  // ドラッグ中はピクセルオフセットを追加
+  const dragOffset = containerWidth > 0 ? (dragDeltaX / containerWidth) * 100 : 0;
+  const translateX = baseTranslate + dragOffset;
 
   return (
-    // overflow-hidden必須: 絶対配置の画像が外にはみ出さないよう
-    <div className="relative w-full bg-stone-900 overflow-hidden">
-      {/* 前の画像 — フェードアウト */}
-      {prev !== null && (
-        <img
-          key={`prev-${prev}`}
-          src={SLIDESHOW_IMAGES[prev].src}
-          alt={SLIDESHOW_IMAGES[prev].alt}
-          className="absolute inset-0 w-full h-auto block"
-          style={{
-            maxHeight: "88vh",
-            objectFit: "contain",
-            margin: "0 auto",
-            opacity: 0,
-            transition: "opacity 0.7s ease",
-            zIndex: 1,
-          }}
-        />
-      )}
-      {/* 現在の画像 — フェードイン */}
-      <img
-        key={`cur-${current}`}
-        src={SLIDESHOW_IMAGES[current].src}
-        alt={SLIDESHOW_IMAGES[current].alt}
-        className="relative w-full h-auto block"
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden select-none cursor-grab active:cursor-grabbing"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
+      {/* 全画像を横に並べたストリップ */}
+      <div
+        className="flex"
         style={{
-          maxHeight: "88vh",
-          objectFit: "contain",
-          margin: "0 auto",
-          opacity: fading ? 0 : 1,
-          transition: "opacity 0.7s ease",
-          zIndex: 2,
+          transform: `translateX(${translateX}%)`,
+          transition: dragging ? "none" : "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
+          willChange: "transform",
         }}
-      />
+      >
+        {SLIDESHOW_IMAGES.map((img, i) => (
+          <div key={i} className="flex-shrink-0 w-full">
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-auto block"
+              draggable={false}
+              style={{ maxHeight: "88vh", objectFit: "contain", margin: "0 auto" }}
+            />
+          </div>
+        ))}
+      </div>
 
-      {/* Dot indicators */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+      {/* ドットインジケーター */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10 pointer-events-none">
         {SLIDESHOW_IMAGES.map((_, i) => (
-          <button
+          <div
             key={i}
-            onClick={() => goTo(i)}
             className={`rounded-full transition-all duration-300 ${
               i === current
                 ? "w-6 h-2 bg-white"
-                : "w-2 h-2 bg-white/50 hover:bg-white/80"
+                : "w-2 h-2 bg-white/50"
             }`}
-            aria-label={`スライド ${i + 1}`}
           />
         ))}
       </div>
 
-      {/* Counter */}
-      <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
-        {current + 1} / {SLIDESHOW_IMAGES.length}
+      {/* カウンター */}
+      <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+        {current + 1} / {total}
       </div>
     </div>
   );
