@@ -116,7 +116,8 @@ function PhotoSlideshow() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+    <div className="relative w-full overflow-hidden bg-black">
+      {/* 元の写真サイズを尊重し、containで全体を表示 */}
       <AnimatePresence custom={direction} mode="popLayout">
         <motion.div
           key={current}
@@ -126,15 +127,14 @@ function PhotoSlideshow() {
           animate="center"
           exit="exit"
           transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-          className="absolute inset-0"
+          className="w-full"
         >
           <img
             src={SLIDESHOW_IMAGES[current].src}
             alt={SLIDESHOW_IMAGES[current].alt}
-            className="w-full h-full object-cover"
+            className="w-full h-auto block"
+            style={{ maxHeight: "90vh", objectFit: "contain", margin: "0 auto" }}
           />
-          {/* Subtle gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
         </motion.div>
       </AnimatePresence>
 
@@ -155,7 +155,7 @@ function PhotoSlideshow() {
       </div>
 
       {/* Counter */}
-      <div className="absolute top-4 right-4 z-10 bg-black/30 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+      <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
         {current + 1} / {SLIDESHOW_IMAGES.length}
       </div>
     </div>
@@ -183,13 +183,19 @@ export default function Home() {
       >
         {/* Parallax background — チラシのメイン写真（山岳トレッキング）を使用 */}
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
+          {/*
+            チラシは縦長画像（A4縦）。上部の写真エリアのみ表示し、
+            下部のQRコード・クラフト紙エリアは裁ち切る。
+            object-position: top で上から表示し、下部の不要エリアを隠す。
+          */}
           <img
             src={FLYER_IMAGE}
             alt="旅する学校 — 山岳トレッキング"
-            className="w-full h-full object-cover object-[center_40%]"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 15%" }}
           />
-          {/* 下部に向かって暗くなるグラデーション — テキスト可読性確保 */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          {/* QRコード・クラフト紙エリアを完全に隠すグラデーション — 下40%を完全に黒に */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, black 0%, black 30%, rgba(0,0,0,0.3) 55%, transparent 75%)" }} />
         </motion.div>
 
         {/* Hero text — 画像最下部のみ、チラシテキストと重ならないエリアに配置 */}
@@ -310,41 +316,41 @@ export default function Home() {
       </Section>
 
       {/* ── Photo Gallery Slideshow ── */}
-      <Section background="muted" className="py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
-          >
-            <SectionHeader
-              title="旅の記録"
-              subtitle="PHOTO GALLERY"
-              centered
-            />
-          </motion.div>
+      <Section background="muted" className="py-16 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="mb-8"
+        >
+          <SectionHeader
+            title="旅の記録"
+            subtitle="PHOTO GALLERY"
+            centered
+          />
+        </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, delay: 0.1 }}
-            className="rounded-2xl overflow-hidden shadow-2xl border border-border/40"
-          >
-            <PhotoSlideshow />
-          </motion.div>
+        {/* 全幅表示 — containerのpxを完全に打ち消す (mobile: 1.25rem, md: 2rem, lg: 3rem) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.75, delay: 0.1 }}
+          className="-mx-5 md:-mx-8 lg:-mx-12 overflow-hidden shadow-2xl"
+        >
+          <PhotoSlideshow />
+        </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center text-sm text-muted-foreground mt-6"
-          >
-            川旅・山旅・お遍路…子どもたちの笑顔が溢れる旅の瞬間
-          </motion.p>
-        </div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center text-sm text-muted-foreground mt-6"
+        >
+          川旅・山旅・お遷路…子どもたちの笑顔が湢れる旅の瞬間
+        </motion.p>
       </Section>
 
       {/* ── Media ── */}
