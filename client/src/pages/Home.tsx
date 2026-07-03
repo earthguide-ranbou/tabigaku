@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Calendar, ArrowRight, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -86,62 +86,65 @@ const journeys = [
 // ─── Slideshow Component ────────────────────────────────────────────────────
 function PhotoSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [prev, setPrev] = useState<number | null>(null);
+  const [fading, setFading] = useState(false);
+
+  const goTo = useCallback((index: number) => {
+    if (fading || index === current) return;
+    setPrev(current);
+    setCurrent(index);
+    setFading(true);
+    setTimeout(() => {
+      setPrev(null);
+      setFading(false);
+    }, 700);
+  }, [current, fading]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % SLIDESHOW_IMAGES.length);
+      goTo((current + 1) % SLIDESHOW_IMAGES.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
-
-  const goTo = (index: number) => {
-    setDirection(index > current ? 1 : -1);
-    setCurrent(index);
-  };
-
-  const variants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? "-100%" : "100%",
-      opacity: 0,
-    }),
-  };
+  }, [current, goTo]);
 
   return (
-    <div className="relative w-full bg-stone-900" style={{ minHeight: "280px" }}>
-      {/* 元の写真サイズを尊重し、スライド切り替え時に下のセクションが露出しないようoverflow-hiddenを守る */}
-      <AnimatePresence custom={direction} mode="sync">
-        <motion.div
-          key={current}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-          className="w-full"
-          style={{ position: "relative" }}
-        >
-          <img
-            src={SLIDESHOW_IMAGES[current].src}
-            alt={SLIDESHOW_IMAGES[current].alt}
-            className="w-full h-auto block"
-            style={{ maxHeight: "88vh", objectFit: "contain", margin: "0 auto", display: "block" }}
-          />
-        </motion.div>
-      </AnimatePresence>
+    // overflow-hidden必須: 絶対配置の画像が外にはみ出さないよう
+    <div className="relative w-full bg-stone-900 overflow-hidden">
+      {/* 前の画像 — フェードアウト */}
+      {prev !== null && (
+        <img
+          key={`prev-${prev}`}
+          src={SLIDESHOW_IMAGES[prev].src}
+          alt={SLIDESHOW_IMAGES[prev].alt}
+          className="absolute inset-0 w-full h-auto block"
+          style={{
+            maxHeight: "88vh",
+            objectFit: "contain",
+            margin: "0 auto",
+            opacity: 0,
+            transition: "opacity 0.7s ease",
+            zIndex: 1,
+          }}
+        />
+      )}
+      {/* 現在の画像 — フェードイン */}
+      <img
+        key={`cur-${current}`}
+        src={SLIDESHOW_IMAGES[current].src}
+        alt={SLIDESHOW_IMAGES[current].alt}
+        className="relative w-full h-auto block"
+        style={{
+          maxHeight: "88vh",
+          objectFit: "contain",
+          margin: "0 auto",
+          opacity: fading ? 0 : 1,
+          transition: "opacity 0.7s ease",
+          zIndex: 2,
+        }}
+      />
 
       {/* Dot indicators */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
         {SLIDESHOW_IMAGES.map((_, i) => (
           <button
             key={i}
@@ -157,7 +160,7 @@ function PhotoSlideshow() {
       </div>
 
       {/* Counter */}
-      <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+      <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
         {current + 1} / {SLIDESHOW_IMAGES.length}
       </div>
     </div>
@@ -189,11 +192,17 @@ export default function Home() {
             チラシ画像は左端にテキストが配置されているため、
             左右に小さなパディングを設けて全体を表示。
           */}
+          {/* 上部にナビバー分のパディングを追加して「旅は、最高の学校だ。」がナビバーに醠ならないよう調整 */}
           <img
             src={FLYER_IMAGE}
             alt="旅する学校 — 山岳トレッキング"
             className="w-full h-auto block"
-            style={{ maxHeight: "100vh", objectFit: "contain", objectPosition: "center top", padding: "0 4px" }}
+            style={{ maxHeight: "100vh", objectFit: "contain", objectPosition: "center top", padding: "56px 4px 0" }}
+          />
+          {/* ナビバーエリアの上部に微妙な黒グラデーションを追加して「旅する学校」ロゴを見やすく */}
+          <div
+            className="absolute inset-x-0 top-0"
+            style={{ height: "80px", background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%)", zIndex: 1 }}
           />
           {/*
             モヤは最下部のみ。

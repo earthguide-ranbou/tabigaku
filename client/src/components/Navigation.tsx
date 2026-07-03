@@ -44,7 +44,7 @@ export default function Navigation() {
           <div
             className={cn(
               "text-lg font-serif font-black tracking-widest transition-colors duration-300",
-              scrolled || !isHome ? "text-foreground" : "text-white"
+              scrolled ? "text-foreground" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
             )}
           >
             旅する学校
