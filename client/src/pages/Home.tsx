@@ -117,9 +117,9 @@ function PhotoSlideshow() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-black">
-      {/* 元の写真サイズを尊重し、containで全体を表示 */}
-      <AnimatePresence custom={direction} mode="popLayout">
+    <div className="relative w-full bg-stone-900" style={{ minHeight: "280px" }}>
+      {/* 元の写真サイズを尊重し、スライド切り替え時に下のセクションが露出しないようoverflow-hiddenを守る */}
+      <AnimatePresence custom={direction} mode="sync">
         <motion.div
           key={current}
           custom={direction}
@@ -127,14 +127,15 @@ function PhotoSlideshow() {
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
           className="w-full"
+          style={{ position: "relative" }}
         >
           <img
             src={SLIDESHOW_IMAGES[current].src}
             alt={SLIDESHOW_IMAGES[current].alt}
             className="w-full h-auto block"
-            style={{ maxHeight: "90vh", objectFit: "contain", margin: "0 auto" }}
+            style={{ maxHeight: "88vh", objectFit: "contain", margin: "0 auto", display: "block" }}
           />
         </motion.div>
       </AnimatePresence>
@@ -182,50 +183,71 @@ export default function Home() {
         ref={heroRef}
         className="relative overflow-hidden bg-white"
       >
-        {/* チラシ画像 — 元の縦長比率を尊重して全体表示 */}
+        {/* チラシ画像 — 元の縦長比率を尊重して全体表示。左側が切れないようパディングを添加 */}
         <motion.div style={{ y: heroY }} className="relative z-0">
+          {/*
+            チラシ画像は左端にテキストが配置されているため、
+            左右に小さなパディングを設けて全体を表示。
+          */}
           <img
             src={FLYER_IMAGE}
             alt="旅する学校 — 山岳トレッキング"
             className="w-full h-auto block"
-            style={{ maxHeight: "100vh", objectFit: "contain" }}
+            style={{ maxHeight: "100vh", objectFit: "contain", objectPosition: "center top", padding: "0 4px" }}
           />
-          {/* QRコード・クラフト紙エリアを白で隠す — 下28%を白へフェード */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, white 0%, white 25%, rgba(255,255,255,0.8) 32%, rgba(255,255,255,0) 45%)" }} />
+          {/*
+            モヤは最下部のみ。
+            QRコード・クラフト紙エリア（下15%）だけ白へフェード。
+            写真中心部（子どもたち）には一切影響しない。
+          */}
+          {/* 下40%を完全に白で覆う。「続きは、ここから。」QRコードエリアを完全隐蔽 */}
+          <div
+            className="absolute inset-x-0 bottom-0"
+            style={{ height: "40%", background: "linear-gradient(to top, white 0%, white 70%, rgba(255,255,255,0) 100%)" }}
+          />
         </motion.div>
 
-        {/* ヒーロー下部の白エリア — 自然に下へ誦むテキストエリア */}
-        <div className="relative z-10 bg-white px-6 pb-10 md:pb-12 -mt-20 text-center">
+        {/* ヒーロー下部の白エリア — 洗練されたエディトリアルデザイン */}
+        <div className="relative z-10 bg-white px-6 pb-12 md:pb-16 -mt-16 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="max-w-lg mx-auto space-y-5"
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            className="max-w-sm mx-auto"
           >
-            {/* 誘いのキャッチコピー */}
-            <p className="text-foreground/70 text-base md:text-lg font-serif leading-relaxed tracking-wide">
-              教室を飛び出して、心が動くほうへ。
+            {/* エディトリアルライン */}
+            <div className="flex items-center justify-center gap-3 mb-5">
+              <div className="h-px flex-1 bg-foreground/15" />
+              <span className="text-[0.6rem] font-bold tracking-[0.25em] text-foreground/40 uppercase">Tabigaku</span>
+              <div className="h-px flex-1 bg-foreground/15" />
+            </div>
+
+            {/* メインキャッチコピー */}
+            <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-2">
+              教室を飛び出して、
             </p>
-            <p className="text-foreground/60 text-sm md:text-base font-sans leading-relaxed">
+            <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-6">
+              心が動くほうへ。
+            </p>
+
+            {/* サブテキスト */}
+            <p className="text-foreground/45 text-xs md:text-sm font-sans leading-relaxed tracking-wider mb-8">
               子どもたちの笑顔が湢れる、本物の旅が待っている。
             </p>
 
-            {/* 下へ誘うボタン */}
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            {/* スクロールインジケーター */}
+            <motion.a
+              href="#about"
+              onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
+              animate={{ y: [0, 5, 0] }}
+              transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+              className="inline-flex flex-col items-center gap-1.5 text-primary/60 hover:text-primary transition-colors duration-200"
             >
-              <a
-                href="#about"
-                onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
-                className="inline-flex flex-col items-center gap-2 text-primary/70 hover:text-primary transition-colors duration-200"
-              >
-                <span className="text-xs font-sans font-bold tracking-[0.2em] uppercase">Scroll</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary/60">
-                  <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </motion.div>
+              <span className="text-[0.58rem] font-bold tracking-[0.3em] uppercase">Scroll</span>
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M9 3v12M3 9l6 6 6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </motion.a>
           </motion.div>
         </div>
       </div>
