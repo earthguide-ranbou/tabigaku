@@ -18,17 +18,18 @@ const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
 const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
 const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
 
-// スライドショー用写真（9枚）
+// スライドショー用写真（9枚、新聞画像は除外）
 const SLIDESHOW_IMAGES = [
   { src: "/manus-storage/1000004115_06c74ce0.jpg", alt: "ラフティング体験 - 笑顔の子どもたち" },
   { src: "/manus-storage/1000004123_e028eb96.jpg", alt: "川旅 - ラフトボートで川を下る" },
   { src: "/manus-storage/1000004150_903a0660.jpg", alt: "川旅 - 集合写真" },
   { src: "/manus-storage/1000004176_31a086d5.jpg", alt: "川旅 - 河原での集合写真" },
   { src: "/manus-storage/1000001172_8a6f1543.jpg", alt: "滝登り体験" },
-  { src: "/manus-storage/1000004240_be8c9310.jpg", alt: "お遍路 - お寺での集合写真" },
-  { src: "/manus-storage/1000001570_3c9e3e33.jpg", alt: "お遍路 - 大木の下で" },
-  { src: "/manus-storage/1000001580_d659373c.jpg", alt: "お遍路 - 道を歩く子どもたち" },
-  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_101_23720d72.jpg", alt: "お遍路 - 交差点での一コマ" },
+  { src: "/manus-storage/1000004240_be8c9310.jpg", alt: "お遷路 - お寺での集合写真" },
+  { src: "/manus-storage/1000001570_3c9e3e33.jpg", alt: "お遷路 - 大木の下で" },
+  { src: "/manus-storage/1000001580_d659373c.jpg", alt: "お遷路 - 道を歩く子どもたち" },
+  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_101_23720d72.jpg", alt: "お遷路 - 交差点での一コマ" },
+  // 注意: TOKUSHIMA_SHIMBUN (新聞画像) はスライドショーに含めない
 ];
 
 const journeys = [
@@ -179,55 +180,53 @@ export default function Home() {
       {/* ── Hero — チラシデザインをベースに ── */}
       <div
         ref={heroRef}
-        className="relative h-screen min-h-[640px] flex items-end justify-start overflow-hidden"
+        className="relative overflow-hidden bg-white"
       >
-        {/* Parallax background — チラシのメイン写真（山岳トレッキング）を使用 */}
-        <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
-          {/*
-            チラシは縦長画像（A4縦）。上部の写真エリアのみ表示し、
-            下部のQRコード・クラフト紙エリアは裁ち切る。
-            object-position: top で上から表示し、下部の不要エリアを隠す。
-          */}
+        {/* チラシ画像 — 元の縦長比率を尊重して全体表示 */}
+        <motion.div style={{ y: heroY }} className="relative z-0">
           <img
             src={FLYER_IMAGE}
             alt="旅する学校 — 山岳トレッキング"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 15%" }}
+            className="w-full h-auto block"
+            style={{ maxHeight: "100vh", objectFit: "contain" }}
           />
-          {/* QRコード・クラフト紙エリアを完全に隠すグラデーション — 下40%を完全に黒に */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, black 0%, black 30%, rgba(0,0,0,0.3) 55%, transparent 75%)" }} />
+          {/* QRコード・クラフト紙エリアを白で隠す — 下28%を白へフェード */}
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to top, white 0%, white 25%, rgba(255,255,255,0.8) 32%, rgba(255,255,255,0) 45%)" }} />
         </motion.div>
 
-        {/* Hero text — 画像最下部のみ、チラシテキストと重ならないエリアに配置 */}
-        <motion.div
-          style={{ opacity: heroOpacity }}
-          className="container relative z-10 pb-10 md:pb-14 text-white"
-        >
-          {/* Journeyボタン — チラシの「続きは、ここから。」に対応 */}
+        {/* ヒーロー下部の白エリア — 自然に下へ誦むテキストエリア */}
+        <div className="relative z-10 bg-white px-6 pb-10 md:pb-12 -mt-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="max-w-lg mx-auto space-y-5"
           >
-            <a
-              href="#journeys"
-              onClick={(e) => { e.preventDefault(); document.getElementById('journeys')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/30 text-white px-7 py-3.5 rounded-full font-bold text-sm tracking-wider hover:bg-white/25 transition-all duration-200"
-            >
-              続きは、ここから。
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </motion.div>
+            {/* 誘いのキャッチコピー */}
+            <p className="text-foreground/70 text-base md:text-lg font-serif leading-relaxed tracking-wide">
+              教室を飛び出して、心が動くほうへ。
+            </p>
+            <p className="text-foreground/60 text-sm md:text-base font-sans leading-relaxed">
+              子どもたちの笑顔が湢れる、本物の旅が待っている。
+            </p>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 right-8 flex flex-col items-center gap-2 text-white/60 z-10">
-          <span className="text-[0.6rem] font-sans font-bold tracking-[0.2em] uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-            className="w-px h-10 bg-white/40"
-          />
+            {/* 下へ誘うボタン */}
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            >
+              <a
+                href="#about"
+                onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
+                className="inline-flex flex-col items-center gap-2 text-primary/70 hover:text-primary transition-colors duration-200"
+              >
+                <span className="text-xs font-sans font-bold tracking-[0.2em] uppercase">Scroll</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary/60">
+                  <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
