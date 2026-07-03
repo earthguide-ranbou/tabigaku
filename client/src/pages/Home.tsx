@@ -1,13 +1,14 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Calendar, ArrowRight, Award } from "lucide-react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Section, SectionHeader } from "@/components/ui/section";
 
-// Image URLs (uploaded to webdev storage)
-const HERO_IMAGE = "/manus-storage/hero_main_5a5ffa43.jpg";
+// ─── Image URLs (uploaded to webdev storage) ───────────────────────────────
+// チラシのメインビジュアル（山岳トレッキング写真）
+const FLYER_IMAGE = "/manus-storage/1000006557_f808d89c.png";
 const GROUP_PHOTO = "/manus-storage/group_photo_road_24eb956b.jpg";
 const TOKUSHIMA_SHIMBUN = "/manus-storage/tokushima_shimbun_e14fdcec.jpg";
 const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.png";
@@ -16,6 +17,19 @@ const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.png";
 const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
 const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
 const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
+
+// スライドショー用写真（9枚）
+const SLIDESHOW_IMAGES = [
+  { src: "/manus-storage/1000004115_06c74ce0.jpg", alt: "ラフティング体験 - 笑顔の子どもたち" },
+  { src: "/manus-storage/1000004123_e028eb96.jpg", alt: "川旅 - ラフトボートで川を下る" },
+  { src: "/manus-storage/1000004150_903a0660.jpg", alt: "川旅 - 集合写真" },
+  { src: "/manus-storage/1000004176_31a086d5.jpg", alt: "川旅 - 河原での集合写真" },
+  { src: "/manus-storage/1000001172_8a6f1543.jpg", alt: "滝登り体験" },
+  { src: "/manus-storage/1000004240_be8c9310.jpg", alt: "お遍路 - お寺での集合写真" },
+  { src: "/manus-storage/1000001570_3c9e3e33.jpg", alt: "お遍路 - 大木の下で" },
+  { src: "/manus-storage/1000001580_d659373c.jpg", alt: "お遍路 - 道を歩く子どもたち" },
+  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_101_23720d72.jpg", alt: "お遍路 - 交差点での一コマ" },
+];
 
 const journeys = [
   {
@@ -68,6 +82,87 @@ const journeys = [
   },
 ];
 
+// ─── Slideshow Component ────────────────────────────────────────────────────
+function PhotoSlideshow() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrent((prev) => (prev + 1) % SLIDESHOW_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const goTo = (index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  };
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? "-100%" : "100%",
+      opacity: 0,
+    }),
+  };
+
+  return (
+    <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
+      <AnimatePresence custom={direction} mode="popLayout">
+        <motion.div
+          key={current}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+          className="absolute inset-0"
+        >
+          <img
+            src={SLIDESHOW_IMAGES[current].src}
+            alt={SLIDESHOW_IMAGES[current].alt}
+            className="w-full h-full object-cover"
+          />
+          {/* Subtle gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Dot indicators */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+        {SLIDESHOW_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`rounded-full transition-all duration-300 ${
+              i === current
+                ? "w-6 h-2 bg-white"
+                : "w-2 h-2 bg-white/50 hover:bg-white/80"
+            }`}
+            aria-label={`スライド ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Counter */}
+      <div className="absolute top-4 right-4 z-10 bg-black/30 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
+        {current + 1} / {SLIDESHOW_IMAGES.length}
+      </div>
+    </div>
+  );
+}
+
+// ─── Main Component ─────────────────────────────────────────────────────────
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScrollY } = useScroll({
@@ -81,51 +176,42 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 overflow-x-hidden">
       <Navigation />
 
-      {/* ── Hero ── */}
+      {/* ── Hero — チラシデザインをベースに ── */}
       <div
         ref={heroRef}
         className="relative h-screen min-h-[640px] flex items-end justify-start overflow-hidden"
       >
-        {/* Parallax image */}
+        {/* Parallax background — チラシのメイン写真（山岳トレッキング）を使用 */}
         <motion.div style={{ y: heroY }} className="absolute inset-0 z-0">
           <img
-            src={HERO_IMAGE}
-            alt="旅する学校 Hero"
-            className="w-full h-full object-cover"
+            src={FLYER_IMAGE}
+            alt="旅する学校 — 山岳トレッキング"
+            className="w-full h-full object-cover object-[center_40%]"
           />
-          {/* Gradient: dark bottom-left, lighter top-right */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent" />
+          {/* 下部に向かって暗くなるグラデーション — テキスト可読性確保 */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </motion.div>
 
-        {/* Hero text — bottom-left editorial layout */}
+        {/* Hero text — 画像最下部のみ、チラシテキストと重ならないエリアに配置 */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="container relative z-10 pb-20 md:pb-28 text-white"
+          className="container relative z-10 pb-10 md:pb-14 text-white"
         >
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-xs md:text-sm font-sans font-bold tracking-[0.25em] uppercase text-white/70 mb-5"
-          >
-            わくわくとドキドキがきたらGOサイン
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.23, 1, 0.32, 1] }}
-            className="text-6xl md:text-8xl lg:text-[9rem] font-serif font-black leading-[0.95] tracking-wide mb-8"
-          >
-            旅する学校
-          </motion.h1>
-          <motion.p
+          {/* Journeyボタン — チラシの「続きは、ここから。」に対応 */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-2xl font-medium text-white/90 max-w-xl leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
-            新たな旅に出発しよう！
-          </motion.p>
+            <a
+              href="#journeys"
+              onClick={(e) => { e.preventDefault(); document.getElementById('journeys')?.scrollIntoView({ behavior: 'smooth' }); }}
+              className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/30 text-white px-7 py-3.5 rounded-full font-bold text-sm tracking-wider hover:bg-white/25 transition-all duration-200"
+            >
+              続きは、ここから。
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </motion.div>
         </motion.div>
 
         {/* Scroll indicator */}
@@ -223,8 +309,46 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* ── Media ── */}
+      {/* ── Photo Gallery Slideshow ── */}
       <Section background="muted" className="py-20 md:py-28">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65 }}
+          >
+            <SectionHeader
+              title="旅の記録"
+              subtitle="PHOTO GALLERY"
+              centered
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75, delay: 0.1 }}
+            className="rounded-2xl overflow-hidden shadow-2xl border border-border/40"
+          >
+            <PhotoSlideshow />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-center text-sm text-muted-foreground mt-6"
+          >
+            川旅・山旅・お遍路…子どもたちの笑顔が溢れる旅の瞬間
+          </motion.p>
+        </div>
+      </Section>
+
+      {/* ── Media ── */}
+      <Section background="default" className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -265,7 +389,7 @@ export default function Home() {
       </Section>
 
       {/* ── Journeys ── */}
-      <Section id="journeys" background="default" className="py-24 md:py-36">
+      <Section id="journeys" background="muted" className="py-24 md:py-36">
         <SectionHeader title="現在募集中のJourney" subtitle="UPCOMING JOURNEYS" centered />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -329,7 +453,7 @@ export default function Home() {
                 </p>
 
                 {/* CTA */}
-                <div className="mt-2 flex items-center justify-between pt-4 border-t border-border/60">
+                <div className="mt-2 flex items-center justify-between">
                   <span className="text-xs font-bold text-primary tracking-wide">
                     詳細・お申し込み
                   </span>
