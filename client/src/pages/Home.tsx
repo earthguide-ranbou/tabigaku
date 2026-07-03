@@ -29,6 +29,12 @@ const SLIDESHOW_IMAGES = [
   { src: "/manus-storage/1000001570_3c9e3e33.jpg", alt: "お遷路 - 大木の下で" },
   { src: "/manus-storage/1000001580_d659373c.jpg", alt: "お遷路 - 道を歩く子どもたち" },
   { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_101_23720d72.jpg", alt: "お遷路 - 交差点での一コマ" },
+  { src: "/manus-storage/1000005403_ebc39300.jpg", alt: "海旅 - 釣った魚を持つ笑顔の子" },
+  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_2087_16d1a6ff.jpg", alt: "海旅 - 海中の魚の群れ" },
+  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_8374_72089744.jpg", alt: "海旅 - 漁師さんと船の上で" },
+  { src: "/manus-storage/1000004130_4245c2dc.jpg", alt: "川旅 - 焚き火を囲む子どもたち" },
+  { src: "/manus-storage/1000004131_b0e8d1ec.jpg", alt: "川旅 - 焚き火で料理" },
+  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_1346_78c9bd79.jpg", alt: "夜の焚き火を囲む仲間たち" },
   // 注意: TOKUSHIMA_SHIMBUN (新聞画像) はスライドショーに含めない
 ];
 
