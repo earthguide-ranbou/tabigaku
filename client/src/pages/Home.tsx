@@ -212,12 +212,12 @@ export default function Home() {
           {/* 下40%を完全に白で覆う。「続きは、ここから。」QRコードエリアを完全隐蔽 */}
           <div
             className="absolute inset-x-0 bottom-0"
-            style={{ height: "40%", background: "linear-gradient(to top, white 0%, white 70%, rgba(255,255,255,0) 100%)" }}
+            style={{ height: "38%", background: "linear-gradient(to top, white 0%, white 65%, rgba(255,255,255,0) 100%)" }}
           />
         </motion.div>
 
-        {/* ヒーロー下部の白エリア — 洗練されたエディトリアルデザイン */}
-        <div className="relative z-10 bg-white px-6 pb-12 md:pb-16 -mt-16 text-center">
+        {/* ヒーロー下部の白エリア — 白い部分を最小限に */}
+        <div className="relative z-10 bg-white px-6 pb-8 md:pb-10 -mt-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -233,10 +233,10 @@ export default function Home() {
 
             {/* メインキャッチコピー */}
             <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-2">
-              教室を飛び出して、
+              ワクワクとドキドキ、
             </p>
             <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-6">
-              心が動くほうへ。
+              がきたらGOサイン！
             </p>
 
             {/* サブテキスト */}
