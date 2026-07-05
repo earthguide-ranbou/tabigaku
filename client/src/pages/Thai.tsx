@@ -469,10 +469,10 @@ export default function Thai() {
             <span className="deal-tag">🈹 早割</span>
             <p>
               <b>7/21（火）まで</b>の申込＆入金で、<br />
-              参加費が <b className="deal-price">1万円引き</b>
+              参加費が <b className="deal-price">2万円引き</b>
               <small>（1家族につき）</small>
               <br />
-              <small>例）A日程 14.9万円 → <b>13.9万円</b>＋実費</small>
+              <small>例）A日程 14.9万円 → <b>12.9万円</b>＋実費</small>
             </p>
           </div>
           <div className="deal d-orange">
@@ -492,7 +492,7 @@ export default function Thai() {
             </p>
           </div>
           <p className="deal-combo">
-            ＼ 早割 × 紹介割は<b>併用OK</b>！ 最大<b>1.5万円引き</b> ／
+            ＼ 早割 × 紹介割は<b>併用OK</b>！ 最大<b>2.5万円引き</b> ／
           </p>
         </div>
 
@@ -512,7 +512,7 @@ export default function Thai() {
                 <div className="hayawari">
                   <span className="hw-badge">早割</span>
                   <div className="hw-prices">
-                    <s>通常 5万円</s><b>4万円</b><small>（1家族につき）</small>
+                    <s>通常 5万円</s><b>3万円</b><small>（1家族につき）</small>
                   </div>
                   <p className="hw-note">※ 7/21（火）までに入金＆お申し込み完了の方が対象です</p>
                 </div>
@@ -529,7 +529,7 @@ export default function Thai() {
                     <span>A日程 8/22–27</span><span className="price">99,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
                   </div>
                   <div className="plan-row">
-                    <span>B日程 8/22–31</span><span className="price">148,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
+                    <span>B日程 8/22–31</span><span className="price">147,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
                   </div>
                 </div>
                 <span className="note" style={{ marginTop: "8px" }}>※中学生以下は半額。4歳児以下は無料。</span>
@@ -542,14 +542,14 @@ export default function Thai() {
                 <div className="name">A日程<small>8/22–27</small></div>
                 <div className="t-right">
                   <s className="t-old">通常 14.9万円</s>
-                  <div className="amount"><span className="hw-badge">早割</span>13.9<small>万円</small><small>＋実費</small></div>
+                  <div className="amount"><span className="hw-badge">早割</span>12.9<small>万円</small><small>＋実費</small></div>
                 </div>
               </div>
               <div className="total-row">
                 <div className="name">B日程<small>8/22–31</small></div>
                 <div className="t-right">
-                  <s className="t-old">通常 19.8万円</s>
-                  <div className="amount"><span className="hw-badge">早割</span>18.8<small>万円</small><small>＋実費</small></div>
+                  <s className="t-old">通常 19.7万円</s>
+                  <div className="amount"><span className="hw-badge">早割</span>17.7<small>万円</small><small>＋実費</small></div>
                 </div>
               </div>
               <p className="caption">※大人1人の場合。<b>早割は7/21（火）までの申込＆入金</b>で適用。<b>友人紹介割（双方5,000円引き）との併用OK</b>。実費（航空券・現地での宿泊費/飲食費など）は別途。</p>
@@ -557,11 +557,11 @@ export default function Thai() {
               <div className="example-box">
                 <p className="ex-title">💡 料金例：B日程に早割を使って<br />家族3人で参加する場合</p>
                 <p className="ex-family">大人1人＋小学生1人＋3歳のお子さん</p>
-                <div className="ex-row"><span>旅スキル講座＋コミュニティ会費（1家族・早割）</span><span>40,000円</span></div>
-                <div className="ex-row"><span>現地サポート：大人</span><span>148,000円</span></div>
-                <div className="ex-row"><span>現地サポート：小学生 <small>（中学生以下半額）</small></span><span>74,000円</span></div>
+                <div className="ex-row"><span>旅スキル講座＋コミュニティ会費（1家族・早割）</span><span>30,000円</span></div>
+                <div className="ex-row"><span>現地サポート：大人</span><span>147,000円</span></div>
+                <div className="ex-row"><span>現地サポート：小学生 <small>（中学生以下半額）</small></span><span>73,500円</span></div>
                 <div className="ex-row"><span>現地サポート：3歳 <small>（4歳以下無料）</small></span><span className="free-tag">0円</span></div>
-                <div className="ex-total"><span>家族の合計</span><span>262,000円<small>＋実費</small></span></div>
+                <div className="ex-total"><span>家族の合計</span><span>250,500円<small>＋実費</small></span></div>
                 <p className="ex-family" style={{ marginTop: "10px" }}>※ 友人紹介割を併用すると、さらに −5,000円！</p>
               </div>
             </div>
@@ -637,7 +637,7 @@ export default function Thai() {
             <div className="bank-row"><span>口座</span><b>普通　4304359</b></div>
             <div className="bank-row"><span>名義</span><b>ウエダナオキ</b></div>
             <p className="bank-note">
-              ※ 早割（参加費1万円引き）は、7/21（火）までにお申し込み＆ご入金完了の方が対象です。友人紹介割（双方5,000円引き）と併用できます。<br />
+              ※ 早割（参加費2万円引き）は、7/21（火）までにお申し込み＆ご入金完了の方が対象です。友人紹介割（双方5,000円引き）と併用できます。<br />
               ※ お支払いの分割もご相談に乗ります。LINEでお気軽にどうぞ。
             </p>
           </div>
