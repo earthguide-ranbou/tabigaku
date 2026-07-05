@@ -554,7 +554,7 @@ export default function Thai() {
                     <span>A日程 8/22–27</span><span className="price">99,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
                   </div>
                   <div className="plan-row">
-                    <span>B日程 8/22–31</span><span className="price">147,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
+                    <span>B日程 8/22–30</span><span className="price">147,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
                   </div>
                 </div>
                 <span className="note" style={{ marginTop: "8px" }}>※中学生以下は半額。4歳児以下は無料。</span>
@@ -571,7 +571,7 @@ export default function Thai() {
                 </div>
               </div>
               <div className="total-row">
-                <div className="name">B日程<small>8/22–31</small></div>
+                <div className="name">B日程<small>8/22–30</small></div>
                 <div className="t-right">
                   <s className="t-old">通常 19.7万円</s>
                   <div className="amount"><span className="hw-badge">早割</span>17.7<small>万円</small><small>＋実費</small></div>
