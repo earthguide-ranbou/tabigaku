@@ -74,6 +74,22 @@ const journeys = [
   },
   {
     id: 3,
+    image: "/manus-storage/thai_img_00_2e972116.jpg",
+    alt: "EarthfamilyJourney in Thailand",
+    tags: [
+      { label: "募集中", color: "bg-primary" },
+      { label: "6〜10日間", color: "bg-emerald-700" },
+      { label: "家族向け", color: "bg-sky-700" },
+    ],
+    date: "8月22日(土)〜 8月31日(月)",
+    emoji: "✈️",
+    title: "EarthfamilyJourney in Thailand",
+    subtitle: "〜そうだ！タイに行こう〜",
+    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程10日間。",
+    href: "/thai",
+  },
+  {
+    id: 4,
     image: OHENRO_JOURNEY,
     alt: "歩きお遍路ジャーニー",
     tags: [
@@ -485,8 +501,7 @@ export default function Home() {
             <motion.a
               key={j.id}
               href={j.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(j.href.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
