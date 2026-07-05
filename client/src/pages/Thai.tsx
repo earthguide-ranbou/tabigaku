@@ -63,6 +63,11 @@ export default function Thai() {
     setMeta("property", "og:title", "旅する学校｜EarthfamilyJourney");
     setMeta("property", "og:description", "旅は最高の学校");
     setMeta("property", "og:url", "https://tabigaku.party/thai");
+    setMeta("property", "og:image", "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg");
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:image", "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg");
     setMeta("name", "description", "旅は最高の学校");
 
     return () => {
@@ -94,7 +99,7 @@ export default function Thai() {
             <b>A日程・6日間</b>8/22（土）〜 8/27（木）
           </div>
           <div className="plan-chip b">
-            <b>B日程・10日間</b>8/22（土）〜 8/31（月）
+            <b>B日程・9日間</b>8/22（土）〜 8/30（日）
           </div>
         </div>
         <p className="countdown">
@@ -673,7 +678,7 @@ export default function Thai() {
           </div>
           <div className="faq-item">
             <p className="fq"><span className="q">Q.</span>集合場所と解散場所は？</p>
-            <p className="fa"><span className="amark">A.</span><span><b>集合</b>：8/22（土）11:00（現地時間）バンコク近郊に現地集合。<br /><b>解散</b>：現地解散です。<br />・A日程 → 8/27（木）15:00 チェンマイ近郊<br />・B日程 → 8/31（月）15:00 チェンマイ近郊<br />より細かい集合・解散場所は、出発前のZoomでみんなで決めてゆきます。</span></p>
+            <p className="fa"><span className="amark">A.</span><span><b>集合</b>：8/22（土）11:00（現地時間）バンコク近郊に現地集合。<br /><b>解散</b>：現地解散です。<br />・A日程 → 8/27（木）15:00 チェンマイ近郊<br />・B日程 → 8/30（日）11:00 チェンマイ近郊<br />より細かい集合・解散場所は、出発前のZoomでみんなで決めてゆきます。</span></p>
           </div>
           <div className="faq-item">
             <p className="fq"><span className="q">Q.</span>航空券はどうやって取るの？</p>

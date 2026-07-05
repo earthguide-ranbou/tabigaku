@@ -61,7 +61,7 @@ const journeys = [
     alt: "地球家族ジャーニー",
     tags: [
       { label: "募集中", color: "bg-primary" },
-      { label: "10日間", color: "bg-emerald-700" },
+      { label: "9日間", color: "bg-emerald-700" },
       { label: "家族向け", color: "bg-sky-700" },
       { label: "途中参加OK", color: "bg-amber-600" },
     ],
@@ -78,14 +78,14 @@ const journeys = [
     alt: "EarthfamilyJourney in Thailand",
     tags: [
       { label: "募集中", color: "bg-primary" },
-      { label: "6〜10日間", color: "bg-emerald-700" },
+      { label: "6〜9日間", color: "bg-emerald-700" },
       { label: "家族向け", color: "bg-sky-700" },
     ],
-    date: "8月22日(土)〜 8月31日(月)",
+    date: "8月22日(土)〜 8月30日(日)",
     emoji: "✈️",
     title: "EarthfamilyJourney in Thailand",
     subtitle: "〜そうだ！タイに行こう〜",
-    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程10日間。",
+    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
     href: "/thai",
   },
   {
