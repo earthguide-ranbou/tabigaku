@@ -46,8 +46,28 @@ export default function Thai() {
     // Hide the main site's nav/footer if present
     document.body.style.overflow = "auto";
 
+    // Update page title and OGP meta for /thai
+    const originalTitle = document.title;
+    document.title = "旅する学校｜EarthfamilyJourney";
+    
+    // Update meta tags
+    const setMeta = (attr: string, key: string, content: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    setMeta("property", "og:title", "旅する学校｜EarthfamilyJourney");
+    setMeta("property", "og:description", "旅は最高の学校");
+    setMeta("property", "og:url", "https://tabigaku.party/thai");
+    setMeta("name", "description", "旅は最高の学校");
+
     return () => {
       io.disconnect();
+      document.title = originalTitle;
     };
   }, []);
 
