@@ -71,17 +71,31 @@ export default function Navigation() {
                       : "text-white/85 hover:text-white"
                   )
             );
-            return link.external ? (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={baseClass}
-              >
-                {link.label}
-              </a>
-            ) : (
+            if (link.external) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={baseClass}
+                >
+                  {link.label}
+                </a>
+              );
+            }
+            if (link.href.includes("#")) {
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={baseClass}
+                >
+                  {link.label}
+                </a>
+              );
+            }
+            return (
               <Link key={link.label} href={link.href} className={baseClass}>
                 {link.label}
               </Link>
@@ -114,18 +128,33 @@ export default function Navigation() {
                   ? "text-primary font-bold"
                   : "text-foreground/80 hover:text-foreground"
               );
-              return link.external ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cls}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ) : (
+              if (link.external) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cls}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              if (link.href.includes("#")) {
+                return (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={cls}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                );
+              }
+              return (
                 <Link
                   key={link.label}
                   href={link.href}
