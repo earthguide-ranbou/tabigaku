@@ -17,6 +17,7 @@ const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.png";
 const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
 const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
 const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
+const KAMIYAMA_JOURNEY = "/manus-storage/kamiyama_journey_3f2b7506.jpeg";
 
 // スライドショー用写真（9枚、新聞画像は除外）
 const SLIDESHOW_IMAGES = [
@@ -90,6 +91,22 @@ const journeys = [
   },
   {
     id: 4,
+    image: KAMIYAMA_JOURNEY,
+    alt: "神山オルタナティブジャーニー",
+    tags: [
+      { label: "募集中", color: "bg-primary" },
+      { label: "4日間", color: "bg-emerald-700" },
+      { label: "限定8組", color: "bg-amber-600" },
+    ],
+    date: "7月21日(火)〜7月24日(金)",
+    emoji: "🌿",
+    title: "神山オルタナティブジャーニー",
+    subtitle: "〜未来の可能性が広がりまくる4日間〜",
+    description: "地方再生の聖地・神山町で、オルタナティブな生き方を体験と対話を通じて全身で感じる3日間。",
+    href: "https://note.com/shiftdaigaku/n/n7317732c550e",
+  },
+  {
+    id: 5,
     image: OHENRO_JOURNEY,
     alt: "歩きお遍路ジャーニー",
     tags: [
