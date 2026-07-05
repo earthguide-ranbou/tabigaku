@@ -63,6 +63,11 @@ export default function Thai() {
     setMeta("property", "og:title", "旅する学校｜EarthfamilyJourney");
     setMeta("property", "og:description", "旅は最高の学校");
     setMeta("property", "og:url", "https://tabigaku.party/thai");
+    setMeta("property", "og:image", "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg");
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:image", "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg");
     setMeta("name", "description", "旅は最高の学校");
 
     return () => {
