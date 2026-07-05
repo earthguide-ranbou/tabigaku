@@ -196,7 +196,7 @@ function PhotoSlideshow() {
         className="flex"
         style={{
           transform: `translateX(${translateX}%)`,
-          transition: dragging ? "none" : "transform 0.35s cubic-bezier(0.23, 1, 0.32, 1)",
+          transition: dragging ? "none" : "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
           willChange: "transform",
         }}
       >
@@ -287,9 +287,9 @@ export default function Home() {
         {/* ヒーロー下部の白エリア — 白い部分を最小限に */}
         <div className="relative z-10 bg-white px-6 pb-8 md:pb-10 -mt-24 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+            transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-sm mx-auto"
           >
             {/* エディトリアルライン */}
@@ -368,7 +368,7 @@ export default function Home() {
             {/* Award card */}
             <Link
               href="/award"
-              className="mt-10 flex items-start gap-5 bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg hover:border-primary/25 transition-all duration-250 cursor-pointer group block"
+              className="mt-10 flex items-start gap-5 bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg hover:border-primary/25 transition-all duration-500 ease-out cursor-pointer group block"
             >
               <div className="bg-amber-50 border border-amber-200/60 p-3 rounded-full shrink-0 mt-0.5">
                 <Award className="w-7 h-7 text-amber-600" />
@@ -390,17 +390,17 @@ export default function Home() {
           {/* Image */}
           <div className="order-1 lg:order-2 relative flex justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="relative w-full max-w-md"
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={GROUP_PHOTO}
                   alt="Group Photo"
-                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
                 />
               </div>
               {/* Decorative elements */}
@@ -416,10 +416,10 @@ export default function Home() {
       {/* ── Photo Gallery Slideshow ── */}
       <Section background="muted" className="py-16 md:py-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8"
         >
           <SectionHeader
@@ -431,10 +431,10 @@ export default function Home() {
 
         {/* 全幅表示 — containerのpxを完全に打ち消す (mobile: 1.25rem, md: 2rem, lg: 3rem) */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75, delay: 0.1 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.9, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="-mx-5 md:-mx-8 lg:-mx-12 overflow-hidden shadow-2xl"
         >
           <PhotoSlideshow />
@@ -443,8 +443,8 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="text-center text-sm text-muted-foreground mt-6"
         >
           川旅・山旅・お遷路…子どもたちの笑顔が湢れる旅の瞬間
@@ -455,10 +455,10 @@ export default function Home() {
       <Section background="default" className="py-20 md:py-28">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border/60"
           >
             <div className="flex flex-col md:flex-row">
@@ -468,7 +468,7 @@ export default function Home() {
                   <img
                     src={TOKUSHIMA_SHIMBUN}
                     alt="徳島新聞掲載記事"
-                    className="w-full h-full object-cover hover:scale-[1.04] transition-transform duration-600"
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
                   />
                 </div>
               </div>
@@ -502,19 +502,19 @@ export default function Home() {
               key={j.id}
               href={j.href}
               {...(j.href.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12, ease: [0.23, 1, 0.32, 1] }}
-              whileHover={{ y: -6 }}
-              className="group bg-card rounded-2xl overflow-hidden shadow-md border border-border hover:shadow-xl hover:border-primary/20 transition-all duration-300 flex flex-col cursor-pointer"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -5, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+              className="group bg-card rounded-2xl overflow-hidden shadow-md border border-border hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out flex flex-col cursor-pointer"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden bg-muted">
                 <img
                   src={j.image}
                   alt={j.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.07]"
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.05]"
                 />
                 {/* Gradient overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
@@ -578,28 +578,28 @@ export default function Home() {
         <div className="absolute inset-0 bg-background/60 z-10" />
         <div className="max-w-2xl mx-auto relative z-20">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="text-[0.65rem] font-sans font-bold tracking-[0.22em] uppercase text-primary/70 mb-5"
           >
             CONTACT
           </motion.p>
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, delay: 0.08 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-3xl md:text-5xl font-serif font-bold mb-10 text-foreground"
           >
             さあ、冒険の始まりだ。
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-base md:text-lg text-muted-foreground mb-12 leading-relaxed"
           >
             自然の中で、仲間と共に、
@@ -608,10 +608,10 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-6"
           >
             {/* Contact info */}
@@ -635,7 +635,7 @@ export default function Home() {
               href="https://note.com/shiftdaigaku"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-base hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03] shadow-lg shadow-primary/20"
+              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-base hover:bg-primary/90 transition-all duration-400 ease-out hover:scale-[1.03] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
             >
               Noteでブログを読む
               <ArrowRight className="w-4 h-4" />

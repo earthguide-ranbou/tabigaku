@@ -13,10 +13,21 @@ export default function Thai() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
     );
     const reveals = document.querySelectorAll(".thai-page .reveal");
-    reveals.forEach((el) => io.observe(el));
+    reveals.forEach((el, i) => {
+      // Add staggered delay for elements that are siblings
+      const parent = el.parentElement;
+      if (parent) {
+        const siblings = Array.from(parent.querySelectorAll(':scope > .reveal'));
+        const sibIndex = siblings.indexOf(el);
+        if (sibIndex > 0) {
+          (el as HTMLElement).style.transitionDelay = `${sibIndex * 0.08}s`;
+        }
+      }
+      io.observe(el);
+    });
 
     // Countdown
     const cd = document.getElementById("cd");

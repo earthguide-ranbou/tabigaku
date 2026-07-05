@@ -32,7 +32,7 @@ export default function Navigation() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out",
         scrolled
           ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_0_0_var(--border)] py-3"
           : "bg-transparent py-5"

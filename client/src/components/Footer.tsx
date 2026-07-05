@@ -55,8 +55,34 @@ export default function Footer() {
               Links
             </h4>
             <ul className="space-y-3">
-              {navLinks.map((link) =>
-                link.internal ? (
+              {navLinks.map((link) => {
+                if (!link.internal) {
+                  return (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-background/65 hover:text-background transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                }
+                if (link.href.includes("#")) {
+                  return (
+                    <li key={link.label}>
+                      <a
+                        href={link.href}
+                        className="text-sm text-background/65 hover:text-background transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  );
+                }
+                return (
                   <li key={link.label}>
                     <Link
                       href={link.href}
@@ -65,19 +91,8 @@ export default function Footer() {
                       {link.label}
                     </Link>
                   </li>
-                ) : (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-background/65 hover:text-background transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                )
-              )}
+                );
+              })}
             </ul>
           </div>
 
