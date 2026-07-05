@@ -58,6 +58,22 @@ const journeys = [
   },
   {
     id: 2,
+    image: KAMIYAMA_JOURNEY,
+    alt: "神山オルタナティブジャーニー",
+    tags: [
+      { label: "募集中", color: "bg-primary" },
+      { label: "4日間", color: "bg-emerald-700" },
+      { label: "限定8組", color: "bg-amber-600" },
+    ],
+    date: "7月21日(火)〜7月24日(金)",
+    emoji: "🌿",
+    title: "神山オルタナティブジャーニー",
+    subtitle: "〜未来の可能性が広がりまくる4日間〜",
+    description: "地方再生の聖地・神山町で、オルタナティブな生き方を体験と対話を通じて全身で感じる4日間。",
+    href: "https://note.com/shiftdaigaku/n/n7317732c550e",
+  },
+  {
+    id: 3,
     image: CHIKYU_KAZOKU,
     alt: "地球家族ジャーニー",
     tags: [
@@ -74,7 +90,7 @@ const journeys = [
     href: "https://note.com/shiftdaigaku/n/nf42ffcc4f0a9",
   },
   {
-    id: 3,
+    id: 4,
     image: "/manus-storage/thai_img_00_2e972116.jpg",
     alt: "EarthfamilyJourney in Thailand",
     tags: [
@@ -86,24 +102,8 @@ const journeys = [
     emoji: "✈️",
     title: "EarthfamilyJourney in Thailand",
     subtitle: "〜そうだ！タイに行こう〜",
-    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
+    description: "子連れ海外を諶めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
     href: "/thai",
-  },
-  {
-    id: 4,
-    image: KAMIYAMA_JOURNEY,
-    alt: "神山オルタナティブジャーニー",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "4日間", color: "bg-emerald-700" },
-      { label: "限定8組", color: "bg-amber-600" },
-    ],
-    date: "7月21日(火)〜7月24日(金)",
-    emoji: "🌿",
-    title: "神山オルタナティブジャーニー",
-    subtitle: "〜未来の可能性が広がりまくる4日間〜",
-    description: "地方再生の聖地・神山町で、オルタナティブな生き方を体験と対話を通じて全身で感じる3日間。",
-    href: "https://note.com/shiftdaigaku/n/n7317732c550e",
   },
   {
     id: 5,
