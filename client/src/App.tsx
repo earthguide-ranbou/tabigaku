@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Award from "./pages/Award";
 import Guide from "./pages/Guide";
 import Sponsor from "./pages/Sponsor";
+import Thai from "./pages/Thai";
 import { useEffect } from "react";
 
 
@@ -31,6 +32,7 @@ function Router() {
       <Route path={"/award"} component={Award} />
       <Route path={"/guide"} component={Guide} />
       <Route path={"/sponsor"} component={Sponsor} />
+      <Route path={"/thai"} component={Thai} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
