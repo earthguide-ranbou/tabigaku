@@ -646,12 +646,12 @@ export default function Home() {
 
             {/* Note CTA */}
             <a
-              href="https://note.com/shiftdaigaku"
+              href="https://earthguide.tabigaku.party/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-base hover:bg-primary/90 transition-all duration-400 ease-out hover:scale-[1.03] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
             >
-              Noteでブログを読む
+              あーすガイド公式HP
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
