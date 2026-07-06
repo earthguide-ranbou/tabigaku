@@ -458,6 +458,9 @@ export default function Thai() {
               <p>2022年、オルタナティブスクール<b>「森の学校みっけ」</b>を仲間と立ち上げ。2023年より<b>「旅する学校」</b>を主宰し、子どもたちとの歩きお遍路旅や川旅で<b>「2023年度推奨モデル特別賞」受賞</b>。同年、瀬戸内海カヤック横断隊の隊士として約1ヶ月・300km漕破。</p>
               <p>2025年、<b>家族でバリ島出産旅。第4児誕生</b>。2026年、オルタナティブ中学校<b>「KAMIYAMA FIELD SCHOOL」を仲間と立ち上げ</b>。現在は神山町を拠点に、視察ガイド・企業研修・上映会・講演・旅する学校などを主宰。</p>
             </div>
+            <a className="pc-link" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener">
+              🌏 あーすガイド公式ホームページ →
+            </a>
             <a className="pc-link" href="https://www.tabigaku.party" target="_blank" rel="noopener">
               🌏 旅する学校のサイトを見る →
             </a>

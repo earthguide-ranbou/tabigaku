@@ -9,6 +9,7 @@ const socialLinks = [
 ];
 
 const navLinks = [
+  { label: "あーすガイド公式HP", href: "https://earthguide.tabigaku.party/" },
   { label: "ホーム", href: "/", internal: true },
   { label: "旅する学校とは", href: "/#about", internal: true },
   { label: "Journey", href: "/#journeys", internal: true },

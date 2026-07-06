@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
+  { label: "あーすガイド公式HP", href: "https://earthguide.tabigaku.party/", external: true },
   { label: "ホーム", href: "/" },
   { label: "旅する学校とは", href: "/#about" },
   { label: "Journey", href: "/#journeys" },
