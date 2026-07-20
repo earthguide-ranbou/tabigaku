@@ -701,6 +701,33 @@ export default function Thai() {
           </div>
         </div>
 
+        <div className="cancel-policy reveal">
+          <h2 className="cp-heading">キャンセルポリシー</h2>
+          <p className="cp-intro">
+            旅の準備は、お申し込みいただいた瞬間から始まっています。<br />
+            宿や交通手段の手配、現地との調整、仲間の受け入れ準備──<br />
+            みなさんの「行く！」に応えるために、一つひとつ動いています。
+          </p>
+          <p className="cp-intro">
+            だからこそ、やむを得ずキャンセルされる場合は、<br />
+            以下のキャンセル料が発生することをご了承ください。
+          </p>
+          <div className="cp-table">
+            <div className="cp-row">
+              <span className="cp-period">出発日の<b>14日前</b>まで</span>
+              <span className="cp-fee">50,000円</span>
+            </div>
+            <div className="cp-row cp-row-full">
+              <span className="cp-period">出発日の<b>13日前</b>以降</span>
+              <span className="cp-fee">参加費の<b>100%</b></span>
+            </div>
+          </div>
+          <p className="cp-note">
+            ※ 体調不良やご家庭の事情など、どうしてもの場合はまずLINEでご相談ください。<br />
+            一緒に最善の方法を考えます。
+          </p>
+        </div>
+
         <div className="line-card reveal">
           <p className="lc-title">不安なことは、なんでも聞いてください</p>
           <p className="lc-sub">「うちの子でも大丈夫？」「仕事の調整が…」そんな相談からでOK。</p>

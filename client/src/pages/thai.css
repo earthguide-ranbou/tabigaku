@@ -846,3 +846,70 @@
 
 /* LINEカード・申込カードの角も統一 */
 .line-card,.apply{border-radius:18px;}
+
+/* ===== キャンセルポリシー ===== */
+.cancel-policy{
+  max-width:640px;
+  margin:48px auto 0;
+  padding:32px 24px;
+  background:var(--card);
+  border-radius:16px;
+  border:1px solid rgba(58,53,44,.08);
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.cp-heading{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-size:1.25rem;
+  font-weight:900;
+  text-align:center;
+  margin-bottom:20px;
+  color:var(--ink);
+}
+.cp-intro{
+  font-size:.88rem;
+  line-height:1.9;
+  color:var(--ink);
+  opacity:.85;
+  margin-bottom:16px;
+  text-align:center;
+}
+.cp-table{
+  margin:24px 0;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(58,53,44,.12);
+}
+.cp-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 20px;
+  background:rgba(244,239,228,.6);
+  border-bottom:1px solid rgba(58,53,44,.08);
+}
+.cp-row:last-child{border-bottom:none;}
+.cp-row-full{
+  background:rgba(180,90,68,.06);
+}
+.cp-period{
+  font-size:.88rem;
+  color:var(--ink);
+}
+.cp-fee{
+  font-size:.95rem;
+  font-weight:700;
+  color:var(--pink);
+}
+.cp-note{
+  font-size:.8rem;
+  line-height:1.8;
+  color:var(--ink);
+  opacity:.7;
+  text-align:center;
+  margin-top:16px;
+}
+@media(max-width:639px){
+  .cancel-policy{margin:36px 16px 0;padding:24px 18px;}
+  .cp-intro{text-align:left;font-size:.84rem;}
+  .cp-note{text-align:left;}
+}
