@@ -705,7 +705,6 @@ export default function Thai() {
           <h2 className="cp-heading">キャンセルポリシー</h2>
           <p className="cp-intro">
             旅の準備は、お申し込みいただいた瞬間から始まっています。<br />
-            宿や交通手段の手配、現地との調整、仲間の受け入れ準備──<br />
             みなさんの「行く！」に応えるために、一つひとつ動いています。
           </p>
           <p className="cp-intro">
