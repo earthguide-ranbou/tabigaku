@@ -39,38 +39,6 @@ const SLIDESHOW_IMAGES = [
 const journeys = [
   {
     id: 1,
-    image: SHIMA_JOURNEY,
-    alt: "島旅ジャーニー in 祝島",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "4日間", color: "bg-emerald-700" },
-      { label: "小中高生向け", color: "bg-sky-700" },
-    ],
-    date: "2026年7月17日(金)〜20日(月祝)",
-    emoji: "🎣",
-    title: "島旅ジャーニー in 祝島",
-    subtitle: "〜釣って、泳いで、冒険して。海が大好きな子どもたち集まれ！〜",
-    description: "釣って、泳いで、冒険して。海が大好きな子どもたちよ、祝島で夏の思い出を作ろう！",
-    href: "https://note.com/shiftdaigaku/n/n0101bea42a11",
-  },
-  {
-    id: 2,
-    image: KAMIYAMA_JOURNEY,
-    alt: "神山オルタナティブジャーニー",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "4日間", color: "bg-emerald-700" },
-      { label: "限定8組", color: "bg-amber-600" },
-    ],
-    date: "7月21日(火)〜7月24日(金)",
-    emoji: "🌿",
-    title: "神山オルタナティブジャーニー",
-    subtitle: "〜未来の可能性が広がりまくる4日間〜",
-    description: "地方再生の聖地・神山町で、オルタナティブな生き方を体験と対話を通じて全身で感じる4日間。",
-    href: "https://note.com/shiftdaigaku/n/n7317732c550e",
-  },
-  {
-    id: 3,
     image: CHIKYU_KAZOKU,
     alt: "地球家族ジャーニー",
     tags: [
@@ -87,7 +55,7 @@ const journeys = [
     href: "https://note.com/shiftdaigaku/n/nf42ffcc4f0a9",
   },
   {
-    id: 4,
+    id: 2,
     image: "/manus-storage/thai_img_00_2e972116.jpg",
     alt: "EarthfamilyJourney in Thailand",
     tags: [
@@ -103,18 +71,35 @@ const journeys = [
     href: "/thai",
   },
   {
-    id: 5,
+    id: 3,
+    image: "/manus-storage/group_photo_1124f3c4.jpg",
+    alt: "歩きお遍路ジャーニー vol.5",
+    tags: [
+      { label: "募集中", color: "bg-primary" },
+      { label: "6日間", color: "bg-emerald-700" },
+      { label: "小3〜中3", color: "bg-sky-700" },
+    ],
+    date: "10月10日(土)〜10月15日(木)",
+    emoji: "",
+    title: "歩きお遍路ジャーニー vol.5",
+    subtitle: "〜修行の道場・高知編〜",
+    description: "四国最南端・足摺岬から歩き始める6日間の巡礼。仲間と助け合い、一歩ずつ歩いた距離だけ強くなれる。対象：小学3年生〜中学3年生。",
+    href: "/henro",
+  },
+  {
+    id: 4,
     image: OHENRO_JOURNEY,
     alt: "歩きお遍路ジャーニー",
     tags: [
       { label: "募集中", color: "bg-primary" },
       { label: "5日間", color: "bg-emerald-700" },
+      { label: "小4〜65歳", color: "bg-sky-700" },
     ],
     date: "10月23日(金)〜10月27日(火)",
     emoji: "",
     title: "歩きお遍路ジャーニー",
     subtitle: "―神足歩行術で行く、発心の道場5日間の巻―",
-    description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。",
+    description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。対象：小学4年生〜65歳。",
     href: "https://note.com/shiftdaigaku/n/n634f9c0f4663",
   },
 ];
