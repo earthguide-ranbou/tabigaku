@@ -52,8 +52,8 @@ export default function Henro() {
       {/* ===== HERO ===== */}
       <section className="henro-hero">
         <img
-          src="/manus-storage/group_photo_1124f3c4.jpg"
-          alt="お遍路の仲間たち"
+          src="/manus-storage/sunset_path_ba2a0c3b.jpg"
+          alt="夕日の田んぼ道を歩く子どもたち"
           className="henro-hero-bg"
         />
         <div className="henro-hero-overlay" />
