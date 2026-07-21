@@ -7,7 +7,7 @@ const navLinks = [
   { label: "あーすガイド公式HP", href: "https://earthguide.tabigaku.party/", external: true },
   { label: "ホーム", href: "/" },
   { label: "旅する学校とは", href: "/#about" },
-  { label: "Journey", href: "/#journeys" },
+  { label: "Journey", href: "/henro" },
   { label: "神山ガイド", href: "https://kamiyamaguide-zeujjaf9.manus.space", external: true },
   { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },

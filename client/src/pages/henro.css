@@ -1,0 +1,639 @@
+/* ===== HENRO PAGE STYLES ===== */
+.henro-page {
+  --henro-cream: #f5f0e8;
+  --henro-dark: #2c3e3a;
+  --henro-accent: #d4772c;
+  --henro-gold: #b8860b;
+  --henro-text: #3a3a3a;
+  --henro-muted: #6b6b6b;
+  font-family: "Noto Serif JP", "Hiragino Mincho ProN", serif;
+  color: var(--henro-text);
+  background: var(--henro-cream);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+/* Reveal animation */
+.henro-page .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+    transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.henro-page .reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== HEADER ===== */
+.henro-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(44, 62, 58, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 1.5rem;
+}
+.henro-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.henro-logo-main {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.henro-logo-sub {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  font-family: sans-serif;
+}
+.henro-cta-btn {
+  display: inline-block;
+  background: var(--henro-accent);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.16s ease-out, background 0.2s;
+}
+.henro-cta-btn:active {
+  transform: scale(0.97);
+}
+.henro-cta-btn:hover {
+  background: #c06a25;
+}
+
+/* ===== HERO ===== */
+.henro-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #4a6b63 0%, #2c3e3a 40%, #5a7a72 100%);
+  padding: 6rem 1.5rem 3rem;
+}
+.henro-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.henro-hero-content {
+  position: relative;
+  z-index: 1;
+}
+.henro-hero-presents {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 2rem;
+}
+.henro-hero-title {
+  color: #fff;
+  font-size: clamp(2rem, 7vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0.5rem 0;
+  line-height: 1.3;
+}
+.henro-hero-title em {
+  color: var(--henro-accent);
+  font-style: normal;
+}
+.henro-hero-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  letter-spacing: 0.2em;
+  margin-bottom: 2rem;
+}
+.henro-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.henro-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+}
+.henro-badge .accent,
+.henro-page .accent {
+  color: var(--henro-accent);
+}
+.henro-hero-start {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+}
+.henro-hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  font-family: sans-serif;
+  animation: henro-bounce 2s infinite;
+}
+@keyframes henro-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ===== SECTIONS COMMON ===== */
+.henro-section {
+  padding: 5rem 1.5rem;
+}
+.henro-section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.henro-section-label {
+  color: var(--henro-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  font-family: sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.henro-section h2 {
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--henro-dark);
+}
+.henro-section h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--henro-dark);
+}
+
+/* ===== STAGE ===== */
+.henro-stage {
+  background: var(--henro-cream);
+}
+.henro-stage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.henro-stage-text blockquote {
+  border-left: 3px solid var(--henro-accent);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--henro-muted);
+}
+.henro-stage-img img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+.henro-img-caption {
+  display: block;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--henro-muted);
+  margin-top: 0.5rem;
+}
+
+/* ===== STATS ===== */
+.henro-stats {
+  background: var(--henro-dark);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+.henro-stats-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.henro-stat {
+  color: #fff;
+}
+.henro-stat-prefix {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.henro-stat-num {
+  display: block;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+}
+.henro-stat-unit {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.henro-stat-label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+}
+.henro-stats-tagline {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+  grid-column: 1 / -1;
+}
+
+/* ===== JOURNEY ===== */
+.henro-journey {
+  background: #fff;
+}
+.henro-journey-imgs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.henro-journey-img img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.henro-journey-quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  border-left: 3px solid var(--henro-accent);
+  padding-left: 1rem;
+  margin: 2rem 0;
+}
+
+/* ===== WHY ===== */
+.henro-why {
+  background: var(--henro-cream);
+}
+.henro-why-list {
+  margin-top: 2rem;
+}
+.henro-why-item {
+  margin-bottom: 2.5rem;
+  padding-left: 3.5rem;
+  position: relative;
+}
+.henro-why-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--henro-accent);
+  font-family: sans-serif;
+  opacity: 0.8;
+}
+.henro-why-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.henro-why-item p {
+  color: var(--henro-muted);
+  font-size: 0.95rem;
+}
+
+/* ===== ABOUT ===== */
+.henro-about {
+  background: #fff;
+}
+.henro-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.henro-about-img img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== OSETTAI ===== */
+.henro-osettai {
+  background: var(--henro-cream);
+}
+.henro-osettai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.henro-osettai-img img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.henro-osettai-text blockquote {
+  border-left: 3px solid var(--henro-accent);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: var(--henro-muted);
+}
+
+/* ===== HIGHLIGHTS ===== */
+.henro-highlights {
+  background: #fff;
+}
+.henro-highlights-hero {
+  margin: 2rem 0;
+}
+.henro-highlights-hero img {
+  width: 100%;
+  border-radius: 12px;
+  max-height: 500px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+.henro-highlights-list {
+  list-style: none;
+  counter-reset: hl;
+  padding: 0;
+  margin: 2rem 0;
+}
+.henro-highlights-list li {
+  counter-increment: hl;
+  padding: 1rem 0 1rem 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  font-size: 1rem;
+}
+.henro-highlights-list li::before {
+  content: "0" counter(hl);
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  font-weight: 700;
+  color: var(--henro-accent);
+  font-family: sans-serif;
+  font-size: 0.85rem;
+}
+.henro-highlights-tagline {
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+.henro-highlights-tagline em {
+  color: var(--henro-accent);
+  font-style: normal;
+  font-weight: 700;
+}
+.henro-highlights-img2 img {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* ===== ROUTE ===== */
+.henro-route {
+  background: var(--henro-cream);
+}
+.henro-route-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.henro-route-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+.henro-route-day {
+  display: inline-block;
+  background: var(--henro-dark);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-family: sans-serif;
+}
+
+/* ===== INFO ===== */
+.henro-info {
+  background: #fff;
+}
+.henro-info-table {
+  margin-top: 1.5rem;
+}
+.henro-info-row {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  align-items: baseline;
+  gap: 1rem;
+}
+.henro-info-key {
+  min-width: 80px;
+  font-size: 0.85rem;
+  color: var(--henro-muted);
+  font-weight: 600;
+}
+.henro-info-val {
+  font-size: 1rem;
+}
+
+/* ===== PACKING ===== */
+.henro-packing {
+  background: var(--henro-cream);
+}
+.henro-packing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.henro-packing-col h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--henro-dark);
+}
+.henro-packing-col ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  color: var(--henro-muted);
+  font-size: 0.9rem;
+}
+.henro-packing-col li {
+  margin-bottom: 0.3rem;
+}
+
+/* ===== NOTES ===== */
+.henro-notes {
+  background: #fff;
+}
+.henro-notes-list {
+  list-style: none;
+  padding: 0;
+}
+.henro-notes-list li {
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  position: relative;
+  color: var(--henro-muted);
+  font-size: 0.9rem;
+}
+.henro-notes-list li::before {
+  content: "※";
+  position: absolute;
+  left: 0;
+  color: var(--henro-accent);
+}
+
+/* ===== GUIDE ===== */
+.henro-guide {
+  background: var(--henro-cream);
+}
+.henro-guide-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.henro-guide-img img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.henro-guide-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--henro-dark);
+  margin-bottom: 0.25rem;
+}
+.henro-guide-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--henro-accent);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--henro-accent);
+  transition: opacity 0.2s;
+}
+.henro-guide-link:hover {
+  opacity: 0.7;
+}
+
+/* ===== CTA ===== */
+.henro-cta {
+  background: var(--henro-dark);
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+.henro-cta-inner h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+.henro-cta-inner p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+.henro-cta-btn-large {
+  display: inline-block;
+  background: var(--henro-accent);
+  color: #fff;
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.16s ease-out, background 0.2s;
+  box-shadow: 0 4px 16px rgba(212, 119, 44, 0.4);
+}
+.henro-cta-btn-large:hover {
+  background: #c06a25;
+}
+.henro-cta-btn-large:active {
+  transform: scale(0.97);
+}
+
+/* ===== FOOTER ===== */
+.henro-footer {
+  background: #1a2a26;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+.henro-footer a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+.henro-footer a:hover {
+  color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .henro-stage-grid,
+  .henro-about-grid,
+  .henro-osettai-grid,
+  .henro-guide-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .henro-stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .henro-journey-imgs {
+    grid-template-columns: 1fr;
+  }
+  .henro-route-cards {
+    grid-template-columns: 1fr;
+  }
+  .henro-packing-grid {
+    grid-template-columns: 1fr;
+  }
+  .henro-hero-title {
+    font-size: clamp(1.8rem, 8vw, 3rem);
+  }
+  .henro-section {
+    padding: 3.5rem 1.25rem;
+  }
+  .henro-osettai-grid {
+    direction: ltr;
+  }
+  .henro-osettai-grid > .henro-osettai-img {
+    order: -1;
+  }
+}
