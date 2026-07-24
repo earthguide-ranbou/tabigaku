@@ -324,7 +324,7 @@ export default function HenroShinsoku() {
     <span className="tag center">LIMITED ― 残席</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
     <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
-    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">空席を確認して申し込む</a>
+    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む</a>
   </div>
 </section>
 
