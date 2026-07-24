@@ -462,10 +462,10 @@ export default function Home() {
       {/* ── Photo Gallery Slideshow ── */}
       <Section background="muted" className="py-16 md:py-20">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mb-8"
         >
           <SectionHeader
@@ -477,10 +477,10 @@ export default function Home() {
 
         {/* 全幅表示 — containerのpxを完全に打ち消す (mobile: 1.25rem, md: 2rem, lg: 3rem) */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.9, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
           className="-mx-5 md:-mx-8 lg:-mx-12 overflow-hidden shadow-2xl"
         >
           <PhotoSlideshow />
@@ -548,11 +548,11 @@ export default function Home() {
               key={j.id}
               href={j.href}
               {...(j.href.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-              initial={{ opacity: 0, y: 28 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -5, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } }}
+              viewport={{ once: true, margin: "0px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -4, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
               className="group bg-card rounded-2xl overflow-hidden shadow-md border border-border hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out flex flex-col cursor-pointer"
             >
               {/* Image */}
@@ -560,7 +560,9 @@ export default function Home() {
                 <img
                   src={j.image}
                   alt={j.alt}
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.05]"
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 />
                 {/* Gradient overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
