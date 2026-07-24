@@ -100,7 +100,7 @@ const journeys = [
     title: "歩きお遍路ジャーニー",
     subtitle: "―神足歩行術で行く、発心の道場5日間の巻―",
     description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。対象：小学4年生〜65歳。",
-    href: "https://note.com/shiftdaigaku/n/n634f9c0f4663",
+    href: "/henro-shinsoku",
   },
 ];
 
