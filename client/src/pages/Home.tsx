@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, useCallback } from "react";
+import { useSEO } from "@/hooks/useSEO";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { Calendar, ArrowRight, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -236,6 +237,52 @@ function PhotoSlideshow() {
 
 // ─── Main Component ─────────────────────────────────────────────────────────
 export default function Home() {
+  useSEO({
+    title: "旅する学校｜徳島・神山発オルタナティブな学びの場｜歩き遍路｜旅育",
+    description: "徳島・神山発のオルタナティブな学びの場「旅する学校」。子どもたちと行く「歩き遍路」や四万十川カヌーなど、四国の大自然を舞台にした「旅育（たびいく）」プログラムを提供。安藤財団特別推奨モデル賞受賞。スプリングスクール・サマースクール参加者募集中。",
+    keywords: "旅する学校, 旅育, 歩き遍路, お遍路, 四国遍路, 徳島, 神山町, オルタナティブな学びの場, オルタナティブスクール, スプリングスクール, サマースクール, 自然体験, 子どもキャンプ, 教育, 移住体験, 安藤財団賞",
+    ogImage: "/manus-storage/group_photo_road_24eb956b.jpg",
+    ogUrl: "/",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "旅する学校 ／ あーすガイド",
+        "url": "https://tabigaku.party",
+        "logo": "https://tabigaku.party/favicon.ico",
+        "description": "徳島・神山発のオルタナティブな学びの場。旅育プログラム・お遍路ジャーニー・神山ガイドを提供。",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "徳島県",
+          "addressLocality": "神山町",
+          "addressCountry": "JP"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "090-7518-8816",
+          "email": "earthguide.jpn@gmail.com",
+          "contactType": "customer service"
+        },
+        "sameAs": [
+          "https://www.instagram.com/earthguide.ranbow",
+          "https://note.com/shiftdaigaku",
+          "https://earthguide.tabigaku.party"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "旅する学校",
+        "url": "https://tabigaku.party",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://tabigaku.party/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  });
+
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScrollY } = useScroll({
     target: heroRef,

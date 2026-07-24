@@ -1,7 +1,25 @@
 import { useEffect } from "react";
 import "./henro.css";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Henro() {
+  useSEO({
+    title: "歩きお遍路ジャーニー vol.5 ｜旅する学校",
+    description: "小学3年生〜中学3年生対象。徳島・四国のお遍路道を歩く子ども向け旅育プログラム。お遍路を通じて子どもたちが自分の足で歩き、自然と人とつながる本物の体験。安藤財団特別推奨モデル賞受賞。",
+    keywords: "歩き遍路, お遍路 子ども, 旅育, 旅する学校, 徳島 遍路, 四国遍路, 小学生 遍路, 中学生 遍路, 子ども 自然体験, 神山町, 安藤財団賞",
+    ogUrl: "/henro",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tabigaku.party" },
+          { "@type": "ListItem", "position": 2, "name": "歩きお遍路ジャーニー", "item": "https://tabigaku.party/henro" }
+        ]
+      }
+    ]
+  });
+
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {

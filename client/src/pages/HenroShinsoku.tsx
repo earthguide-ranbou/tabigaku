@@ -1,12 +1,65 @@
 import { useEffect } from "react";
 import "./henro-shinsoku.css";
+import { useSEO } from "@/hooks/useSEO";
 
 const ASSET = "https://rpcr7nolzs3aq.kimi.page/";
 
 export default function HenroShinsoku() {
+  useSEO({
+    title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
+    description: "2026年10月23日〜27日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。小学3年生〜65歳対象。早割8/10まで。",
+    keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 子ども お遍路, 四国遍路体験, 神山町, 太龍寺",
+    ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
+    ogUrl: "/henro-shinsoku",
+    ogType: "article",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―",
+        "description": "江戸の身体技法「神足歩行術」を体感しながら徳島・発心の道場を歩く5日間のお遍路旅。大場克則×らんぼうが案内する定員10名の特別な体験。",
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-27",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "location": {
+          "@type": "Place",
+          "name": "徳島県 発心の道場（神山町〜太龍寺）",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "徳島県",
+            "addressCountry": "JP"
+          }
+        },
+        "organizer": {
+          "@type": "Organization",
+          "name": "旅する学校 ／ あーすガイド",
+          "url": "https://tabigaku.party"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "100000",
+          "priceCurrency": "JPY",
+          "availability": "https://schema.org/LimitedAvailability",
+          "validFrom": "2026-07-01",
+          "url": "https://note.com/shiftdaigaku/n/n41c54ea46e73"
+        },
+        "image": "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
+        "url": "https://tabigaku.party/henro-shinsoku"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tabigaku.party" },
+          { "@type": "ListItem", "position": 2, "name": "歩きお遍路ジャーニー（神足歩行術）", "item": "https://tabigaku.party/henro-shinsoku" }
+        ]
+      }
+    ]
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）";
 
     // Google Fonts
     const link = document.createElement("link");

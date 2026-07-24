@@ -1,7 +1,26 @@
 import { useEffect } from "react";
 import "./thai.css";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Thai() {
+  useSEO({
+    title: "タイ・家族旅 EarthfamilyJourney ｜旅する学校",
+    description: "家族で地球を旅するEarthfamilyJourneyタイ編。A日程8/22～8/27・B日程8/22～8/30。タイ・バリ・世界の先住民の土地へ。いのちが喜ぶ方向へ、家族みんなでGOサイン。徳島・神山発のあーすガイド・らんぼうが案内する子連れ海外旅プログラム。",
+    keywords: "家族旅, タイ 旅, EarthfamilyJourney, 旅育, 子連れ 海外旅行, あーすガイド, らんぼう, 神山町, 徳島, 先住民 体験, バリ島, 家族 海外体験, 子ども 海外",
+    ogImage: "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg",
+    ogUrl: "/thai",
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://tabigaku.party" },
+          { "@type": "ListItem", "position": 2, "name": "EarthfamilyJourney タイ編", "item": "https://tabigaku.party/thai" }
+        ]
+      }
+    ]
+  });
+
   useEffect(() => {
     // IntersectionObserver for reveal animations
     const io = new IntersectionObserver(
