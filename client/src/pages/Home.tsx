@@ -94,13 +94,13 @@ const journeys = [
     tags: [
       { label: "募集中", color: "bg-primary" },
       { label: "5日間", color: "bg-emerald-700" },
-      { label: "小4〜65歳", color: "bg-sky-700" },
+      { label: "小3〜65歳", color: "bg-sky-700" },
     ],
     date: "10月23日(金)〜10月27日(火)",
     emoji: "",
     title: "歩きお遍路ジャーニー",
     subtitle: "―神足歩行術で行く、発心の道場5日間の巻―",
-    description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。対象：小学4年生〜65歳。",
+    description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。対象：小学3年生〜65歳。",
     href: "/henro-shinsoku",
   },
 ];

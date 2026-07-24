@@ -97,7 +97,7 @@ export default function HenroShinsoku() {
     <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
       <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
-      <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
+      <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
     </div>
     <div className="hero-btns">
       <a className="btn btn-shu" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">参加申し込みはこちら</a>
@@ -390,7 +390,7 @@ export default function HenroShinsoku() {
           <dt>解散</dt><dd>10/27（火）15:00頃（必要な方は徳島駅まで送迎）</dd>
           <dt>行程</dt><dd>染昌（神山町）→ 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
           <dt>定員</dt><dd>10名（先着順）</dd>
-          <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
+          <dt>参加資格</dt><dd>小学3年生〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
           <dt>保険</dt><dd>メンバー全員、傷害保険に加入します</dd>
         </dl>
         <details>
