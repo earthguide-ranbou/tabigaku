@@ -97,7 +97,7 @@ export default function HenroShinsoku() {
     <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
       <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
-      <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
+      <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
     <div className="hero-btns">
       <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">参加申し込みはこちら</a>
@@ -323,7 +323,7 @@ export default function HenroShinsoku() {
   <div className="wrap reveal">
     <span className="tag center">LIMITED ― 残席</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
-    <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年8月10日まで。気になったら、まずはお気軽にご相談ください。</p>
+    <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
     <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">空席を確認して申し込む</a>
   </div>
 </section>
@@ -429,7 +429,7 @@ export default function HenroShinsoku() {
         <div className="price">100,000<small> 円（税込）</small></div>
         <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
-          <b>早期割引</b>｜2026/8/10（月）までの申し込み＆一括入金で <b>12,000円引き</b><br />
+          <b>早期割引</b>｜2026/9/10（木）までの申し込み＆一括入金で <b>12,000円引き</b><br />
           <b>家族割引</b>｜小学3年生以上2人目以降は、1人につき66,000円以上のドネーション制<br />
           <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
         </div>
