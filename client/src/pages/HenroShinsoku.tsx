@@ -1,227 +1,433 @@
 import { useEffect } from "react";
 import "./henro-shinsoku.css";
 
-const APPLY_URL = "https://note.com/shiftdaigaku/n/n41c54ea46e73";
+const ASSET = "https://rpcr7nolzs3aq.kimi.page/";
 
 export default function HenroShinsoku() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title =
-      "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―";
+    document.title = "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）";
+
+    // Google Fonts
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap";
+    document.head.appendChild(link);
+
+    const io = new IntersectionObserver(
+      (es) => {
+        es.forEach((e) => {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   return (
-    <div className="hs-page">
-      {/* ===== ヘッダー ===== */}
-      <header className="hs-header">
-        <div className="hs-header__brand">
-          歩きお遍路ジャーニー
-          <span>ARUKI OHENRO JOURNEY 2026</span>
-        </div>
-        <a className="hs-btn hs-btn--small" href={APPLY_URL} target="_blank" rel="noopener noreferrer">
-          申し込む
-        </a>
-      </header>
+    <div className="oj-page oj-body">
 
-      {/* ===== 1. ヒーロー ===== */}
-      <section className="hs-hero">
-        <div className="hs-hero__image hs-placeholder">
-          <span>IMAGE：白衣で杉林の遍路道を歩く一行</span>
-        </div>
-        <div className="hs-hero__overlay" />
-        <div className="hs-hero__content">
-          <p className="hs-hero__badge">2026 秋 ・ 徳島 発心の道場 ・ 定員10名</p>
-          <h1 className="hs-hero__title">
-            歩きお遍路ジャーニー
-            <span className="hs-hero__subtitle">
-              ― 神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻 ―
-            </span>
-          </h1>
-          <div className="hs-hero__meta">
-            <p className="hs-hero__date">2026.10.23 <b>木</b> ― 10.27 <b>月</b>（5日間）</p>
-            <p className="hs-hero__target">対象：小学4年生〜65歳 ｜ 1番札所 霊山寺スタート</p>
-          </div>
-          <a className="hs-btn hs-btn--large" href={APPLY_URL} target="_blank" rel="noopener noreferrer">
-            参加申し込みはこちら
-          </a>
-        </div>
-      </section>
 
-      {/* ===== 2. 神足歩行術とは ===== */}
-      <section className="hs-section hs-section--dark">
-        <div className="hs-container">
-          <p className="hs-label">SHINSOKU HOKO JUTSU</p>
-          <h2 className="hs-heading">神足歩行術とは</h2>
-          <div className="hs-cols">
-            <div>
-              <p className="hs-text">
-                神足歩行術は、古来から伝わる歩行法。<br />
-                江戸時代の人々は、1日40里（約160km）もの距離を、
-                疲れをためずに進んでいたと言われています。
-              </p>
-              <p className="hs-text">
-                その秘密は、<b>軸・呼吸・足運びの三位一体</b>。<br />
-                体の中心に一本の軸を通し、呼吸に合わせ、
-                地面からの力をそのまま推進力に変える。<br />
-                力まないからこそ、いつまでも歩き続けられるのです。
-              </p>
-              <p className="hs-text">
-                この旅では、走るのではなく、あえて<b>"歩いて"体感</b>します。<br />
-                歩くこと自体が、心を整える修行になる。<br />
-                それが神足歩行術の本質です。
-              </p>
-            </div>
-            <div className="hs-placeholder hs-placeholder--tall">
-              <span>IMAGE：神足歩行術を実演する様子</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ===== 3. 発心の道場とは ===== */}
-      <section className="hs-section">
-        <div className="hs-container">
-          <p className="hs-label">HOSSHIN NO DOJO</p>
-          <h2 className="hs-heading">発心の道場とは</h2>
-          <div className="hs-cols hs-cols--rev">
-            <div className="hs-placeholder hs-placeholder--tall">
-              <span>IMAGE：1番札所 霊山寺の山門</span>
-            </div>
-            <div>
-              <p className="hs-text">
-                四国八十八ヶ所の巡礼は、大きく四つの「道場」に分かれています。<br />
-                その最初が、徳島県（阿波国）にあたる<b>「発心の道場」</b>。
-              </p>
-              <p className="hs-text">
-                「発心」とは、悟りを求める心がはじめて芽生えること。<br />
-                1番札所 霊山寺から23番札所 薬王寺までの約100kmは、
-                まさに<b>旅の始まりの地</b>。お遍路さんの心が生まれる場所です。
-              </p>
-              <p className="hs-text">
-                今回はその起点、<b>1番札所 霊山寺（りょうぜんじ）</b>から歩き始めます。<br />
-                白衣をまとい、金剛杖を手に、1000年続く祈りの道へ。<br />
-                あなたの「はじめの一歩」を、ここから踏み出します。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+{/* ============ HERO ============ */}
+<section className="hero">
+  <div className="herokv"><img src={ASSET + "kv-hero.jpg"} alt="歩きお遍路ジャーニー ― 今、話題の「江戸走り（神足歩行術）」を“歩いて”体感する遍路旅" /></div>
+  <div className="hero-inner">
+    <span className="hero-badge">2026 秋 ・ 徳島 発心の道場 ・ 残り10名</span>
+    <h1>白衣をまとい、<br className="br-sp">江戸の歩法で<br className="br-sp">1000年の祈りの道を<em className="nb">行く。</em></h1>
+    <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp">―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
+    <div className="hero-meta">
+      <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
+      <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
+    </div>
+    <div className="hero-btns">
+      <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">参加申し込みはこちら</a>
+      <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
+    </div>
+  </div>
+</section>
 
-      {/* ===== 4. 5日間のスケジュール ===== */}
-      <section className="hs-section hs-section--green">
-        <div className="hs-container">
-          <p className="hs-label">SCHEDULE</p>
-          <h2 className="hs-heading">5日間の歩み</h2>
-          <div className="hs-timeline">
-            {[
-              { day: "Day 1", date: "10/23（木）", title: "霊山寺にて開眼 ― 旅の始まり", text: "1番札所 霊山寺に集合。白衣を整え、金剛杖を受け取り、最初のお参り。神足歩行術の基本（軸・呼吸・足運び）を体に入れ、近隣の札所へゆるりと一歩目を刻みます。" },
-              { day: "Day 2", date: "10/24（金）", title: "呼吸と足運びを整える", text: "早朝の空気のなか出発。三位一体の歩きを意識しながら、田園と山里の遍路道を進みます。立ち寄るお店やお接待との出会いも旅の楽しみ。" },
-              { day: "Day 3", date: "10/25（土）", title: "歩くこと自体が修行になる", text: "距離は少しずつ伸ばして、1日15〜25km。話すときは笑い合い、黙るときは自分と向き合う。歩く瞑想の時間が深まっていきます。" },
-              { day: "Day 4", date: "10/26（日）", title: "祈りを重ねる山道", text: "山深い道へ。息づかいと足音だけが響く時間のなかで、先祖供養・祈りの作法にじっくり触れます。仲間と助け合いながら、自分の枠を越える一日。" },
-              { day: "Day 5", date: "10/27（月）", title: "結願 ― 大きな祈りを刻む", text: "5日間の歩みを胸に、ゴールの札所へ。納経を受け、みんなで旅を分かち合う結びの時間。その後、現地にて解散（必要な方は徳島駅まで送迎）。" },
-            ].map((d) => (
-              <div className="hs-day" key={d.day}>
-                <div className="hs-day__head">
-                  <span className="hs-day__num">{d.day}</span>
-                  <span className="hs-day__date">{d.date}</span>
-                </div>
-                <div className="hs-day__body">
-                  <h3>{d.title}</h3>
-                  <p>{d.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+{/* ============ TICKER ============ */}
+<div className="ticker" aria-hidden="true">
+  <div className="ticker-track">
+    <span>南無大師遍照金剛 <b>◆</b> 神足歩行術 <b>◆</b> 歩く瞑想 <b>◆</b> お接待 <b>◆</b> 先祖供養 <b>◆</b> 同行二人 <b>◆</b> 発心の道場 <b>◆</b></span>
+    <span>南無大師遍照金剛 <b>◆</b> 神足歩行術 <b>◆</b> 歩く瞑想 <b>◆</b> お接待 <b>◆</b> 先祖供養 <b>◆</b> 同行二人 <b>◆</b> 発心の道場 <b>◆</b></span>
+  </div>
+</div>
 
-      {/* ===== 5. 参加概要 ===== */}
-      <section className="hs-section">
-        <div className="hs-container">
-          <p className="hs-label">INFORMATION</p>
-          <h2 className="hs-heading">参加概要</h2>
-          <div className="hs-info-grid">
-            <div className="hs-card">
-              <h3 className="hs-card__title">開催概要</h3>
-              <dl className="hs-def">
-                <dt>日程</dt><dd>2026年10月23日（木）〜10月27日（月）5日間</dd>
-                <dt>対象</dt><dd>小学4年生〜65歳（親子参加も歓迎）</dd>
-                <dt>定員</dt><dd>10名（先着順）</dd>
-                <dt>集合</dt><dd>10/23（木）1番札所 霊山寺（徳島県）※現地集合</dd>
-                <dt>解散</dt><dd>10/27（月）現地解散（必要な方は徳島駅まで送迎）</dd>
-                <dt>保険</dt><dd>万が一に備え、旅行保険に加入いたします</dd>
-              </dl>
-            </div>
-            <div className="hs-card">
-              <h3 className="hs-card__title">参加費用</h3>
-              <p className="hs-price">80,000<span> 円</span></p>
-              <p className="hs-note">※現地集合・現地解散。食事・宿泊・御朱印などの実費は別途ご案内します。</p>
-              <h3 className="hs-card__title hs-card__title--mt">主な持ち物</h3>
-              <ul className="hs-list">
-                <li>歩き慣れた運動靴・動きやすい服装・カッパ上下</li>
-                <li>リュック（15〜25L推奨）・水筒・行動食・タオル</li>
-                <li>寝袋・着替え・洗面用具（荷物は車に預けられます）</li>
-                <li>お参りグッズは当日ご案内（経本など無料配布あり）</li>
-              </ul>
+{/* ============ CONCEPT ============ */}
+<section className="concept" id="concept">
+  <div className="kanji">祈</div>
+  <div className="wrap reveal">
+    <span className="tag center">CONCEPT ― 想い</span>
+    <p className="concept-quote">「100年後の未来に<br /><em className="nb">江戸時代の歩法</em>を繋ぎたい」</p>
+    <p className="lead-p">
+      かつて江戸の人々が、そうやって旅したであろう道。<br />
+      徳島県＝「発心の道場」と呼ばれる歩き遍路の道を、<br className="br-pc">
+      古来から伝わる身体技法で巡礼してみませんか。<br /><br />
+      大人も子どもも、一緒に歩く5日間。<br />
+      新しい世界に出逢い、自分の枠を越えて、<br className="br-pc">
+      可能性を広げる旅です。
+    </p>
+    <div className="seal">発心の道場</div>
+  </div>
+</section>
+
+{/* ============ BAND 1 ============ */}
+<div className="band reveal">
+  <img src={ASSET + "p-tanbo.jpg"} alt="夕日に輝く田んぼのあぜ道を歩くお遍路一行" loading="lazy" />
+  <span className="cap">1000年続く、祈りの道。</span>
+</div>
+
+{/* ============ STATS ============ */}
+<section className="stats">
+  <div className="stats-grid reveal">
+    <div className="stat"><b>約70km</b><span>発心の道場を歩く距離</span></div>
+    <div className="stat"><b>5日間</b><span>10/23(金)〜10/27(火)</span></div>
+    <div className="stat"><b>3.5億回</b><span>「江戸走り」SNS総再生</span></div>
+    <div className="stat"><b>500km+</b><span>子どもたちと歩いた実績</span></div>
+    <div className="stat"><b>1000年</b><span>続く巡礼の文化</span></div>
+  </div>
+</section>
+
+{/* ============ DUO ============ */}
+<section id="story">
+  <div className="wrap duo-grid reveal">
+    <div>
+      <span className="tag">NAVIGATORS ― 案内人</span>
+      <h2 className="h2">地球を歩いた男と、<br />江戸の走法を<span className="mk">蘇らせた男。</span></h2>
+      <p className="body">
+        案内人は、「旅する学校」主宰・<b>らんぼう</b>。<br />
+        地球一周、砂漠1000km走破、オルタナティブスクール創設。<br />
+        その道のりの先で、延べ100人以上の子どもたちと、<br className="br-pc">
+        500km以上のお遍路を歩いてきました。
+      </p>
+      <p className="body">
+        今回ご一緒するのは、江戸時代の走法「神足歩行術」の研究者として、<br className="br-pc">
+        いま全国的に注目を集める<b className="nb">大場克則</b><span className="nb">さん。</span><br />
+        2013年、初挑戦の100kmマラソンで途中棄権。<br />
+        そこから「長距離を壊れずに進める身体の使い方」の探究が始まりました。
+      </p>
+      <div className="chips">
+        <span className="chip2">安藤財団 2023年度特別推奨モデル賞</span>
+        <span className="chip2">2025年度 流行語大賞「江戸走り」</span>
+      </div>
+    </div>
+    <div className="frame">
+      <img src="https://assets.st-note.com/img/1778895610-MdvVpBaIJLhGmoYRkeg1zOCn.jpg?width=1200&height=1200&fit=bounds&quality=85" alt="大場克則さんとらんぼう" loading="lazy" />
+      <span className="chip">大場克則 × らんぼう</span>
+    </div>
+  </div>
+</section>
+
+{/* ============ EDO ============ */}
+<section className="edo">
+  <div className="wrap duo-grid rev reveal">
+    <div className="frame">
+      <img src="https://assets.st-note.com/img/1778895665-u2aGrCvPc85oMxKSze1VB9y0.jpg?width=1200&height=1200&fit=bounds&quality=85" alt="江戸走りを実演する大場克則さん" loading="lazy" />
+      <span className="chip">神足歩行術（しんそくほこうじゅつ）</span>
+    </div>
+    <div>
+      <span className="tag">EDO-BASHIRI ― 江戸走り</span>
+      <h2 className="h2">1日40里（約160km）。<br />失われた<em>「神足歩行術」。</em></h2>
+      <blockquote>「江戸時代には1日40里を移動できた走り方があった」</blockquote>
+      <p className="body">
+        その史実に出会った大場さんは、国会図書館に通い、文献調査を重ねました。<br />
+        浮世絵や資料をもとに、身体の使い方を研究。<br />
+        その探究はSNSで一気に広がり、「江戸走り」は2025年度流行語大賞に選ばれました。
+      </p>
+      <p className="body">
+        現在は「江戸時代の走り方で江戸から京都（約500km）を3日で走る」実証実験にも挑戦中。<br />
+        この旅では、その神足歩行術を<b>“歩いて”体感</b>しながら、<br className="br-pc">
+        お遍路道を進みます。
+      </p>
+      <div className="metrics">
+        <div className="metric"><b>3.5億回</b><span>SNS総再生</span></div>
+        <div className="metric"><b>13.9万人</b><span>Instagram</span></div>
+        <div className="metric"><b>6.09万人</b><span>YouTube</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ============ BAND 2 ============ */}
+<div className="band reveal">
+  <img src={ASSET + "p-kasa.jpg"} alt="菅笠をかぶり金剛杖をついて杉林の遍路道を行く" loading="lazy" />
+  <span className="cap">同行二人 ― お大師さまと、一緒に歩く。</span>
+</div>
+
+{/* ============ ROUTE ============ */}
+<section>
+  <div className="wrap reveal">
+    <span className="tag">ROUTE ― 歩く道</span>
+    <h2 className="h2">神山から太龍寺へ、<br className="br-sp"><em className="nb">約70km</em>の巡礼路。</h2>
+    <div className="route-wrap">
+      <div>
+        <div className="route-line">
+          <div className="stop">
+            <div className="node">発</div>
+            <div className="rcard">
+              <h3><small>START ・ 徳島県神山町</small>染昌（そめしょう）</h3>
+              <p>地方創生の聖地・神山町を出発。秋の山里の空気のなか、遍路の一歩を踏み出します。</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ===== 6. 案内人 ===== */}
-      <section className="hs-section hs-section--dark">
-        <div className="hs-container">
-          <p className="hs-label">GUIDE</p>
-          <h2 className="hs-heading">この旅の案内人</h2>
-          <div className="hs-guide">
-            <div className="hs-placeholder hs-placeholder--portrait">
-              <span>IMAGE：らんぼうのポートレート</span>
+          <div className="stop">
+            <div className="node">13</div>
+            <div className="rcard">
+              <h3><small>十三番札所</small>大日寺</h3>
+              <p>大日如来の大いなる光に照らされ、祈りを重ねる札所へ。</p>
             </div>
-            <div className="hs-guide__text">
-              <p className="hs-guide__role">あーすガイド代表 ・ 旅する学校代表</p>
-              <h3 className="hs-guide__name">らんぼう <small>上田 直樹（うえだ なおき）</small></h3>
-              <p className="hs-text">
-                1982年 北海道札幌生まれ。徳島県神山町在住。<br />
-                地球一周を皮切りに10年間の旅暮らしを経て、自然とともにある生き方を探求。
-                「あーすガイド」として全国各地500本以上の対話の場づくりに携わる。
-              </p>
-              <ul className="hs-list hs-list--light">
-                <li>アタカマ砂漠250km・ゴビ砂漠250kmマラソン完走</li>
-                <li>オルタナティブスクール「森の学校みっけ」創設</li>
-                <li>「旅する学校」主宰／安藤財団 2023年度特別推奨モデル賞 受賞</li>
-                <li>100人以上の子どもたちと500km以上のお遍路を伴走</li>
-              </ul>
+          </div>
+          <div className="stop">
+            <div className="node">21</div>
+            <div className="rcard">
+              <h3><small>二十一番札所 ・ GOAL</small>太龍寺</h3>
+              <p>龍の詩が聞こえる高い山々。山深い修行の道を歩き続けることで、心身が研ぎ澄まされていく。自分たちの小さな足で、大きな祈りを刻むゴール。</p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ===== 7. 申し込み ===== */}
-      <section className="hs-cta">
-        <div className="hs-container hs-cta__inner">
-          <h2 className="hs-heading hs-heading--light">
-            1000年の祈りの道を、<br />自分の足で歩く5日間。
-          </h2>
-          <p className="hs-text hs-text--center">
-            2026年10月23日、1番札所 霊山寺から始まる旅へ。<br />
-            定員10名・先着順です。ご質問だけでもお気軽にどうぞ。
-          </p>
-          <a className="hs-btn hs-btn--large" href={APPLY_URL} target="_blank" rel="noopener noreferrer">
-            お申し込みはこちら
-          </a>
-          <p className="hs-contact">
-            お問い合わせ：らんぼう（あーすガイド）090-7518-8816 ／ earthguide.jpn@gmail.com
-          </p>
+        <div className="route-note">
+          <b>歩行ペース：</b>みんなと相談しながら1日15〜25km前後。秋色に染まった四国の山々を越え、先人たちの想いを未来に紡ぐ旅。かけがえのない時間が、きっと待っています。
         </div>
-      </section>
+      </div>
+      <div className="route-photo">
+        <img src={ASSET + "p-torii.jpg"} alt="朱色の山門の前で笑顔のお遍路一行" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* ===== フッター ===== */}
-      <footer className="hs-footer">
-        <p>
-          あーすガイド ／ 旅する学校 ｜ 歩きお遍路ジャーニー
-          ―神足歩行術で行く、発心の道場5日間の巻―
+{/* ============ BAND 3 ============ */}
+<div className="band reveal">
+  <img src={ASSET + "p-gate.jpg"} alt="札所の山門の前で金剛杖を持つお遍路さんたち" loading="lazy" />
+  <span className="cap">札所の門をくぐるたび、心が整っていく。</span>
+</div>
+
+{/* ============ WHY ============ */}
+<section>
+  <div className="wrap reveal">
+    <span className="tag">WHY NOW ― 理由</span>
+    <h2 className="h2">なぜ、今、<em className="nb">お遍路</em>を歩くのか。</h2>
+    <div className="why-grid">
+      <div className="why-card">
+        <div className="im"><img src="https://assets.st-note.com/img/1778895581-rD7aHESuvoZyXbF2W1R59jkB.jpg?width=1000&height=1000&fit=bounds&quality=80" alt="お寺の前で集まるお遍路一行" loading="lazy" /></div>
+        <div className="tx">
+          <div className="no">壱</div>
+          <h3>先祖供養</h3>
+          <p>私たちが今ここにいるのは、ご先祖さんがいたからこそ。亡くなった方々を思い出し、たくさんの人に支えられて生きていることを感じてほしい。</p>
+        </div>
+      </div>
+      <div className="why-card">
+        <div className="im"><img src="https://assets.st-note.com/img/1778905732-ZoNz10RI2ar6dTscU8DfAMpK.jpg?width=1000&height=1000&fit=bounds&quality=80" alt="青空の下で合掌するお遍路さん" loading="lazy" /></div>
+        <div className="tx">
+          <div className="no">弐</div>
+          <h3>祈りの作法</h3>
+          <p>お遍路では「世のために、自分を大きく生かせますように」と手を合わせます。すべての生き物の幸せを想う心と向き合う時間。</p>
+        </div>
+      </div>
+      <div className="why-card">
+        <div className="im"><img src="https://assets.st-note.com/img/1778905605-obEejQv0p8I2rnJ6HBU4F9s3.jpg?width=1000&height=1000&fit=bounds&quality=80" alt="杉林の石段で笑顔の仲間たち" loading="lazy" /></div>
+        <div className="tx">
+          <div className="no">参</div>
+          <h3>可能性を広げる</h3>
+          <p>普段はなかなか体験しない距離を歩く中で、助け合い、新しい発見や文化に触れる。「こんなに歩けたんだ」が、自分の枠を越えていく。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ============ SETTAI ============ */}
+<section className="settai">
+  <div className="wrap reveal">
+    <span className="tag center">OSETTAI ― お接待</span>
+    <h2 className="h2">「お接待」という、<br className="br-sp"><em className="nb">1000年の優しさ。</em></h2>
+    <p className="lead-p">
+      お遍路は、平安時代に空海が拓いた四国88ヶ所の巡礼の旅。<br />
+      実際に歩いてみると、何万人もの人がそれぞれの祈りを胸に<br className="br-pc">
+      この道を歩いてきたことを実感します。
+    </p>
+    <div className="settai-fig">
+      <img src={ASSET + "p-temple.jpg"} alt="提灯の灯る本堂で納経を受けるお遍路一行" loading="lazy" />
+    </div>
+    <p className="settai-em">
+      ヘトヘトなときに差し出される、お茶やおむすび。<br />
+      遍路小屋を整備する人、道を守る人、交流ノートを残す人。<br />
+      <em>人は一人では生きられない</em> ―<br className="br-sp">
+      1000年以上この文化が続いてきた理由が、ここにあります。
+    </p>
+  </div>
+</section>
+
+{/* ============ MID CTA ============ */}
+<section className="mid-cta">
+  <div className="wrap reveal">
+    <span className="tag center">LIMITED ― 残席</span>
+    <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
+    <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年8月10日まで。気になったら、まずはお気軽にご相談ください。</p>
+    <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">空席を確認して申し込む</a>
+  </div>
+</section>
+
+{/* ============ BAND 4 ============ */}
+<div className="band reveal">
+  <img src={ASSET + "hero.jpg"} alt="石灯籠の並ぶ参道を歩くお遍路一行" loading="lazy" />
+  <span className="cap">さあ、白衣をまとって出かけよう。</span>
+</div>
+
+{/* ============ GUIDES ============ */}
+
+<section>
+  <div className="wrap reveal">
+    <span className="tag">GUIDES ― 案内人</span>
+    <h2 className="h2">この旅の<em>案内人。</em></h2>
+
+    <div className="guide">
+      <div className="ph"><img src={ASSET + "oba.jpg"} alt="江戸走り研究家 大場克則" loading="lazy" /></div>
+      <div>
+        <div className="role">江戸走り研究家</div>
+        <h3>大場 克則<small>おおば かつのり</small></h3>
+        <p>1964年 栃木県生まれ。2013年に初めて挑戦した100kmマラソンの途中棄権をきっかけに、長距離を走れる走り方に興味を持つ。2014年「江戸時代には1日40里（160km）走れる走り方があった」ことを知り、国会図書館に通って文献調査を開始。文献資料と浮世絵を基に、残された内容と矛盾しない身体の動き方を研究している。</p>
+        <ul>
+          <li>SNS総再生回数 3億5千万回突破／インスタ13.9万人・YouTube6.09万人</li>
+          <li>「江戸走り」2025年度 流行語大賞</li>
+          <li>江戸時代の走り方で東海道五十三次（約500km）を3日で走る実証実験に挑戦中</li>
+        </ul>
+      </div>
+    </div>
+
+    <div className="guide">
+      <div className="ph"><img src={ASSET + "ranbou.jpg"} alt="あーすガイド代表 らんぼう（上田直樹）" loading="lazy" /></div>
+      <div>
+        <div className="role">あーすガイド代表 ・ 旅する学校代表</div>
+        <h3>らんぼう<small>上田 直樹（うえだ なおき）</small></h3>
+        <p>1982年 北海道札幌生まれ。徳島県神山町在住。地球一周を皮切りに10年間の旅暮らしの中で様々な先住民の土地を訪れ、自然とともにある生き方に感銘を受ける。2008年より『あーすガイド』の屋号で全国各地500本以上の対話の場づくりに出演。国内外で体験学習型ツアー「スタディロード」を主催し、参加した40人以上が各地に移住。</p>
+        <ul>
+          <li>2016年 アタカマ砂漠マラソン250km完走・チーム優勝・映画化</li>
+          <li>2022年 オルタナティブスクール「森の学校みっけ」創設</li>
+          <li>2023年 「旅する学校」主宰。安藤財団「2023年度特別推奨モデル賞」受賞</li>
+          <li>2024年 ゴビ砂漠マラソン250km完走</li>
+        </ul>
+        <a className="plink" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener">あーすガイド公式サイト（SNS・リンク集）→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ============ INFO ============ */}
+<section style={{background: "var(--washi2)", borderBlock: "1px solid var(--line)"}}>
+  <div className="wrap reveal">
+    <span className="tag">INFORMATION ― 概要</span>
+    <h2 className="h2">開催概要・<em>お申し込み。</em></h2>
+    <div className="info-grid">
+      <div className="card">
+        <h3>開催概要</h3>
+        <div className="flyer">
+          <img src="https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png?width=1200&height=1200&fit=bounds&quality=85" alt="歩きお遍路ジャーニー秋編フライヤー" loading="lazy" />
+        </div>
+        <dl className="def">
+          <dt>日程</dt><dd>2026年10月23日（金）〜10月27日（火）5日間</dd>
+          <dt>集合</dt><dd>10/23（金）12:00 神山町 道の駅</dd>
+          <dt>解散</dt><dd>10/27（火）15:00頃（必要な方は徳島駅まで送迎）</dd>
+          <dt>行程</dt><dd>染昌（神山町）→ 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
+          <dt>定員</dt><dd>10名（先着順）</dd>
+          <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
+          <dt>保険</dt><dd>メンバー全員、傷害保険に加入します</dd>
+        </dl>
+        <details>
+          <summary>持ち物・装備について</summary>
+          <div className="inner">
+            <p><b>【歩くときのリュック（15〜25L推奨）の中】</b></p>
+            <ul><li>カッパ上下／行動食（毎回最低1000kcal以上）／水筒／財布／ビニール袋2〜3枚／タオル／ヘッドライト</li></ul>
+            <p style={{marginTop: "10px"}}><b>【お遍路のお参りグッズ（さんや袋・ポシェットに）】</b></p>
+            <ul><li>小冊子（般若心経など。無料配布）／ライター or マッチ／ジプロック2〜3袋／お線香・ローソク（らんぼうが配布）／納経帳（御朱印を集めたい人）／納札</li></ul>
+            <p style={{marginTop: "10px"}}><b>【服装】</b></p>
+            <ul><li>速乾性の軽いインナー／動きやすいパンツ／靴下／歩き慣れた運動靴／ウインドブレーカー／ボールペン</li></ul>
+            <p style={{marginTop: "10px"}}><b>【預け荷物（車に預けます）】</b></p>
+            <ul><li>お米10合／洗面用具・歯ブラシ／保険証コピー／サンダル／寝袋（-2〜5度対応・1kg未満）／マット／着替え3日分／ウォータープルーフバッグ／ダウン／行動食1000〜1500kcal／自炊3食分・バーナー・ボンベ・食器／テント（宿を各自で取る方は不要）</li></ul>
+            <p style={{marginTop: "10px"}}>※装備についてはメンバー確定後のLINEグループで情報共有・相談できます。</p>
+          </div>
+        </details>
+        <details>
+          <summary>注意事項・キャンセルについて</summary>
+          <div className="inner">
+            <ul>
+              <li>食事は、自炊や地元のお店など、その土地ならではの楽しみを大切にしながら、参加者みんなで相談して決めていきます。</li>
+              <li>旅の様子は、SNSやラジオなどで発信する予定です。また、メディアの取材・撮影・掲載が入る場合がありますので、あらかじめご了承ください。</li>
+              <li>天候や自然条件、交通事情などにより、安全を最優先に判断し、行程や内容を変更する場合があります。その時々で最善の選択をしながら旅を進めます。</li>
+              <li>私たちは参加者一人ひとりが安心して挑戦できるよう、全力でサポートいたします。一方で、自然の中での活動には予測できないリスクも伴います。万が一に備えて旅行保険に加入いたしますが、保険の補償範囲を超える責任は負いかねます。不測の事態等リスクはゼロにはできないことをご理解いただき、お互いに協力しながら安全な旅をつくっていければ幸いです。</li>
+            </ul>
+            <p style={{marginTop: "14px"}}><b>【キャンセルについて】</b><br />
+              開催8日前まで：参加費の50％<br />
+              開催7日前〜当日：参加費の100％</p>
+            <p style={{marginTop: "10px"}}>※事前準備のため、ご理解とご協力をお願いいたします。</p>
+          </div>
+        </details>
+      </div>
+
+      <div className="card">
+        <h3>参加費用</h3>
+        <div className="price">100,000<small> 円（税込）</small></div>
+        <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
+        <div className="disc">
+          <b>早期割引</b>｜2026/8/10（月）までの申し込み＆一括入金で <b>12,000円引き</b><br />
+          <b>家族割引</b>｜小学3年生以上2人目以降は、1人につき66,000円以上のドネーション制<br />
+          <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
+        </div>
+        <h3 style={{marginTop: "30px"}}>お申し込みの流れ</h3>
+        <dl className="def">
+          <dt>STEP 1</dt><dd>申し込みフォームに必要事項（住所・氏名・性別・生年月日・電話番号 ※保険のため）を記入して送信</dd>
+          <dt>STEP 2</dt><dd>送信完了後、3営業日以内にお振り込み</dd>
+          <dt>STEP 3</dt><dd>確認メールを送信。申込みが重なった場合は先着順</dd>
+        </dl>
+        <a className="btn btn-shu apply-btn" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">申し込みフォームへ進む</a>
+        <p className="c-note">ご相談はお気軽に。特に本人からの連絡をお待ちしています。<br />
+          らんぼう携帯：<a href="tel:09075188816">090-7518-8816</a> ／ <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a>
         </p>
-      </footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* ============ CTA ============ */}
+<section className="cta">
+  <div className="wrap reveal">
+    <span className="tag center" style={{color: "#f3c9b8"}}>JOIN THE JOURNEY</span>
+    <h2 className="h2">1000年の祈りの道を、<br /><em className="nb">自分の足</em>で歩く5日間。</h2>
+    <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp">先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
+    <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">2026年10月23日の旅に申し込む</a>
+    <div><div className="seal">同行二人</div></div>
+    <p className="contact">
+      お問い合わせ：らんぼう（あーすガイド）　
+      <a href="tel:09075188816">090-7518-8816</a>　／　
+      <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a>
+    </p>
+  </div>
+</section>
+
+{/* ============ FOOTER ============ */}
+<footer>
+  <div className="wrap">
+    <div className="fb">
+      <b>あーすガイド ／ 旅する学校</b><br />
+      明日の明るい地球をガイドする。徳島県神山町を拠点に、オルタナティブ教育や暮らしの案内、ガイド・企業研修・上映会・講演・旅する学校を主宰。
+    </div>
+    <div className="sns">
+      <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener">あーすガイド公式サイト（SNS・リンク集）→</a>
+    </div>
+    <p className="copy">© あーすガイド ｜ 歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）</p>
+  </div>
+</footer>
+
+<a className="btn btn-shu float-cta" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">申し込む →</a>
+
+
     </div>
   );
 }
