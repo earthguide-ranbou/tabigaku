@@ -40,8 +40,8 @@ export default function HenroShinsoku() {
   <div className="herokv"><img src={ASSET + "kv-hero.jpg"} alt="歩きお遍路ジャーニー ― 今、話題の「江戸走り（神足歩行術）」を“歩いて”体感する遍路旅" /></div>
   <div className="hero-inner">
     <span className="hero-badge">2026 秋 ・ 徳島 発心の道場 ・ 残り10名</span>
-    <h1>白衣をまとい、<br className="br-sp">江戸の歩法で<br className="br-sp">1000年の祈りの道を<em className="nb">行く。</em></h1>
-    <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp">―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
+    <h1>白衣をまとい、<br className="br-sp" />江戸の歩法で<br className="br-sp" />1000年の祈りの道を<em className="nb">行く。</em></h1>
+    <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
       <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
       <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
@@ -69,10 +69,10 @@ export default function HenroShinsoku() {
     <p className="concept-quote">「100年後の未来に<br /><em className="nb">江戸時代の歩法</em>を繋ぎたい」</p>
     <p className="lead-p">
       かつて江戸の人々が、そうやって旅したであろう道。<br />
-      徳島県＝「発心の道場」と呼ばれる歩き遍路の道を、<br className="br-pc">
+      徳島県＝「発心の道場」と呼ばれる歩き遍路の道を、<br className="br-pc" />
       古来から伝わる身体技法で巡礼してみませんか。<br /><br />
       大人も子どもも、一緒に歩く5日間。<br />
-      新しい世界に出逢い、自分の枠を越えて、<br className="br-pc">
+      新しい世界に出逢い、自分の枠を越えて、<br className="br-pc" />
       可能性を広げる旅です。
     </p>
     <div className="seal">発心の道場</div>
@@ -105,11 +105,11 @@ export default function HenroShinsoku() {
       <p className="body">
         案内人は、「旅する学校」主宰・<b>らんぼう</b>。<br />
         地球一周、砂漠1000km走破、オルタナティブスクール創設。<br />
-        その道のりの先で、延べ100人以上の子どもたちと、<br className="br-pc">
+        その道のりの先で、延べ100人以上の子どもたちと、<br className="br-pc" />
         500km以上のお遍路を歩いてきました。
       </p>
       <p className="body">
-        今回ご一緒するのは、江戸時代の走法「神足歩行術」の研究者として、<br className="br-pc">
+        今回ご一緒するのは、江戸時代の走法「神足歩行術」の研究者として、<br className="br-pc" />
         いま全国的に注目を集める<b className="nb">大場克則</b><span className="nb">さん。</span><br />
         2013年、初挑戦の100kmマラソンで途中棄権。<br />
         そこから「長距離を壊れずに進める身体の使い方」の探究が始まりました。
@@ -144,7 +144,7 @@ export default function HenroShinsoku() {
       </p>
       <p className="body">
         現在は「江戸時代の走り方で江戸から京都（約500km）を3日で走る」実証実験にも挑戦中。<br />
-        この旅では、その神足歩行術を<b>“歩いて”体感</b>しながら、<br className="br-pc">
+        この旅では、その神足歩行術を<b>“歩いて”体感</b>しながら、<br className="br-pc" />
         お遍路道を進みます。
       </p>
       <div className="metrics">
@@ -166,7 +166,7 @@ export default function HenroShinsoku() {
 <section>
   <div className="wrap reveal">
     <span className="tag">ROUTE ― 歩く道</span>
-    <h2 className="h2">神山から太龍寺へ、<br className="br-sp"><em className="nb">約70km</em>の巡礼路。</h2>
+    <h2 className="h2">神山から太龍寺へ、<br className="br-sp" /><em className="nb">約70km</em>の巡礼路。</h2>
     <div className="route-wrap">
       <div>
         <div className="route-line">
@@ -247,10 +247,10 @@ export default function HenroShinsoku() {
 <section className="settai">
   <div className="wrap reveal">
     <span className="tag center">OSETTAI ― お接待</span>
-    <h2 className="h2">「お接待」という、<br className="br-sp"><em className="nb">1000年の優しさ。</em></h2>
+    <h2 className="h2">「お接待」という、<br className="br-sp" /><em className="nb">1000年の優しさ。</em></h2>
     <p className="lead-p">
       お遍路は、平安時代に空海が拓いた四国88ヶ所の巡礼の旅。<br />
-      実際に歩いてみると、何万人もの人がそれぞれの祈りを胸に<br className="br-pc">
+      実際に歩いてみると、何万人もの人がそれぞれの祈りを胸に<br className="br-pc" />
       この道を歩いてきたことを実感します。
     </p>
     <div className="settai-fig">
@@ -259,7 +259,7 @@ export default function HenroShinsoku() {
     <p className="settai-em">
       ヘトヘトなときに差し出される、お茶やおむすび。<br />
       遍路小屋を整備する人、道を守る人、交流ノートを残す人。<br />
-      <em>人は一人では生きられない</em> ―<br className="br-sp">
+      <em>人は一人では生きられない</em> ―<br className="br-sp" />
       1000年以上この文化が続いてきた理由が、ここにあります。
     </p>
   </div>
@@ -400,7 +400,7 @@ export default function HenroShinsoku() {
   <div className="wrap reveal">
     <span className="tag center" style={{color: "#f3c9b8"}}>JOIN THE JOURNEY</span>
     <h2 className="h2">1000年の祈りの道を、<br /><em className="nb">自分の足</em>で歩く5日間。</h2>
-    <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp">先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
+    <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp" />先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
     <a className="btn btn-shu" href="https://note.com/shiftdaigaku/n/n41c54ea46e73" target="_blank" rel="noopener">2026年10月23日の旅に申し込む</a>
     <div><div className="seal">同行二人</div></div>
     <p className="contact">
