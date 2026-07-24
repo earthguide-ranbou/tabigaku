@@ -264,32 +264,6 @@ export default function Henro() {
         </div>
       </section>
 
-      {/* ===== PARENT VOICE ===== */}
-      <section className="henro-section henro-voice">
-        <div className="henro-section-inner">
-          <p className="henro-section-label reveal">PARENT'S VOICE</p>
-          <h2 className="reveal">参加した保護者の声</h2>
-          <div className="henro-voice-cards">
-            <div className="henro-voice-card reveal">
-              <p className="henro-voice-text">
-                「帰ってきた息子の目が、まるで別人のように輝いていました。
-                『お母さん、僕ってすごいんだよ』って。
-                あの自信に満ちた笑顔は、一生忘れません。」
-              </p>
-              <span className="henro-voice-from">— 小5男子の母</span>
-            </div>
-            <div className="henro-voice-card reveal">
-              <p className="henro-voice-text">
-                「娘は人見知りで心配でしたが、
-                仲間と助け合う中で、自分から声をかけられる子に変わりました。
-                お遍路が教えてくれたのは、人を信じる力でした。」
-              </p>
-              <span className="henro-voice-from">— 小4女子の母</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ===== WHY WE WALK ===== */}
       <section className="henro-section henro-why">
         <div className="henro-section-inner">

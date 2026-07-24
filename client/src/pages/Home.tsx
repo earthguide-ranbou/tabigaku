@@ -111,107 +111,50 @@ const journeys = [
 // 高さは常に現在の画像で確定するため、下のセクションが透けることがない。
 function PhotoSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [dragging, setDragging] = useState(false);
-  const [dragStartX, setDragStartX] = useState(0);
-  const [dragDeltaX, setDragDeltaX] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [touchStartX, setTouchStartX] = useState(0);
   const total = SLIDESHOW_IMAGES.length;
 
   const goTo = useCallback((index: number) => {
-    const clamped = Math.max(0, Math.min(total - 1, index));
-    setCurrent(clamped);
+    setCurrent(Math.max(0, Math.min(total - 1, index)));
   }, [total]);
 
-  // タッチ開始
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    setDragStartX(e.touches[0].clientX);
-    setDragDeltaX(0);
-    setDragging(true);
+    setTouchStartX(e.touches[0].clientX);
   }, []);
 
-  // タッチ移動
-  const handleTouchMove = useCallback((e: React.TouchEvent) => {
-    if (!dragging) return;
-    setDragDeltaX(e.touches[0].clientX - dragStartX);
-  }, [dragging, dragStartX]);
-
-  // タッチ終了
-  const handleTouchEnd = useCallback(() => {
-    if (!dragging) return;
-    setDragging(false);
-    const threshold = 50;
-    if (dragDeltaX < -threshold && current < total - 1) {
-      goTo(current + 1);
-    } else if (dragDeltaX > threshold && current > 0) {
-      goTo(current - 1);
-    }
-    setDragDeltaX(0);
-  }, [dragging, dragDeltaX, current, total, goTo]);
-
-  // マウスドラッグ（PC対応）
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    setDragStartX(e.clientX);
-    setDragDeltaX(0);
-    setDragging(true);
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!dragging) return;
-    setDragDeltaX(e.clientX - dragStartX);
-  }, [dragging, dragStartX]);
-
-  const handleMouseUp = useCallback(() => {
-    if (!dragging) return;
-    setDragging(false);
-    const threshold = 50;
-    if (dragDeltaX < -threshold && current < total - 1) {
-      goTo(current + 1);
-    } else if (dragDeltaX > threshold && current > 0) {
-      goTo(current - 1);
-    }
-    setDragDeltaX(0);
-  }, [dragging, dragDeltaX, current, total, goTo]);
-
-  // コンテナ幅を取得してtranslateXを計算
-  const containerWidth = containerRef.current?.offsetWidth ?? 0;
-  const baseTranslate = -current * 100; // %
-  // ドラッグ中はピクセルオフセットを追加
-  const dragOffset = containerWidth > 0 ? (dragDeltaX / containerWidth) * 100 : 0;
-  const translateX = baseTranslate + dragOffset;
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (delta < -50 && current < total - 1) goTo(current + 1);
+    else if (delta > 50 && current > 0) goTo(current - 1);
+  }, [touchStartX, current, total, goTo]);
 
   return (
     <div
-      ref={containerRef}
-      className="relative w-full overflow-hidden select-none cursor-grab active:cursor-grabbing"
+      className="relative w-full overflow-hidden select-none"
+      style={{ aspectRatio: "4/3" }}
       onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
     >
-      {/* 全画像を横に並べたストリップ */}
-      <div
-        className="flex"
-        style={{
-          transform: `translateX(${translateX}%)`,
-          transition: dragging ? "none" : "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)",
-          willChange: "transform",
-        }}
-      >
-        {SLIDESHOW_IMAGES.map((img, i) => (
-          <div key={i} className="flex-shrink-0 w-full">
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-auto block"
-              draggable={false}
-              style={{ maxHeight: "88vh", objectFit: "contain", margin: "0 auto" }}
-            />
-          </div>
-        ))}
-      </div>
+      {/* クロスフェード: 全画像をabsoluteで重ね、activeのみopacity:1 */}
+      {SLIDESHOW_IMAGES.map((img, i) => (
+        <div
+          key={i}
+          className="absolute inset-0"
+          style={{
+            opacity: i === current ? 1 : 0,
+            transition: "opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
+            zIndex: i === current ? 1 : 0,
+          }}
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            className="w-full h-full object-cover block"
+            draggable={false}
+            loading={i === 0 ? "eager" : "lazy"}
+          />
+        </div>
+      ))}
 
       {/* ドットインジケーター */}
       <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10 pointer-events-none">
@@ -226,6 +169,18 @@ function PhotoSlideshow() {
           />
         ))}
       </div>
+
+      {/* 左右タップ領域 */}
+      <button
+        className="absolute left-0 top-0 h-full w-1/3 z-10 opacity-0"
+        onClick={() => goTo(current - 1)}
+        aria-label="前の写真"
+      />
+      <button
+        className="absolute right-0 top-0 h-full w-1/3 z-10 opacity-0"
+        onClick={() => goTo(current + 1)}
+        aria-label="次の写真"
+      />
 
       {/* カウンター */}
       <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
