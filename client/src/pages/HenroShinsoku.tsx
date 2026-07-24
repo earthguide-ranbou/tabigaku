@@ -6,7 +6,70 @@ const ASSET = "https://rpcr7nolzs3aq.kimi.page/";
 export default function HenroShinsoku() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）";
+    document.title = "歩きお遍路ジャーニー 神足歩行術で行く発心の道場5日間｜2026年10月23日-27日 徳島";
+
+    // ===== SEO / OGP =====
+    const setMeta = (attr: string, key: string, content: string) => {
+      let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    const TITLE = "歩きお遍路ジャーニー 神足歩行術で行く発心の道場5日間｜2026年10月 徳島";
+    const DESC = "2026年10月23日〜27日、徳島・発心の道場を約70km歩く5日間の巡礼旅。話題の「江戸走り（神足歩行術）」研究者・大場克則と、旅する学校主宰・らんぼうが案内。先祖供養・祈りの作法・お接待の文化に触れ、自分の枠を越える。定員10名。";
+    const URL = "https://tabigaku.party/henro-shinsoku";
+    const IMG = "https://tabigaku.party/ogp-henro.jpg";
+    setMeta("name", "description", DESC);
+    setMeta("name", "keywords", "お遍路,歩きお遍路,神足歩行術,江戸走り,発心の道場,四国遍路,徳島,大日寺,太龍寺,巡礼,旅育,旅する学校,あーすガイド,大場克則,らんぼう");
+    setMeta("property", "og:title", TITLE);
+    setMeta("property", "og:description", DESC);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:url", URL);
+    setMeta("property", "og:image", IMG);
+    setMeta("property", "og:image:width", "1200");
+    setMeta("property", "og:image:height", "630");
+    setMeta("property", "og:site_name", "旅する学校（徳島・神山）");
+    setMeta("property", "og:locale", "ja_JP");
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", TITLE);
+    setMeta("name", "twitter:description", DESC);
+    setMeta("name", "twitter:image", IMG);
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute("href", URL);
+
+    // ===== 構造化データ（イベント）=====
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
+      "description": DESC,
+      "startDate": "2026-10-23T12:00:00+09:00",
+      "endDate": "2026-10-27T15:00:00+09:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "image": [IMG],
+      "location": {
+        "@type": "Place",
+        "name": "発心の道場（徳島県）",
+        "address": { "@type": "PostalAddress", "addressRegion": "徳島県", "addressCountry": "JP" }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "あーすガイド／旅する学校",
+        "url": "https://tabigaku.party/"
+      }
+    });
+    document.head.appendChild(ld);
 
     // Google Fonts
     const link = document.createElement("link");
