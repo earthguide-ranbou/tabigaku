@@ -10,6 +10,7 @@ import Guide from "./pages/Guide";
 import Sponsor from "./pages/Sponsor";
 import Thai from "./pages/Thai";
 import Henro from "./pages/Henro";
+import HenroShinsoku from "./pages/HenroShinsoku";
 import { useEffect } from "react";
 
 
@@ -35,6 +36,7 @@ function Router() {
       <Route path={"/sponsor"} component={Sponsor} />
       <Route path={"/thai"} component={Thai} />
       <Route path={"/henro"} component={Henro} />
+      <Route path={"/henro-shinsoku"} component={HenroShinsoku} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

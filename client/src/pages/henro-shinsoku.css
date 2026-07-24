@@ -1,0 +1,313 @@
+/* ==========================================
+   歩きお遍路ジャーニー 神足歩行術ページ
+   Font: Noto Serif JP / Noto Sans JP
+   Primary: #e67e22 / BG dark: #2d3a2e
+   ========================================== */
+
+.hs-page {
+  --hs-primary: #e67e22;
+  --hs-primary-dark: #c9691a;
+  --hs-dark: #2d3a2e;
+  --hs-dark-2: #243026;
+  --hs-cream: #f5efe0;
+  --hs-cream-2: #ede4cd;
+  --hs-text: #33342c;
+  --hs-muted: #6b6a5e;
+
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--hs-text);
+  background: var(--hs-cream);
+  line-height: 2;
+}
+
+.hs-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* ---------- ボタン ---------- */
+.hs-btn {
+  display: inline-block;
+  background: var(--hs-primary);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
+}
+.hs-btn:hover {
+  background: var(--hs-primary-dark);
+  transform: translateY(-2px);
+}
+.hs-btn--small { padding: 9px 20px; font-size: 13px; }
+.hs-btn--large { padding: 18px 48px; font-size: 16px; }
+
+/* ---------- ヘッダー ---------- */
+.hs-header {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 22px;
+}
+.hs-header__brand {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+}
+.hs-header__brand span {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: #f0dcc8;
+  font-weight: 500;
+}
+
+/* ---------- ヒーロー ---------- */
+.hs-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+}
+.hs-hero__image { position: absolute; inset: 0; }
+.hs-hero__overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(36, 48, 38, 0.55),
+    rgba(36, 48, 38, 0.25) 40%,
+    rgba(36, 48, 38, 0.9) 96%
+  );
+}
+.hs-hero__content {
+  position: relative;
+  z-index: 2;
+  padding: 0 6vw 72px;
+  max-width: 900px;
+}
+.hs-hero__badge {
+  display: inline-block;
+  background: var(--hs-primary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  padding: 8px 18px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.hs-hero__title {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(30px, 6.5vw, 58px);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+}
+.hs-hero__subtitle {
+  display: block;
+  margin-top: 14px;
+  font-size: clamp(14px, 2.6vw, 20px);
+  font-weight: 600;
+  color: #f3e3cf;
+}
+.hs-hero__meta { margin-top: 24px; }
+.hs-hero__date {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(19px, 3.6vw, 26px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.hs-hero__date b { color: #f5c689; font-size: 0.66em; letter-spacing: 0.2em; }
+.hs-hero__target { font-size: 13px; color: #e9e2d2; margin-top: 6px; letter-spacing: 0.08em; }
+.hs-hero__content .hs-btn { margin-top: 30px; }
+
+/* ---------- プレースホルダー画像 ---------- */
+.hs-placeholder {
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 14px, transparent 14px 28px),
+    linear-gradient(150deg, #4a5d43, var(--hs-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(245, 239, 224, 0.75);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  border-radius: 6px;
+  min-height: 260px;
+  text-align: center;
+  padding: 20px;
+}
+.hs-placeholder--tall { min-height: 380px; }
+.hs-placeholder--portrait { min-height: 420px; aspect-ratio: 3 / 4; }
+
+/* ---------- セクション共通 ---------- */
+.hs-section { padding: clamp(64px, 10vw, 110px) 0; }
+.hs-section--dark { background: var(--hs-dark); color: var(--hs-cream); }
+.hs-section--green {
+  background: linear-gradient(180deg, #35432f, var(--hs-dark-2));
+  color: var(--hs-cream);
+}
+.hs-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--hs-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hs-label::before {
+  content: "";
+  width: 34px; height: 1px;
+  background: var(--hs-primary);
+}
+.hs-heading {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 14px 0 26px;
+  line-height: 1.5;
+}
+.hs-heading--light { color: #fff; text-align: center; }
+.hs-text { font-size: 15px; margin-top: 16px; text-wrap: pretty; }
+.hs-text b { color: var(--hs-primary); }
+.hs-text--center { text-align: center; }
+.hs-section--dark .hs-text,
+.hs-section--green .hs-text { color: #ddd6c2; }
+.hs-section--dark .hs-text b,
+.hs-section--green .hs-text b { color: #f5c689; }
+
+/* ---------- 2カラム ---------- */
+.hs-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+}
+
+/* ---------- タイムライン ---------- */
+.hs-timeline { margin-top: 44px; }
+.hs-day {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 22px;
+  padding: 26px 0;
+  border-top: 1px solid rgba(245, 239, 224, 0.18);
+}
+.hs-day:last-child { border-bottom: 1px solid rgba(245, 239, 224, 0.18); }
+.hs-day__num {
+  font-family: "Noto Serif JP", serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--hs-primary);
+}
+.hs-day__date { display: block; font-size: 12px; color: #b9b09a; margin-top: 2px; }
+.hs-day__body h3 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+.hs-day__body p { font-size: 14px; color: #d5cdb6; margin-top: 8px; }
+
+/* ---------- 概要カード ---------- */
+.hs-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+  align-items: start;
+}
+.hs-card {
+  background: #fffdf6;
+  border: 1px solid var(--hs-cream-2);
+  border-radius: 6px;
+  padding: clamp(24px, 4vw, 34px);
+  box-shadow: 0 12px 34px rgba(60, 50, 30, 0.1);
+}
+.hs-card__title {
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  letter-spacing: 0.14em;
+  color: var(--hs-primary);
+  border-bottom: 2px solid var(--hs-primary);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+.hs-card__title--mt { margin-top: 28px; }
+.hs-def {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  row-gap: 13px;
+  font-size: 13.5px;
+}
+.hs-def dt { font-weight: 700; color: var(--hs-dark); letter-spacing: 0.06em; }
+.hs-def dd { color: #55534a; line-height: 2; }
+.hs-price {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(34px, 7vw, 44px);
+  font-weight: 800;
+  color: var(--hs-primary);
+}
+.hs-price span { font-size: 14px; font-weight: 500; color: var(--hs-muted); }
+.hs-note { font-size: 12.5px; color: var(--hs-muted); margin-top: 8px; }
+.hs-list { padding-left: 18px; font-size: 13.5px; color: #55534a; }
+.hs-list li { margin-top: 6px; }
+.hs-list--light { color: #d5cdb6; }
+
+/* ---------- 案内人 ---------- */
+.hs-guide {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(26px, 4vw, 46px);
+  align-items: start;
+  margin-top: 30px;
+}
+.hs-guide__role { font-size: 11px; letter-spacing: 0.28em; color: var(--hs-primary); font-weight: 700; }
+.hs-guide__name {
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(22px, 4.6vw, 28px);
+  color: #fff;
+  margin: 8px 0 4px;
+}
+.hs-guide__name small { font-size: 13px; color: #b9b09a; font-weight: 400; margin-left: 10px; }
+
+/* ---------- CTA ---------- */
+.hs-cta {
+  background: var(--hs-dark-2);
+  color: var(--hs-cream);
+  padding: clamp(70px, 11vw, 120px) 0;
+  text-align: center;
+}
+.hs-cta__inner .hs-btn { margin-top: 32px; }
+.hs-contact { margin-top: 30px; font-size: 12.5px; color: #b9b09a; }
+
+/* ---------- フッター ---------- */
+.hs-footer {
+  background: #1c241d;
+  color: #8b8f80;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 36px 20px;
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 820px) {
+  .hs-cols,
+  .hs-info-grid { grid-template-columns: 1fr; }
+  .hs-cols--rev .hs-placeholder { order: -1; }
+  .hs-guide { grid-template-columns: 1fr; }
+  .hs-placeholder--portrait { max-width: 320px; margin: 0 auto; }
+  .hs-day { grid-template-columns: 1fr; gap: 8px; }
+}
