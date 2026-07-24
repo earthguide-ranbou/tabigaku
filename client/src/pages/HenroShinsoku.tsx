@@ -42,7 +42,7 @@ export default function HenroShinsoku() {
           "priceCurrency": "JPY",
           "availability": "https://schema.org/LimitedAvailability",
           "validFrom": "2026-07-01",
-          "url": "https://1lejend.com/stepmail/kd.php?no=fdAfky"
+          "url": "https://share.google/tvcyQIuEC1A0Sl5UK"
         },
         "image": "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
         "url": "https://tabigaku.party/henro-shinsoku"
@@ -100,7 +100,7 @@ export default function HenroShinsoku() {
       <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
     </div>
     <div className="hero-btns">
-      <a className="btn btn-shu" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">参加申し込みはこちら</a>
+      <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">参加申し込みはこちら</a>
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
@@ -324,7 +324,7 @@ export default function HenroShinsoku() {
     <span className="tag center">LIMITED ― 残席</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
     <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
-    <a className="btn btn-shu" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">空席を確認して申し込む</a>
+    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">空席を確認して申し込む</a>
   </div>
 </section>
 
@@ -439,7 +439,7 @@ export default function HenroShinsoku() {
           <dt>STEP 2</dt><dd>送信完了後、3営業日以内にお振り込み</dd>
           <dt>STEP 3</dt><dd>確認メールを送信。申込みが重なった場合は先着順</dd>
         </dl>
-        <a className="btn btn-shu apply-btn" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">申し込みフォームへ進む</a>
+        <a className="btn btn-shu apply-btn" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込みフォームへ進む</a>
         <p className="c-note">ご相談はお気軽に。特に本人からの連絡をお待ちしています。<br />
           らんぼう携帯：<a href="tel:09075188816">090-7518-8816</a> ／ <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a>
         </p>
@@ -454,7 +454,7 @@ export default function HenroShinsoku() {
     <span className="tag center" style={{color: "#f3c9b8"}}>JOIN THE JOURNEY</span>
     <h2 className="h2">1000年の祈りの道を、<br /><em className="nb">自分の足</em>で歩く5日間。</h2>
     <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp" />先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
-    <a className="btn btn-shu" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">2026年10月23日の旅に申し込む</a>
+    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">2026年10月23日の旅に申し込む</a>
     <div><div className="seal">同行二人</div></div>
     <p className="contact">
       お問い合わせ：らんぼう（あーすガイド）　
@@ -478,7 +478,7 @@ export default function HenroShinsoku() {
   </div>
 </footer>
 
-<a className="btn btn-shu float-cta" href="https://1lejend.com/stepmail/kd.php?no=fdAfky" target="_blank" rel="noopener">申し込む →</a>
+<a className="btn btn-shu float-cta" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む →</a>
 
 
     </div>
