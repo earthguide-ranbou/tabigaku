@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "./henro-shinsoku.css";
 import { useSEO } from "@/hooks/useSEO";
 
-const ASSET = "https://rpcr7nolzs3aq.kimi.page/";
+const ASSET = "/henro-assets/";
 
 export default function HenroShinsoku() {
   useSEO({
