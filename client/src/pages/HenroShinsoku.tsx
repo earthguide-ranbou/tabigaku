@@ -7,7 +7,7 @@ const ASSET = "/henro-assets/";
 export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
-    description: "2026年10月23日〜27日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。小学3年生〜65歳対象。早割8/10まで。",
+    description: "2026年10月23日〜27日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。早割9/10（木）まで。",
     keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 子ども お遍路, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
@@ -92,15 +92,17 @@ export default function HenroShinsoku() {
 <section className="hero">
   <div className="herokv"><img src={ASSET + "kv-hero.jpg"} alt="歩きお遍路ジャーニー ― 今、話題の「江戸走り（神足歩行術）」を“歩いて”体感する遍路旅" /></div>
   <div className="hero-inner">
-    <span className="hero-badge">2026 秋 ・ 徳島 発心の道場 ・ 残り10名</span>
+    <span className="hero-badge">2026 秋 ・ 徳島 発心の道場 ・ 定員10名の少人数開催</span>
     <h1>白衣をまとい、<br className="br-sp" />江戸の歩法で<br className="br-sp" />1000年の祈りの道を<em className="nb">行く。</em></h1>
     <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
       <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
-      <div className="hero-cap">定員10名 ｜ 小学3年生〜65歳</div>
+      <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
+    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>早期割引 12,000円OFF ｜ 2026年9月10日（木）まで</div>
     <div className="hero-btns">
       <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">参加申し込みはこちら</a>
+      <a className="btn btn-ink" href="tel:09075188816" style={{padding: "17px 40px", fontSize: "14.5px"}}>まず電話で相談</a>
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
@@ -325,6 +327,7 @@ export default function HenroShinsoku() {
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
     <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
     <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む</a>
+    <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話 090-7518-8816</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
 </section>
 
@@ -373,6 +376,44 @@ export default function HenroShinsoku() {
   </div>
 </section>
 
+{/* ============ FAQ ============ */}
+<section>
+  <div className="wrap reveal">
+    <span className="tag center">FAQ</span>
+    <h2 className="h2">よくある<em>ご質問。</em></h2>
+    <div className="card" style={{maxWidth: "860px", margin: "34px auto 0"}}>
+      <details>
+        <summary>お遍路も長距離歩行も初めてです。ついていけますか？</summary>
+        <div className="inner"><p>はい。神足歩行術は、江戸時代の飛脚が実践した「からだに負担をかけずに長距離を歩く」身体技法です。旅の中で大場克則さんから直接学びながら進みます。大場さんとらんぼうが全行程に伴走し、安全を最優先にペースや行程を調整しますので、歩く経験より「やる気とあきらめない気持ち」を持ってきてください。</p></div>
+      </details>
+      <details>
+        <summary>どのくらいの距離を歩きますか？</summary>
+        <div className="inner"><p>5日間で約70kmです。神山町・染昌を出発し、13番札所・大日寺を経て、21番札所・太龍寺（四国霊場随一の難所）を目指します。1日あたり十数km。荷物はサポートカーに預けられるので、歩くときはリュック一つです。</p></div>
+      </details>
+      <details>
+        <summary>宿泊はどうなりますか？</summary>
+        <div className="inner"><p>テント泊が基本です（寝袋・マット・テントは持参。車に預けて運べます）。宿を各自で手配される場合はテントは不要です。どちらを選ぶか含め、メンバー確定後のLINEグループで相談できます。</p></div>
+      </details>
+      <details>
+        <summary>食事はついていますか？</summary>
+        <div className="inner"><p>食事は、自炊や地元のお店など、その土地ならではの楽しみを大切にしながら、参加者みんなで相談して決めていきます。自炊の道具や食材の持ち物リストは開催概要に記載しています。費用は実費（20,000〜30,000円前後・ケータリング・温泉・宿など含む）に含まれます。</p></div>
+      </details>
+      <details>
+        <summary>子どもの参加・親子での参加はできますか？</summary>
+        <div className="inner"><p>2026年度に満10歳になる方から65歳まで参加できます。親子やご家族での参加には「家族割引」があり、2人目以降は1人につき66,000円以上のドネーション制（ご家庭の事情に合わせて金額を決めていただく仕組み）です。</p></div>
+      </details>
+      <details>
+        <summary>キャンセルした場合は？</summary>
+        <div className="inner"><p>開催8日前までは参加費の50％、開催7日前〜当日は100％のキャンセル料となります。事前準備のため、ご理解とご協力をお願いいたします。</p></div>
+      </details>
+      <details>
+        <summary>申し込む前に相談したいのですが。</summary>
+        <div className="inner"><p>もちろんです。「参加したい本人からの連絡」を特にお待ちしています。らんぼう携帯 <a href="tel:09075188816">090-7518-8816</a> ／ メール <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a> までお気軽にどうぞ。</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
 {/* ============ INFO ============ */}
 <section style={{background: "var(--washi2)", borderBlock: "1px solid var(--line)"}}>
   <div className="wrap reveal">
@@ -390,7 +431,7 @@ export default function HenroShinsoku() {
           <dt>解散</dt><dd>10/27（火）15:00頃（必要な方は徳島駅まで送迎）</dd>
           <dt>行程</dt><dd>染昌（神山町）→ 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
           <dt>定員</dt><dd>10名（先着順）</dd>
-          <dt>参加資格</dt><dd>小学3年生〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
+          <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
           <dt>保険</dt><dd>メンバー全員、傷害保険に加入します</dd>
         </dl>
         <details>
@@ -430,7 +471,7 @@ export default function HenroShinsoku() {
         <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
           <b>早期割引</b>｜2026/9/10（木）までの申し込み＆一括入金で <b>12,000円引き</b><br />
-          <b>家族割引</b>｜小学3年生以上2人目以降は、1人につき66,000円以上のドネーション制<br />
+          <b>家族割引</b>｜2人目以降（2026年度に満10歳以上の方）は、1人につき66,000円以上のドネーション制<br />
           <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
         </div>
         <h3 style={{marginTop: "30px"}}>お申し込みの流れ</h3>

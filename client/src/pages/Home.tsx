@@ -250,6 +250,13 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 overflow-x-hidden">
       <Navigation />
 
+      {/* ── 秋編募集バナー ── */}
+      <Link href="/henro-shinsoku">
+        <div className="block w-full text-center text-white cursor-pointer" style={{background: "linear-gradient(90deg,#b3492f,#d65a3a)", padding: "10px 16px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.6}}>
+          【募集中】歩きお遍路ジャーニー秋編 2026.10.23-27 ・ 定員10名 ・ <span style={{textDecoration: "underline", textUnderlineOffset: "3px"}}>早割9/10（木）まで 詳しくはこちら →</span>
+        </div>
+      </Link>
+
       {/* ── Hero — チラシデザインをベースに ── */}
       <div
         ref={heroRef}
