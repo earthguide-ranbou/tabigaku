@@ -53,7 +53,7 @@ const journeys = [
     title: "地球家族ジャーニー",
     subtitle: "〜祝島から神山へ 魂が震え、命が喜ぶ旅〜",
     description: "祝島から神山へ。魂が震え、命が喜ぶ旅。家族で参加できる特別な夏の体験。途中参加も歓迎。",
-    href: "/earth-family",
+    href: "https://tsu7tzkcozwmm.kimi.page/",
   },
   {
     id: 2,
@@ -251,11 +251,11 @@ export default function Home() {
       <Navigation />
 
       {/* ── 秋編募集バナー ── */}
-      <Link href="/earth-family">
+      <a href="https://tsu7tzkcozwmm.kimi.page/" target="_blank" rel="noopener">
         <div className="block w-full text-center text-white cursor-pointer" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.6}}>
           【最優先・募集中】地球家族ジャーニー 8/5(水)-14(金) 祝島→神山 ・ 少人数10名ほど ・ <span style={{textDecoration: "underline", textUnderlineOffset: "3px"}}>詳しくはこちら →</span>
         </div>
-      </Link>
+      </a>
 
       {/* ── Hero — チラシデザインをベースに ── */}
       <div
