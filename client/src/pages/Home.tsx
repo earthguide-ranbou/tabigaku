@@ -130,7 +130,7 @@ function PhotoSlideshow() {
 
   return (
     <div
-      className="relative w-full overflow-hidden select-none"
+      className="relative w-full overflow-hidden select-none page-enter"
       style={{ aspectRatio: "4/3" }}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -250,10 +250,11 @@ export default function Home() {
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20 overflow-x-hidden">
       <Navigation />
 
-      {/* ── 秋編募集バナー ── */}
+
+      {/* ── 募集バナー ── */}
       <a href="https://tsu7tzkcozwmm.kimi.page/" target="_blank" rel="noopener">
         <div className="block w-full text-center text-white cursor-pointer" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.6}}>
-          【最優先・募集中】地球家族ジャーニー 8/5(水)-14(金) 祝島→神山 ・ 少人数10名ほど ・ <span style={{textDecoration: "underline", textUnderlineOffset: "3px"}}>詳しくはこちら →</span>
+          【募集中】地球家族ジャーニー 8/5(水)-14(金) 祝島→神山 ・ 少人数10名ほど ・ <span style={{textDecoration: "underline", textUnderlineOffset: "3px"}}>詳しくはこちら →</span>
         </div>
       </a>
 
