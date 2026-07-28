@@ -39,10 +39,11 @@ export default function Juku() {
         .juku { background:#faf7f2; color:#2b2620; font-family:inherit; }
         .juku-reveal { opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
         .juku-reveal.in { opacity:1; transform:none; }
-        .juku-hero { position:relative; min-height:75vh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
-        .juku-hero img.bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-        .juku-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.25) 100%); }
-        .juku-hero .inner { position:relative; z-index:2; text-align:center; color:#fff; padding:0 20px 64px; max-width:860px; }
+        .juku-hero2 { background:#123c32; }
+        .juku-hero2 .flyer { display:block; width:100%; max-width:1100px; margin:0 auto; height:auto; }
+        .juku-hero2 .cta-band { background:#123c32; text-align:center; padding:26px 20px 40px; }
+        .juku-hero2 .cta-band .inner { max-width:860px; margin:0 auto; color:#fff; }
+        .juku-hero2 .period { font-size:clamp(13px,2.2vw,15.5px); font-weight:700; color:rgba(255,255,255,.85); margin:0 0 16px; }
         .juku-kicker { display:inline-block; background:#d65a3a; color:#fff; font-weight:800; font-size:12.5px; letter-spacing:.12em; border-radius:999px; padding:7px 18px; margin-bottom:18px; }
         .juku-h1 { font-size:clamp(28px,6vw,52px); font-weight:900; line-height:1.35; margin:0 0 14px; text-shadow:0 2px 24px rgba(0,0,0,.4); }
         .juku-h1 .accent { color:#ffd94d; }
@@ -92,6 +93,14 @@ export default function Juku() {
         .juku-faq summary { cursor:pointer; font-weight:800; font-size:14.5px; padding:16px 18px; list-style:none; }
         .juku-faq summary::before { content:"Q. "; color:#d65a3a; }
         .juku-faq .a { padding:0 18px 16px; font-size:13.5px; line-height:2; color:#6b6357; }
+        .juku-profile { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(24px,4vw,44px); background:#fff; border-radius:24px; padding:clamp(26px,5vw,44px); box-shadow:0 10px 36px rgba(0,0,0,.07); border:1px solid #f0eade; }
+        .juku-profile img { width:clamp(160px,30vw,230px); height:clamp(160px,30vw,230px); object-fit:cover; border-radius:50%; box-shadow:0 10px 30px rgba(0,0,0,.16); flex-shrink:0; }
+        .juku-profile .txt { flex:1 1 320px; max-width:520px; }
+        .juku-profile h3 { font-size:clamp(20px,3.4vw,26px); font-weight:900; margin:0 0 4px; }
+        .juku-profile .role { font-size:13px; font-weight:800; color:#d65a3a; margin:0 0 12px; }
+        .juku-profile p { font-size:14px; line-height:2.1; color:#4a443a; margin:0 0 14px; }
+        .juku-eg-link { display:inline-block; background:#1d5c4d; color:#fff; font-weight:800; font-size:14px; padding:12px 24px; border-radius:999px; text-decoration:none; transition:transform .2s ease; }
+        .juku-eg-link:hover { transform:translateY(-2px); }
         .juku-final { text-align:center; background:linear-gradient(160deg,#123c32,#1d5c4d); border-radius:28px; color:#fff; padding:clamp(34px,6vw,56px) clamp(20px,5vw,48px); }
         .juku-final .big { font-size:clamp(20px,4.2vw,30px); font-weight:900; line-height:1.7; margin:0 0 14px; }
         .juku-final p { color:rgba(255,255,255,.85); line-height:2; font-size:clamp(13.5px,2.2vw,15.5px); }
@@ -101,22 +110,16 @@ export default function Juku() {
       `}</style>
 
       {/* ============ HERO ============ */}
-      <header className="juku-hero">
-        <img className="bg" src="/juku/title.jpg" alt="らんぼう塾" />
-        <div className="inner">
-          <span className="juku-kicker">1期生 募集開始</span>
-          <h1 className="juku-h1">
-            世界を学び、<br className="md:hidden" />仲間と人生を動かす<br />
-            <span className="accent">らんぼう塾</span>
-          </h1>
-          <p className="juku-hero-sub">
-            111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)<br />
-            限定ラジオ・Zoomライブ・神山合宿・バズ部屋・LINE交流グループ
-          </p>
-          <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-            まずLINEで無料相談する →
-          </a>
-          <span className="juku-btn-sub">※ 相談だけでもOK。押し売りはしません。</span>
+      <header className="juku-hero2">
+        <img className="flyer" src="/juku/title.jpg" alt="ワクワクとドキドキがきたらGOサイン！111日で、人生はもっと面白くなる。らんぼう塾 1期生募集" />
+        <div className="cta-band">
+          <div className="inner">
+            <p className="period">111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)</p>
+            <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
+              まずLINEで無料相談する →
+            </a>
+            <span className="juku-btn-sub">※ 相談だけでもOK。押し売りはしません。</span>
+          </div>
         </div>
       </header>
 
@@ -227,7 +230,7 @@ export default function Juku() {
           </div>
           <div className="juku-quote">
             <b>🌏 世界と日本の「これから」</b><br />
-            地球一周、原発や辺野古の裏側、紛争地を旅して見えた現場の視点。よりよい未来のためにできることを、みんなで考えてゆきます。
+            地球一周、紛争地や世界各地を旅して見えた現場の視点。よりよい未来のためにできることを、みんなで考えてゆきます。
           </div>
           <div className="juku-quote">
             <b>🌈 オルタナティブな学校づくりのリアル</b><br />
@@ -253,6 +256,30 @@ export default function Juku() {
             劇的に人生が変わるかは分かりません。でも、きっと昨日までの自分とは少し違っています。<br />
             人生って、ある日突然変わるより、コツコツ続けた時間が振り返ると一番大きな一歩だったりするんです。
           </p>
+        </Reveal>
+      </section>
+
+      {/* ============ PROFILE ============ */}
+      <section className="juku-sec">
+        <Reveal>
+          <p className="juku-label">TEACHER</p>
+          <h2 className="juku-h2">教えるのは、<span className="u">らんぼう</span></h2>
+          <div className="juku-profile">
+            <img src="/juku/canoe.jpg" alt="らんぼう" loading="lazy" />
+            <div className="txt">
+              <h3>らんぼう</h3>
+              <p className="role">旅人・砂漠ランナー・学校づくり・4児の父</p>
+              <p>
+                地球一周の旅暮らしを経て、徳島・神山町へ。砂漠1000km走破。
+                オルタナティブスクール3校を仲間と立ち上げ、のべ100人の子どもたちと600km以上の歩きお遍路旅。
+                全国各地で500回以上の講演。Threadsは2ヶ月半で15,000フォロワー。
+                やることは全部、まず自分でやってみる人です。
+              </p>
+              <a className="juku-eg-link" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">
+                らんぼうの全貌は「あーすガイド」へ →
+              </a>
+            </div>
+          </div>
         </Reveal>
       </section>
 
@@ -323,6 +350,11 @@ export default function Juku() {
               <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
                 🌈 1期生として参加する →
               </a>
+              <p style={{ marginTop: 18 }}>
+                <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.8)", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  らんぼう公式サイト「あーすガイド」を見る →
+                </a>
+              </p>
             </div>
           </div>
         </Reveal>
