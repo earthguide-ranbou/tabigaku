@@ -152,7 +152,7 @@ export default function Henro() {
           </div>
           <div className="henro-stage-img reveal">
             <img
-              src="/manus-storage/img1_ashizuri_b29ac393.png"
+              src="/manus-storage/img1_ashizuri_b29ac393.jpg"
               alt="足摺岬近くの遍路道を歩く子どもたち"
               loading="lazy"
             />

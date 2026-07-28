@@ -44,7 +44,7 @@ export default function AwardPage() {
             {/* Award image */}
             <div className="w-full">
               <img
-                src="/manus-storage/award_2023_687524ae.png"
+                src="/manus-storage/award_2023_687524ae.jpg"
                 alt="2023年 推奨モデル特別賞受賞"
                 className="w-full h-auto object-contain"
               />

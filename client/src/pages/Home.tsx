@@ -10,10 +10,10 @@ import { Section, SectionHeader } from "@/components/ui/section";
 
 // ─── Image URLs (uploaded to webdev storage) ───────────────────────────────
 // チラシのメインビジュアル（山岳トレッキング写真）
-const FLYER_IMAGE = "/manus-storage/1000006557_f808d89c.png";
+const FLYER_IMAGE = "/manus-storage/1000006557_f808d89c.jpg";
 const GROUP_PHOTO = "/manus-storage/group_photo_road_24eb956b.jpg";
 const TOKUSHIMA_SHIMBUN = "/manus-storage/tokushima_shimbun_e14fdcec.jpg";
-const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.png";
+const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.jpg";
 
 // Journey images
 const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
@@ -45,7 +45,7 @@ const journeys = [
     alt: "地球家族ジャーニー",
     tags: [
       { label: "募集中", color: "bg-primary" },
-      { label: "9日間", color: "bg-emerald-700" },
+      { label: "10日間", color: "bg-emerald-700" },
       { label: "家族向け", color: "bg-sky-700" },
       { label: "途中参加OK", color: "bg-amber-600" },
     ],
@@ -253,11 +253,27 @@ export default function Home() {
 
 
       {/* ── 募集バナー ── */}
-      <a href="https://tsu7tzkcozwmm.kimi.page/" target="_blank" rel="noopener">
-        <div className="block w-full text-center text-white cursor-pointer" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.6}}>
-          【募集中】地球家族ジャーニー 8/5(水)-14(金) 祝島→神山 ・ 少人数10名ほど ・ <span style={{textDecoration: "underline", textUnderlineOffset: "3px"}}>詳しくはこちら →</span>
-        </div>
-      </a>
+      {(() => {
+        const dep = new Date("2026-08-05T00:00:00+09:00").getTime();
+        const end = new Date("2026-08-15T00:00:00+09:00").getTime();
+        const now = Date.now();
+        const days = Math.ceil((dep - now) / 86400000);
+        const efjLive = now < end;
+        return (
+          <div className="w-full text-white" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.7, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 20px", textAlign: "center"}}>
+            {efjLive && (
+              <a href="https://tsu7tzkcozwmm.kimi.page/" target="_blank" rel="noopener" style={{color: "#fff"}}>
+                🌍 {days > 0 ? `出発まであと${days}日！` : "ただいま旅の途中！"}地球家族ジャーニー 8/5-14 祝島→神山（少人数制）
+                <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
+              </a>
+            )}
+            <a href="https://line.me/ti/p/HjhUktmN-m" target="_blank" rel="noopener" style={{color: "#fff"}}>
+              🎓 らんぼう塾（111日オンライン）受付中
+              <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>LINEで相談 →</span>
+            </a>
+          </div>
+        );
+      })()}
 
       {/* ── Hero — チラシデザインをベースに ── */}
       <div
