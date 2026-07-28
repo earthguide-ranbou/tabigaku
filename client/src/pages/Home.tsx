@@ -268,9 +268,9 @@ export default function Home() {
                 <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
               </a>
             )}
-            <a href="https://line.me/ti/p/HjhUktmN-m" target="_blank" rel="noopener" style={{color: "#fff"}}>
-              🎓 らんぼう塾（111日オンライン）受付中
-              <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>LINEで相談 →</span>
+            <a href="/juku" style={{color: "#fff"}}>
+              🎓 らんぼう塾（111日オンライン）1期生 受付中
+              <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細 →</span>
             </a>
           </div>
         );

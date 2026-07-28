@@ -38,6 +38,7 @@ function Router() {
       <Route path={"/thai"} component={Thai} />
       <Route path={"/henro"} component={Henro} />
       <Route path={"/henro-shinsoku"} component={HenroShinsoku} />
+      <Route path={"/juku"} component={Juku} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
