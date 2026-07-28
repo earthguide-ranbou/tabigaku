@@ -68,7 +68,7 @@ const journeys = [
     emoji: "✈️",
     title: "EarthfamilyJourney in Thailand",
     subtitle: "〜そうだ！タイに行こう〜",
-    description: "子連れ海外を諶めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
+    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
     href: "/thai",
   },
   {
