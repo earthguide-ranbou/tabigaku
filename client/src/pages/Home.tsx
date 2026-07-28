@@ -5,6 +5,7 @@ import { Calendar, ArrowRight, Award } from "lucide-react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import SubstackCTA from "@/components/SubstackCTA";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 // ─── Image URLs (uploaded to webdev storage) ───────────────────────────────
@@ -655,6 +656,7 @@ export default function Home() {
         </div>
       </Section>
 
+      <SubstackCTA />
       <Footer />
     </div>
   );

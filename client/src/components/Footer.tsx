@@ -5,7 +5,7 @@ const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/earthguide.ranbow" },
   { label: "Facebook", href: "https://www.facebook.com/share/1CsBs21r2B/" },
   { label: "Threads", href: "https://www.threads.com/@earthguide.ranbow" },
-  { label: "Substack", href: "https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi" },
+  { label: "Substack", href: "https://ranbou.substack.com/" },
 ];
 
 const navLinks = [
