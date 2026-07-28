@@ -106,6 +106,9 @@ export default function Juku() {
         .juku-final p { color:rgba(255,255,255,.85); line-height:2; font-size:clamp(13.5px,2.2vw,15.5px); }
         .juku-fixed { position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(250,247,242,.94); backdrop-filter:blur(10px); border-top:1px solid #eee2d0; padding:10px 16px; text-align:center; }
         .juku-fixed .juku-btn { padding:13px 30px; font-size:15.5px; }
+        .juku-price .regular { font-size:14px; color:#9a917f; margin:0 0 4px; }
+        .juku-price .regular s { font-weight:800; font-size:17px; }
+        .juku-price .tokkak { display:inline-block; background:#d65a3a; color:#fff; font-weight:900; font-size:12.5px; padding:5px 14px; border-radius:999px; margin:0 0 10px; letter-spacing:.06em; }
         @media (prefers-reduced-motion: reduce) { .juku-reveal { opacity:1; transform:none; transition:none; } }
         .juku-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 14px; letter-spacing:.02em; box-shadow:0 4px 14px rgba(0,0,0,.25); }
         .juku-count b { font-size:18px; }
@@ -307,12 +310,14 @@ export default function Juku() {
           <p className="juku-label">PRICE</p>
           <h2 className="juku-h2">受講料</h2>
           <div className="juku-price">
+            <p className="tokkak">🌈 1期生特別価格（今回だけ）</p>
             <p className="term">111日間・全コンテンツ込み</p>
-            <p className="amount">49,800<small>円（税込）</small></p>
-            <p className="perday">1日あたり 約449円 ＝ コーヒー1杯分</p>
-            <p className="juku-anchor">内訳：限定ラジオ 約48回（火・木・土×16週）＋ Zoomライブ 約8回 ＋ 神山合宿・ワクドキ祭り ＋ バズ部屋・LINEグループ111日間。1コンテンツあたり 約890円 の計算です。</p>
+            <p className="regular">正規価格 <s>49,800円</s> のところ</p>
+            <p className="amount">39,800<small>円（税込）</small></p>
+            <p className="perday">1日あたり 約358円 ＝ コーヒー1杯以下</p>
+            <p className="juku-anchor">内訳：限定ラジオ 約48回（火・木・土×16週）＋ Zoomライブ 約8回 ＋ 神山合宿・ワクドキ祭り ＋ バズ部屋・LINEグループ111日間。1コンテンツあたり 約710円 の計算です。</p>
             <p className="discount">
-              個人レクチャー受講生は <b>39,800円</b>（1万円引き）
+              仲間と一緒につくり上げる記念すべき1期だからこその価格です。<b>2期以降は正規価格49,800円を予定</b>しています。
             </p>
             <div className="juku-spec">
               <b>【期間】</b>2026年8月18日(火)〜12月6日(日)（111日間）<br />
