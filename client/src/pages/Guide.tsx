@@ -77,7 +77,7 @@ export default function GuidePage() {
 
           {/* Link to full guide site */}
           <motion.a
-            href="https://kamiyamaguide-zeujjaf9.manus.space"
+            href="https://kamiyamag.tabigaku.party"
             target="_blank"
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
