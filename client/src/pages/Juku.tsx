@@ -179,15 +179,9 @@ export default function Juku() {
           <div className="juku-stats">
             <div className="juku-stat"><b>15,000</b><span>Threadsフォロワー（2ヶ月半で）</span></div>
             <div className="juku-stat"><b>500万</b><span>総再生View達成</span></div>
-            <div className="juku-stat"><b>1,000</b><span>受講生のフォロワー増（2週間で）</span></div>
             <div className="juku-stat"><b>500回+</b><span>全国各地での講演</span></div>
             <div className="juku-stat"><b>100人+</b><span>移住のキッカケづくり</span></div>
-            <div className="juku-stat"><b>600km+</b><span>子どもたちと歩いたお遍路</span></div>
-          </div>
-          <div className="juku-voice">
-            <p className="vlabel">0期生のリアルな変化</p>
-            <blockquote>「SNS未経験から、2週間でフォロワー1,000人。やり方を教わって、みんなと一緒に伸ばした結果です。」</blockquote>
-            <p className="who">—— 0期受講生（バズ部屋にて）</p>
+            <div className="juku-stat"><b>500km+</b><span>子どもたちと歩いたお遍路</span></div>
           </div>
         </Reveal>
       </section>
@@ -348,7 +342,7 @@ export default function Juku() {
             </details>
             <details>
               <summary>SNS初心者でも大丈夫ですか</summary>
-              <div className="a">大丈夫です。0期でも未経験から2週間で1,000フォロワー達成した受講生がいます。バズ部屋でみんなと一緒に伸ばしてゆきます。</div>
+              <div className="a">大丈夫です。バズ部屋でみんなと一緒に伸ばしてゆきます。未経験スタートでも大丈夫です。</div>
             </details>
             <details>
               <summary>神山合宿・ワクドキ祭りは必須ですか</summary>
