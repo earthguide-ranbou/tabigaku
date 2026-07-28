@@ -527,11 +527,6 @@ export default function Home() {
           text="「旅は、最高の学校。」祝島→神山10日間の地球家族ジャーニー（8/5出発）、歩きお遍路、家族タイ旅…子どもが主役の本物の旅、いま募集中。"
           title="＼ このJourneyをシェア ／"
         />
-        <ShareButtons
-          url="https://www.tabigaku.party/"
-          text="111日間のオンラインスクール「らんぼう塾」受付中。旅×教育の実践者・らんぼうに直接学べる。"
-          title="＼ らんぼう塾をシェア ／"
-        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {journeys.map((j, i) => (
