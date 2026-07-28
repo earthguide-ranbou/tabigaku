@@ -39,7 +39,7 @@ export default function Juku() {
         .juku { background:#faf7f2; color:#2b2620; font-family:inherit; }
         .juku-reveal { opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
         .juku-reveal.in { opacity:1; transform:none; }
-        .juku-hero { position:relative; min-height:92vh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
+        .juku-hero { position:relative; min-height:75vh; display:flex; align-items:flex-end; justify-content:center; overflow:hidden; }
         .juku-hero img.bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .juku-hero::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,.25) 100%); }
         .juku-hero .inner { position:relative; z-index:2; text-align:center; color:#fff; padding:0 20px 64px; max-width:860px; }
@@ -56,8 +56,8 @@ export default function Juku() {
         .juku-h2 { text-align:center; font-size:clamp(22px,4.4vw,34px); font-weight:900; line-height:1.45; margin:0 0 12px; }
         .juku-h2 .u { background:linear-gradient(transparent 62%, #ffe08a 62%); }
         .juku-lead { text-align:center; color:#6b6357; font-size:clamp(13.5px,2.2vw,15.5px); line-height:2; margin:0 auto 34px; max-width:640px; }
-        .juku-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin:28px 0; }
-        .juku-photo-grid img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,.12); }
+        .juku-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin:24px auto 0; max-width:640px; }
+        .juku-photo-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.1); }
         .juku-photo-grid img:nth-child(odd) { transform:rotate(-1.5deg); }
         .juku-photo-grid img:nth-child(even) { transform:rotate(1.5deg); }
         .juku-caption { text-align:center; font-size:12px; color:#9a917f; margin-top:8px; }
@@ -89,17 +89,6 @@ export default function Juku() {
         .juku-price .discount b { color:#d65a3a; font-size:18px; }
         .juku-spec { text-align:left; max-width:560px; margin:22px auto 0; font-size:13.5px; line-height:2; color:#6b6357; }
         .juku-faq details { background:#fff; border:1px solid #f0eade; border-radius:14px; margin-bottom:10px; overflow:hidden; }
-        .juku-tl { position:relative; margin-top:34px; padding-left:26px; border-left:3px solid #f0e0c8; }
-        .juku-tl-item { position:relative; margin-bottom:44px; }
-        .juku-tl-item::before { content:""; position:absolute; left:-34px; top:6px; width:12px; height:12px; border-radius:50%; background:#d65a3a; box-shadow:0 0 0 4px #faf7f2; }
-        .juku-tl-year { font-size:13px; font-weight:900; letter-spacing:.18em; color:#d65a3a; }
-        .juku-tl-item h3 { font-size:clamp(18px,3.2vw,23px); font-weight:900; margin:6px 0 10px; line-height:1.5; }
-        .juku-tl-item p { font-size:14.5px; line-height:2.1; color:#4a443a; margin:0 0 12px; }
-        .juku-tl-photos { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin:12px 0; }
-        .juku-tl-photos img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; box-shadow:0 6px 18px rgba(0,0,0,.1); }
-        .juku-tl-link { display:inline-block; font-size:13px; font-weight:800; color:#1d5c4d; text-decoration:underline; text-underline-offset:3px; margin-right:16px; }
-        .juku-tl-vm { background:#fff; border-radius:16px; padding:18px 22px; margin:12px 0; box-shadow:0 6px 20px rgba(0,0,0,.05); font-size:14px; line-height:2; }
-        .juku-tl-vm b { color:#1d5c4d; }
         .juku-faq summary { cursor:pointer; font-weight:800; font-size:14.5px; padding:16px 18px; list-style:none; }
         .juku-faq summary::before { content:"Q. "; color:#d65a3a; }
         .juku-faq .a { padding:0 18px 16px; font-size:13.5px; line-height:2; color:#6b6357; }
@@ -243,78 +232,6 @@ export default function Juku() {
           <div className="juku-quote">
             <b>🌈 オルタナティブな学校づくりのリアル</b><br />
             「森の学校みっけ」「旅する学校」「KAMIYAMA FIELD SCHOOL」——3つの学校立ち上げに関わり、成功も失敗も含めた現場から見えてきた「これからの時代に本当に必要な力」をお話しします。
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ SCHOOLS TIMELINE ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">STORY</p>
-          <h2 className="juku-h2">学校づくりの<span className="u">軌跡</span></h2>
-          <p className="juku-lead">砂漠を走り、息子の一言に背中を押され、3つの学校を仲間とつくってきました。この全部が、らんぼう塾の教材です。</p>
-          <div className="juku-tl">
-            <div className="juku-tl-item">
-              <p className="juku-tl-year">BEFORE 2022</p>
-              <h3>学校づくりの前に、砂漠1000kmを走った。</h3>
-              <p>
-                マサイの村には4度お伺いし、砂漠マラソンで1000kmを走破。事故でむちうちになりながらも走り続けた日々は、
-                「すべては未完成からはじまる」という、今の僕の根っこになりました。
-                そのご縁で、後にマサイの戦士たちが神山まで会いに来てくれたことも。
-              </p>
-              <div className="juku-tl-photos">
-                <img src="/juku/desert1.jpg" alt="砂漠1000km走破" loading="lazy" />
-                <img src="/juku/desert2.jpg" alt="砂漠マラソン" loading="lazy" />
-                <img src="/juku/maasai_visit.jpg" alt="神山に来てくれたマサイ" loading="lazy" />
-              </div>
-            </div>
-            <div className="juku-tl-item">
-              <p className="juku-tl-year">2022</p>
-              <h3>息子の一言「自分でつくった学校に通いたい」<br />—— 森の学校みっけ、始動。</h3>
-              <p>
-                その一言がすべてのはじまりでした。徳島・神山町に、小学生対象・週5日制のオルタナティブスクール
-                「森の学校みっけ」を仲間と立ち上げます。
-              </p>
-              <div className="juku-tl-vm">
-                <b>ビジョン</b>　子どもと地球の美しい未来<br />
-                <b>ミッション</b>　感じる、知る、ともに生きていく。
-              </div>
-              <div className="juku-tl-photos">
-                <img src="/juku/kids.jpg" alt="みっけの子どもたち" loading="lazy" />
-                <img src="/juku/sheep.jpg" alt="みっけの暮らし" loading="lazy" />
-              </div>
-              <a className="juku-tl-link" href="https://mikkeforest.org/" target="_blank" rel="noopener noreferrer">mikkeforest.org →</a>
-              <a className="juku-tl-link" href="https://share.google/ucmjfkMMLT1bI6ZgZ" target="_blank" rel="noopener noreferrer">場所を地図で見る →</a>
-            </div>
-            <div className="juku-tl-item">
-              <p className="juku-tl-year">2023</p>
-              <h3>教室を日本中に広げる —— 旅する学校。</h3>
-              <p>
-                「旅は、最高の学校。」を合言葉に、歩きお遍路旅をスタート。
-                これまでにのべ100人の子どもたちと600km以上を歩きました。
-                歩いた距離だけ強くなれることを、子どもたちが証明してくれています。
-              </p>
-            </div>
-            <div className="juku-tl-item">
-              <p className="juku-tl-year">2026</p>
-              <h3>3つ目の学校 —— KAMIYAMA FIELD SCHOOL（KFS）。</h3>
-              <p>
-                2026年、神山発の新しい学び場「KAMIYAMA FIELD SCHOOL」が始動。
-                学校づくりは、まだまだ途上です。
-              </p>
-              <div className="juku-tl-photos">
-                <img src="/juku/kfs.jpg" alt="KAMIYAMA FIELD SCHOOL" loading="lazy" />
-              </div>
-              <a className="juku-tl-link" href="https://www.instagram.com/kamiyamafieldschool" target="_blank" rel="noopener noreferrer">KFSのInstagram →</a>
-            </div>
-            <div className="juku-tl-item">
-              <p className="juku-tl-year">AND NEXT</p>
-              <h3>これから —— EARTH FAMILY JOURNEY。</h3>
-              <p>
-                そして今、家族で世界を旅する「EARTH FAMILY JOURNEY」に取り組んでいます。
-                8月の祝島→神山ジャーニーが、その第一歩です。
-              </p>
-            </div>
           </div>
         </Reveal>
       </section>
