@@ -251,7 +251,7 @@ export default function Juku() {
           </div>
           <div className="juku-quote">
             <b>🤖 AI活用術</b><br />
-            文章・画像・チラシ・サイト制作まで、AIで作る実践術。なんと、このページ自体もすべてAIで作っています。0期でも「AIで仕事が速くなった」の声続出でした。
+            文章・画像・チラシ・サイト制作まで、AIで作る実践術。なんと、このページ自体もすべてAIで作っています。
           </div>
           <div className="juku-quote">
             <b>🌈 オルタナティブな学校づくりのリアル</b><br />
