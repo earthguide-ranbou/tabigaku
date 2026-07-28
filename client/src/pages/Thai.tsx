@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./thai.css";
+import ShareButtons from "@/components/ShareButtons";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Thai() {
@@ -765,6 +766,12 @@ export default function Thai() {
           🌏 この夏、タイで会おう！
         </a>
       </section>
+
+      <ShareButtons
+        url="https://www.tabigaku.party/thai"
+        text="子連れ海外を諦めてきたあなたへ。上田家と一緒に家族でタイを旅する9日間（6日間プランも）。8/22出発・募集中。"
+        title="＼ タイ旅をシェア ／"
+      />
 
       {/* 固定CTA */}
       <div className="cta-fixed">

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./henro-shinsoku.css";
+import ShareButtons from "@/components/ShareButtons";
 import { useSEO } from "@/hooks/useSEO";
 
 const ASSET = "/henro-assets/";
@@ -504,6 +505,12 @@ export default function HenroShinsoku() {
     </p>
   </div>
 </section>
+
+<ShareButtons
+  url="https://www.tabigaku.party/henro-shinsoku"
+  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。疲れ知らずの体で聖地を歩く特別な旅。10/23-27・小3〜65歳。"
+  title="＼ 神足・お遍路をシェア ／"
+/>
 
 {/* ============ FOOTER ============ */}
 <footer>

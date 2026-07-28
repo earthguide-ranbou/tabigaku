@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./henro.css";
+import ShareButtons from "@/components/ShareButtons";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Henro() {
@@ -580,6 +581,12 @@ export default function Henro() {
           </p>
         </div>
       </section>
+
+      <ShareButtons
+        url="https://www.tabigaku.party/henro"
+        text="小3〜中3が四国最南端・足摺岬から歩く6日間の巡礼「歩きお遍路ジャーニー vol.5 高知編」。歩いた距離だけ強くなれる。10/10出発・定員10名。"
+        title="＼ お遍路ジャーニーをシェア ／"
+      />
 
       {/* ===== FOOTER ===== */}
       <footer className="henro-footer">
