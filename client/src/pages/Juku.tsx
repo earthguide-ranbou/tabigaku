@@ -107,6 +107,14 @@ export default function Juku() {
         .juku-fixed { position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(250,247,242,.94); backdrop-filter:blur(10px); border-top:1px solid #eee2d0; padding:10px 16px; text-align:center; }
         .juku-fixed .juku-btn { padding:13px 30px; font-size:15.5px; }
         @media (prefers-reduced-motion: reduce) { .juku-reveal { opacity:1; transform:none; transition:none; } }
+        .juku-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 14px; letter-spacing:.02em; box-shadow:0 4px 14px rgba(0,0,0,.25); }
+        .juku-count b { font-size:18px; }
+        .juku-fixed .cd { display:block; font-size:11.5px; font-weight:800; color:#b3532f; margin-top:6px; }
+        .juku-voice { background:#fff; border:1px solid #eee2d0; border-left:5px solid #d65a3a; border-radius:18px; padding:clamp(20px,4vw,30px); margin-top:clamp(24px,4vw,36px); }
+        .juku-voice .vlabel { font-size:12px; font-weight:900; letter-spacing:.2em; color:#d65a3a; margin:0 0 10px; }
+        .juku-voice blockquote { font-size:clamp(15px,2.4vw,18px); font-weight:800; line-height:1.9; color:#2c2c26; margin:0 0 10px; }
+        .juku-voice .who { font-size:12.5px; color:#9a917f; margin:0; }
+        .juku-anchor { font-size:13px; line-height:1.9; color:#6b6353; background:#f7f2e8; border-radius:12px; padding:12px 16px; margin:12px 0 0; }
       `}</style>
 
       {/* ============ HERO ============ */}
@@ -114,6 +122,13 @@ export default function Juku() {
         <img className="flyer" src="/juku/title.jpg" alt="ワクワクとドキドキがきたらGOサイン！111日で、人生はもっと面白くなる。らんぼう塾 1期生募集" />
         <div className="cta-band">
           <div className="inner">
+            {(() => {
+              const open = new Date("2026-08-18T00:00:00+09:00").getTime();
+              const days = Math.ceil((open - Date.now()) / 86400000);
+              return days > 0 ? (
+                <span className="juku-count">🌈 1期生 受付中｜開講まであと <b>{days}</b> 日</span>
+              ) : null;
+            })()}
             <p className="period">111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)</p>
             <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
               まずLINEで無料相談する →
@@ -168,6 +183,11 @@ export default function Juku() {
             <div className="juku-stat"><b>500回+</b><span>全国各地での講演</span></div>
             <div className="juku-stat"><b>100人+</b><span>移住のキッカケづくり</span></div>
             <div className="juku-stat"><b>600km+</b><span>子どもたちと歩いたお遍路</span></div>
+          </div>
+          <div className="juku-voice">
+            <p className="vlabel">0期生のリアルな変化</p>
+            <blockquote>「SNS未経験から、2週間でフォロワー1,000人。やり方を教わって、みんなと一緒に伸ばした結果です。」</blockquote>
+            <p className="who">—— 0期受講生（バズ部屋にて）</p>
           </div>
         </Reveal>
       </section>
@@ -296,6 +316,7 @@ export default function Juku() {
             <p className="term">111日間・全コンテンツ込み</p>
             <p className="amount">49,800<small>円（税込）</small></p>
             <p className="perday">1日あたり 約449円 ＝ コーヒー1杯分</p>
+            <p className="juku-anchor">内訳：限定ラジオ 約48回（火・木・土×16週）＋ Zoomライブ 約8回 ＋ 神山合宿・ワクドキ祭り ＋ バズ部屋・LINEグループ111日間。1コンテンツあたり 約890円 の計算です。</p>
             <p className="discount">
               個人レクチャー受講生は <b>39,800円</b>（1万円引き）
             </p>
@@ -377,6 +398,11 @@ export default function Juku() {
         <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
           らんぼう塾 1期生に申し込む（LINE）
         </a>
+        {(() => {
+          const open = new Date("2026-08-18T00:00:00+09:00").getTime();
+          const days = Math.ceil((open - Date.now()) / 86400000);
+          return days > 0 ? <span className="cd">開講 8/18 まで あと{days}日</span> : null;
+        })()}
       </div>
     </div>
   );
