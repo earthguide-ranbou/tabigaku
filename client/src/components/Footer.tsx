@@ -13,8 +13,8 @@ const navLinks = [
   { label: "ホーム", href: "/", internal: true },
   { label: "旅する学校とは", href: "/#about", internal: true },
   { label: "Journey", href: "/#journeys", internal: true },
-  { label: "神山ガイド", href: "https://kamiyamaguide-zeujjaf9.manus.space" },
-  { label: "ガイド紹介", href: "https://kamiyamaguide-zeujjaf9.manus.space/guide" },
+  { label: "神山ガイド", href: "https://kamiyamag.tabigaku.party" },
+  { label: "ガイド紹介", href: "https://kamiyamag.tabigaku.party/guide" },
   { label: "受賞歴", href: "/award", internal: true },
   { label: "スポンサーになる", href: "/sponsor", internal: true },
 ];
