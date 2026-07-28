@@ -188,7 +188,7 @@ export default function Juku() {
             <div className="juku-card">
               <div className="ico">💻</div>
               <h3>Zoomライブミーティング</h3>
-              <p>月2回の生配信。質問し放題、相談し放題。録画ありだから忙しくても追いつけます。</p>
+              <p>月2回の生配信。ゲスト出演もあり。質問し放題、相談し放題。録画ありだから忙しくても追いつけます。</p>
               <span className="tag">月2回・録画あり</span>
             </div>
             <div className="juku-card">
@@ -231,6 +231,10 @@ export default function Juku() {
           <div className="juku-quote">
             <b>🌏 世界と日本の「これから」</b><br />
             地球一周、紛争地や世界各地を旅して見えた現場の視点。よりよい未来のためにできることを、みんなで考えてゆきます。
+          </div>
+          <div className="juku-quote">
+            <b>🤖 AI活用術</b><br />
+            文章・画像・チラシ・サイト制作まで、AIで作る実践術。なんと、このページ自体もすべてAIで作っています。0期でも「AIで仕事が速くなった」の声続出でした。
           </div>
           <div className="juku-quote">
             <b>🌈 オルタナティブな学校づくりのリアル</b><br />
@@ -362,7 +366,7 @@ export default function Juku() {
 
       <ShareButtons
         url="https://www.tabigaku.party/juku"
-        text="111日間のオンラインプログラム「らんぼう塾」1期生募集中。限定ラジオ・Zoom・神山合宿・バズ部屋。世界を学び、仲間と人生を動かす。"
+        text="111日間のオンラインプログラム「らんぼう塾」1期生募集中。限定ラジオ・ゲスト出演Zoom・神山合宿・バズ部屋・AI活用術まで。世界を学び、仲間と人生を動かす。"
         title="＼ らんぼう塾をシェア ／"
       />
 
