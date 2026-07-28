@@ -280,6 +280,26 @@ export default function Juku() {
         </Reveal>
       </section>
 
+      {/* ============ VOICES ============ */}
+      <section className="juku-sec">
+        <Reveal>
+          <p className="juku-label">VOICES</p>
+          <h2 className="juku-h2">参加者の<span className="u">声</span></h2>
+          <div className="juku-voice">
+            <p className="vlabel">0期 受講生の声</p>
+            <blockquote>
+              「自分がどの環境に身を置くか？　今回、身をもって体感しました。<br /><br />
+              <b>『やってみるといいんとちゃう。』</b><br />
+              その言葉が、今回一番残っています。<br /><br />
+              今まで、やったらダメ！できない！無理！わがままを言ってはいけない！そんな環境で育ってきました。自分が自分に制限をかけていたことに、気づけました。<br /><br />
+              『やってみるといいんとちゃう』なんて言ってくれる人は、周りにいなかった。<br /><br />
+              自分の足を地につけて、行動してみる。やってみないとわからないこともある。やったからこそ見える景色がある。ホンマに、未完成でもいいからやってみる‼︎　そこに意味があったんだと、私は思いました。」
+            </blockquote>
+            <p className="who">—— 0期受講生（長崎・女性）</p>
+          </div>
+        </Reveal>
+      </section>
+
       {/* ============ PROFILE ============ */}
       <section className="juku-sec">
         <Reveal>
