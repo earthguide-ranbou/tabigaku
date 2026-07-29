@@ -21,7 +21,7 @@ export function MaskUp({
         style={{ display: "block", willChange: "transform" }}
         initial={{ y: "115%" }}
         whileInView={{ y: "0%" }}
-        viewport={{ margin: "0px" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
       >
         {children}
@@ -50,7 +50,7 @@ export function Curtain({
         style={{ height: "100%", willChange: "transform" }}
         initial={{ scale: 1.14, opacity: 0.5 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ margin: "0px" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 1.1, delay: delay + 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
         {children}
@@ -64,7 +64,7 @@ export function Curtain({
         }}
         initial={{ scaleX: 1 }}
         whileInView={{ scaleX: 0 }}
-        viewport={{ margin: "0px" }}
+        viewport={{ once: true, margin: "0px" }}
         transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
       />
     </div>
