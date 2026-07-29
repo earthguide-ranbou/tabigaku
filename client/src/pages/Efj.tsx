@@ -2,6 +2,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
 const LINE = "https://line.me/ti/p/HjhUktmN-m";
+const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -18,14 +19,14 @@ function Reveal({ children, className = "" }: { children: ReactNode; className?:
   return <div ref={ref} className={`efj-reveal ${className}`}>{children}</div>;
 }
 
-function CountdownBadge({ className = "" }: { className?: string }) {
+function CountdownBadge({ light = false }: { light?: boolean }) {
   const dep = new Date("2026-08-05T00:00:00+09:00").getTime();
   const end = new Date("2026-08-15T00:00:00+09:00").getTime();
   const now = Date.now();
   if (now >= end) return null;
   const days = Math.ceil((dep - now) / 86400000);
   return (
-    <span className={`efj-count ${className}`}>
+    <span className="efj-count" style={light ? { boxShadow: "0 4px 14px rgba(0,0,0,.15)" } : undefined}>
       🌏 {days > 0 ? <>出発まであと <b>{days}</b> 日｜少人数制・先着順</> : "ただいま旅の途中！"}
     </span>
   );
@@ -35,19 +36,28 @@ export default function Efj() {
   return (
     <div className="efj">
       <style>{`
-        .efj { background:#faf7f2; color:#2c2c26; font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif; }
+        .efj { background:#faf7f2; color:#2c2c26; font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif; overflow-x:hidden; }
         .efj img { max-width:100%; }
+        /* HERO */
         .efj-hero { background:#123c32; }
-        .efj-hero .flyer { display:block; width:100%; max-width:1100px; margin:0 auto; height:auto; }
-        .efj-hero .cta-band { background:#123c32; text-align:center; padding:26px 20px 44px; }
+        .efj-hero .banner { display:block; width:100%; max-width:1200px; margin:0 auto; height:auto; }
+        .efj-hero .cta-band { text-align:center; padding:26px 20px 46px; }
         .efj-hero .inner { max-width:860px; margin:0 auto; color:#fff; }
-        .efj-hero .period { font-size:clamp(13px,2vw,15px); opacity:.85; margin:0 0 18px; letter-spacing:.04em; }
-        .efj-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 14px; box-shadow:0 4px 14px rgba(0,0,0,.25); }
+        .efj-hero .lead-copy { font-size:clamp(14px,2.3vw,16.5px); line-height:2.1; color:rgba(255,255,255,.92); margin:0 auto 20px; max-width:640px; }
+        .efj-hero .period { font-size:clamp(12.5px,1.9vw,14.5px); opacity:.8; margin:14px 0 18px; letter-spacing:.03em; }
+        .efj-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 6px; box-shadow:0 4px 14px rgba(0,0,0,.25); }
         .efj-count b { font-size:18px; }
         .efj-btn { display:inline-block; background:linear-gradient(135deg,#06c755,#04a648); color:#fff; font-weight:900; font-size:clamp(15px,2.4vw,18px); padding:16px 34px; border-radius:999px; text-decoration:none; box-shadow:0 8px 24px rgba(6,199,85,.35); transition:transform .2s ease; }
         .efj-btn:hover { transform:translateY(-2px); }
         .efj-btn-sub { display:block; margin-top:10px; font-size:12px; opacity:.75; }
-        .efj-sec { max-width:860px; margin:0 auto; padding:clamp(44px,7vw,76px) 20px 0; }
+        /* MARQUEE */
+        .efj-marquee { background:#FFD94D; padding:13px 0; overflow:hidden; white-space:nowrap; }
+        .efj-marquee .track { display:inline-block; animation:efjscroll 26s linear infinite; }
+        .efj-marquee span { display:inline-block; font-weight:900; font-size:14.5px; color:#1F1B16; padding:0 14px; letter-spacing:.06em; }
+        .efj-marquee .star { color:#d65a3a; }
+        @keyframes efjscroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+        /* SECTIONS */
+        .efj-sec { max-width:900px; margin:0 auto; padding:clamp(48px,7vw,80px) 20px 0; }
         .efj-label { font-size:12px; font-weight:900; letter-spacing:.28em; color:#d65a3a; margin:0 0 10px; }
         .efj-h2 { font-size:clamp(24px,4.6vw,36px); font-weight:900; line-height:1.4; margin:0 0 20px; letter-spacing:.02em; }
         .efj-h2 .u { background:linear-gradient(transparent 62%, #ffe08a 62%); }
@@ -57,18 +67,23 @@ export default function Efj() {
         .efj-feats { display:grid; gap:14px; margin-top:26px; }
         .efj-feat { background:#fff; border:1px solid #eee2d0; border-radius:16px; padding:18px 20px; font-size:14.5px; line-height:1.9; color:#4a443a; }
         .efj-feat b { display:block; font-size:16px; color:#1d5c4d; margin-bottom:6px; }
-        .efj-itin { margin-top:26px; border-left:3px solid #1d5c4d; padding-left:0; }
-        .efj-stop { position:relative; background:#fff; border:1px solid #eee2d0; border-radius:16px; padding:18px 20px; margin:0 0 16px 14px; }
-        .efj-stop::before { content:""; position:absolute; left:-23px; top:24px; width:13px; height:13px; border-radius:50%; background:#d65a3a; border:3px solid #faf7f2; }
-        .efj-stop .date { font-size:12.5px; font-weight:900; color:#d65a3a; letter-spacing:.08em; margin:0 0 4px; }
-        .efj-stop h3 { font-size:clamp(17px,2.8vw,21px); font-weight:900; margin:0 0 4px; }
-        .efj-stop .tagline { font-size:13px; font-weight:800; color:#1d5c4d; margin:0 0 8px; }
+        /* ITINERARY with photos */
+        .efj-itin { margin-top:30px; }
+        .efj-stop { background:#fff; border:1px solid #eee2d0; border-radius:20px; overflow:hidden; margin-bottom:22px; box-shadow:0 4px 18px rgba(60,45,20,.06); }
+        .efj-stop .photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+        .efj-stop .body { padding:20px 22px 24px; }
+        .efj-stop .date { display:inline-block; font-size:12.5px; font-weight:900; color:#fff; background:#d65a3a; border-radius:999px; padding:4px 12px; letter-spacing:.06em; margin:0 0 10px; }
+        .efj-stop h3 { font-size:clamp(18px,3vw,23px); font-weight:900; margin:0 0 4px; }
+        .efj-stop .tagline { font-size:13.5px; font-weight:800; color:#1d5c4d; margin:0 0 10px; }
         .efj-stop p { font-size:14px; line-height:1.95; color:#4a443a; margin:0; }
-        .efj-finale { background:linear-gradient(160deg,#123c32,#1d5c4d); color:#fff; border-radius:20px; padding:clamp(24px,5vw,40px); margin-left:14px; text-align:center; }
+        .efj-finale { background:linear-gradient(160deg,#123c32,#1d5c4d); color:#fff; border-radius:20px; padding:clamp(28px,5vw,44px); text-align:center; margin-top:8px; }
         .efj-finale .big { font-size:clamp(18px,3.4vw,26px); font-weight:900; line-height:1.7; margin:0 0 8px; }
         .efj-finale p { color:rgba(255,255,255,.85); font-size:14px; line-height:1.9; margin:0; }
-        .efj-photos { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:10px; margin-top:24px; }
-        .efj-photos img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; }
+        /* SCENES masonry-ish */
+        .efj-scenes { columns:2; column-gap:10px; margin-top:24px; }
+        @media (min-width:640px){ .efj-scenes { columns:3; } }
+        .efj-scenes img { width:100%; border-radius:12px; margin-bottom:10px; display:block; break-inside:avoid; }
+        /* PLANS */
         .efj-plans { display:grid; gap:16px; margin-top:26px; }
         .efj-plan { background:#fff; border:2px solid #eee2d0; border-radius:20px; padding:clamp(20px,4vw,28px); }
         .efj-plan.best { border-color:#d65a3a; box-shadow:0 10px 30px rgba(214,90,58,.14); }
@@ -82,8 +97,12 @@ export default function Efj() {
         .efj-plan ul b { color:#1d5c4d; }
         .efj-note { background:#f7f2e8; border-radius:16px; padding:18px 20px; font-size:13.5px; line-height:2; color:#4a443a; margin-top:20px; }
         .efj-note b { color:#1d5c4d; }
+        /* GUIDE */
         .efj-guide { background:#fff; border:1px solid #eee2d0; border-radius:20px; padding:clamp(22px,4vw,32px); margin-top:26px; }
-        .efj-guide .role { font-size:13px; font-weight:800; color:#d65a3a; margin:0 0 10px; }
+        .efj-guide .head { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+        .efj-guide .head img { width:84px; height:84px; border-radius:50%; object-fit:cover; border:3px solid #ffd94d; }
+        .efj-guide .head .name { font-size:20px; font-weight:900; margin:0; }
+        .efj-guide .head .role { font-size:12.5px; font-weight:800; color:#d65a3a; margin:2px 0 0; }
         .efj-guide p { font-size:14px; line-height:2.05; color:#4a443a; margin:0 0 12px; }
         .efj-guide .path { font-size:13.5px; line-height:2.1; color:#4a443a; margin:0; }
         .efj-guide blockquote { border-left:4px solid #d65a3a; padding-left:14px; font-size:14.5px; font-weight:700; line-height:2; color:#2c2c26; margin:14px 0 0; }
@@ -97,23 +116,41 @@ export default function Efj() {
         .efj-fixed { position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(250,247,242,.94); backdrop-filter:blur(10px); border-top:1px solid #eee2d0; padding:10px 16px; text-align:center; }
         .efj-fixed .efj-btn { padding:13px 30px; font-size:15.5px; }
         .efj-fixed .cd { display:block; font-size:11.5px; font-weight:800; color:#b3532f; margin-top:6px; }
-        @media (prefers-reduced-motion: reduce) { .efj-reveal { opacity:1; transform:none; transition:none; } }
+        @media (prefers-reduced-motion: reduce) { .efj-reveal { opacity:1; transform:none; transition:none; } .efj-marquee .track { animation:none; } }
       `}</style>
 
       {/* ============ HERO ============ */}
       <header className="efj-hero">
-        <img className="flyer" src="/manus-storage/note_chikyu_kazoku_b81012db.png" alt="地球家族ジャーニー 2026 祝島から神山へ 魂が震え、命が喜ぶ旅 8月5日〜14日" />
+        <img className="banner" src="/efj/banner.jpg" alt="地球家族ジャーニー 2026 祝島から神山へ 魂が震え、命が喜ぶ旅" />
         <div className="cta-band">
           <div className="inner">
             <CountdownBadge />
-            <p className="period">2026年8月5日(水)〜14日(金)｜山口・祝島 → 徳島・神山｜少人数制（10名ほど）親子・ご家族歓迎・小学生未満はドネーション制</p>
+            <p className="lead-copy">
+              山とともに、海とともに生きる。どこか懐かしくて、魂がふるえて、大切なものをおもいだす。
+              1人で、家族と、友人と——笑い楽しみながら、人生観が変わってしまうかもしれない。
+              そんなプレミアムな旅路へ、出発しませんか？
+            </p>
             <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">
               LINEで申し込む・相談する →
             </a>
             <span className="efj-btn-sub">※ 相談だけでもOK。「地球家族ジャーニー希望」とメッセージをどうぞ</span>
+            <p className="period">2026年8月5日(水)〜14日(金)｜山口・祝島 → 徳島・神山｜少人数制（10名ほど）｜親子・ご家族歓迎｜小学生未満はドネーション制</p>
           </div>
         </div>
       </header>
+
+      {/* ============ KEYWORD MARQUEE ============ */}
+      <div className="efj-marquee" aria-hidden="true">
+        <div className="track">
+          {[0, 1].map((n) => (
+            <span key={n}>
+              {KEYWORDS.map((k, i) => (
+                <span key={i}>{k}<span className="star">　✳︎　</span></span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* ============ CONCEPT ============ */}
       <section className="efj-sec">
@@ -145,34 +182,49 @@ export default function Efj() {
           <p className="efj-lead">山口県でアイデンティティーを呼び覚まし、徳島の聖地で未来に触れる。魂が震え、いのちが喜ぶ、忘れられない日々が待っています。</p>
           <div className="efj-itin">
             <div className="efj-stop">
-              <p className="date">8/5(水)｜山口県長門市・油谷湾</p>
-              <h3>百姓庵</h3>
-              <p className="tagline">太陽と風と海がつくる、ほんものの塩</p>
-              <p>日本でも数少ない伝統製法で塩づくりを続ける百姓庵。本当に凄いのは塩だけではなく、井上悠然さん＆かみさん一家のニュースタイルな暮らしぶり。自然と共に、未来をつくる。これからの時代に必要な暮らしの知恵を学びます。</p>
+              <img className="photo" src="/efj/hyakushoan.jpg" alt="百姓庵の塩と油谷湾の海" loading="lazy" />
+              <div className="body">
+                <span className="date">8/5(水)｜山口県長門市・油谷湾</span>
+                <h3>百姓庵</h3>
+                <p className="tagline">太陽と風と海がつくる、ほんものの塩</p>
+                <p>日本でも数少ない伝統製法で塩づくりを続ける百姓庵。太陽と風、そして海の力だけでつくられる「百姓の塩」は、全国の一流料理人たちからも高く評価されています。でも本当に凄いのは塩だけではなく、井上悠然さん＆かみさん一家のニュースタイルな暮らしぶり。自然と共に、未来をつくる。これからの時代に必要な暮らしの知恵を学びます。</p>
+              </div>
             </div>
             <div className="efj-stop">
-              <p className="date">8/6(木)–7(金)｜山口県長門市・俵山温泉</p>
-              <h3>俵山ビレッジ</h3>
-              <p className="tagline">地方から未来を創る、挑戦者の村</p>
-              <p>レトロな湯治場・俵山温泉に誕生した地域創生の拠点。全国から挑戦者が集まるこの場所で「地方から未来を創る」を実践する吉武大輔さん。新しい時代のコミュニティづくりを、温泉街の風情とともに体感します。</p>
+              <img className="photo" src="/efj/tawara_dusk.jpg" alt="夕暮れの俵山温泉の街並み" loading="lazy" />
+              <div className="body">
+                <span className="date">8/6(木)–7(金)｜山口県長門市・俵山温泉</span>
+                <h3>俵山ビレッジ</h3>
+                <p className="tagline">地方から未来を創る、挑戦者の村</p>
+                <p>レトロな湯治場・俵山温泉に誕生した地域創生の拠点。全国から挑戦者が集まるこの場所では、吉武大輔さんが「地方から未来を創る」を実践中です。地方だからこそ可能性がある。そんな新しい時代のコミュニティづくりを、温泉街の風情とともに体感します。</p>
+              </div>
             </div>
             <div className="efj-stop">
-              <p className="date">8/7(金)–8(土)｜山口県</p>
-              <h3>オルタナティブスクール（地球子舎＆こびとのおうちえん／森の学校みっけ）</h3>
-              <p className="tagline">「子育てとは？」「教育とは？」「幸せとは？」</p>
-              <p>神山町の「森の学校みっけ」のモデル校でもある、山口のオルタナティブスクール「地球子舎」。代表の大下さんと話していると、不思議と意識が変わり、人生が変わったという人も多い。自然と共に学び育つ教育の現場を体感します。</p>
+              <img className="photo" src="/efj/terakoya.jpg" alt="地球子舎で過ごす家族と仲間" loading="lazy" />
+              <div className="body">
+                <span className="date">8/7(金)–8(土)｜山口県</span>
+                <h3>オルタナティブスクール</h3>
+                <p className="tagline">地球子舎＆こびとのおうちえん／森の学校みっけ——「子育てとは？」「教育とは？」「幸せとは？」</p>
+                <p>神山町の「森の学校みっけ」のモデル校でもある、山口のオルタナティブスクール「地球子舎」。代表で森のようちえん「こびとのおうちえん」を運営する大下さんを訪ねます。大下さんと話していると、不思議と意識が変わり、人生が変わったという人も多い。当たり前だと思っていた価値観がほどけ、自分らしい生き方のヒントが見えてきます。</p>
+              </div>
             </div>
             <div className="efj-stop">
-              <p className="date">8/8(土)–11(火)｜山口県・瀬戸内の島</p>
-              <h3>祝島</h3>
-              <p className="tagline">いのちの循環に触れる、島時間</p>
-              <p>必要なものは自分たちでつくる。先人から受け継がれてきた島の暮らしを、からだごと体感します。心もカラダも喜ぶ食を通じ、いのちの循環を感じる。未来の世代のために大切なものを繋げようとする姿に、心から感動する旅に。</p>
+              <img className="photo" src="/efj/iwaishima.jpg" alt="祝島の海と伝統の舟" loading="lazy" />
+              <div className="body">
+                <span className="date">8/8(土)–11(火)｜山口県・瀬戸内の島</span>
+                <h3>祝島</h3>
+                <p className="tagline">いのちの循環に触れる、島時間</p>
+                <p>必要なものは自分たちでつくる。先人から受け継がれてきた島の暮らしを、からだごと体感します。心もカラダも喜ぶ食を通じ、いのちの循環を感じる。目に見える山や海の幸に感謝し、未来の世代のために大切なものを繋げようとする姿——僕はこういう生き方に心から感動するし、みんなと共有したいです。</p>
+              </div>
             </div>
             <div className="efj-stop">
-              <p className="date">8/12(水)–14(金)｜徳島県・地方再生の聖地</p>
-              <h3>神山町</h3>
-              <p className="tagline">「やったらええんちゃうん？」の町</p>
-              <p>移住希望者200人以上、視察が絶えない不思議な町。その理由は、町のあちこちで巻き起こる"オルタナティブ"な奇跡にあります。焚き火を囲んで語り合い、朝の森でからだをゆるめ、動物に触れ、川の音を聴き、星を見上げる。からだ全部で感じる時間を。</p>
+              <img className="photo" src="/efj/waterfall.jpg" alt="神山の滝と新緑" loading="lazy" />
+              <div className="body">
+                <span className="date">8/12(水)–14(金)｜徳島県・地方再生の聖地</span>
+                <h3>神山町</h3>
+                <p className="tagline">「やったらええんちゃうん？」の町</p>
+                <p>移住希望者200人以上、視察が絶えない不思議な町。その理由は、町のあちこちで巻き起こる"オルタナティブ"な奇跡にあります。焚き火を囲んで語り合う。朝の森でからだをゆるめる。動物に触れ、川の音を聴き、星を見上げる。頭で考えるんじゃなくて、からだ全部で感じる時間。日常から離れて、自然の中で自分にご褒美をあげませんか？</p>
+              </div>
             </div>
           </div>
           <div className="efj-finale">
@@ -182,16 +234,18 @@ export default function Efj() {
         </Reveal>
       </section>
 
-      {/* ============ PHOTOS ============ */}
+      {/* ============ SCENES ============ */}
       <section className="efj-sec">
         <Reveal>
           <p className="efj-label">SCENES</p>
           <h2 className="efj-h2">旅の風景</h2>
-          <div className="efj-photos">
-            <img src="/manus-storage/kids_kasa_f5b7d7f3.jpg" alt="笑顔の子どもたち" loading="lazy" />
-            <img src="/manus-storage/dougyou_ninin_3b4ab71f.jpg" alt="同行する旅の仲間" loading="lazy" />
-            <img src="/manus-storage/rafting_1d496717.jpg" alt="川くだり体験" loading="lazy" />
-            <img src="/manus-storage/group_photo_1124f3c4.jpg" alt="旅の集合写真" loading="lazy" />
+          <div className="efj-scenes">
+            <img src="/efj/fire.jpg" alt="神山の夜、焚き火を囲む仲間" loading="lazy" />
+            <img src="/efj/pizza.jpg" alt="ピザ窯を囲む仲間" loading="lazy" />
+            <img src="/efj/tawara_people.jpg" alt="俵山の街で笑顔の集合写真" loading="lazy" />
+            <img src="/efj/iwaishima.jpg" alt="祝島の青い海と伝統の舟" loading="lazy" />
+            <img src="/efj/waterfall.jpg" alt="神山の滝と新緑" loading="lazy" />
+            <img src="/efj/night.jpg" alt="俵山ビレッジの夜のイベント" loading="lazy" />
           </div>
         </Reveal>
       </section>
@@ -243,13 +297,13 @@ export default function Efj() {
           </div>
           <div className="efj-note">
             <b>🌱 この旅のかたち</b><br />
-            これは、らんぼうが大好きな人と場所を訪ねてまわる夏の旅。そこに、ご家族や仲間が「一緒に行きたい！」と同行してくれるかたちです。現地で落ち合って、同じ時間を過ごして、またそれぞれの暮らしへ帰っていく。おすすめの宿や便は、いくらでも相談に乗ります。<br /><br />
+            これは、らんぼうが大好きな人と場所を訪ねてまわる夏の旅。そこに、ご家族や仲間が「一緒に行きたい！」と同行してくれるかたちです。現地で落ち合って、同じ時間を過ごして、またそれぞれの暮らしへ帰っていく。おすすめの宿や便は、いくらでも相談に乗ります。ガイド料は、道中の案内とコーディネートへのお気持ちとしてお預かりしています。行き先は、時にはインスピレーションでみんなで決めたり、フレキシブルに。その柔らかさも、この旅ならではのおもしろさとして一緒に楽しんでください。<br /><br />
             <b>🎫 うれしい割引</b><br />
             ・らんぼう塾割引｜10,000円割引（お一人様＆一家族全体で）<br />
-            ・家族割引｜ご家族でご参加の場合、小学生以上の2人目以降のお子さまやご家族分のガイド料は、そのスタイルのガイド料の半額以上のドネーション制<br />
+            ・家族割引｜ご家族でご参加の場合、小学生以上の2人目以降のお子さまやご家族分のガイド料は、そのスタイルのガイド料の半額以上のドネーション制。「この旅の価値に期待してこれだけ応援したい！」そんな感覚に合わせて金額をお選びください。<br />
             ※小学生未満のお子様はドネーション制　※割引は併用可能です<br /><br />
             <b>👨‍👩‍👧 ご参加にあたって</b><br />
-            10名ほどの少人数でじっくり巡ります（先着順）。移動は基本的に各自のお車でお願いしています。どうしても難しい方はご相談ください。ご家族でのご参加も大歓迎です。
+            10名ほどの少人数でじっくり巡ります（先着順）。移動は基本的に各自のお車でお願いしています。どうしても難しい方はご相談ください。みなさんの"お気持ち"が、次の未来を育てていきます。ご家族でのご参加も大歓迎です。
           </div>
         </Reveal>
       </section>
@@ -260,7 +314,13 @@ export default function Efj() {
           <p className="efj-label">YOUR GUIDE</p>
           <h2 className="efj-h2">ガイドは、<span className="u">あーすガイド・らんぼう</span></h2>
           <div className="efj-guide">
-            <p className="role">あーすガイド代表・旅する学校主宰</p>
+            <div className="head">
+              <img src="/efj/profile.jpg" alt="あーすガイド・らんぼう" loading="lazy" />
+              <div>
+                <p className="name">らんぼう</p>
+                <p className="role">あーすガイド代表・旅する学校主宰</p>
+              </div>
+            </div>
             <p>
               地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。
               帰国後は全国で500本以上のトーク・上映会・ガイドツアーを実施し、案内した40人以上が各地に移住。
@@ -317,7 +377,7 @@ export default function Efj() {
               お会いできるのを、心から楽しみにしています。
             </p>
             <div style={{ marginTop: 22 }}>
-              <CountdownBadge />
+              <CountdownBadge light />
               <div>
                 <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">
                   🌏 LINEで申し込む・相談する →
