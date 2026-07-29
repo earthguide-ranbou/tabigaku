@@ -356,23 +356,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── キーワードストリップ ── */}
-      <div style={{ background: "#FFD94D", padding: "13px 0", overflow: "hidden", whiteSpace: "nowrap" }}>
-        <style>{`
-          @keyframes tb-strip { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-          @media (prefers-reduced-motion: reduce) { .tb-strip { animation: none !important; } }
-        `}</style>
-        <div className="tb-strip" style={{ display: "inline-block", animation: "tb-strip 30s linear infinite" }}>
-          {[0, 1].map((n) => (
-            <span key={n} style={{ fontWeight: 900, fontSize: 14.5, color: "#1F1B16", letterSpacing: ".06em" }}>
-              {["旅は、最高の学校。", "歩く旅", "海の旅", "山の旅", "出会う旅", "子どもが主役", "家族で参加OK", "ワクワクとドキドキがきたらGOサイン"].map((w, i) => (
-                <span key={i} style={{ padding: "0 14px" }}>{w}<span style={{ color: "#d65a3a" }}>　✳︎　</span></span>
-              ))}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ── About ── */}
       <Section id="about" className="py-28 md:py-40">
         {/* Subtle background accent */}
