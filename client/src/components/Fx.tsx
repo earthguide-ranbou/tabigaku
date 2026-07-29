@@ -1,7 +1,37 @@
-import { motion } from "framer-motion";
-import type { CSSProperties, ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
-/** 西山製麺風: テキストがマスクの下からスッと立ち上がる */
+const EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
+
+function useShown() {
+  const ref = useRef<HTMLElement | null>(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    // 既に画面内なら即表示
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setShown(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setShown(true);
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return { ref, shown };
+}
+
+/** 西山製麺風: テキストがマスクの下からスッと立ち上がる（一度出たら保持） */
 export function MaskUp({
   children,
   delay = 0,
@@ -15,22 +45,28 @@ export function MaskUp({
   className?: string;
   style?: CSSProperties;
 }) {
+  const { ref, shown } = useShown();
   return (
-    <span className={className} style={{ display: "block", overflow: "hidden", ...style }}>
-      <motion.span
-        style={{ display: "block", willChange: "transform" }}
-        initial={{ y: "115%" }}
-        whileInView={{ y: "0%" }}
-        viewport={{ once: true, margin: "0px" }}
-        transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+    <span
+      ref={ref as React.RefObject<HTMLSpanElement>}
+      className={className}
+      style={{ display: "block", overflow: "hidden", ...style }}
+    >
+      <span
+        style={{
+          display: "block",
+          transform: shown ? "translateY(0%)" : "translateY(115%)",
+          transition: `transform ${duration}s ${EASE} ${delay}s`,
+          willChange: "transform",
+        }}
       >
         {children}
-      </motion.span>
+      </span>
     </span>
   );
 }
 
-/** 西山製麺風: 写真がカーテン状に開く */
+/** 西山製麺風: 写真がカーテン状に開く（一度開いたら保持） */
 export function Curtain({
   children,
   delay = 0,
@@ -44,28 +80,34 @@ export function Curtain({
   className?: string;
   style?: CSSProperties;
 }) {
+  const { ref, shown } = useShown();
   return (
-    <div className={className} style={{ position: "relative", overflow: "hidden", height: "100%", ...style }}>
-      <motion.div
-        style={{ height: "100%", willChange: "transform" }}
-        initial={{ scale: 1.14, opacity: 0.5 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true, margin: "0px" }}
-        transition={{ duration: 1.1, delay: delay + 0.3, ease: [0.16, 1, 0.3, 1] }}
+    <div
+      ref={ref as React.RefObject<HTMLDivElement>}
+      className={className}
+      style={{ position: "relative", overflow: "hidden", height: "100%", ...style }}
+    >
+      <div
+        style={{
+          height: "100%",
+          transform: shown ? "scale(1)" : "scale(1.14)",
+          opacity: shown ? 1 : 0.5,
+          transition: `transform 1.1s ${EASE} ${delay + 0.3}s, opacity 1.1s ${EASE} ${delay + 0.3}s`,
+          willChange: "transform, opacity",
+        }}
       >
         {children}
-      </motion.div>
-      <motion.div
+      </div>
+      <div
         aria-hidden
         style={{
           position: "absolute", inset: 0, background: cover,
-          transformOrigin: "right center", zIndex: 3, pointerEvents: "none",
+          transform: shown ? "scaleX(0)" : "scaleX(1)",
+          transformOrigin: "right center",
+          transition: `transform 0.85s ${EASE} ${delay}s`,
+          zIndex: 3, pointerEvents: "none",
           willChange: "transform",
         }}
-        initial={{ scaleX: 1 }}
-        whileInView={{ scaleX: 0 }}
-        viewport={{ once: true, margin: "0px" }}
-        transition={{ duration: 0.85, delay, ease: [0.16, 1, 0.3, 1] }}
       />
     </div>
   );
