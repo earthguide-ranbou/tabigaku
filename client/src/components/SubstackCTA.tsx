@@ -24,15 +24,28 @@ export default function SubstackCTA() {
             </ul>
             <p className="text-xs text-white/60 mb-6">月1〜2回・登録無料・いつでも解除できます</p>
             <div className="bg-white rounded-2xl px-4 py-4 shadow-xl w-full max-w-[440px] mx-auto md:mx-0">
-              <iframe
-                src="https://ranbou.substack.com/embed?no_posts=true"
-                width="100%"
-                height="110"
-                style={{ border: "none", background: "white" }}
-                frameBorder="0"
-                scrolling="no"
-                title="Substackメルマガ登録"
-              />
+              <div className="substack-wrap">
+                <iframe
+                  src="https://ranbou.substack.com/embed?no_posts=true"
+                  width="100%"
+                  height="110"
+                  style={{ border: "none", background: "white" }}
+                  frameBorder="0"
+                  scrolling="no"
+                  title="Substackメルマガ登録"
+                />
+                <style>{`
+                  .substack-wrap { width: 100%; overflow: hidden; }
+                  @media (max-width: 480px) {
+                    .substack-wrap { height: 92px; }
+                    .substack-wrap iframe {
+                      width: 122%;
+                      transform: scale(0.82);
+                      transform-origin: left top;
+                    }
+                  }
+                `}</style>
+              </div>
             </div>
           </div>
         </div>
