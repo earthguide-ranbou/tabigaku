@@ -55,7 +55,7 @@ const journeys = [
     title: "地球家族ジャーニー",
     subtitle: "〜祝島から神山へ 魂が震え、命が喜ぶ旅〜",
     description: "祝島から神山へ。魂が震え、命が喜ぶ旅。家族で参加できる特別な夏の体験。途中参加も歓迎。",
-    href: "https://tsu7tzkcozwmm.kimi.page/",
+    href: "/efj",
   },
   {
     id: 2,
@@ -263,7 +263,7 @@ export default function Home() {
         return (
           <div className="w-full text-white" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.7, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 20px", textAlign: "center"}}>
             {efjLive && (
-              <a href="https://tsu7tzkcozwmm.kimi.page/" target="_blank" rel="noopener" style={{color: "#fff"}}>
+              <a href="/efj" style={{color: "#fff"}}>
                 🌍 {days > 0 ? `出発まであと${days}日！` : "ただいま旅の途中！"}地球家族ジャーニー 8/5-14 祝島→神山（少人数制）
                 <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
               </a>
@@ -648,6 +648,19 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col items-center gap-6"
           >
+            {/* LINE CTA（第一導線） */}
+            <a
+              href="https://line.me/ti/p/HjhUktmN-m"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"
+              style={{ background: "linear-gradient(135deg,#06c755,#04a648)", boxShadow: "0 10px 30px rgba(6,199,85,.35)" }}
+            >
+              LINEで相談・申し込む
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p className="text-xs text-muted-foreground -mt-3">※ 一番早くて確実です。相談だけでもOK</p>
+
             {/* Contact info */}
             <div className="flex flex-col items-center gap-2">
               <a

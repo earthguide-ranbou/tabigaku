@@ -13,6 +13,7 @@ import Thai from "./pages/Thai";
 import Henro from "./pages/Henro";
 import HenroShinsoku from "./pages/HenroShinsoku";
 import Juku from "./pages/Juku";
+import Efj from "./pages/Efj";
 import { useEffect } from "react";
 
 
@@ -40,6 +41,7 @@ function Router() {
       <Route path={"/henro"} component={Henro} />
       <Route path={"/henro-shinsoku"} component={HenroShinsoku} />
       <Route path={"/juku"} component={Juku} />
+      <Route path={"/efj"} component={Efj} />
       <Route path={"/juku"} component={Juku} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
