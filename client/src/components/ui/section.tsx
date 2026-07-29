@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { MaskUp } from "@/components/Fx";
 
 interface SectionProps {
   children: React.ReactNode;
@@ -116,18 +117,14 @@ export function SectionHeader({
           />
         </motion.div>
       )}
-      <motion.h2
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "0px" }}
-        transition={{ duration: 0.5, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
+      <h2
         className={cn(
           "text-3xl md:text-5xl lg:text-[3.5rem] font-serif font-bold leading-[1.2] tracking-wide",
           light ? "text-white" : "text-foreground"
         )}
       >
-        {title}
-      </motion.h2>
+        <MaskUp delay={0.06}>{title}</MaskUp>
+      </h2>
     </div>
   );
 }

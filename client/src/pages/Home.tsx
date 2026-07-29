@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import SubstackCTA from "@/components/SubstackCTA";
 import ShareButtons from "@/components/ShareButtons";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { Curtain } from "@/components/Fx";
 
 // ─── Image URLs (uploaded to webdev storage) ───────────────────────────────
 // チラシのメインビジュアル（山岳トレッキング写真）
@@ -492,11 +493,13 @@ export default function Home() {
               {/* Image side */}
               <div className="w-full md:w-[48%] shrink-0">
                 <div className="relative h-64 md:h-full overflow-hidden">
-                  <img
-                    src={TOKUSHIMA_SHIMBUN}
-                    alt="徳島新聞掲載記事"
-                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
-                  />
+                  <Curtain cover="#1d5c4d">
+                    <img
+                      src={TOKUSHIMA_SHIMBUN}
+                      alt="徳島新聞掲載記事"
+                      className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
+                    />
+                  </Curtain>
                 </div>
               </div>
               {/* Text side */}
@@ -543,13 +546,15 @@ export default function Home() {
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden bg-muted">
-                <img
-                  src={j.image}
-                  alt={j.alt}
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                />
+                <Curtain delay={i * 0.1} cover="#1d5c4d">
+                  <img
+                    src={j.image}
+                    alt={j.alt}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
+                  />
+                </Curtain>
                 {/* Gradient overlay at bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 {/* Tags over image */}
