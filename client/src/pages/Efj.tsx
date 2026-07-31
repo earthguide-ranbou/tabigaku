@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
-const LINE = "https://lin.ee/p3CvLfQ";
+const LINE = "https://lin.ee/N9eyIcP";
 const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -314,13 +314,14 @@ export default function Efj() {
           <p className="efj-label">YOUR GUIDE</p>
           <h2 className="efj-h2">ガイドは、<span className="u">あーすガイド・らんぼう</span></h2>
           <div className="efj-guide">
-            <div className="head">
+            <a className="head" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
               <img src="/efj/profile.jpg" alt="あーすガイド・らんぼう" loading="lazy" />
               <div>
                 <p className="name">らんぼう</p>
                 <p className="role">あーすガイド代表・旅する学校主宰</p>
+                <p style={{ fontSize: "12px", fontWeight: 800, color: "#1d5c4d", margin: "4px 0 0" }}>▶ プロフィール詳細はあーすガイドへ</p>
               </div>
-            </div>
+            </a>
             <p>
               地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。
               帰国後は全国で500本以上のトーク・上映会・ガイドツアーを実施し、案内した40人以上が各地に移住。
