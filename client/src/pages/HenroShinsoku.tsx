@@ -103,7 +103,7 @@ export default function HenroShinsoku() {
     <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>早期割引 12,000円OFF ｜ 2026年9月10日（木）まで</div>
     <div className="hero-btns">
       <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">参加申し込みはこちら</a>
-      <a className="btn btn-ink" href="https://line.me/ti/p/HjhUktmN-m" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
+      <a className="btn btn-ink" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
@@ -328,7 +328,7 @@ export default function HenroShinsoku() {
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
     <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
     <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む</a>
-    <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://line.me/ti/p/HjhUktmN-m" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
+    <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
 </section>
 

@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import ShareButtons from "@/components/ShareButtons";
 
-const LINE = "https://line.me/ti/p/HjhUktmN-m";
+const LINE = "https://lin.ee/p3CvLfQ";
 
 function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (

@@ -1,7 +1,7 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
-const LINE = "https://line.me/ti/p/HjhUktmN-m";
+const LINE = "https://lin.ee/p3CvLfQ";
 const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {

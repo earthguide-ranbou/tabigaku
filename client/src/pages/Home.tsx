@@ -655,7 +655,7 @@ export default function Home() {
           >
             {/* LINE CTA（第一導線） */}
             <a
-              href="https://line.me/ti/p/HjhUktmN-m"
+              href="https://lin.ee/p3CvLfQ"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"

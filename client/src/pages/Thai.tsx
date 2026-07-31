@@ -751,7 +751,7 @@ export default function Thai() {
           <p className="lc-title">不安なことは、なんでも聞いてください</p>
           <p className="lc-sub">「うちの子でも大丈夫？」「仕事の調整が…」そんな相談からでOK。</p>
           <img src="/manus-storage/thai_img_24_bd029101.png" alt="LINE友だち追加QRコード" />
-          <a className="lc-btn" href="https://line.me/ti/p/HjhUktmN-m">📱 LINEで相談する（友だち追加）</a>
+          <a className="lc-btn" href="https://lin.ee/p3CvLfQ">📱 LINEで相談する（友だち追加）</a>
           <p className="lc-note">スマホの方はボタンをタップ／パソコンの方はQRコードを読み取ってください</p>
         </div>
       </main>
@@ -775,7 +775,7 @@ export default function Thai() {
 
       {/* 固定CTA */}
       <div className="cta-fixed">
-        <a className="cta-btn" href="https://line.me/ti/p/HjhUktmN-m">
+        <a className="cta-btn" href="https://lin.ee/p3CvLfQ">
           まずはLINEで<span className="free">無料</span>相談する。
         </a>
       </div>
