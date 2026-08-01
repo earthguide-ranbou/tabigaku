@@ -150,6 +150,11 @@ export default function Juku() {
           <p className="juku-label">WHY</p>
           <h2 className="juku-h2">この塾をはじめる<span className="u">理由</span></h2>
           <div className="juku-story">
+            <p style={{ fontWeight: 700, color: "#1d5c4d", lineHeight: 2.2, borderLeft: "4px solid #FFD94D", paddingLeft: 16, margin: "0 0 22px" }}>
+              海が汚れ、川が枯れ、動物たちが姿を消し、人が人と争い、地球が病んでいく。<br />
+              自分にできることは微力かもしれない。それでも、よりよい未来をつくるために、できることをしたい。<br />
+              魂が喜ぶ方へ。いのちが喜ぶ方へ。
+            </p>
             <p>
               僕の人生には、一つだけルールがあります。<br />
               <b>「ワクワクとドキドキが同時に来たらGOサイン。」</b>
