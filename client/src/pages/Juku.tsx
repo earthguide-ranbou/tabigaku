@@ -132,6 +132,9 @@ export default function Juku() {
                 <span className="juku-count">🌈 1期生 受付中｜開講まであと <b>{days}</b> 日</span>
               ) : null;
             })()}
+            <p style={{ fontSize: "clamp(17px,3.4vw,24px)", fontWeight: 900, color: "#FFD94D", margin: "4px 0 14px", letterSpacing: ".04em", lineHeight: 1.6 }}>
+              いのちが喜ぶことを、カタチにする。
+            </p>
             <p className="period">111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)</p>
             <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
               まずLINEで無料相談する →
@@ -254,7 +257,11 @@ export default function Juku() {
             文章・画像・チラシ・サイト制作まで、AIで作る実践術。なんと、このページ自体もすべてAIで作っています。
           </div>
           <div className="juku-quote">
-            <b>🌈 オルタナティブな学校づくりのリアル</b><br />
+            <b>🌈 ゲストトーク｜本物（虹の戦士）に会える</b><br />
+            地球のあちこちで、らんぼうが巡り会ってきた「本物」たちが塾にやってきます。マサイの戦士、海を渡る航海士、暮らしを自給する実践者、地域を動かす変わり者——。教科書には載っていない生き方、活動のはじめ方、好きを仕事に変える仕事づくりを、本人の言葉で直接聞ける特別授業です。「こんな生き方があったのか」。その出逢いが、あなたの人生の選択肢を増やします。
+          </div>
+          <div className="juku-quote">
+            <b>🏫 オルタナティブな学校づくりのリアル</b><br />
             「森の学校みっけ」「旅する学校」「KAMIYAMA FIELD SCHOOL」——3つの学校立ち上げに関わり、成功も失敗も含めた現場から見えてきた「これからの時代に本当に必要な力」をお話しします。
           </div>
         </Reveal>
