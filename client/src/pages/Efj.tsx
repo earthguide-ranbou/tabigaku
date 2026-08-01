@@ -2,6 +2,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
 const LINE = "https://lin.ee/N9eyIcP";
+const FORM = "https://1lejend.com/stepmail/kd.php?no=flieylTa";
 const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -130,10 +131,10 @@ export default function Efj() {
               1人で、家族と、友人と——笑い楽しみながら、人生観が変わってしまうかもしれない。
               そんなプレミアムな旅路へ、出発しませんか？
             </p>
-            <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-              LINEで申し込む・相談する →
+            <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+              申し込みフォームへ →
             </a>
-            <span className="efj-btn-sub">※ 相談だけでもOK。「地球家族ジャーニー希望」とメッセージをどうぞ</span>
+            <span className="efj-btn-sub">※ ご相談は<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", fontWeight: 800, textDecoration: "underline" }}>公式LINE</a>からどうぞ。「地球家族ジャーニー希望」とメッセージを</span>
             <p className="period">2026年8月5日(水)〜14日(金)｜山口・祝島 → 徳島・神山｜少人数制（10名ほど）｜親子・ご家族歓迎｜小学生未満はドネーション制</p>
           </div>
         </div>
@@ -268,7 +269,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
                 <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
               </ul>
-              <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">このスタイルでLINE申込 →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
             </div>
             <div className="efj-plan">
               <h3>Bプラン｜山口じっくり7日間</h3>
@@ -280,7 +281,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
                 <li><b>お別れ</b>｜8/11 12:30 祝島にて（12:30発のフェリーがあります）</li>
               </ul>
-              <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">このスタイルでLINE申込 →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
             </div>
             <div className="efj-plan">
               <h3>Cプラン｜神山＆阿波おどり3日間</h3>
@@ -292,7 +293,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/12(水) 12:00 神山町 道の駅にて</li>
                 <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
               </ul>
-              <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">このスタイルでLINE申込 →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
             </div>
           </div>
           <div className="efj-note">
@@ -359,6 +360,12 @@ export default function Efj() {
               7日前まで：20,000円（ガイド料より）／6日前以降〜当日：ガイド料全額をお預かりします（現地の方々との調整や準備があるため、ご了承ください）
             </div>
             <div className="efj-knowbox">
+              <b>🏦 お振込先</b>
+              PAYPAY銀行 かわせみ支店（007）<br />
+              普通 4304359 ウエダ ナオキ<br />
+              ※お申し込み後、ガイド料をお振込みください。お振込みの確認をもってご予約確定となります。
+            </div>
+            <div className="efj-knowbox">
               <b>📮 お問い合わせ</b>
               LINE｜<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#04a648", fontWeight: 800 }}>公式LINEはこちら</a><br />
               TEL｜090-7518-8816　Mail｜earthguide.jpn@gmail.com<br />
@@ -380,10 +387,11 @@ export default function Efj() {
             <div style={{ marginTop: 22 }}>
               <CountdownBadge light />
               <div>
-                <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-                  🌏 LINEで申し込む・相談する →
+                <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+                  🌏 申し込みフォームへ →
                 </a>
               </div>
+              <a className="tel" href={LINE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>💬 相談は公式LINEから →</a>
               <a className="tel" href="tel:09075188816">📞 電話で相談する（090-7518-8816）</a>
             </div>
           </div>
@@ -400,8 +408,8 @@ export default function Efj() {
 
       {/* ============ 固定CTA ============ */}
       <div className="efj-fixed">
-        <a className="efj-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-          地球家族ジャーニーに申し込む（LINE）
+        <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+          地球家族ジャーニーに申し込む（フォーム）
         </a>
         {(() => {
           const dep = new Date("2026-08-05T00:00:00+09:00").getTime();

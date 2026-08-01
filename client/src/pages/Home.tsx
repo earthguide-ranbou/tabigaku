@@ -23,6 +23,9 @@ const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
 const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
 const KAMIYAMA_JOURNEY = "/manus-storage/kamiyama_journey_3f2b7506.jpeg";
 
+// 公式LINE（旅する学校）
+const LINE_TABIGAKU = "https://lin.ee/odygMT3";
+
 // スライドショー用写真（9枚、新聞画像は除外）
 const SLIDESHOW_IMAGES = [
   { src: "/manus-storage/1000004115_06c74ce0.jpg", alt: "ラフティング体験 - 笑顔の子どもたち" },
@@ -655,7 +658,7 @@ export default function Home() {
           >
             {/* LINE CTA（第一導線） */}
             <a
-              href="https://lin.ee/p3CvLfQ"
+              href={LINE_TABIGAKU}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"
@@ -696,8 +699,64 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* ============ LINE 登録しかけ ============ */}
+      <Section className="py-16 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl mx-auto rounded-3xl p-8 md:p-12 text-center"
+          style={{ background: "linear-gradient(150deg,#eef7ee,#fdf9ef)", border: "1px solid #d8e8d8", boxShadow: "0 18px 50px rgba(29,92,77,.10)" }}
+        >
+          <p className="text-sm font-bold tracking-[0.2em] mb-3" style={{ color: "#04a648" }}>OFFICIAL LINE</p>
+          <h3 className="text-2xl md:text-3xl font-serif font-bold mb-5 text-foreground leading-snug">
+            次の冒険の先行案内を、<br />いち早くお届けします
+          </h3>
+          <p className="text-sm md:text-base text-muted-foreground leading-loose mb-6">
+            人気の旅は、募集開始からあっという間に満席になります。<br className="hidden md:block" />
+            公式LINEにご登録いただくと——
+          </p>
+          <div className="text-left inline-block text-sm md:text-base leading-loose mb-7" style={{ color: "#1d5c4d", fontWeight: 700 }}>
+            🌏 新しい旅・イベントの先行案内<br />
+            🎫 LINE登録者限定のお得な割引情報<br />
+            📖 らんぼうの旅日記・子育てと自然のヒント
+          </div>
+          <div>
+            <a
+              href={LINE_TABIGAKU}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"
+              style={{ background: "linear-gradient(135deg,#06c755,#04a648)", boxShadow: "0 10px 30px rgba(6,199,85,.35)" }}
+            >
+              無料でLINEに登録する
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p className="text-xs text-muted-foreground mt-3">※ 登録は10秒。いつでも解除できます</p>
+          </div>
+        </motion.div>
+      </Section>
+
       <SubstackCTA />
       <Footer />
+
+      {/* フローティングLINEボタン */}
+      <a
+        href={LINE_TABIGAKU}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="公式LINEに登録"
+        style={{
+          position: "fixed", right: 16, bottom: 18, zIndex: 60,
+          display: "flex", alignItems: "center", gap: 8,
+          background: "linear-gradient(135deg,#06c755,#04a648)", color: "#fff",
+          fontWeight: 900, fontSize: 14, padding: "13px 20px", borderRadius: 999,
+          textDecoration: "none", boxShadow: "0 10px 28px rgba(6,199,85,.45)",
+        }}
+      >
+        <span style={{ fontSize: 18 }}>💬</span> LINE登録
+      </a>
     </div>
   );
 }
