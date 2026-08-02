@@ -274,7 +274,7 @@ export default function Juku() {
           </div>
           <div className="juku-quote">
             <b>🤖 AI活用術</b><br />
-            文章・画像・チラシ・サイト制作まで、AIで作る実践術。なんと、このページ自体もすべてAIで作っています。
+            AIとは切っても切り離せない時代。文章・画像・チラシ・サイト制作まで、らんぼう自身が実際に活用して見えてきた使い方を、リアルな実例とともにシェアします。
           </div>
           <div className="juku-quote">
             <b>🌈 ゲストトーク｜本物（虹の戦士）に会える</b><br />
