@@ -8,6 +8,7 @@ import { useSEO } from "@/hooks/useSEO";
 import ShareButtons from "@/components/ShareButtons";
 
 const LINE = "https://lin.ee/p3CvLfQ";
+const FORM = "https://1lejend.com/stepmail/kd.php?no=floxcw";
 
 function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -136,10 +137,10 @@ export default function Juku() {
               いのちが喜ぶことを、カタチにする。
             </p>
             <p className="period">111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)</p>
-            <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-              まずLINEで無料相談する →
+            <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+              お申し込みはこちら →
             </a>
-            <span className="juku-btn-sub">※ 相談だけでもOK。押し売りはしません。</span>
+            <span className="juku-btn-sub">※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#FFD94D", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ。押し売りはしません。</span>
           </div>
         </div>
       </header>
@@ -368,14 +369,14 @@ export default function Juku() {
             <div className="juku-spec">
               <b>【期間】</b>2026年8月18日(火)〜12月6日(日)（111日間）<br />
               <b>【形式】</b>オンライン中心（限定ラジオ・Zoom・LINEグループ）＋神山合宿・ワクドキ祭り<br />
-              <b>【申込後の流れ】</b>LINEで申込 → 受講料のお振込確認後、8月18日までにLINEグループへご招待<br />
+              <b>【申込後の流れ】</b>申込フォームでお申し込み → 受講料のお振込確認後、8月18日までにLINEグループへご招待<br />
               <b>【振込先】</b>PAYPAY銀行 かわせみ支店(007) 普通 4304359 ウエダナオキ
             </div>
             <div style={{ marginTop: 26 }}>
-              <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-                LINEで申し込む・相談する →
+              <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+                お申し込みフォームへ →
               </a>
-              <span className="juku-btn-sub" style={{ color: "#9a917f" }}>「らんぼう塾の件」とメッセージをどうぞ</span>
+              <span className="juku-btn-sub" style={{ color: "#9a917f" }}>※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#04a347", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ</span>
             </div>
           </div>
         </Reveal>
@@ -425,9 +426,14 @@ export default function Juku() {
               不安でもいい。準備ができてなくて大丈夫。すべては未完成からはじまる。
             </p>
             <div style={{ marginTop: 22 }}>
-              <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
+              <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
                 🌈 1期生として参加する →
               </a>
+              <p style={{ marginTop: 14 }}>
+                <a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.85)", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 4 }}>
+                  分割のご相談・質問は公式LINEから →
+                </a>
+              </p>
               <p style={{ marginTop: 18 }}>
                 <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.8)", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 4 }}>
                   らんぼう公式サイト「あーすガイド」を見る →
@@ -448,8 +454,8 @@ export default function Juku() {
 
       {/* ============ 固定CTA ============ */}
       <div className="juku-fixed">
-        <a className="juku-btn" href={LINE} target="_blank" rel="noopener noreferrer">
-          らんぼう塾 1期生に申し込む（LINE）
+        <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
+          らんぼう塾 1期生に申し込む
         </a>
         {(() => {
           const open = new Date("2026-08-18T00:00:00+09:00").getTime();

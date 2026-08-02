@@ -669,14 +669,26 @@ export default function Home() {
             </a>
             <p className="text-xs text-muted-foreground -mt-3">※ 一番早くて確実です。相談だけでもOK</p>
 
-            {/* Contact info */}
-            <div className="flex flex-col items-center gap-2">
+            {/* Contact card */}
+            <div
+              className="w-full max-w-md rounded-3xl px-8 py-9 flex flex-col items-center gap-5"
+              style={{
+                background: "rgba(255,255,255,.82)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(29,92,77,.14)",
+                boxShadow: "0 20px 55px rgba(29,92,77,.10)",
+              }}
+            >
+              <p className="text-xs font-bold tracking-[0.25em]" style={{ color: "#1d5c4d" }}>
+                お電話・メールでもお気軽に
+              </p>
               <a
                 href="tel:09075188816"
                 className="text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-colors tracking-widest"
               >
                 090-7518-8816
               </a>
+              <div style={{ width: 56, height: 1, background: "rgba(29,92,77,.18)" }} />
               <a
                 href="mailto:earthguide.jpn@gmail.com"
                 className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
@@ -690,7 +702,8 @@ export default function Home() {
               href="https://earthguide.tabigaku.party/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-base hover:bg-primary/90 transition-all duration-400 ease-out hover:scale-[1.03] shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
+              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:scale-[1.03]"
+              style={{ color: "#1d5c4d", border: "2px solid rgba(29,92,77,.35)", background: "rgba(255,255,255,.5)" }}
             >
               あーすガイド公式HP
               <ArrowRight className="w-4 h-4" />
