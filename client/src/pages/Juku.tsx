@@ -140,7 +140,7 @@ export default function Juku() {
             <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
               お申し込みはこちら →
             </a>
-            <span className="juku-btn-sub">※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#FFD94D", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ。押し売りはしません。</span>
+            <span className="juku-btn-sub">※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#FFD94D", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ。</span>
           </div>
         </div>
       </header>
@@ -406,7 +406,7 @@ export default function Juku() {
             </details>
             <details>
               <summary>申し込む前に相談できますか</summary>
-              <div className="a">はい。LINEで無料相談を受け付けています。「自分に合うかな？」という段階から一緒に考えます。押し売りはしませんので、お気軽にどうぞ。</div>
+              <div className="a">はい。LINEで無料相談を受け付けています。「自分に合うかな？」という段階から一緒に考えますので、お気軽にどうぞ。</div>
             </details>
             <details>
               <summary>どんな人が向いていますか</summary>
