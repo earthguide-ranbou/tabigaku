@@ -187,8 +187,10 @@ export default function Juku() {
             </div>
             <p className="juku-caption">カヌー1500km航海／瀬戸内カヤック横断／マサイの村／標高5200mレインボーマウンテン</p>
             <p>
-              心の声に従って動き続けてきたら、想像以上に面白いことばかりでした。
-              この感動を共有したい。人生一度きり。何か変えたい。何か始めたい。
+              心の声に従って動き続けてきたら、想像以上に面白いことばかりでした。この感動を共有したい。
+              そして、この塾で育てたいものがもう一つあります。<b>それぞれの場所で、いのちに沿った仕事をしていく仲間</b>です。
+              ひとりでやるから折れてしまう。同じ方向を向いた仲間がいるから、続くし、面白くなる。
+              人生一度きり。何か変えたい。何か始めたい。
               そんな人たちと一緒に、次の景色を見に行く場所が<b>らんぼう塾</b>です。
             </p>
             <p className="big">不安でもいい。準備ができてなくて大丈夫。<br />すべては未完成からはじまる。</p>
@@ -330,8 +332,8 @@ export default function Juku() {
       {/* ============ PROFILE ============ */}
       <section className="juku-sec">
         <Reveal>
-          <p className="juku-label">TEACHER</p>
-          <h2 className="juku-h2">教えるのは、<span className="u">らんぼう</span></h2>
+          <p className="juku-label">PROFILE</p>
+          <h2 className="juku-h2">プロフィール｜<span className="u">らんぼう</span></h2>
           <div className="juku-profile">
             <img src="/juku/canoe.jpg" alt="らんぼう" loading="lazy" />
             <div className="txt">
@@ -423,6 +425,7 @@ export default function Juku() {
             <p className="big">ワクワクとドキドキは、<br />未来の自分から届くGOサイン。</p>
             <p>
               一緒に、そんな景色を見に行きませんか？<br />
+              いのちに沿った一歩を、同じ方向を向く仲間と踏み出す111日間。<br />
               不安でもいい。準備ができてなくて大丈夫。すべては未完成からはじまる。
             </p>
             <div style={{ marginTop: 22 }}>
