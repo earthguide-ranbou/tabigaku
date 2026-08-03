@@ -103,8 +103,19 @@ export default function EarthFamilyJourney() {
 
       {/* ============ 研究 ============ */}
       <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">WHAT RESEARCH SAYS</p>
-        <h2 className="efjw-h2">「旅」「家族」「つながり」は、<br className="sp" />研究が証明する<span className="u">幸せの答え</span>でした</h2>
+        <p className="efjw-label">ONE LIFE</p>
+        <h2 className="efjw-h2">人生一度きり。<br className="sp" /><span className="u">後悔のない人生</span>を送りたい。</h2>
+        <p className="lead">
+          だからこそ僕は、<b>「人生の最後に後悔していることは？」</b>というアンケートを読みました。
+        </p>
+        <div className="efjw-quote">
+          <b className="t">📖 人生の最後に、人は何を後悔するのか</b>
+          終末期の患者を何百人も看取った看護師の記録「The Top Five Regrets of the Dying」では、後悔の上位は<b>「自分に正直な人生を生きればよかった」「仕事ばかりせず、大切な人との時間をもっと持てばよかった」</b>。心理学者 Thomas Gilovich の研究でも、長く残るのは「やった失敗」より<b>「挑戦しなかったこと」「行動しなかったこと」の後悔</b>でした。<br />
+          失敗したことより、やらなかったことが残る——。じゃあ、後悔しないためには何をすればいいのか。その答えも、研究が教えてくれていました。
+        </div>
+        <p className="lead" style={{ textAlign: "center", fontWeight: 900, color: "#123c32", fontSize: "17px", margin: "26px 0 16px" }}>
+          後悔しないための3つのヒント
+        </p>
         <div className="efjw-quote">
           <b className="t">🧳 旅は、お金で買えるいちばん幸福なもの —— コーネル大学の研究</b>
           心理学者 Thomas Gilovich らの研究で、幸福度が長続きするのは「モノ」を買うより「経験」にお金を使うことだと分かっています。モノは慣れて古びるけれど、<b>旅の経験は、時間がたつほど良い思い出に育ち、誰かと分かち合える</b>。だから旅は「贅沢」じゃなくて、人生へのいちばん良い投資なんです。
@@ -119,7 +130,7 @@ export default function EarthFamilyJourney() {
         </div>
         <p className="efjw-big">旅は、幸せになる。<br />家族との旅は、一生の宝物になる。<br />つながりは、人生を豊かにする。</p>
         <p className="lead" style={{ textAlign: "center", marginTop: 6 }}>
-          研究が証明しているこの3つを、僕らは旅で確かめにいきます。
+          人生一度きり。後悔のない人生を送りたい。だからこそ、研究が証明しているこの3つを、僕らは旅で確かめにいきます。
         </p>
         <div className="efjw-ask">
           <p>あなたが今、<em>一歩踏み出したいこと</em>は、何ですか？</p>
