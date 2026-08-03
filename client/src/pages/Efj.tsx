@@ -264,7 +264,7 @@ export default function Efj() {
         <Reveal>
           <p className="efj-label">HOW TO JOIN</p>
           <h2 className="efj-h2">あなたに合った<span className="u">3つの同行スタイル</span></h2>
-          <p className="efj-lead">参加費としてお預かりするのは、道中の案内とコーディネートの分だけ。宿や移動は各自手配の、仲間の旅への同行というかたちです。基本は移動や食事、宿泊などが実費になります。行き先は時にインスピレーションでみんなで決めたり、フレキシブルに行きます。</p>
+          <p className="efj-lead">参加費としてお預かりするのは、道中の案内とコーディネート代として。宿・交通費・食事等は各自で実費となります。行き先は時にインスピレーションでみんなで決めたり、フレキシブルに行きます。</p>
           <div className="efj-plans">
             <div className="efj-plan best">
               <span className="besttag">いちばんおすすめ</span>
