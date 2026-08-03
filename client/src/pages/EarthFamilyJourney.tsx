@@ -2,7 +2,7 @@ import { useEffect, type CSSProperties } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
 const TITLE = "EARTH FAMILY JOURNEY｜世界中で「おかえり」「ただいま」と言い合える家族のような関係を｜旅する学校";
-const DESC = "人生の最後に残る後悔は、失敗したことより「やらなかったこと」。らんぼうが神山町を拠点に世界各地で暮らすように旅をするプロジェクト。地球家族ジャーニー（祝島→神山）と Earth family Journey（タイ）からはじまります。";
+const DESC = "旅は幸せになる。家族との旅は一生の宝物。つながりは人生を豊かにする——研究が証明する3つを、旅で確かめるプロジェクト。神山町を拠点に世界各地で暮らすように旅します。地球家族ジャーニー（祝島→神山）と Earth family Journey（タイ）からはじまります。";
 
 const LNK: CSSProperties = { color: "#04a648", fontWeight: 800, fontSize: "13.5px", textDecoration: "underline", textUnderlineOffset: 3 };
 
@@ -221,7 +221,7 @@ export default function EarthFamilyJourney() {
 
       <ShareButtons
         url="https://www.tabigaku.party/earth-family"
-        text="EARTH FAMILY JOURNEY｜世界中で「おかえり」「ただいま」と言い合える家族のような関係を。人生の最後に残る後悔は、やらなかったこと。一歩踏み出す旅が、ここからはじまります。"
+        text="EARTH FAMILY JOURNEY｜世界中で「おかえり」「ただいま」と言い合える家族のような関係を。旅は幸せになる。家族との旅は一生の宝物。つながりは人生を豊かにする。一歩踏み出す旅が、ここからはじまります。"
         title="＼ EARTH FAMILY JOURNEY をシェア ／"
       />
 
