@@ -1,8 +1,9 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
 const LINE = "https://lin.ee/N9eyIcP";
 const FORM = "https://1lejend.com/stepmail/kd.php?no=flieylTa";
+const LNK: CSSProperties = { color: "#04a648", fontWeight: 800, fontSize: "13.5px", textDecoration: "underline", textUnderlineOffset: 3 };
 const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
 function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
@@ -189,6 +190,7 @@ export default function Efj() {
                 <h3>百姓庵</h3>
                 <p className="tagline">太陽と風と海がつくる、ほんものの塩</p>
                 <p>日本でも数少ない伝統製法で塩づくりを続ける百姓庵。太陽と風、そして海の力だけでつくられる「百姓の塩」は、全国の一流料理人たちからも高く評価されています。でも本当に凄いのは塩だけではなく、井上悠然さん＆かみさん一家のニュースタイルな暮らしぶり。自然と共に、未来をつくる。これからの時代に必要な暮らしの知恵を学びます。</p>
+                <p style={{ margin: "10px 0 0" }}><a href="https://hyakusho-an.com/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 株式会社百姓庵 公式サイト</a></p>
               </div>
             </div>
             <div className="efj-stop">
@@ -198,6 +200,7 @@ export default function Efj() {
                 <h3>俵山ビレッジ</h3>
                 <p className="tagline">地方から未来を創る、挑戦者の村</p>
                 <p>レトロな湯治場・俵山温泉に誕生した地域創生の拠点。全国から挑戦者が集まるこの場所では、吉武大輔さんが「地方から未来を創る」を実践中です。地方だからこそ可能性がある。そんな新しい時代のコミュニティづくりを、温泉街の風情とともに体感します。</p>
+                <p style={{ margin: "10px 0 0" }}><a href="https://www.ccj.works/tawarayama-village/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 俵山ビレッジ 公式サイト</a></p>
               </div>
             </div>
             <div className="efj-stop">
@@ -207,6 +210,10 @@ export default function Efj() {
                 <h3>オルタナティブスクール</h3>
                 <p className="tagline">地球子舎＆こびとのおうちえん／森の学校みっけ——「子育てとは？」「教育とは？」「幸せとは？」</p>
                 <p>神山町の「森の学校みっけ」のモデル校でもある、山口のオルタナティブスクール「地球子舎」。代表で森のようちえん「こびとのおうちえん」を運営する大下さんを訪ねます。大下さんと話していると、不思議と意識が変わり、人生が変わったという人も多い。当たり前だと思っていた価値観がほどけ、自分らしい生き方のヒントが見えてきます。</p>
+                <p style={{ margin: "10px 0 0", display: "flex", gap: 16, flexWrap: "wrap" }}>
+                  <a href="https://oh-shita.com/terakoya/about1/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 地球子舎（てらこや）</a>
+                  <a href="https://www.mikkeforest.org/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 森の学校みっけ</a>
+                </p>
               </div>
             </div>
             <div className="efj-stop">
@@ -216,6 +223,7 @@ export default function Efj() {
                 <h3>祝島</h3>
                 <p className="tagline">いのちの循環に触れる、島時間</p>
                 <p>必要なものは自分たちでつくる。先人から受け継がれてきた島の暮らしを、からだごと体感します。心もカラダも喜ぶ食を通じ、いのちの循環を感じる。目に見える山や海の幸に感謝し、未来の世代のために大切なものを繋げようとする姿——僕はこういう生き方に心から感動するし、みんなと共有したいです。</p>
+                <p style={{ margin: "10px 0 0" }}><a href="https://note.com/shiftdaigaku/n/na0c2592111c5" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 祝島に想いを馳せて（note記事）</a></p>
               </div>
             </div>
             <div className="efj-stop">
@@ -340,6 +348,13 @@ export default function Efj() {
             <blockquote>
               「心が喜ぶ方へ、身体ごと飛び込んでみませんか？ 自然の中に帰ることで、見えてくる"ほんとの自分"。気がつけば、笑って、泣いて、語って、地球を丸ごと感じる旅になると思います」—— らんぼう
             </blockquote>
+            <div style={{ marginTop: 14, display: "flex", gap: "10px 18px", flexWrap: "wrap", justifyContent: "center" }}>
+              <a href="https://www.instagram.com/earthguide.ranbow" target="_blank" rel="noopener noreferrer" style={LNK}>📷 Instagram</a>
+              <a href="https://www.facebook.com/share/1Bj4CyBUBv/" target="_blank" rel="noopener noreferrer" style={LNK}>👍 Facebook</a>
+              <a href="https://line.me/ti/p/aPfKqCmmiM" target="_blank" rel="noopener noreferrer" style={LNK}>💬 LINE</a>
+              <a href="https://www.tiktok.com/@ranbou.earthguide" target="_blank" rel="noopener noreferrer" style={LNK}>🎵 TikTok</a>
+              <a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener noreferrer" style={LNK}>✏️ note</a>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -397,6 +412,13 @@ export default function Efj() {
           </div>
         </Reveal>
       </section>
+
+      <div style={{ textAlign: "center", fontSize: 12.5, color: "#8a8274", padding: "0 20px 26px", lineHeight: 2.2 }}>
+        企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
+        <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={LNK}>あーすガイド公式サイト</a>
+        <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
+        <a href="https://note.com/shiftdaigaku/n/nf42ffcc4f0a9" target="_blank" rel="noopener noreferrer" style={LNK}>この旅の元になったnote記事</a>
+      </div>
 
       <ShareButtons
         url="https://www.tabigaku.party/efj"
