@@ -35,12 +35,10 @@ export default function EarthFamilyJourney() {
         .efjw h1,.efjw h2,.efjw h3 { font-family:'Noto Serif JP',serif; }
 
         /* ---------- HERO ---------- */
-        .efjw-hero { position:relative; }
         .efjw-hero img.main { width:100%; display:block; }
-        .efjw-hero .ov { position:absolute; inset:0; background:linear-gradient(180deg,rgba(10,26,22,.25) 0%,rgba(10,26,22,0) 40%,rgba(10,26,22,.78) 100%); display:flex; flex-direction:column; justify-content:flex-end; align-items:center; text-align:center; padding:0 20px 34px; color:#fff; }
-        .efjw-hero .ov h1 { font-size:clamp(26px,6vw,44px); font-weight:900; letter-spacing:.06em; margin:0 0 10px; text-shadow:0 2px 18px rgba(0,0,0,.45); }
-        .efjw-hero .ov p { font-size:clamp(14px,3.4vw,19px); font-weight:700; margin:0; letter-spacing:.08em; text-shadow:0 1px 10px rgba(0,0,0,.5); }
-        .efjw-hero .ribbon { background:#123c32; color:#FFD94D; text-align:center; font-size:12.5px; font-weight:800; letter-spacing:.2em; padding:10px 16px; }
+        .efjw-sub { background:linear-gradient(180deg,#123c32,#1d5c4d); color:#fff; text-align:center; padding:24px 20px 22px; }
+        .efjw-sub p.jp { font-family:'Noto Serif JP',serif; font-size:clamp(17px,4.6vw,24px); font-weight:900; line-height:1.9; margin:0 0 10px; letter-spacing:.04em; }
+        .efjw-sub p.en { color:#FFD94D; font-size:12px; font-weight:800; letter-spacing:.22em; margin:0; }
 
         /* ---------- SECTIONS ---------- */
         .efjw-sec { padding:clamp(46px,8vw,80px) 0 0; }
@@ -97,33 +95,32 @@ export default function EarthFamilyJourney() {
       {/* ============ HERO ============ */}
       <header className="efjw-hero">
         <img className="main" src="/efj/earth-family-journey.jpg" alt="EARTH FAMILY JOURNEY 旅して、暮らして、学んで、つながる。いのちが喜ぶ地球の未来へ。" />
-        <div className="ov">
-          <h1>EARTH FAMILY JOURNEY</h1>
-          <p>世界中で「おかえり」「ただいま」と言い合える、<br />家族のような関係を。</p>
+        <div className="efjw-sub">
+          <p className="jp">世界中で「おかえり」「ただいま」と言い合える、<br />家族のような関係を。</p>
+          <p className="en">旅して、暮らして、学んで、つながる。いのちが喜ぶ地球の未来へ。</p>
         </div>
       </header>
-      <div className="ribbon">旅して、暮らして、学んで、つながる。いのちが喜ぶ地球の未来へ。</div>
 
-      {/* ============ 後悔の研究 ============ */}
+      {/* ============ 研究 ============ */}
       <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">ONE QUESTION</p>
-        <h2 className="efjw-h2">人生でいちばん後悔していることは？</h2>
+        <p className="efjw-label">WHAT RESEARCH SAYS</p>
+        <h2 className="efjw-h2">「旅」「家族」「つながり」は、<br className="sp" />研究が証明する<span className="u">幸せの答え</span>でした</h2>
         <div className="efjw-quote">
-          <b className="t">終末期の患者を何百人も看取った看護師の記録</b>
-          「The Top Five Regrets of the Dying（死ぬときに後悔すること5つ）」によると、後悔の上位はこうでした。
-          <ol style={{ marginTop: 10 }}>
-            <li>自分に正直な人生を生きればよかった</li>
-            <li>仕事ばかりせず、大切な人との時間をもっと持てばよかった</li>
-            <li>もっと自分の気持ちを素直に伝えればよかった</li>
-            <li>友人とのつながりを大切にすればよかった</li>
-            <li>もっと幸せになることを自分に許せばよかった</li>
-          </ol>
+          <b className="t">🧳 旅は、お金で買えるいちばん幸福なもの —— コーネル大学の研究</b>
+          心理学者 Thomas Gilovich らの研究で、幸福度が長続きするのは「モノ」を買うより「経験」にお金を使うことだと分かっています。モノは慣れて古びるけれど、<b>旅の経験は、時間がたつほど良い思い出に育ち、誰かと分かち合える</b>。だから旅は「贅沢」じゃなくて、人生へのいちばん良い投資なんです。
         </div>
         <div className="efjw-quote">
-          <b className="t">心理学者 Thomas Gilovich の研究</b>
-          短期的には「やってしまった失敗」を後悔しやすい。でも長期的には、<b>「挑戦しなかったこと」「行動しなかったこと」の後悔のほうが、大きく残る</b>——そんな傾向が示されています。
+          <b className="t">👨‍👩‍👧 人生最も幸せな思い出は「家族との旅行」—— イギリスの大規模調査</b>
+          英 Family Holiday Association の調査では、人生最も幸せな思い出を尋ねたところ、<b>約半数（49%）の人が「家族との旅行」</b>と答えました。家族の旅は、何年たっても心を支えてくれる「幸せの貯金」になります。
         </div>
-        <p className="efjw-big">人生の最後に後悔するのは、<br />失敗したことよりも、<br />やりたかったのに挑戦しなかったこと。</p>
+        <div className="efjw-quote">
+          <b className="t">🤝 幸せの最大の要因は「あたたかい人間関係」—— ハーバード大学・80年研究</b>
+          80年以上続くハーバード大学の成人発達研究がたどり着いた結論はシンプルでした。幸せで健康な人生を決めるのは、富でも名声でもなく、<b>「あたたかい人間関係の質」</b>。つながりこそが、人生そのものを豊かにしていました。
+        </div>
+        <p className="efjw-big">旅は、幸せになる。<br />家族との旅は、一生の宝物になる。<br />つながりは、人生を豊かにする。</p>
+        <p className="lead" style={{ textAlign: "center", marginTop: 6 }}>
+          研究が証明しているこの3つを、僕らは旅で確かめにいきます。
+        </p>
         <div className="efjw-ask">
           <p>あなたが今、<em>一歩踏み出したいこと</em>は、何ですか？</p>
         </div>
