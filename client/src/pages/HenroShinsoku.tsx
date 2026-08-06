@@ -483,7 +483,7 @@ export default function HenroShinsoku() {
           <dt>STEP 3</dt><dd>確認メールを送信。申込みが重なった場合は先着順</dd>
         </dl>
         <a className="btn btn-shu apply-btn" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込みフォームへ進む</a>
-        <p className="c-note">ご相談はお気軽に。特に本人からの連絡をお待ちしています。<br />
+        <p className="c-note">ご相談はお気軽にどうぞ。<br />
           らんぼう携帯：<a href="tel:09075188816">090-7518-8816</a> ／ <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a>
         </p>
       </div>
