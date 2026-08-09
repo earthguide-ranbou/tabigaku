@@ -106,7 +106,7 @@ export default function EarthFamilyJourney() {
         <p className="efjw-label">ONE LIFE</p>
         <h2 className="efjw-h2">人生一度きり。<br className="sp" /><span className="u">後悔のない人生</span>を送りたい。</h2>
         <p className="lead">
-          だからこそ僕は、<b>「人生の最後に後悔していることは？」</b>というアンケートを読みました。
+          そして、人は何を後悔するのか、どうすれば後悔しないのか――その答えを探しました。
         </p>
         <div className="efjw-quote">
           <b className="t">📖 人生の最後に、人は何を後悔するのか</b>
