@@ -8,7 +8,7 @@ const ASSET = "/henro-assets/";
 export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
-    description: "2026年10月23日〜27日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。早割9/10（木）まで。",
+    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。早割9/10（木）まで。",
     keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 子ども お遍路, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
@@ -19,8 +19,8 @@ export default function HenroShinsoku() {
         "@type": "Event",
         "name": "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―",
         "description": "江戸の身体技法「神足歩行術」を体感しながら徳島・発心の道場を歩く5日間のお遍路旅。大場克則×らんぼうが案内する定員10名の特別な体験。",
-        "startDate": "2026-10-23",
-        "endDate": "2026-10-27",
+        "startDate": "2026-10-27",
+        "endDate": "2026-10-31",
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "location": {
@@ -97,7 +97,7 @@ export default function HenroShinsoku() {
     <h1>白衣をまとい、<br className="br-sp" />江戸の歩法で<br className="br-sp" />1000年の祈りの道を<em className="nb">行く。</em></h1>
     <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
-      <div className="hero-date">2026.10.23 <b>FRI</b> ― 10.27 <b>TUE</b></div>
+      <div className="hero-date">2026.10.27 <b>TUE</b> ― 10.31 <b>SAT</b></div>
       <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
     <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>早期割引 12,000円OFF ｜ 2026年9月10日（木）まで</div>
@@ -145,7 +145,7 @@ export default function HenroShinsoku() {
 <section className="stats">
   <div className="stats-grid reveal">
     <div className="stat"><b>約70km</b><span>発心の道場を歩く距離</span></div>
-    <div className="stat"><b>5日間</b><span>10/23(金)〜10/27(火)</span></div>
+    <div className="stat"><b>5日間</b><span>10/27(火)〜10/31(土)</span></div>
     <div className="stat"><b>3.5億回</b><span>「江戸走り」SNS総再生</span></div>
     <div className="stat"><b>500km+</b><span>子どもたちと歩いた実績</span></div>
     <div className="stat"><b>1000年</b><span>続く巡礼の文化</span></div>
@@ -350,7 +350,6 @@ export default function HenroShinsoku() {
       <div>
         <div className="role">江戸走り研究家</div>
         <h3>大場 克則<small>おおば かつのり</small></h3>
-        <p style={{fontSize: "12px", color: "#9a8a6a", marginTop: "4px"}}>※大場さんは10/23・24までの参加となります。以降の行程はらんぼうが伴走します。</p>
         <p>1964年 栃木県生まれ。2013年に初めて挑戦した100kmマラソンの途中棄権をきっかけに、長距離を走れる走り方に興味を持つ。2014年「江戸時代には1日40里（160km）走れる走り方があった」ことを知り、国会図書館に通って文献調査を開始。文献資料と浮世絵を基に、残された内容と矛盾しない身体の動き方を研究している。</p>
         <ul>
           <li>SNS総再生回数 3億5千万回突破／インスタ13.9万人・YouTube6.09万人</li>
@@ -386,7 +385,7 @@ export default function HenroShinsoku() {
     <div className="card" style={{maxWidth: "860px", margin: "34px auto 0"}}>
       <details>
         <summary>お遍路も長距離歩行も初めてです。ついていけますか？</summary>
-        <div className="inner"><p>はい。神足歩行術は、江戸時代の飛脚が実践した「からだに負担をかけずに長距離を歩く」身体技法です。旅の中で大場克則さんから直接学びながら進みます。10/23・24は大場さんが、全行程はらんぼうが伴走します。安全を最優先にペースや行程を調整しますので、歩く経験より「やる気とあきらめない気持ち」を持ってきてください。</p></div>
+        <div className="inner"><p>はい。神足歩行術は、江戸時代の飛脚が実践した「からだに負担をかけずに長距離を歩く」身体技法です。旅の中で大場克則さんから直接学びながら進みます。全行程、らんぼうが伴走します。安全を最優先にペースや行程を調整しますので、歩く経験より「やる気とあきらめない気持ち」を持ってきてください。</p></div>
       </details>
       <details>
         <summary>どのくらいの距離を歩きますか？</summary>
@@ -428,9 +427,9 @@ export default function HenroShinsoku() {
           <img src="https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png?width=1200&height=1200&fit=bounds&quality=85" alt="歩きお遍路ジャーニー秋編フライヤー" loading="lazy" />
         </div>
         <dl className="def">
-          <dt>日程</dt><dd>2026年10月23日（金）〜10月27日（火）5日間</dd>
-          <dt>集合</dt><dd>10/23（金）12:00 神山町 道の駅</dd>
-          <dt>解散</dt><dd>10/27（火）15:00頃（必要な方は徳島駅まで送迎）</dd>
+          <dt>日程</dt><dd>2026年10月27日（火）〜10月31日（土）5日間</dd>
+          <dt>集合</dt><dd>10/27（火）12:00 神山町 道の駅</dd>
+          <dt>解散</dt><dd>10/31（土）15:00頃（必要な方は徳島駅まで送迎）</dd>
           <dt>行程</dt><dd>染昌（神山町）→ 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
           <dt>定員</dt><dd>10名（先着順）</dd>
           <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
@@ -497,7 +496,7 @@ export default function HenroShinsoku() {
     <span className="tag center" style={{color: "#f3c9b8"}}>JOIN THE JOURNEY</span>
     <h2 className="h2">1000年の祈りの道を、<br /><em className="nb">自分の足</em>で歩く5日間。</h2>
     <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp" />先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
-    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">2026年10月23日の旅に申し込む</a>
+    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">2026年10月27日の旅に申し込む</a>
     <div><div className="seal">同行二人</div></div>
     <p className="contact">
       お問い合わせ：らんぼう（あーすガイド）　
@@ -509,7 +508,7 @@ export default function HenroShinsoku() {
 
 <ShareButtons
   url="https://www.tabigaku.party/henro-shinsoku"
-  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。疲れ知らずの体で聖地を歩く特別な旅。10/23-27・小3〜65歳。"
+  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。疲れ知らずの体で聖地を歩く特別な旅。10/27-31・小3〜65歳。"
   title="＼ 神足・お遍路をシェア ／"
 />
 
