@@ -153,7 +153,7 @@ export default function Juku() {
           <div className="juku-story">
             <p style={{ fontWeight: 700, color: "#1d5c4d", lineHeight: 2.2, borderLeft: "4px solid #FFD94D", paddingLeft: 16, margin: "0 0 22px" }}>
               海が汚れ、川が枯れ、動物たちが姿を消し、人が人と争い、地球が病んでいく。<br />
-              自分にできることは微力かもしれない。それでも、よりよい未来をつくるために、できることをしたい。<br />
+              自分にできることは微力かもしれない。それでも、未来に一石を投じたい。未来は動いたぶんだけ変わるハズ。<br />
               魂が喜ぶ方へ。いのちが喜ぶ方へ。
             </p>
             <p>
