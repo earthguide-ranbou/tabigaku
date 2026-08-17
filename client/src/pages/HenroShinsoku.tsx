@@ -9,7 +9,7 @@ export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
     description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。早割9/10（木）まで。",
-    keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 子ども お遍路, 四国遍路体験, 神山町, 太龍寺",
+    keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
     ogType: "article",
@@ -127,7 +127,7 @@ export default function HenroShinsoku() {
       かつて江戸の人々が、そうやって旅したであろう道。<br />
       徳島県＝「発心の道場」と呼ばれる歩き遍路の道を、<br className="br-pc" />
       古来から伝わる身体技法で巡礼してみませんか。<br /><br />
-      大人も子どもも、一緒に歩く5日間。<br />
+      一緒に歩く5日間。<br />
       新しい世界に出逢い、自分の枠を越えて、<br className="br-pc" />
       可能性を広げる旅です。
     </p>
@@ -147,7 +147,7 @@ export default function HenroShinsoku() {
     <div className="stat"><b>約70km</b><span>発心の道場を歩く距離</span></div>
     <div className="stat"><b>5日間</b><span>10/27(火)〜10/31(土)</span></div>
     <div className="stat"><b>3.5億回</b><span>「江戸走り」SNS総再生</span></div>
-    <div className="stat"><b>500km+</b><span>子どもたちと歩いた実績</span></div>
+    <div className="stat"><b>500km+</b><span>歩いた実績</span></div>
     <div className="stat"><b>1000年</b><span>続く巡礼の文化</span></div>
   </div>
 </section>
@@ -161,7 +161,7 @@ export default function HenroShinsoku() {
       <p className="body">
         案内人は、「旅する学校」主宰・<b>らんぼう</b>。<br />
         地球一周、砂漠1000km走破、オルタナティブスクール創設。<br />
-        その道のりの先で、延べ100人以上の子どもたちと、<br className="br-pc" />
+        その道のりの先で、延べ100人以上の参加者と、<br className="br-pc" />
         500km以上のお遍路を歩いてきました。
       </p>
       <p className="body">
