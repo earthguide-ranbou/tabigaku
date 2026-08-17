@@ -58,7 +58,7 @@ export default function Henro() {
             <span className="henro-logo-sub">EARTHFAMILY JOURNEY</span>
           </div>
           <a
-            href="https://share.google/yiy4Xtnmzc0Ty4c4U"
+            href="https://lin.ee/odygMT3"
             target="_blank"
             rel="noopener noreferrer"
             className="henro-cta-btn"
@@ -533,7 +533,7 @@ export default function Henro() {
             仲間と、弘法大師さんと、一歩ずつ。
           </p>
           <a
-            href="https://share.google/yiy4Xtnmzc0Ty4c4U"
+            href="https://lin.ee/odygMT3"
             target="_blank"
             rel="noopener noreferrer"
             className="henro-cta-btn-large"
