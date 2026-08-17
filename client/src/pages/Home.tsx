@@ -258,27 +258,16 @@ export default function Home() {
 
 
       {/* ── 募集バナー ── */}
-      {(() => {
-        const dep = new Date("2026-08-05T00:00:00+09:00").getTime();
-        const end = new Date("2026-08-15T00:00:00+09:00").getTime();
-        const now = Date.now();
-        const days = Math.ceil((dep - now) / 86400000);
-        const efjLive = now < end;
-        return (
-          <div className="w-full text-white" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.7, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 20px", textAlign: "center"}}>
-            {efjLive && (
-              <a href="/efj" style={{color: "#fff"}}>
-                🌍 {days > 0 ? `出発まであと${days}日！` : "ただいま旅の途中！"}地球家族ジャーニー 8/5-14 祝島→神山（少人数制）
-                <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
-              </a>
-            )}
-            <a href="/juku" style={{color: "#fff"}}>
-              🎓 らんぼう塾（111日オンライン）1期生 受付中
-              <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細 →</span>
-            </a>
-          </div>
-        );
-      })()}
+      <div className="w-full text-white" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.7, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 20px", textAlign: "center"}}>
+        <a href="/henro" style={{color: "#fff"}}>
+          👣 歩きお遍路ジャーニー vol.5 募集中
+          <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細 →</span>
+        </a>
+        <a href="/henro-shinsoku" style={{color: "#fff"}}>
+          🔥 歩きお遍路ジャーニー 神足歩行術（秋編）10/27-31 定員10名
+          <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
+        </a>
+      </div>
 
       {/* ── Hero — チラシデザインをベースに ── */}
       <div
