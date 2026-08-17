@@ -69,40 +69,37 @@ export default function Henro() {
       </header>
 
       {/* ===== HERO ===== */}
-      <section className="henro-hero">
-        <img
-          src="/images/henro-kochi-vol5.png"
-          alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
-          className="henro-hero-bg"
-        />
-        <div className="henro-hero-overlay" />
-        <div className="henro-hero-content reveal">
-          <p className="henro-hero-presents">旅する学校 presents</p>
-          <h1 className="henro-hero-title">
+      <section className="henro-hero" style={{padding: 0, minHeight: "auto", background: "#f5f0e8"}}>
+        <div style={{width: "100%", maxWidth: 900, margin: "0 auto", padding: "80px 16px 0"}}>
+          <img
+            src="/images/henro-kochi-vol5.png"
+            alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
+            style={{width: "100%", height: "auto", display: "block", borderRadius: 12}}
+          />
+        </div>
+        <div className="henro-hero-content reveal" style={{position: "relative", zIndex: 2, padding: "32px 16px 48px", color: "#2c3e3a"}}>
+          <p style={{color: "#8b7355", fontSize: "0.8rem", letterSpacing: "0.3em", marginBottom: "1rem", border: "1px solid rgba(139,115,85,0.35)", display: "inline-block", padding: "0.4rem 1.2rem", borderRadius: "2rem"}}>旅する学校 presents</p>
+          <h1 className="henro-hero-title" style={{color: "#2c3e3a", textShadow: "none"}}>
             歩きお遍路<em>ジャーニー</em>
           </h1>
-          <p className="henro-hero-subtitle">〜 修行の道場・高知編 vol.5 〜</p>
-          <p className="henro-hero-lead">
+          <p style={{color: "#5a4a3a", fontSize: "clamp(0.85rem, 2.5vw, 1.1rem)", letterSpacing: "0.2em", marginBottom: "1rem"}}>〜 修行の道場・高知編 vol.5 〜</p>
+          <p style={{color: "#4a3a2a", fontSize: "clamp(0.9rem, 2.5vw, 1.15rem)", fontStyle: "italic", marginBottom: "2rem", letterSpacing: "0.05em"}}>
             「自分の足で歩いた距離だけ、人は強くなれる。」
           </p>
           <div className="henro-hero-badges">
-            <span className="henro-badge">
+            <span className="henro-badge" style={{background: "rgba(44,62,58,0.08)", color: "#2c3e3a", borderColor: "rgba(44,62,58,0.2)"}}>
               <strong>2026.10.10</strong> 土 — <strong>10.15</strong> 木
             </span>
-            <span className="henro-badge">
+            <span className="henro-badge" style={{background: "rgba(44,62,58,0.08)", color: "#2c3e3a", borderColor: "rgba(44,62,58,0.2)"}}>
               <strong>6日間</strong> の巡礼
             </span>
-            <span className="henro-badge">
+            <span className="henro-badge" style={{background: "rgba(44,62,58,0.08)", color: "#2c3e3a", borderColor: "rgba(44,62,58,0.2)"}}>
               小3〜中3　<strong className="accent">定員10名</strong>
             </span>
           </div>
-          <p className="henro-hero-start">
+          <p style={{color: "#4a3a2a", fontSize: "1rem", letterSpacing: "0.15em"}}>
             四国最南端　<span className="accent">足摺岬</span>　スタート
           </p>
-        </div>
-        <div className="henro-hero-scroll">
-          <span className="henro-scroll-line" />
-          SCROLL
         </div>
       </section>
 
