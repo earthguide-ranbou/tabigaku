@@ -216,14 +216,6 @@ export default function Henro() {
               />
               <span className="henro-img-caption">四万十川40km、全力で漕いだ！</span>
             </div>
-            <div className="henro-journey-adventure-img reveal">
-              <img
-                src="/images/henro-kochi-vol5.png"
-                alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
-                loading="lazy"
-              />
-              <span className="henro-img-caption">夕暮れの遍路道、まだまだ歩ける</span>
-            </div>
           </div>
 
           <p className="reveal">
