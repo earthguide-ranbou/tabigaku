@@ -523,9 +523,7 @@ export default function Henro() {
       {/* ===== CTA ===== */}
       <section className="henro-cta">
         <div className="henro-cta-inner reveal">
-          <p className="henro-cta-lead">
-            お子さんの目が輝く瞬間を、一緒に見ませんか。
-          </p>
+
           <h2>一緒に歩こう。</h2>
           <p>
             四国最南端から始まる、6日間の巡礼の旅。
@@ -555,10 +553,17 @@ export default function Henro() {
       {/* ===== FOOTER ===== */}
       <footer className="henro-footer">
         <p>© 2024 旅する学校. All rights reserved.</p>
+        <div style={{display: "flex", gap: "1rem", justifyContent: "center", marginTop: "0.8rem", flexWrap: "wrap"}}>
+          <a href="https://www.instagram.com/earthguide.ranbow?igsh=MWc2aWR3MnByY2ZrZg==" target="_blank" rel="noopener noreferrer" style={{color: "#c9b99a", fontSize: "0.85rem", textDecoration: "none"}}>Instagram</a>
+          <a href="https://www.facebook.com/share/1cCefwXVat/" target="_blank" rel="noopener noreferrer" style={{color: "#c9b99a", fontSize: "0.85rem", textDecoration: "none"}}>Facebook</a>
+          <a href="https://www.threads.com/@earthguide.ranbow" target="_blank" rel="noopener noreferrer" style={{color: "#c9b99a", fontSize: "0.85rem", textDecoration: "none"}}>Threads</a>
+          <a href="https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi" target="_blank" rel="noopener noreferrer" style={{color: "#c9b99a", fontSize: "0.85rem", textDecoration: "none"}}>Substack</a>
+        </div>
         <a
           href="https://earthguide.tabigaku.party"
           target="_blank"
           rel="noopener noreferrer"
+          style={{display: "block", marginTop: "0.5rem"}}
         >
           earthguide.tabigaku.party
         </a>
