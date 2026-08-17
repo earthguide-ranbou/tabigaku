@@ -71,8 +71,8 @@ export default function Henro() {
       {/* ===== HERO ===== */}
       <section className="henro-hero">
         <img
-          src="/manus-storage/sunset_path_ba2a0c3b.jpg"
-          alt="夕日の田んぼ道を歩く子どもたち"
+          src="/images/henro-kochi-vol5.png"
+          alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
           className="henro-hero-bg"
         />
         <div className="henro-hero-overlay" />
@@ -246,8 +246,8 @@ export default function Henro() {
             </div>
             <div className="henro-journey-adventure-img reveal">
               <img
-                src="/manus-storage/sunset_path_ba2a0c3b.jpg"
-                alt="夕日の田んぼ道を歩く子どもたち"
+                src="/images/henro-kochi-vol5.png"
+                alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
                 loading="lazy"
               />
               <span className="henro-img-caption">夕暮れの遍路道、まだまだ歩ける</span>
