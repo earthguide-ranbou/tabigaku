@@ -548,6 +548,12 @@ export default function Henro() {
         url="https://www.tabigaku.party/henro"
         text="小3〜中3が四国最南端・足摺岬から歩く6日間の巡礼「歩きお遍路ジャーニー vol.5 高知編」。歩いた距離だけ強くなれる。10/10出発・定員10名。"
         title="＼ お遍路ジャーニーをシェア ／"
+        followLinks={{
+          instagram: "https://www.instagram.com/earthguide.ranbow?igsh=MWc2aWR3MnByY2ZrZg==",
+          facebook: "https://www.facebook.com/share/1cCefwXVat/",
+          threads: "https://www.threads.com/@earthguide.ranbow",
+          substack: "https://substack.com/@ranbou?utm_source=share&utm_medium=android&r=33vqvi",
+        }}
       />
 
       {/* ===== FOOTER ===== */}
