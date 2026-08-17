@@ -77,8 +77,8 @@ export default function Henro() {
             style={{width: "100%", height: "auto", display: "block", borderRadius: 12}}
           />
         </div>
-        <div className="henro-hero-content reveal" style={{position: "relative", zIndex: 2, padding: "24px 16px 48px", color: "#2c3e3a"}}>
-          <div className="henro-hero-badges">
+        <div className="henro-hero-content reveal" style={{position: "relative", zIndex: 2, padding: "32px 16px 56px", color: "#2c3e3a", background: "linear-gradient(to bottom, #f5f0e8 0%, #ede8df 100%)"}}>
+          <div className="henro-hero-badges" style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginTop: "8px"}}>
             <span className="henro-badge" style={{background: "rgba(44,62,58,0.08)", color: "#2c3e3a", borderColor: "rgba(44,62,58,0.2)"}}>
               <strong>2026.10.10</strong> 土 — <strong>10.15</strong> 木
             </span>
@@ -89,7 +89,7 @@ export default function Henro() {
               小3〜中3　<strong className="accent">定員10名</strong>
             </span>
           </div>
-          <p style={{color: "#4a3a2a", fontSize: "1rem", letterSpacing: "0.15em", marginTop: "1.5rem"}}>
+          <p style={{color: "#4a3a2a", fontSize: "1rem", letterSpacing: "0.15em", marginTop: "2.5rem", marginBottom: "0.5rem", fontWeight: 500}}>
             四国最南端　<span className="accent">足摺岬</span>　スタート
           </p>
         </div>
