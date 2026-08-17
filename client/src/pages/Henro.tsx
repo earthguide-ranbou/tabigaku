@@ -205,7 +205,7 @@ export default function Henro() {
             【発心の道場】徳島県から歩き始め、
             【修行の道場】高知県へ——。
             <br />
-            子どもたちと約<strong>600km</strong>の遍路道を、
+            子どもたちと約<strong>500km</strong>の遍路道を、
             一歩ずつ歩いてきました。
           </p>
           <div className="henro-journey-imgs">
