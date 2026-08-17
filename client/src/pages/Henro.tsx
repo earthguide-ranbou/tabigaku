@@ -95,23 +95,6 @@ export default function Henro() {
         </div>
       </section>
 
-      {/* ===== OPENING MESSAGE ===== */}
-      <section className="henro-opening">
-        <div className="henro-opening-inner reveal">
-          <p>
-            教科書では学べないことがある。
-            <br />
-            テストでは測れない力がある。
-          </p>
-          <p>
-            汗をかいて、泣いて、笑って、
-            <br />
-            仲間と助け合って歩いた日々は、
-            <br />
-            一生消えない<strong>「自分への信頼」</strong>になる。
-          </p>
-        </div>
-      </section>
 
       {/* ===== STAGE ===== */}
       <section className="henro-section henro-stage">
@@ -155,8 +138,8 @@ export default function Henro() {
       <section className="henro-stats">
         <div className="henro-stats-inner">
           <div className="henro-stat reveal">
-            <span className="henro-stat-num">600</span>
-            <span className="henro-stat-unit">km</span>
+            <span className="henro-stat-num">500</span>
+            <span className="henro-stat-unit">km以上</span>
             <span className="henro-stat-label">これまで歩いた遍路道</span>
           </div>
           <div className="henro-stat reveal">
