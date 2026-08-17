@@ -189,7 +189,7 @@ export default function Juku() {
             <p>
               心の声に従って動き続けてきたら、想像以上に面白いことばかりでした。この感動を共有したい。
               そして、この塾で育てたいものがもう一つあります。<b>それぞれの場所で、いのちに沿った仕事をしていく仲間</b>です。
-              ひとりでやるから折れてしまう。同じ方向を向いた仲間がいるから、続くし、面白くなる。
+              ひとりでやるから折れてしまう。同じ方向を向いた仲間がいるから、面白くなる。
               人生一度きり。何か変えたい。何か始めたい。
               そんな人たちと一緒に、次の景色を見に行く場所が<b>らんぼう塾</b>です。
             </p>
@@ -248,7 +248,7 @@ export default function Juku() {
             <div className="juku-card">
               <div className="ico">📈</div>
               <h3>バズ部屋</h3>
-              <p>Threads伸ばしあいルーム。投稿を見せ合い、伸びた工夫を全員で共有。再現性が手に入ります。</p>
+              <p>Threads伸ばしあいルーム。投稿を見せ合い、伸びた工夫を全員で共有。</p>
               <span className="tag">Threads攻略</span>
             </div>
             <div className="juku-card">
@@ -268,7 +268,7 @@ export default function Juku() {
           <h2 className="juku-h2">この塾で<span className="u">学べること</span></h2>
           <div className="juku-quote">
             <b>🔥 Threads攻略</b><br />
-            Threadsで1カ月半で10,000フォロワー、2ヶ月半で15,000フォロワー達成。2026年1月、XのアクティブユーザーをThreadsがついに超えました。伸ばし方は、才能ではなく仕組みです。
+            Threadsで1カ月半で10,000フォロワー、2ヶ月半で15,000フォロワー達成。2026年1月、XのアクティブユーザーをThreadsがついに超えました。
           </div>
           <div className="juku-quote">
             <b>🌏 世界でいま起きている「ホントのこと」</b><br />
