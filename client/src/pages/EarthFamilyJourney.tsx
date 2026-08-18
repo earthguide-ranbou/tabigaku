@@ -76,6 +76,67 @@ export default function EarthFamilyJourney() {
         .efjw-card p { margin:0 0 12px; font-size:13.5px; line-height:1.9; color:#5c554a; }
         .efjw-card .go { font-size:13.5px; font-weight:900; color:#04a648; }
 
+
+      {/* ===== 挑戦の軌跡 ===== */}
+      <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
+        <div style={{maxWidth: 900, margin: "0 auto"}}>
+          <p style={{color: "#c17f45", fontSize: "0.75rem", letterSpacing: "0.3em", textAlign: "center", marginBottom: "0.8rem"}}>CHALLENGE</p>
+          <h2 style={{textAlign: "center", fontSize: "clamp(1.5rem, 4vw, 2.2rem)", fontWeight: 700, color: "#2c3e3a", marginBottom: "3rem", letterSpacing: "0.05em"}}>
+            想いもしなかった挑戦が<br />学校づくりに繋がった
+          </h2>
+
+          {/* 砂漠マラソン */}
+          <div style={{display: "flex", flexWrap: "wrap", gap: "32px", alignItems: "center", marginBottom: "64px"}}>
+            <div style={{flex: "1 1 300px"}}>
+              <img
+                src="/images/desert-marathon.jpg"
+                alt="アタカマ砂漠マラソンでチーム優勝"
+                style={{width: "100%", borderRadius: 12, boxShadow: "0 8px 30px rgba(0,0,0,0.12)"}}
+                loading="lazy"
+              />
+            </div>
+            <div style={{flex: "1 1 300px"}}>
+              <h3 style={{fontSize: "clamp(1.1rem, 3vw, 1.4rem)", fontWeight: 700, color: "#2c3e3a", marginBottom: "1rem", lineHeight: 1.5}}>
+                交通事故に遭い、むちうちで<br />前しか向けなくなった1ヶ月後、<br />250kmの砂漠を走る極限レースで<br />奇跡の全員完走＆チーム優勝
+              </h3>
+              <p style={{color: "#5a4a3a", fontSize: "clamp(0.9rem, 2.5vw, 1.05rem)", lineHeight: 1.9}}>
+                チリ・アタカマ砂漠で開催された250kmの過酷なマラソンレース。
+                交通事故で首を痛めたばかりの体に無理はできないはずだった。
+                でも「ワクワクとドキドキが同時に来たらGOサイン」。
+                仲間と一緒に走り抜けた先にあったのは、想像を超える感動と、
+                「自分の足で歩いた距離だけ、人は強くなれる」という確信だった。
+                この経験が、後の「旅する学校」の礎となった。
+              </p>
+            </div>
+          </div>
+
+          {/* バリ島出産旅 */}
+          <div style={{display: "flex", flexWrap: "wrap", gap: "32px", alignItems: "center", flexDirection: "row-reverse"}}>
+            <div style={{flex: "1 1 300px"}}>
+              <img
+                src="/images/bali-family.jpg"
+                alt="バリ島での家族との時間"
+                style={{width: "100%", borderRadius: 12, boxShadow: "0 8px 30px rgba(0,0,0,0.12)"}}
+                loading="lazy"
+              />
+            </div>
+            <div style={{flex: "1 1 300px"}}>
+              <h3 style={{fontSize: "clamp(1.1rem, 3vw, 1.4rem)", fontWeight: 700, color: "#2c3e3a", marginBottom: "1rem", lineHeight: 1.5}}>
+                バリ島出産旅。<br />「家族で世界を学ぶ」という<br />新しい教育の形を見つけた
+              </h3>
+              <p style={{color: "#5a4a3a", fontSize: "clamp(0.9rem, 2.5vw, 1.05rem)", lineHeight: 1.9}}>
+                妻の妊娠を機に、バリ島へ。現地の人々と共に過ごす日常の中で、
+                「学校」という枠を超えた学びの豊かさを実感した。
+                子どもたちが自然の中で笑い、異文化に触れ、
+                家族みんなで成長していく姿を見て、
+                「旅する学校」というアイデアが具体的な形を取り始めた。
+                想いもしなかった出産旅が、今の活動の原点になっている。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
         /* ---------- CIRCLE (学びの循環) ---------- */
         .efjw-flow { display:grid; gap:12px; margin:18px 0 8px; }
         .efjw-flow .step { background:#fff; border:1px solid #e8ddc8; border-radius:16px; padding:16px 18px; font-size:14px; line-height:2; }
