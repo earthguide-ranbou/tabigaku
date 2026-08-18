@@ -343,7 +343,7 @@ export default function HenroShinsoku() {
 <section>
   <div className="wrap reveal">
     <span className="tag">GUIDES ― 案内人</span>
-    <h2 className="h2">この旅の<em>案内人。</em></h2>
+    <h2 className="h2">この旅の<em>同行二人。</em></h2>
 
     <div className="guide">
       <div className="ph"><img src={ASSET + "oba.jpg"} alt="江戸走り研究家 大場克則" loading="lazy" /></div>
