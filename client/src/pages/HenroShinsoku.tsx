@@ -229,7 +229,7 @@ export default function HenroShinsoku() {
           <div className="stop">
             <div className="node">発</div>
             <div className="rcard">
-              <h3><small>START ・ 徳島県神山町</small>染昌（そめしょう）</h3>
+              <h3><small>START ・ 徳島県神山町</small></h3>
               <p>地方創生の聖地・神山町を出発。秋の山里の空気のなか、遍路の一歩を踏み出します。</p>
             </div>
           </div>
@@ -389,7 +389,7 @@ export default function HenroShinsoku() {
       </details>
       <details>
         <summary>どのくらいの距離を歩きますか？</summary>
-        <div className="inner"><p>5日間で約70kmです。神山町・染昌を出発し、13番札所・大日寺を経て、21番札所・太龍寺（四国霊場随一の難所）を目指します。1日あたり十数km。荷物はサポートカーに預けられるので、歩くときはリュック一つです。</p></div>
+        <div className="inner"><p>5日間で約70kmです。神山町を出発し、13番札所・大日寺を経て、21番札所・太龍寺（四国霊場随一の難所）を目指します。1日あたり十数km。荷物はサポートカーに預けられるので、歩くときはリュック一つです。</p></div>
       </details>
       <details>
         <summary>宿泊はどうなりますか？</summary>
@@ -430,7 +430,7 @@ export default function HenroShinsoku() {
           <dt>日程</dt><dd>2026年10月27日（火）〜10月31日（土）5日間</dd>
           <dt>集合</dt><dd>10/27（火）12:00 神山町 道の駅</dd>
           <dt>解散</dt><dd>10/31（土）15:00頃（必要な方は徳島駅まで送迎）</dd>
-          <dt>行程</dt><dd>染昌（神山町）→ 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
+          <dt>行程</dt><dd>神山町 → 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
           <dt>定員</dt><dd>10名（先着順）</dd>
           <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
           <dt>保険</dt><dd>メンバー全員、傷害保険に加入します</dd>
