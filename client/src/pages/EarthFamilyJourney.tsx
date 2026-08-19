@@ -159,12 +159,7 @@ export default function EarthFamilyJourney() {
         <div className="efjw-sub">
           <p className="jp">世界中で「おかえり」「ただいま」と言い合える、<br />家族のような関係を。</p>
           <p className="en">旅して、暮らして、学んで、つながる。いのちが喜ぶ地球の未来へ。</p>
-          <p style={{textAlign: "center", color: "#fff", fontSize: "clamp(13px,3vw,15px)", marginTop: 12, opacity: 0.9, lineHeight: 1.8, textShadow: "0 1px 4px rgba(0,0,0,.3)"}}>
-            子どもたちが遊んでいた川が枯れた。海の魚が減った。人と人が分断されていく。<br className="pc" />
-            そんな世界を、未来の子どもたちに手渡していいのだろうか。<br className="pc" />
-            だから僕たちは動き出した。旅をして、学校をつくって、<br className="pc" />
-            「おかえり」と言い合える場所を、この地球に一つずつ増やしていく。
-          </p>
+
         </div>
       </header>
 
