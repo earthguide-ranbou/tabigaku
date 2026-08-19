@@ -231,11 +231,27 @@ export default function EarthFamilyJourney() {
         </div>
       </section>
 
-      {/* ============ 研究 ============ */}
+      {/* ============ らんぼうの研究：後悔しない人生のために ============ */}
       <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">ONE LIFE</p>
-        <h2 className="efjw-h2">人生一度きり。<br className="sp" /><span className="u">後悔のない人生</span>を送りたい。</h2>
-        <p className="lead">
+        <p className="efjw-label">OUR ANSWER</p>
+        <h2 className="efjw-h2">晩酌の席で、<br className="sp" />ひとつの質問をしました</h2>
+        <div className="efjw-vision">
+          <p className="toast">「なんの制限もなかったとしたら、<br />あなたは何をする？」</p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            旅先で、あちこちで晩酌をしながら聞いてまわったこの質問。<br />
+            返ってきた答えに、いつも2つの言葉が入っていました。<br />
+            <b>「旅」</b>と、<b>「家族」</b>です。
+          </p>
+          <p className="lead">
+            どうも、らんぼうです。僕は徳島・神山町に拠点をおきながら、世界各地で暮らすように旅をしたい。
+            時には家族と。時には仲間と。時には子どもたちと。
+            訪ねる先に「おかえり」と言ってくれる人がいて、帰る場所に「ただいま」と言える人がいる。
+            そんな関係をつくっていく<b>「EARTH FAMILY JOURNEY」</b>。
+            でもそれだけじゃない。美しい地球と子どもたちの未来をつくる。地球再生のために動くfamilyと繋がる。よりよい未来に一石を投じたい。
+            だから、そんな思いを込めて<b>「EARTH FAMILY JOURNEY」</b>というプロジェクトをはじめることにしました。
+          </p>
+        </div>
+        <p className="lead" style={{ textAlign: "center", marginTop: 28 }}>
           そして、人は何を後悔するのか、どうすれば後悔しないのか――その答えを探しました。
         </p>
         <div className="efjw-quote">
@@ -264,28 +280,6 @@ export default function EarthFamilyJourney() {
         </p>
         <div className="efjw-ask">
           <p>あなたが今、<em>一歩踏み出したいこと</em>は、何ですか？</p>
-        </div>
-      </div></section>
-
-      {/* ============ VISION ============ */}
-      <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">OUR ANSWER</p>
-        <h2 className="efjw-h2">晩酌の席で、<br className="sp" />ひとつの質問をしました</h2>
-        <div className="efjw-vision">
-          <p className="toast">「なんの制限もなかったとしたら、<br />あなたは何をする？」</p>
-          <p className="lead" style={{ textAlign: "center" }}>
-            旅先で、あちこちで晩酌をしながら聞いてまわったこの質問。<br />
-            返ってきた答えに、いつも2つの言葉が入っていました。<br />
-            <b>「旅」</b>と、<b>「家族」</b>です。
-          </p>
-          <p className="lead">
-            どうも、らんぼうです。僕は徳島・神山町に拠点をおきながら、世界各地で暮らすように旅をしたい。
-            時には家族と。時には仲間と。時には子どもたちと。
-            訪ねる先に「おかえり」と言ってくれる人がいて、帰る場所に「ただいま」と言える人がいる。
-            そんな関係をつくっていく<b>「EARTH FAMILY JOURNEY」</b>。
-            でもそれだけじゃない。美しい地球と子どもたちの未来をつくる。地球再生のために動くfamilyと繋がる。よりよい未来に一石を投じたい。
-            だから、そんな思いを込めて<b>「EARTH FAMILY JOURNEY」</b>というプロジェクトをはじめることにしました。
-          </p>
         </div>
       </div></section>
 
@@ -470,6 +464,38 @@ export default function EarthFamilyJourney() {
             シェアしていただくだけでも、大きな応援になります。
           </p>
         </div>
+      </div></section>
+
+
+      {/* ============ ガイド紹介 ============ */}
+      <section className="efjw-sec"><div className="wrap">
+        <p className="efjw-label">GUIDE</p>
+        <h2 className="efjw-h2">ガイドは、<br className="sp" /><span className="u">あーすガイド・らんぼう</span></h2>
+        <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 20, marginTop: 28}}>
+          <img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="あーすガイド・らんぼう" style={{width: 128, height: 128, borderRadius: "50%", objectFit: "cover", border: "4px solid #d65a3a"}} />
+          <div style={{textAlign: "center"}}>
+            <p style={{fontWeight: 900, fontSize: "clamp(15px,3.6vw,18px)", margin: "0 0 8px", color: "#2c3e3a"}}>あーすガイド代表・旅する学校主宰</p>
+            <p style={{fontSize: "clamp(13.5px,3.2vw,15.5px)", lineHeight: 1.9, color: "#555", textAlign: "left", maxWidth: 560}}>
+              地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。帰国後は全国で500本以上のトーク・上映会・ガイドツアーを実施し、案内した40人以上が各地に移住。2022年、徳島・神山町でオルタナティブスクール「森の学校みっけ」を仲間と設立。地域再生の聖地・神山町を拠点に、企業研修や視察ガイドも行う。
+            </p>
+          </div>
+        </div>
+        <ul style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.9, color: "#555", marginTop: 20, maxWidth: 560, margin: "20px auto 0", listStyle: "none", padding: 0}}>
+          <li style={{marginBottom: 4}}>🗣 全国で500本以上の講演・上映会</li>
+          <li style={{marginBottom: 4}}>🏜 アタカマ砂漠250km チーム優勝（映画化）</li>
+          <li style={{marginBottom: 4}}>🏫 森の学校みっけ 創設（移住60人以上）</li>
+          <li style={{marginBottom: 4}}>🥾 旅する学校 主宰｜安藤財団 推奨モデル特別賞(2023)</li>
+          <li style={{marginBottom: 4}}>🎓 KAMIYAMA FIELD SCHOOL 設立(2026)</li>
+        </ul>
+        <p style={{fontFamily: "'Noto Serif JP',serif", textAlign: "center", lineHeight: 1.9, marginTop: 28, fontSize: "clamp(14px,3.3vw,16px)", color: "#2c3e3a", fontWeight: 600}}>
+          「心が喜ぶ方へ、身体ごと飛び込んでみませんか？<br />
+          自然の中に帰ることで、見えてくる"ほんとの自分"。<br />
+          気がつけば、笑って、泣いて、語って、地球を丸ごと感じる旅になると思います」<br />
+          — らんぼう
+        </p>
+        <p style={{textAlign: "center", marginTop: 16}}>
+          <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{...LNK, fontSize: 14, fontWeight: 800}}>あーすガイド公式サイトを見る →</a>
+        </p>
       </div></section>
 
       <div className="efjw-foot">
