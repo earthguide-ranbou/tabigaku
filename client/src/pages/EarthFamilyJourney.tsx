@@ -159,6 +159,12 @@ export default function EarthFamilyJourney() {
         <div className="efjw-sub">
           <p className="jp">世界中で「おかえり」「ただいま」と言い合える、<br />家族のような関係を。</p>
           <p className="en">旅して、暮らして、学んで、つながる。いのちが喜ぶ地球の未来へ。</p>
+          <p style={{textAlign: "center", color: "#fff", fontSize: "clamp(13px,3vw,15px)", marginTop: 12, opacity: 0.9, lineHeight: 1.8, textShadow: "0 1px 4px rgba(0,0,0,.3)"}}>
+            子どもたちが遊んでいた川が枯れた。海の魚が減った。人と人が分断されていく。<br className="pc" />
+            そんな世界を、未来の子どもたちに手渡していいのだろうか。<br className="pc" />
+            だから僕たちは動き出した。旅をして、学校をつくって、<br className="pc" />
+            「おかえり」と言い合える場所を、この地球に一つずつ増やしていく。
+          </p>
         </div>
       </header>
 
@@ -168,7 +174,10 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
           <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちを遊ばせに行った川が<br className="sp" />枯れたこと</span>だった。</h2>
           <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
-            子どもたちがよく遊んでいた川。水に足をつけて、魚を追いかけて、夏はずっとそこにいた。でもある日、あの川は枯れてしまった。海に行っても、海藻は減り、かつてのように魚が跳ねる姿は少なくなっていた。
+            子どもたちがよく遊んでいた川。
+            <br />水に足をつけて、魚を追いかけて、夏はずっとそこにいた。
+            <br />でもある日、あの川は枯れてしまった。
+            <br />海に行っても、海藻は減り、かつてのように魚が跳ねる姿は少なくなっていた。
           </p>
           <div style={{margin: "32px auto", maxWidth: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,.12)"}}>
             <img src="/efj/dried-river.jpg" alt="かつて子どもたちが遊んでいた川。今は水が枯れ、石だけが残っている。" style={{width: "100%", display: "block"}} />
@@ -193,10 +202,15 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
           <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            Earth Family Journey が目指すのは、一つだけじゃない。地球再生も、僕たちのビジョンの一つだ。世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合い、子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
+            Earth Family Journey が目指すのは、一つだけじゃない。
+            <br />地球再生も、僕たちのビジョンの一つだ。
+            <br />世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合う。
+            <br />子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
+            <br />そんな場所を、一緒に増やしていきたい。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
+            旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。
+            <br />そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、人も生き物も地球も元気になってゆく。それが、僕たちのヴィジョンです。
@@ -290,7 +304,10 @@ export default function EarthFamilyJourney() {
             <div className="body">
               <p className="tag">JAPAN｜2026年8月5日〜14日</p>
               <h3>地球家族ジャーニー</h3>
-              <p>山口・祝島から徳島・神山へ。太陽と風の塩づくり、島の暮らし、オルタナティブスクール、焚き火と星空、阿波おどり。魂が震え、いのちが喜ぶ10日間。親子・ご家族歓迎。</p>
+              <p>山口・祝島から徳島・神山へ。
+              <br />太陽と風の塩づくり、島の暮らし、オルタナティブスクール、焚き火と星空、阿波おどり。
+              <br />海と山と人に囲まれて、魂が震え、いのちが喜ぶ10日間。
+              <br />親子・ご家族歓迎。</p>
               <span className="go">旅の詳細を見る →</span>
             </div>
           </a>
@@ -299,7 +316,9 @@ export default function EarthFamilyJourney() {
             <div className="body">
               <p className="tag">THAILAND｜EarthfamilyJourney タイ編</p>
               <h3>Earth family Journey</h3>
-              <p>タイの自然と人々の暮らしに飛び込む、家族で参加できる海外編。世界の「おかえり」「ただいま」が、ここから広がっていきます。</p>
+              <p>タイの自然と人々の暮らしに飛び込む、家族で参加できる海外編。
+              <br />異文化の中で、家族の絆を深め、世界の「おかえり」「ただいま」を体感する。
+              <br />ここから、新しいつながりが広がっていきます。</p>
               <span className="go">旅の詳細を見る →</span>
             </div>
           </a>
@@ -341,7 +360,10 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{ color: "#d65a3a" }}>HOW TO JOIN</p>
           <h2 className="efjw-h2">あなたに合った、<br className="sp" /><span className="u">参加のかたち</span></h2>
           <p style={{ textAlign: "center", lineHeight: 1.9, marginTop: 16, fontSize: "clamp(13.5px,3.2vw,15.5px)", color: "#555" }}>
-            一つに絞らなくていい。あなたの今の気持ちや状況に合わせて、関わり方を選んでください。
+            一つに絞らなくていい。
+            <br />今は旅に出たい気持ちかもしれないし、学びたい気持ちかもしれない。
+            <br />子どもたちを応援したい気持ちかもしれないし、ビジョンを共に実現したい気持ちかもしれない。
+            <br />あなたの今の気持ちや状況に合わせて、関わり方を選んでください。
           </p>
 
           <div style={{ display: "grid", gap: 20, marginTop: 32 }}>
@@ -353,7 +375,10 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>一緒に旅に出る</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                家族や友人と、あるいはひとりで、海や山、島や里山を巡る旅へ。現地で生きる人たちと向き合い、自然の中で体を動かし、対話を重ねる。参加費（案内・コーディネート代）と実費（宿泊・食事・移動など各自）のかたち。
+                家族や友人と、あるいはひとりで、海や山、島や里山を巡る旅へ。
+                <br />現地で生きる人たちと向き合い、自然の中で体を動かし、対話を重ねる。
+                <br />旅の途中で、きっと「帰ってきたい」と思える場所が見つかるはず。
+                <br />参加費（案内・コーディネート代）と実費（宿泊・食事・移動など各自）のかたち。
               </p>
               <p style={{ fontSize: 14, fontWeight: 800, color: "#d65a3a", margin: "12px 0 0" }}>詳しく見る →</p>
             </a>
@@ -366,7 +391,10 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>らんぼう塾で学ぶ</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                旅の仕方、対話の仕方、地域との関わり方、子育てのヒント。らんぼうが実践してきたことを、オンラインや対面で学ぶコミュニティ。自分の足で歩き始めるための、最初の一歩。
+                旅の仕方、対話の仕方、地域との関わり方、子育てのヒント。
+                <br />らんぼうが10年以上実践してきたことを、オンラインや対面で学ぶコミュニティ。
+                <br />「どうやって歩き始めたらいいかわからない」という人の背中を、そっと押す場所。
+                <br />自分の足で歩き始めるための、最初の一歩。
               </p>
               <p style={{ fontSize: 14, fontWeight: 800, color: "#d65a3a", margin: "12px 0 0" }}>詳しく見る →</p>
             </a>
@@ -379,7 +407,10 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>教育スポンサーになる</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                神山の学校や、旅する学校の活動を、金銭的に応援するかたち。子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。毎月の支援や、一回きりのご支援が可能です。
+                神山の学校や、旅する学校の活動を、金銭的に応援するかたち。
+                <br />子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。
+                <br />一口のお気持ちが、子どもたちへの授業の足代になり、文化の記録を残す一冊になり、誰かが踏み出すきっかけになります。
+                <br />毎月の支援や、一回きりのご支援が可能です。
               </p>
               <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>相談する（LINE）</a>
             </div>
@@ -392,7 +423,9 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>パートナーシップを組む</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                年間100万円〜200万円規模で、Earth Family Journey のビジョンを共に実現するパートナー。定期的な対話の場への参加、活動レポートの共有、戦略的な協働を通じて、一緒に未来をつくります。
+                年間100万円〜200万円規模で、Earth Family Journey のビジョンを共に実現するパートナー。
+                <br />定期的な対話の場への参加、活動レポートの共有、戦略的な協働。
+                <br />一緒に考え、一緒に動き、一緒に未来をつくっていきます。
               </p>
               <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>詳細を相談する（LINE）</a>
             </div>
