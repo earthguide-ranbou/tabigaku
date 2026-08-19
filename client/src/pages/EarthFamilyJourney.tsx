@@ -402,8 +402,7 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>教育スポンサーになる</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                神山の学校や、旅する学校の活動を、金銭的に応援するかたち。
-                <br />子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。
+                子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。
                 <br />一口のお気持ちが、子どもたちへの授業の足代になり、文化の記録を残す一冊になり、誰かが踏み出すきっかけになります。
                 <br />毎月の支援や、一回きりのご支援が可能です。
               </p>
