@@ -408,7 +408,7 @@ export default function EarthFamilyJourney() {
             あなたは、<br className="sp" />どんな形で未来へ<br className="sp" />参加しますか？
           </h2>
           <p style={{ fontSize: "clamp(13.5px,3.2vw,16px)", lineHeight: 2, opacity: .95, margin: "0 0 28px" }}>
-            寄付をお願いするのではなく、一緒に未来をつくる仲間になってほしい。<br className="pc" />
+            僕はあなたに、一緒に未来をつくる仲間になってほしい。<br className="pc" />
             旅に出るもよし、学ぶもよし、応援するもよし、ビジョンを共に実現するもよし。<br className="pc" />
             あなたの「参加」のかたちを、教えてください。
           </p>
