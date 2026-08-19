@@ -199,7 +199,7 @@ export default function EarthFamilyJourney() {
             旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、地球が少しずつ変わっていく。それが、僕たちの目的です。
+            インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、人も生き物も地球も元気になってゆく。それが、僕たちのヴィジョンです。
           </p>
           <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
             <div style={{textAlign: "center"}}>
