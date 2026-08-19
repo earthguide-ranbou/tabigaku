@@ -162,6 +162,62 @@ export default function EarthFamilyJourney() {
         </div>
       </header>
 
+      {/* ============ キッカケ ============ */}
+      <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
+        <div className="wrap" style={{maxWidth: 720, margin: "0 auto"}}>
+          <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
+          <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちを遊ばせに行った川が<br className="sp" />枯れたこと</span>だった。</h2>
+          <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
+            子どものころ、僕は毎日のように近所の川で遊んでいた。水に足をつけて、魚を追いかけて、夏はずっとそこにいた。でもある日、あの川は枯れてしまった。海に行っても、かつてのように魚が跳ねる姿は少なくなっていた。
+          </p>
+          <div style={{margin: "32px auto", maxWidth: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,.12)"}}>
+            <img src="/efj/dried-river.jpg" alt="かつて子どもたちが遊んでいた川。今は水が枯れ、石だけが残っている。" style={{width: "100%", display: "block"}} />
+            <p style={{fontSize: 12, color: "#888", textAlign: "center", padding: "8px 12px", background: "#fff", margin: 0}}>かつては水が流れ、魚が泳いでいた。今は石だけが残っている。</p>
+          </div>
+          <p className="lead" style={{textAlign: "center", lineHeight: 2}}>
+            生き物が減り、人と人が分断されていく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
+          </p>
+          <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 16}}>
+            でも僕は思う。インプットだけの世界じゃなく、アウトプットもある。行ったりきたりすることで、何かが生まれる可能性がある。旅から学び、学びを旅に還元する。そうした循環の中で、人と人が「おかえり」と言い合える場所を、一つずつ増やしていく。
+          </p>
+        </div>
+      </section>
+
+      {/* ============ 地球再生ビジョン ============ */}
+      <section style={{padding: "80px 16px", background: "#123c32", color: "#f5f0e8"}}>
+        <div className="wrap" style={{maxWidth: 720, margin: "0 auto", textAlign: "center"}}>
+          <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
+          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}>あくまでも<br className="sp" /><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            Earth Family Journey が目指すのは、一つだけじゃない。地球再生も、僕たちのビジョンの一つだ。世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合い、子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、地球が少しずつ変わっていく。それが、僕たちの目的です。
+          </p>
+          <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
+            <div style={{textAlign: "center"}}>
+              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>1<span style={{fontSize: 18}}>周</span></p>
+              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>地球を旅した</p>
+            </div>
+            <div style={{textAlign: "center"}}>
+              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>500+<span style={{fontSize: 18}}>回</span></p>
+              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>講演・上映・対話</p>
+            </div>
+            <div style={{textAlign: "center"}}>
+              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>∞</p>
+              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>神山での学校づくり</p>
+            </div>
+            <div style={{textAlign: "center"}}>
+              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>多数</p>
+              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>移住者が集まる街</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ 研究 ============ */}
       <section className="efjw-sec"><div className="wrap">
         <p className="efjw-label">ONE LIFE</p>
