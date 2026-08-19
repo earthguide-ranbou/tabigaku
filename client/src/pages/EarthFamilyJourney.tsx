@@ -179,7 +179,11 @@ export default function EarthFamilyJourney() {
             <p style={{fontSize: 12, color: "#888", textAlign: "center", padding: "8px 12px", background: "#fff", margin: 0}}>かつては水が流れ、魚が泳いでいた。今は石だけが残っている。</p>
           </div>
           <p className="lead" style={{textAlign: "center", lineHeight: 2}}>
-            海が汚れ、川は枯れ、生き物が姿を消し、人と人が争い、病んでいく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
+            海が汚れ、川は枯れ、動物が姿を消し、人と人が争い、病んでいく。
+
+SNSでは誰かをたたくことばかりが増えて、リアルな「対話」が少なくなっている。
+
+僕たちはどんな世界を、未来の子どもたちに手渡してゆきたいのだろうか？
           </p>
 
         </div>
@@ -191,7 +195,7 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
           <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
 <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            Earth Family Journeyというプロジェクトを始めます。
+            そこでEarth Family Journeyというプロジェクトを始めることにしました。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             やりたいのは、ただ世界を旅することじゃない。
@@ -422,9 +426,16 @@ export default function EarthFamilyJourney() {
               </div>
               <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>教育スポンサーになる</h3>
               <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。
-                <br />一口のお気持ちが、子どもたちへの授業の足代になり、文化の記録を残す一冊になり、誰かが踏み出すきっかけになります。
-                <br />毎月の支援や、一回きりのご支援が可能です。
+                子どもたちが自然の中へ飛び出し、人と出会い、文化に触れ、世界を自分の目で見て学んでいく「旅する学校」。
+                <br /><br />この学びの場を、一緒に育ててくださる仲間を募集しています。
+                <br /><br />一口の応援が、
+                <br />子どもたちの新しい体験になったり、
+                <br />地域に残る知恵や文化を次の世代へつないだり、
+                <br />「やってみたい」と誰かが一歩を踏み出すきっかけになったり。
+                <br /><br />いただいた応援を、そんな小さな種が育っていくために大切に使わせていただきます。
+                <br /><br />毎月でも、一回きりでも大歓迎です。
+                <br /><br />「旅こそが学校。」
+                <br /><br />子どもも大人も一緒に学び、育っていく旅を、ぜひ一緒につくってください。
               </p>
               <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>相談する（LINE）</a>
             </div>
