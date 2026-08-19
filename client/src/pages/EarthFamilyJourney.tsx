@@ -162,62 +162,6 @@ export default function EarthFamilyJourney() {
         </div>
       </header>
 
-      {/* ============ キッカケ ============ */}
-      <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
-        <div className="wrap" style={{maxWidth: 720, margin: "0 auto"}}>
-          <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
-          <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちと遊ばせに行っていた川が<br className="sp" />枯れたこと</span>だった。</h2>
-          <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
-            子どもたちと遊ばせに行っていた川が、ある日、枯れてしまった。海に行っても、かつてのように魚が跳ねる姿は少なくなっていた。
-          </p>
-          <div style={{margin: "32px auto", maxWidth: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,.12)"}}>
-            <img src="/efj/dried-river.jpg" alt="かつて子どもたちが遊んでいた川。今は水が枯れ、石だけが残っている。" style={{width: "100%", display: "block"}} />
-            <p style={{fontSize: 12, color: "#888", textAlign: "center", padding: "8px 12px", background: "#fff", margin: 0}}>かつては水が流れ、魚が泳いでいた。今は石だけが残っている。</p>
-          </div>
-          <p className="lead" style={{textAlign: "center", lineHeight: 2}}>
-            生き物が減り、人と人が分断されていく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
-          </p>
-          <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 16}}>
-            でも僕は思う。インプットだけの世界じゃなく、アウトプットもある。行ったりきたりすることで、何かが生まれる可能性がある。旅から学び、学びを旅に還元する。そうした循環の中で、人と人が「おかえり」と言い合える場所を、一つずつ増やしていく。
-          </p>
-        </div>
-      </section>
-
-      {/* ============ 地球再生ビジョン ============ */}
-      <section style={{padding: "80px 16px", background: "#123c32", color: "#f5f0e8"}}>
-        <div className="wrap" style={{maxWidth: 720, margin: "0 auto", textAlign: "center"}}>
-          <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
-          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
-          <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            Earth Family Journey が目指すのは、一つだけじゃない。地球再生も、僕たちのビジョンの一つだ。世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合い、子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
-          </p>
-          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
-          </p>
-          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、地球が少しずつ変わっていく。それが、僕たちの目的です。
-          </p>
-          <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>1<span style={{fontSize: 18}}>周</span></p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>地球を旅した</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>500+<span style={{fontSize: 18}}>回</span></p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>講演・上映・対話</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>∞</p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>神山での学校づくり</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>多数</p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>移住者が集まる街</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ============ 研究 ============ */}
       <section className="efjw-sec"><div className="wrap">
         <p className="efjw-label">ONE LIFE</p>
@@ -352,37 +296,6 @@ export default function EarthFamilyJourney() {
         text="EARTH FAMILY JOURNEY｜世界中で「おかえり」「ただいま」と言い合える家族のような関係を。旅は幸せになる。家族との旅は一生の宝物。つながりは人生を豊かにする。一歩踏み出す旅が、ここからはじまります。"
         title="＼ EARTH FAMILY JOURNEY をシェア ／"
       />
-
-      {/* ============ ガイド紹介 ============ */}
-      <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">GUIDE</p>
-        <h2 className="efjw-h2">ガイドは、<br className="sp" /><span className="u">あーすガイド・らんぼう</span></h2>
-        <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 20, marginTop: 28}}>
-          <img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="あーすガイド・らんぼう" style={{width: 128, height: 128, borderRadius: "50%", objectFit: "cover", border: "4px solid #d65a3a"}} />
-          <div style={{textAlign: "center"}}>
-            <p style={{fontWeight: 900, fontSize: "clamp(15px,3.6vw,18px)", margin: "0 0 8px", color: "#2c3e3a"}}>あーすガイド代表・旅する学校主宰</p>
-            <p style={{fontSize: "clamp(13.5px,3.2vw,15.5px)", lineHeight: 1.9, color: "#555", textAlign: "left", maxWidth: 560}}>
-              地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。帰国後は全国で500本以上のトーク・上映会・ガイドツアーを実施し、案内した40人以上が各地に移住。2022年、徳島・神山町でオルタナティブスクール「森の学校みっけ」を仲間と設立。地域再生の聖地・神山町を拠点に、企業研修や視察ガイドも行う。
-            </p>
-          </div>
-        </div>
-        <ul style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.9, color: "#555", marginTop: 20, maxWidth: 560, margin: "20px auto 0", listStyle: "none", padding: 0}}>
-          <li style={{marginBottom: 4}}>🗣 全国で500本以上の講演・上映会</li>
-          <li style={{marginBottom: 4}}>🏜 アタカマ砂漠250km チーム優勝（映画化）</li>
-          <li style={{marginBottom: 4}}>🏫 森の学校みっけ 創設（移住60人以上）</li>
-          <li style={{marginBottom: 4}}>🥾 旅する学校 主宰｜安藤財団 推奨モデル特別賞(2023)</li>
-          <li style={{marginBottom: 4}}>🎓 KAMIYAMA FIELD SCHOOL 設立(2026)</li>
-        </ul>
-        <p style={{fontFamily: "'Noto Serif JP',serif", textAlign: "center", lineHeight: 1.9, marginTop: 28, fontSize: "clamp(14px,3.3vw,16px)", color: "#2c3e3a", fontWeight: 600}}>
-          「心が喜ぶ方へ、身体ごと飛び込んでみませんか？<br />
-          自然の中に帰ることで、見えてくる"ほんとの自分"。<br />
-          気がつけば、笑って、泣いて、語って、地球を丸ごと感じる旅になると思います」<br />
-          — らんぼう
-        </p>
-        <p style={{textAlign: "center", marginTop: 16}}>
-          <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{...LNK, fontSize: 14, fontWeight: 800}}>あーすガイド公式サイトを見る →</a>
-        </p>
-      </div></section>
 
       <div className="efjw-foot">
         企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
