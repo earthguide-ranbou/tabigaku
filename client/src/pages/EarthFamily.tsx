@@ -235,6 +235,91 @@ export default function EarthFamily() {
         <p className="mt-6 text-xs text-neutral-500">お問い合わせ｜メール <a href="mailto:earthguide.jpn@gmail.com" className="underline">earthguide.jpn@gmail.com</a>（件名は「地球家族ジャーニー」としてお送りください）</p>
       </section>
 
+
+      {/* ============ 参加の入口 ============ */}
+      <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
+        <div className="wrap" style={{maxWidth: 720, margin: "0 auto"}}>
+          <p className="efjw-label" style={{color: "#d65a3a"}}>HOW TO JOIN</p>
+          <h2 className="efjw-h2">あなたに合った、<br className="sp" /><span className="u">参加のかたち</span></h2>
+          <p style={{textAlign: "center", lineHeight: 1.9, marginTop: 16, fontSize: "clamp(13.5px,3.2vw,15.5px)", color: "#555"}}>
+            一つに絞らなくていい。あなたの今の気持ちや状況に合わせて、関わり方を選んでください。
+          </p>
+
+          <div style={{display: "grid", gap: 20, marginTop: 32}}>
+            {/* ① 旅へ参加 */}
+            <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{display: "block", background: "#fff", borderRadius: 20, padding: "24px 20px", textDecoration: "none", color: "inherit", boxShadow: "0 4px 20px rgba(0,0,0,.08)", transition: "box-shadow .25s"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 10, marginBottom: 12}}>
+                <span style={{fontSize: 11, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "4px 12px", borderRadius: 999}}>旅へ参加</span>
+                <span style={{fontSize: 12, color: "#aaa"}}>学生・子育て世代</span>
+              </div>
+              <h3 style={{fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a"}}>一緒に旅に出る</h3>
+              <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
+                家族や友人と、あるいはひとりで、海や山、島や里山を巡る旅へ。現地で生きる人たちと向き合い、自然の中で体を動かし、対話を重ねる。参加費（案内・コーディネート代）と実費（宿泊・食事・移動など各自）のかたち。
+              </p>
+              <p style={{fontSize: 14, fontWeight: 800, color: "#d65a3a", margin: "12px 0 0"}}>詳しく見る →</p>
+            </a>
+
+            {/* ② らんぼう塾 */}
+            <a href="https://www.tabigaku.party/juku" target="_blank" rel="noopener noreferrer" style={{display: "block", background: "#fff", borderRadius: 20, padding: "24px 20px", textDecoration: "none", color: "inherit", boxShadow: "0 4px 20px rgba(0,0,0,.08)", transition: "box-shadow .25s"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 10, marginBottom: 12}}>
+                <span style={{fontSize: 11, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "4px 12px", borderRadius: 999}}>学びの場</span>
+                <span style={{fontSize: 12, color: "#aaa"}}>学びたい人</span>
+              </div>
+              <h3 style={{fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a"}}>らんぼう塾で学ぶ</h3>
+              <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
+                旅の仕方、対話の仕方、地域との関わり方、子育てのヒント。らんぼうが実践してきたことを、オンラインや対面で学ぶコミュニティ。自分の足で歩き始めるための、最初の一歩。
+              </p>
+              <p style={{fontSize: 14, fontWeight: 800, color: "#d65a3a", margin: "12px 0 0"}}>詳しく見る →</p>
+            </a>
+
+            {/* ③ 教育スポンサー */}
+            <div style={{background: "#fff", borderRadius: 20, padding: "24px 20px", boxShadow: "0 4px 20px rgba(0,0,0,.08)"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 10, marginBottom: 12}}>
+                <span style={{fontSize: 11, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "4px 12px", borderRadius: 999}}>子どもを応援</span>
+                <span style={{fontSize: 12, color: "#aaa"}}>子どもを応援したい人</span>
+              </div>
+              <h3 style={{fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a"}}>教育スポンサーになる</h3>
+              <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
+                神山の学校や、旅する学校の活動を、金銭的に応援するかたち。子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。毎月の支援や、一回きりのご支援が可能です。
+              </p>
+              <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}}>相談する（LINE）</a>
+            </div>
+
+            {/* ④ パートナーシップ */}
+            <div style={{background: "#fff", borderRadius: 20, padding: "24px 20px", boxShadow: "0 4px 20px rgba(0,0,0,.08)", outline: "2px solid #1d5c4d"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 10, marginBottom: 12}}>
+                <span style={{fontSize: 11, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "4px 12px", borderRadius: 999}}>ビジョン共有</span>
+                <span style={{fontSize: 12, color: "#aaa"}}>大口支援者・企業</span>
+              </div>
+              <h3 style={{fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a"}}>パートナーシップを組む</h3>
+              <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
+                年間100万円〜200万円規模で、Earth Family Journey のビジョンを共に実現するパートナー。定期的な対話の場への参加、活動レポートの共有、戦略的な協働を通じて、一緒に未来をつくります。
+              </p>
+              <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}}>詳細を相談する（LINE）</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 締めくくり ============ */}
+      <section style={{padding: "80px 16px", background: "#1d5c4d", color: "#f5f0e8", textAlign: "center"}}>
+        <div className="wrap" style={{maxWidth: 640, margin: "0 auto"}}>
+          <p style={{fontSize: 11, letterSpacing: ".3em", marginBottom: 16, opacity: .8}}>EARTH FAMILY JOURNEY</p>
+          <h2 style={{fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(22px,5.5vw,32px)", fontWeight: 900, lineHeight: 1.6, margin: "0 0 20px"}}>
+            あなたは、<br className="sp" />どんな形で未来へ<br className="sp" />参加しますか？
+          </h2>
+          <p style={{fontSize: "clamp(13.5px,3.2vw,16px)", lineHeight: 2, opacity: .95, margin: "0 0 28px"}}>
+            寄付をお願いするのではなく、一緒に未来をつくる仲間になってほしい。<br className="pc" />
+            旅に出るもよし、学ぶもよし、応援するもよし、ビジョンを共に実現するもよし。<br className="pc" />
+            あなたの「参加」のかたちを、教えてください。
+          </p>
+          <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12}}>
+            <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", padding: "14px 32px", borderRadius: 999, background: "#d65a3a", color: "#fff", fontWeight: 800, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 16px rgba(0,0,0,.2)"}}>旅に参加する</a>
+            <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", padding: "14px 32px", borderRadius: 999, border: "2px solid #f5f0e8", color: "#f5f0e8", fontWeight: 800, fontSize: 15, textDecoration: "none"}}>まず話を聞いてみる（LINE）</a>
+          </div>
+        </div>
+      </section>
+
       <footer className="text-center text-xs text-neutral-500 pb-10 px-5 leading-loose">
         企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
         <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener" className="underline">あーすガイド公式サイト</a>　<a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener" className="underline">元になったnote記事</a><br />
