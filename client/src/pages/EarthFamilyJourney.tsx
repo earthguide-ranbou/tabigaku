@@ -190,21 +190,47 @@ export default function EarthFamilyJourney() {
         <div className="wrap" style={{maxWidth: 720, margin: "0 auto", textAlign: "center"}}>
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
           <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
-          <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            Earth Family Journeyが目指しているのは、ただ地球を旅することじゃない。
-            <br />旅をしながら、人と人、人と自然のつながりを結び直し、その先にある「地球再生」へつなげていくこと。
-            <br />世界中の海や山、里山や島をめぐり、そこで生きる人たちと出会う。子どもたちは川や海に飛び込み、土に触れ、生き物から学ぶ。大人たちは同じ食卓を囲み、その土地の今と未来を語り合う。
-            <br />そんな時間を重ねていると、「旅先」だった場所が、いつの間にか「帰ってきたい場所」に変わっていく。「はじめまして」だった人とも、いつか「おかえり」「ただいま」と言い合えるようになる。
+<p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            Earth Family Journeyというプロジェクトを始めます。目指しているのは、ただ地球を旅することじゃない。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            旅で受け取ったものを、持ち帰るだけで終わらせない。学んだことを次の土地へ運び、そこで得たものを、暮らしの中で地域に還していく。
-            <br />旅から学び、学びを暮らしに還す。
-            <br />その循環の中で、人が元気になり、地域が元気になり、生き物や自然も少しずつ元気になっていく。
-            <br />地球再生というと、とても大きな話に聞こえる。でも始まりは、目の前の川を大切にすることや、誰かとご飯を食べること、また会いたい人に会いに行くことなのかもしれない。
-            <br />そんな小さな循環を世界中に増やして、未来の子どもたちへ「おかえり」と言い合える美しい地球を手渡していく。
-            <br />それが、Earth Family Journeyのヴィジョンです。
+            時に家族と、時に仲間と、時に子どもたちと。<br />
+            「なんか面白そう」「行ってみたい」そんなワクワクドキドキを道しるべに、世界を旅する。
           </p>
-          
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            海や川に飛び込み、森を歩き、土に触れ、同じ釜の飯を食べる。<br />
+            画面の中ではわからない匂いや温度、その土地で生きる人の声。<br />
+            そこには、実際に行かなければ出逢えない魂が震えるリアルな体験。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            旅の途中で出逢うのは、森を育てる人、海を守る漁師、土を再生する農家、教育をつくる人、文化をつなぐ人、新しい技術で未来をつくる人。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            環境、教育、食、農、地域、文化、テクノロジー。<br />
+            ジャンルも世代も国境も越えて出逢い、語り、遊び、ときには一緒に汗をかきながら、世界中に散らばる「地球再生のヒント」を集めていく。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            そして、「すごかったね」で終わらせない。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            旅で心が動いたことを誰かに伝え、つないだり、自分たちにもできる小さな一歩をやってみる。<br />
+            その小さな循環が、人を元気にし、地域を元気にし、自然を少しずつ元気にしていく。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            増やしたいのは、地球をひとつの大きな家のように感じ、旅や暮らしを思いっきり楽しみながら、地球の未来のために動く「Earth Family」。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            「はじめまして」が、いつか「おかえり」「ただいま」に変わっていく。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            そんな家族を世界中に増やしながら、まだ見たことのない未来をみんなでつくっていく。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            未来の子どもたちへ、ワクワクする美しい地球を手渡すために。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            それが、Earth Family Journeyのヴィジョンです。
+          </p>
           <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
             <div style={{textAlign: "center"}}>
               <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>1<span style={{fontSize: 18}}>周</span></p>
