@@ -168,7 +168,7 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
           <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちを遊ばせに行った川が<br className="sp" />枯れたこと</span>だった。</h2>
           <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
-            子どものころ、僕は毎日のように近所の川で遊んでいた。水に足をつけて、魚を追いかけて、夏はずっとそこにいた。でもある日、あの川は枯れてしまった。海に行っても、かつてのように魚が跳ねる姿は少なくなっていた。
+            子どもたちがよく遊んでいた川。水に足をつけて、魚を追いかけて、夏はずっとそこにいた。でもある日、あの川は枯れてしまった。海に行っても、海藻は減り、かつてのように魚が跳ねる姿は少なくなっていた。
           </p>
           <div style={{margin: "32px auto", maxWidth: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,.12)"}}>
             <img src="/efj/dried-river.jpg" alt="かつて子どもたちが遊んでいた川。今は水が枯れ、石だけが残っている。" style={{width: "100%", display: "block"}} />
