@@ -526,7 +526,7 @@ export default function EarthFamilyJourney() {
 
       <div className="efjw-foot">
         企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
-        <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={LNK}>あーすガイド公式サイト</a>
+        <a href="https://www.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={LNK}>旅する学校</a>
         <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
         <a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener noreferrer" style={LNK}>note</a>
         <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
