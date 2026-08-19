@@ -470,7 +470,7 @@ export default function EarthFamilyJourney() {
       {/* ============ ガイド紹介 ============ */}
       <section className="efjw-sec"><div className="wrap">
         <p className="efjw-label">GUIDE</p>
-        <h2 className="efjw-h2">ガイドは、<br className="sp" /><span className="u">あーすガイド・らんぼう</span></h2>
+        <h2 className="efjw-h2"><span className="u">あーすガイド・らんぼう</span></h2>
         <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 20, marginTop: 28}}>
           <img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="あーすガイド・らんぼう" style={{width: 128, height: 128, borderRadius: "50%", objectFit: "cover", border: "4px solid #d65a3a"}} />
           <div style={{textAlign: "center"}}>
