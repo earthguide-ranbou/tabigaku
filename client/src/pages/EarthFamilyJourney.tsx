@@ -326,31 +326,6 @@ export default function EarthFamilyJourney() {
         </p>
       </div></section>
 
-      {/* ============ 応援する ============ */}
-      <section className="efjw-sec"><div className="wrap">
-        <p className="efjw-label">SUPPORT</p>
-        <h2 className="efjw-h2">この旅を、<span className="u">応援する</span></h2>
-        <div className="efjw-support">
-          <h3>あなたの応援が、誰かの「一歩」になる</h3>
-          <p>
-            この旅と学びの循環は、応援してくれる仲間の力で育っていきます。<br />
-            金額に決まりはありません。一口のお気持ちが、子どもたちへの授業の足代になり、
-            文化の記録を残す一冊になり、誰かが踏み出すきっかけになります。<br />
-            「応援してるよ」の気持ちを、よろしければお振込みでお寄せください。
-          </p>
-          <div className="efjw-bank">
-            <b>お振込先</b><br />
-            PAYPAY銀行　かわせみ支店（007）<br />
-            普通　4304359　ウエダ ナオキ<br />
-            <span style={{ fontSize: 12.5, opacity: .85 }}>※ お名前の前に「エフジェーおうえん」など、一言添えていただけると嬉しいです</span>
-          </div>
-          <p className="note">
-            ご寄付・応援のご連絡や、講演・出前授業のご依頼は LINE またはメールでお気軽にどうぞ。<br />
-            シェアしていただくだけでも、大きな応援になります。
-          </p>
-        </div>
-      </div></section>
-
       <div style={{ height: 34 }} />
 
       <ShareButtons
@@ -443,6 +418,31 @@ export default function EarthFamilyJourney() {
           </div>
         </div>
       </section>
+
+      {/* ============ 応援する ============ */}
+      <section className="efjw-sec"><div className="wrap">
+        <p className="efjw-label">SUPPORT</p>
+        <h2 className="efjw-h2">この旅を、<span className="u">応援する</span></h2>
+        <div className="efjw-support">
+          <h3>あなたの応援が、誰かの「一歩」になる</h3>
+          <p>
+            この旅と学びの循環は、応援してくれる仲間の力で育っていきます。<br />
+            金額に決まりはありません。一口のお気持ちが、子どもたちへの授業の足代になり、
+            文化の記録を残す一冊になり、誰かが踏み出すきっかけになります。<br />
+            「応援してるよ」の気持ちを、よろしければお振込みでお寄せください。
+          </p>
+          <div className="efjw-bank">
+            <b>お振込先</b><br />
+            PAYPAY銀行　かわせみ支店（007）<br />
+            普通　4304359　ウエダ ナオキ<br />
+            <span style={{ fontSize: 12.5, opacity: .85 }}>※ お名前の前に「エフジェーおうえん」など、一言添えていただけると嬉しいです</span>
+          </div>
+          <p className="note">
+            ご寄付・応援のご連絡や、講演・出前授業のご依頼は LINE またはメールでお気軽にどうぞ。<br />
+            シェアしていただくだけでも、大きな応援になります。
+          </p>
+        </div>
+      </div></section>
 
       <div className="efjw-foot">
         企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
