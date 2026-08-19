@@ -438,7 +438,7 @@ export default function EarthFamilyJourney() {
             <span style={{ fontSize: 12.5, opacity: .85 }}>※ お名前の前に「エフジェーおうえん」など、一言添えていただけると嬉しいです</span>
           </div>
           <p className="note">
-            ご寄付・応援のご連絡や、講演・出前授業のご依頼は LINE またはメールでお気軽にどうぞ。<br />
+            ご寄付・応援のご連絡や、講演・出前授業のご依頼は <a href="https://lin.ee/Yq6ZsHa" target="_blank" rel="noopener noreferrer" style={{color: "#ffe9a8", textDecoration: "underline", fontWeight: 700}}>LINE</a> またはメールでお気軽にどうぞ。<br />
             シェアしていただくだけでも、大きな応援になります。
           </p>
         </div>
