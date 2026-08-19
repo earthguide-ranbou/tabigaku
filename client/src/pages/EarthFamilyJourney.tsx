@@ -175,10 +175,14 @@ export default function EarthFamilyJourney() {
             <p style={{fontSize: 12, color: "#888", textAlign: "center", padding: "8px 12px", background: "#fff", margin: 0}}>かつては水が流れ、魚が泳いでいた。今は石だけが残っている。</p>
           </div>
           <p className="lead" style={{textAlign: "center", lineHeight: 2}}>
-            生き物が減り、人と人が分断されていく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
+            海が汚れ、川は枯れ、生き物が姿を消し、人と人が争い、病んでいく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
           </p>
           <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 16}}>
-            でも僕は思う。インプットだけの世界じゃなく、アウトプットもある。行ったりきたりすることで、何かが生まれる可能性がある。旅から学び、学びを旅に還元する。そうした循環の中で、人と人が「おかえり」と言い合える場所を、一つずつ増やしていく。
+            でも僕は思う。
+            <br />未来は、動いたぶんだけ変えていけるハズ。
+            <br />「おかえり」「ただいま」と言い合える、家族のような関係を、国内外を行ったり来たりしながら育てていく。そこから生まれるものは、きっとある。
+            <br />旅で出会い、学び、その学びをまた次の旅へ還していく。
+            <br />そんな循環の中で、血のつながりを越えて「帰ってきたい」と思える人や場所を、この地球に一つずつ増やしていきたい。
           </p>
         </div>
       </section>
@@ -187,7 +191,7 @@ export default function EarthFamilyJourney() {
       <section style={{padding: "80px 16px", background: "#123c32", color: "#f5f0e8"}}>
         <div className="wrap" style={{maxWidth: 720, margin: "0 auto", textAlign: "center"}}>
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
-          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}>あくまでも<br className="sp" /><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
+          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
             Earth Family Journey が目指すのは、一つだけじゃない。地球再生も、僕たちのビジョンの一つだ。世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合い、子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
           </p>
