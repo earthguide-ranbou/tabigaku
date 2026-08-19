@@ -191,19 +191,20 @@ export default function EarthFamilyJourney() {
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
           <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            Earth Family Journey が目指すのは、一つだけじゃない。
-            <br />地球再生も、僕たちのビジョンの一つだ。
-            <br />世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合う。
-            <br />子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
-            <br />そんな場所を、一緒に増やしていきたい。
+            Earth Family Journeyが目指しているのは、ただ地球を旅することじゃない。
+            <br />旅をしながら、人と人、人と自然のつながりを結び直し、その先にある「地球再生」へつなげていくこと。
+            <br />世界中の海や山、里山や島をめぐり、そこで生きる人たちと出会う。子どもたちは川や海に飛び込み、土に触れ、生き物から学ぶ。大人たちは同じ食卓を囲み、その土地の今と未来を語り合う。
+            <br />そんな時間を重ねていると、「旅先」だった場所が、いつの間にか「帰ってきたい場所」に変わっていく。「はじめまして」だった人とも、いつか「おかえり」「ただいま」と言い合えるようになる。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            旅を通じて「つながり」を再生し、教育を通じて「未来」を育み、地域を通じて「場」をつくる。
-            <br />そうして、未来の子どもたちが「おかえり」と言い合える地球を、一緒に手渡していく。
+            旅で受け取ったものを、持ち帰るだけで終わらせない。学んだことを次の土地へ運び、そこで得たものを、暮らしの中で地域に還していく。
+            <br />旅から学び、学びを暮らしに還す。
+            <br />その循環の中で、人が元気になり、地域が元気になり、生き物や自然も少しずつ元気になっていく。
+            <br />地球再生というと、とても大きな話に聞こえる。でも始まりは、目の前の川を大切にすることや、誰かとご飯を食べること、また会いたい人に会いに行くことなのかもしれない。
+            <br />そんな小さな循環を世界中に増やして、未来の子どもたちへ「おかえり」と言い合える美しい地球を手渡していく。
+            <br />それが、Earth Family Journeyのヴィジョンです。
           </p>
-          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            インプットとアウトプット。行ったりきたりすることの可能性。旅から学び、学びを旅に還元する。そうした循環の中で、人も生き物も地球も元気になってゆく。それが、僕たちのヴィジョンです。
-          </p>
+          
           <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
             <div style={{textAlign: "center"}}>
               <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>1<span style={{fontSize: 18}}>周</span></p>
