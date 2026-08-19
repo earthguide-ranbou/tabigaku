@@ -133,19 +133,7 @@ export default function EarthFamilyJourney() {
                 想いもしなかった出産旅が、今の活動の原点になっている。
               </p>
             </div>
-            {/* ⑤ EARTH FAMILY DAO */}
-            <div style={{ background: "#fff", borderRadius: 20, padding: "24px 20px", boxShadow: "0 4px 20px rgba(0,0,0,.08)" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
-                <span style={{ fontSize: 11, fontWeight: 800, color: "#fff", background: "#6c5ce7", padding: "4px 12px", borderRadius: 999 }}>DAO</span>
-                <span style={{ fontSize: 12, color: "#aaa" }}>新時代のコミュニティ</span>
-              </div>
-              <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>EARTH FAMILY DAOに参加する</h3>
-              <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
-                年間1,000円で参加できる、Earth Family Journeyのコミュニティ。
-                <br />旅の情報やイベントの優先案内、メンバー限定のオンライン空間など、地球再生の仲間と繋がる場所。
-              </p>
-              <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#6c5ce7", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>参加する（LINE）</a>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -476,6 +464,19 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
                 <br />一緒に考え、一緒に動き、一緒に未来をつくっていきます。
               </p>
               <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>詳細を相談する（LINE）</a>
+            </div>
+            {/* ⑤ EARTH FAMILY DAO */}
+            <div style={{ background: "#fff", borderRadius: 20, padding: "24px 20px", boxShadow: "0 4px 20px rgba(0,0,0,.08)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                <span style={{ fontSize: 11, fontWeight: 800, color: "#fff", background: "#6c5ce7", padding: "4px 12px", borderRadius: 999 }}>DAO</span>
+                <span style={{ fontSize: 12, color: "#aaa" }}>新時代のコミュニティ</span>
+              </div>
+              <h3 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: "clamp(17px,4.2vw,21px)", fontWeight: 700, margin: "0 0 8px", color: "#2c3e3a" }}>EARTH FAMILY DAOに参加する</h3>
+              <p style={{ fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0 }}>
+                年間1,000円で参加できる、Earth Family Journeyのコミュニティ。
+                <br />旅の情報やイベントの優先案内、メンバー限定のオンライン空間など、地球再生の仲間と繋がる場所。
+              </p>
+              <a href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#6c5ce7", padding: "10px 24px", borderRadius: 999, textDecoration: "none" }}>参加する（LINE）</a>
             </div>
           </div>
         </div>
