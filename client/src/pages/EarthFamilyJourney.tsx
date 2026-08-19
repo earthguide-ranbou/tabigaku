@@ -195,35 +195,43 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
           <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
 <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            そこでEarth Family Journeyというプロジェクトを始めることにしました。
+            だから「Earth Family Journey」というプロジェクトを始めることにしました。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            やりたいのは、ただ世界を旅することじゃない。
+            「Earth Family Journey」でやりたいのは、ただ旅することだけじゃない。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            時に家族と、時に仲間と、時に子どもたちと。<br />
-            「なんか面白そう」「行ってみたい」そんなワクワクとドキドキを道しるべに世界を旅し、その先にある「地球再生」へつなげていくこと。
+            時に家族と、時に仲間と、時に子どもたちと。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            ワクワクとドキドキを道しるべに世界各地を旅し、「おかえり」「ただいま」といえる家族のような関係性を広げ、その先に「地球再生」へつなげていくこと。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             海や川に飛び込み、森を歩き、土に触れ、その土地の人と同じ釜の飯を食べる。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            風の匂い、水の冷たさ、人のあたたかさ。<br />
-            その土地に受け継がれてきた伝統や祈り、自然と共に生きてきた先人たちの知恵やスピリット。<br />
+            風の匂い、水の冷たさ、人のあたたかさ。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
+            その土地に受け継がれてきた伝統や祈り、自然と共に生きてきた先人たちの知恵やスピリット。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             画面越しではわからない、実際にその場所へ行くからこそ魂が震えるリアルがある。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             旅の途中で出逢うのは、海を守る漁師、森を育てる人、土を再生する農家、教育をつくる人、伝統や文化を次の世代へつなぐ人、新しい技術で未来をつくる人たち。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            環境、教育、食、農、文化、地域、テクノロジー。<br />
+            環境、教育、食、農、文化、地域、テクノロジー。
+          </p>
+          <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             ジャンルも世代も国境も越えて、古くから受け継がれてきた知恵と新しい可能性、その両方に触れながら、世界中に散らばる「地球再生のヒント」を探しにいく。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             でも、「すごかったね」で終わらせたくない。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            心が動いたことを誰かに伝え、人と人をつなぎ、自分にもできる小さな一歩をやってみる。
+            心が動いたことを共有し、人と人をつなぎ、自分にもできる小さな一歩をやってみる。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             そんな小さな循環が、人を元気にし、地域を元気にし、自然を元気にし、いつか地球まで元気にしていくと僕は思っています。
@@ -238,7 +246,7 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
             そんなつながりを世界中に増やしながら、未来の子どもたちへ、僕ら自身もワクワクできる美しい地球を手渡していく。
           </p>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
-            それが、Earth Family Journeyのヴィジョンです。
+            それが、「Earth Family Journey」のヴィジョンです。
           </p>
           <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
             <div style={{textAlign: "center"}}>
