@@ -181,13 +181,7 @@ export default function EarthFamilyJourney() {
           <p className="lead" style={{textAlign: "center", lineHeight: 2}}>
             海が汚れ、川は枯れ、生き物が姿を消し、人と人が争い、病んでいく。SNSでは誰かを責めることばかりが増えて、本当の「対話」が少なくなっている。そんな世界を、未来の子どもたちに手渡していいのだろうか。
           </p>
-          <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 16}}>
-            でも僕は思う。
-            <br />未来は、動いたぶんだけ変えていけるハズ。
-            <br />「おかえり」「ただいま」と言い合える、家族のような関係を、国内外を行ったり来たりしながら育てていく。そこから生まれるものは、きっとある。
-            <br />旅で出会い、学び、その学びをまた次の旅へ還していく。
-            <br />そんな循環の中で、血のつながりを越えて「帰ってきたい」と思える人や場所を、この地球に一つずつ増やしていきたい。
-          </p>
+
         </div>
       </section>
 
