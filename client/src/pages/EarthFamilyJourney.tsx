@@ -166,9 +166,9 @@ export default function EarthFamilyJourney() {
       <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
         <div className="wrap" style={{maxWidth: 720, margin: "0 auto"}}>
           <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
-          <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちを遊ばせに行った川が<br className="sp" />枯れたこと</span>だった。</h2>
+          <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちと遊ばせに行っていた川が<br className="sp" />枯れたこと</span>だった。</h2>
           <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
-            子どものころ、僕は毎日のように近所の川で遊んでいた。水に足をつけて、魚を追いかけて、夏はずっとそこにいた。でもある日、あの川は枯れてしまった。海に行っても、かつてのように魚が跳ねる姿は少なくなっていた。
+            子どもたちと遊ばせに行っていた川が、ある日、枯れてしまった。海に行っても、かつてのように魚が跳ねる姿は少なくなっていた。
           </p>
           <div style={{margin: "32px auto", maxWidth: 560, borderRadius: 16, overflow: "hidden", boxShadow: "0 8px 32px rgba(0,0,0,.12)"}}>
             <img src="/efj/dried-river.jpg" alt="かつて子どもたちが遊んでいた川。今は水が枯れ、石だけが残っている。" style={{width: "100%", display: "block"}} />
@@ -187,7 +187,7 @@ export default function EarthFamilyJourney() {
       <section style={{padding: "80px 16px", background: "#123c32", color: "#f5f0e8"}}>
         <div className="wrap" style={{maxWidth: 720, margin: "0 auto", textAlign: "center"}}>
           <p className="efjw-label" style={{color: "#ffe9a8", opacity: .9}}>OUR VISION</p>
-          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}>あくまでも<br className="sp" /><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
+          <h2 className="efjw-h2" style={{color: "#f5f0e8"}}><span style={{background: "linear-gradient(transparent 62%,#d65a3a 62%)"}}>目指すは地球再生の方向</span>。</h2>
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 24, fontSize: "clamp(14px,3.2vw,16px)"}}>
             Earth Family Journey が目指すのは、一つだけじゃない。地球再生も、僕たちのビジョンの一つだ。世界中の海や山、里山や島々を巡りながら、そこで生きる人たちと向き合い、子どもたちが自然の中で遊び、学び、大人たちが対話を重ねる。
           </p>
