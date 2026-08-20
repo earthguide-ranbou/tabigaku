@@ -249,24 +249,13 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
           <p style={{textAlign: "center", lineHeight: 2, marginTop: 16, fontSize: "clamp(14px,3.2vw,16px)"}}>
             それが、「Earth Family Journey」のヴィジョンです。
           </p>
-          <div style={{marginTop: 40, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16, maxWidth: 480, margin: "40px auto 0"}}>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>1<span style={{fontSize: 18}}>周</span></p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>地球を旅した</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>500+<span style={{fontSize: 18}}>回</span></p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>講演・上映・対話</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>∞</p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>神山での学校づくり</p>
-            </div>
-            <div style={{textAlign: "center"}}>
-              <p style={{fontSize: "clamp(28px,6vw,40px)", fontWeight: 900, color: "#d65a3a", margin: 0}}>多数</p>
-              <p style={{fontSize: 12, opacity: .8, margin: "4px 0 0"}}>移住者が集まる街</p>
-            </div>
-          </div>
+          <div style={{ maxWidth: 900, margin: "40px auto 0", padding: "0 16px" }}>
+          <img 
+            src="/images/journey-banner.jpg" 
+            alt="JOURNEY - 人生が動き出す、旅へ。" 
+            style={{ width: "100%", borderRadius: 16, display: "block" }}
+            loading="lazy"
+          />
         </div>
       </section>
 
