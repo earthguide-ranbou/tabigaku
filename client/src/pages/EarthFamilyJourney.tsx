@@ -326,7 +326,7 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
           <div style={{textAlign: "center"}}>
             <p style={{fontWeight: 900, fontSize: "clamp(15px,3.6vw,18px)", margin: "0 0 8px", color: "#2c3e3a"}}>あーすガイド代表・旅する学校主宰</p>
             <p style={{fontSize: "clamp(13.5px,3.2vw,15.5px)", lineHeight: 1.9, color: "#555", textAlign: "left", maxWidth: 560}}>
-              地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。帰国後は全国で500本以上のトーク・上映会・ガイドツアーを実施し、案内した40人以上が各地に移住。2022年、徳島・神山町でオルタナティブスクール「森の学校みっけ」を仲間と設立。地域再生の聖地・神山町を拠点に、企業研修や視察ガイドも行う。
+              地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村、ネイティブアメリカン居留地、アマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。帰国後は全国で500本以上のトーク・上映会・スタディロード等を実施し、案内した40人以上が各地に移住。2022年、徳島・神山町でオルタナティブスクール「森の学校みっけ」を仲間と立ち上げた。地域再生の聖地・神山町を拠点に、企業研修や視察ガイドも行う。
             </p>
           </div>
         </div>
@@ -335,9 +335,9 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
           <ul style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.9, color: "#555", marginTop: 16, listStyle: "none", padding: 0}}>
             <li style={{marginBottom: 4}}>🗣 全国で500本以上の講演・上映会</li>
             <li style={{marginBottom: 4}}>🏜 アタカマ砂漠250km チーム優勝（映画化）</li>
-            <li style={{marginBottom: 4}}>🏫 森の学校みっけ 創設（移住60人以上）</li>
+            <li style={{marginBottom: 4}}>🏫 森の学校みっけ 立ち上げメンバー（移住60人以上）</li>
             <li style={{marginBottom: 4}}>🥾 旅する学校 主宰｜安藤財団 推奨モデル特別賞(2023)</li>
-            <li style={{marginBottom: 4}}>🎓 KAMIYAMA FIELD SCHOOL 設立(2026)</li>
+            <li style={{marginBottom: 4}}>🎓 KAMIYAMA FIELD SCHOOL 立ち上げメンバー(2026)</li>
           </ul>
           <p style={{fontFamily: "'Noto Serif JP',serif", textAlign: "center", lineHeight: 1.9, marginTop: 28, fontSize: "clamp(14px,3.3vw,16px)", color: "#2c3e3a", fontWeight: 600}}>
             「心が喜ぶ方へ、身体ごと飛び込んでみませんか？<br />
