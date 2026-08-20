@@ -599,7 +599,7 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
         <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
         <a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener noreferrer" style={LNK}>note</a>
         <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
-        <a href="mailto:earthguide.jpn@gmail.com" style={LNK}>お問い合わせ</a>
+        <a href="https://lin.ee/9qsgj81" target="_blank" rel="noopener noreferrer" style={LNK}>お問い合わせ</a>
       </div>
     </div>
   );
