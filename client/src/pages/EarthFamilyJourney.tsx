@@ -275,15 +275,55 @@ SNSでは誰かをたたくことばかりが増えて、リアルな「対話�
         <p className="efjw-label">OUR ANSWER</p>
         <h2 className="efjw-h2">晩酌の席で、<br className="sp" />ひとつの質問をしました</h2>
         <div className="efjw-vision">
-          <p className="toast">「なんの制限もなかったとしたら、<br />あなたは何をする？」</p>
+          <p className="toast">「もし、なんの制限もなかったとしたら、<br />あなたは何をする？」</p>
           <p className="lead" style={{ textAlign: "center" }}>
-            旅先で、あちこちで晩酌をしながら聞いてまわったこの質問。<br />
-            返ってきた答えに、いつも3つの要素が入っていました。<br />
-            <b>「旅」</b>と、<b>「家族」</b>。<br />
-            そして、「よりよい未来のために」という気持ち。
+            旅先で、あちこちで晩酌をしながら、いろんな人に聞いてまわったこの質問。
           </p>
-          <p className="lead">
-            どうも、らんぼうです。僕は徳島・神山町に拠点をおきながら、世界各地で暮らすように旅をしたい。時には家族と。時には仲間と。時には子どもたちと。訪ねる先に「おかえり」と言ってくれる人がいて、帰る場所に「ただいま」と言える人がいる。そんな関係をつくっていく<b>「EARTH FAMILY JOURNEY」</b>。でもそれだけじゃない。美しい地球と子どもたちの未来をつくる。地球再生のために動くfamilyと繋がる。よりよい未来に一石を投じたい。だから、そんな思いを込めて「EARTH FAMILY JOURNEY」というプロジェクトをはじめることにしました。
+          <p className="lead" style={{ textAlign: "center" }}>
+            返ってくる答えには、不思議なくらい共通するものがありました。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            <b>「旅」</b>と<b>「家族」</b>。<br />
+            そして、「よりよい未来のために」という想い。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            お酒を片手に、ハートとハートで語り合う。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            そんな時間を重ねるうちに、僕自身の内側にずっとあった想いにも、少しずつ火が灯っていきました。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            人生は一度きり。<br />
+            「いつかやろう」じゃなくて、<br />
+            「やってみよう」って。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            時には家族と。<br />
+            時には仲間と。<br />
+            時には子どもたちと。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            いろんな土地を訪ね、暮らしに触れ、人と出会う。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            そして、いつしか世界のあちこちに<br />
+            「おかえり」「ただいま」<br />
+            と言い合える人が増えていく。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            そんな家族のような関係を、この地球に少しずつ広げていきたい。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            その先で、地球の再生や、よりよい未来のために動く人たちとつながり、一緒に小さな一歩を重ねていく。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            大きなことはできなくても、<br />
+            自分たちなりに未来へ一石を投じたい。
+          </p>
+          <p className="lead" style={{ textAlign: "center" }}>
+            そんな想いから、<br />
+            <b>「EARTH FAMILY JOURNEY」</b><br />
+            という旅を、はじめることにしました。
           </p>
         </div>
         <p className="lead" style={{ textAlign: "center", marginTop: 28 }}>
