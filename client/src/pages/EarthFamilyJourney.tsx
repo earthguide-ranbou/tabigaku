@@ -168,10 +168,10 @@ export default function EarthFamilyJourney() {
       <section style={{padding: "80px 16px", background: "#f5f0e8"}}>
         <div className="wrap" style={{maxWidth: 720, margin: "0 auto"}}>
           <p className="efjw-label" style={{color: "#d65a3a"}}>WHY WE STARTED</p>
-          <h2 className="efjw-h2">キッカケは、いつも<br className="sp" /><span className="u">子どもたちを遊ばせに行った川が<br className="sp" />枯れたこと</span>だった。</h2>
+          <h2 className="efjw-h2">キッカケは、<span className="u">子どもたちが大好きな川が<br className="sp" />枯れたこと</span>だった。</h2>
           <p className="lead" style={{textAlign: "center", lineHeight: 2, marginTop: 24}}>
             子どもたちがよく遊んでいた川。
-            <br />水に足をつけて、魚を追いかけて、夏はずっとそこにいた。
+            <br />水に足をつけて、魚を追いかけて、泳いで、夏はそこにいることが多かった。
             <br />でもある日、あの川は枯れてしまった。
             <br />海に行っても、海藻は減り、かつてのように魚が跳ねる姿は少なくなっていた。
           </p>
