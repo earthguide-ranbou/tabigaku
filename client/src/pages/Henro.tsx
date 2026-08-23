@@ -499,15 +499,18 @@ export default function Henro() {
           <div className="henro-guide-text reveal">
             <p className="henro-section-label">GUIDE</p>
             <h3>案内人</h3>
-            <p className="henro-guide-name">らんぼう（上田直樹）</p>
+            <p className="henro-guide-name">らんぼう 上田 直樹（うえだ なおき）</p>
             <p>
-              あーすガイド代表／旅する学校代表。
+              1982年 北海道札幌生まれ。徳島県神山町在住。
               <br />
-              子どもたちと四国遍路を歩き続けて5年目。
-              「大人が教える」のではなく、
-              「一緒に歩く」スタイルで、
-              子どもたちの内なる力を引き出します。
+              地球一周を皮切りに10年間の旅暮らしの中で様々な先住民の土地を訪れ、自然とともにある生き方に感銘を受ける。2008年より『あーすガイド』の屋号で全国各地500本以上の対話の場づくりに出演。国内外で体験学習型ツアー「スタディロード」を主催し、参加した40人以上が各地に移住。
             </p>
+            <ul className="henro-guide-achievements">
+              <li>2016年 アタカマ砂漠マラソン250km完走・チーム優勝・映画化</li>
+              <li>2022年 オルタナティブスクール「森の学校みっけ」仲間と立ち上げ</li>
+              <li>2023年 「旅する学校」主宰。安藤財団「2023年度特別推奨モデル賞」受賞</li>
+              <li>2024年 ゴビ砂漠マラソン250km完走</li>
+            </ul>
             <a
               href="https://earthguide.tabigaku.party"
               target="_blank"
