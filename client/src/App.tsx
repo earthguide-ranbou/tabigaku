@@ -6,6 +6,7 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Saijai from "./pages/Saijai";
 import Award from "./pages/Award";
 import Guide from "./pages/Guide";
 import Sponsor from "./pages/Sponsor";
@@ -36,6 +37,7 @@ function Router() {
       <ScrollToTop />
       <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/saijai"} component={Saijai} />
       <Route path={"/award"} component={Award} />
       <Route path={"/guide"} component={Guide} />
       <Route path={"/sponsor"} component={Sponsor} />

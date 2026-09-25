@@ -1,0 +1,294 @@
+.saijai-page {
+  background: #f6f4ec;
+  color: #213e35;
+}
+.sj-wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.sj-hero {
+  position: relative;
+  min-height: 720px;
+  min-height: min(860px, 94svh);
+  display: flex;
+  align-items: center;
+  background: #183c34;
+  color: #fff;
+}
+.sj-hero-image,
+.sj-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sj-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(10, 31, 26, 0.8), rgba(10, 31, 26, 0.2)),
+    linear-gradient(0deg, rgba(10, 31, 26, 0.45), transparent 60%);
+}
+.sj-hero-content {
+  position: relative;
+  padding-block: 150px 105px;
+}
+.sj-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.sj-name {
+  font-size: clamp(19px, 3vw, 28px);
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+.sj-hero h1 {
+  font-family: var(--font-serif, serif);
+  font-size: clamp(38px, 5.8vw, 76px);
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  margin: 0 0 24px;
+}
+.sj-hero-copy {
+  line-height: 2;
+  font-size: clamp(15px, 1.7vw, 18px);
+  margin-bottom: 32px;
+}
+.sj-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 15px 22px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.sj-button:hover {
+  transform: translateY(-2px);
+}
+.sj-button-light {
+  background: #f6f4ec;
+  color: #193f34;
+}
+.sj-button-light:hover {
+  background: #e7e5d7;
+}
+.sj-button-outline {
+  border: 1px solid #a3b9ad;
+  color: #fff;
+}
+.sj-button-outline:hover {
+  background: #315b4d;
+}
+.sj-hero-caption {
+  position: absolute;
+  bottom: 25px;
+  right: 24px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.sj-intro,
+.sj-support {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  padding-block: 100px;
+}
+.saijai-page h2 {
+  font-family: var(--font-serif, serif);
+  font-size: clamp(27px, 3vw, 40px);
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: 0.015em;
+}
+.sj-prose p {
+  font-size: 15px;
+  line-height: 2.15;
+  margin-bottom: 20px;
+}
+.sj-signature {
+  font-size: 13px !important;
+  color: #536b5f;
+}
+.sj-ways {
+  background: #e9eee5;
+  padding-block: 80px;
+}
+.sj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+.sj-card {
+  background: #fff;
+  overflow: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.sj-card > img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  height: auto;
+}
+.sj-card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.sj-number {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: #6b795f;
+}
+.sj-card h3 {
+  font-size: 23px;
+  font-family: var(--font-serif, serif);
+  font-weight: 700;
+  margin: 12px 0 16px;
+}
+.sj-card p {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 25px;
+}
+.sj-card a,
+.sj-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  line-height: 1.8;
+}
+.sj-card a {
+  margin-top: auto;
+}
+.sj-visit {
+  background: #214b3e;
+  color: #fff;
+  padding-block: 80px;
+  text-align: center;
+}
+.sj-visit > div > p:not(.sj-eyebrow) {
+  font-size: 14px;
+  line-height: 2.1;
+  margin: 24px 0 30px;
+  color: #e0e9e1;
+}
+.sj-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+.sj-instagram {
+  display: inline-block;
+  font-size: 13px;
+  margin-top: 30px;
+  text-underline-offset: 5px;
+}
+.sj-instagram:hover {
+  text-decoration: underline;
+}
+.sj-back {
+  padding-block: 30px;
+  font-size: 13px;
+}
+.sj-mobile-break {
+  display: none;
+}
+.saijai-page a:focus-visible {
+  outline: 3px solid #c88d41;
+  outline-offset: 5px;
+}
+#saijai-about {
+  scroll-margin-top: 85px;
+}
+@media (max-width: 767px) {
+  .sj-wrap {
+    width: calc(100% - 40px);
+  }
+  .sj-hero {
+    min-height: 680px;
+    min-height: 90svh;
+  }
+  .sj-hero-content {
+    padding-block: 125px 95px;
+  }
+  .sj-hero-image {
+    object-position: 60% center;
+  }
+  .sj-hero-shade {
+    background: linear-gradient(
+      90deg,
+      rgba(10, 31, 26, 0.8),
+      rgba(10, 31, 26, 0.3)
+    );
+  }
+  .sj-hero h1 {
+    font-size: clamp(32px, 8.6vw, 52px);
+  }
+  .sj-eyebrow {
+    font-size: 10px;
+  }
+  .sj-intro,
+  .sj-support {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 60px;
+  }
+  .sj-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 28px;
+  }
+  .sj-card > img {
+    aspect-ratio: 16/10;
+  }
+  .sj-card-body {
+    padding: 25px;
+  }
+  .sj-ways,
+  .sj-visit {
+    padding-block: 55px;
+  }
+  .sj-actions {
+    flex-direction: column;
+  }
+  .sj-mobile-break {
+    display: block;
+  }
+  .sj-prose p {
+    font-size: 14px;
+  }
+  .sj-hero-caption {
+    font-size: 10px;
+  }
+  .sj-visit h2 {
+    font-size: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sj-button {
+    transition: none;
+  }
+  .sj-button:hover {
+    transform: none;
+  }
+}

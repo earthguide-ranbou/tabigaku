@@ -8,6 +8,7 @@ const navLinks = [
   { label: "ホーム", href: "/" },
   { label: "旅する学校とは", href: "/#about" },
   { label: "Journey", href: "/#journeys" },
+  { label: "サイジャイ", href: "/saijai" },
   { label: "神山ガイド", href: "https://kamiyamag.tabigaku.party", external: true },
   { label: "ガイド紹介", href: "https://kamiyamag.tabigaku.party/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },
@@ -28,7 +29,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isHome = location === "/";
+  const isHome = location === "/" || location === "/saijai";
 
   return (
     <header
@@ -53,7 +54,7 @@ export default function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden xl:flex items-center gap-1">
           {navLinks.map((link) => {
             const isLast = link.label === "スポンサーになる";
             const baseClass = cn(
@@ -107,7 +108,7 @@ export default function Navigation() {
         {/* Mobile menu button */}
         <button
           className={cn(
-            "lg:hidden p-2 rounded-md transition-colors",
+            "xl:hidden p-2 rounded-md transition-colors",
             scrolled || !isHome ? "text-foreground" : "text-white"
           )}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -119,7 +120,7 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-background/98 backdrop-blur-xl border-t border-border">
+        <div className="xl:hidden bg-background/98 backdrop-blur-xl border-t border-border">
           <nav className="container mx-auto py-6 flex flex-col gap-1">
             {navLinks.map((link) => {
               const isLast = link.label === "スポンサーになる";
