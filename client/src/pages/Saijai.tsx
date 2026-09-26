@@ -21,9 +21,9 @@ const ways = [
     title: "村づくりに、加わる。",
     image: "saijai-life.webp",
     alt: "SaaiJai Villageで過ごす湖のそばの時間",
-    text: "SaaiJai familyは、みんなで相談しながら、この場所を育てていく仲間。現地で手を動かすことも、離れた場所から関わることも。",
+    text: "SaaiJai family（DAO）は、みんなで相談しながら、この村を育てていく仲間。現地で一緒に暮らしたり、修繕や企画を手伝ったり。離れているときも、オンラインで話し合いや提案、投票に加われます。",
     href: "/murabito/",
-    link: "SaaiJai familyを知る",
+    link: "SaaiJai family（DAO）を知る",
   },
   {
     number: "03",
