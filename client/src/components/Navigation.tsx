@@ -8,7 +8,7 @@ const navLinks = [
   { label: "ホーム", href: "/" },
   { label: "旅する学校とは", href: "/#about" },
   { label: "Journey", href: "/#journeys" },
-  { label: "サイジャイ", href: "/saijai" },
+  { label: "SaaiJai Village", href: "/saijai" },
   { label: "神山ガイド", href: "https://kamiyamag.tabigaku.party", external: true },
   { label: "ガイド紹介", href: "https://kamiyamag.tabigaku.party/guide", external: true },
   { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },

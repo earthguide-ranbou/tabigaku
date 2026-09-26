@@ -516,12 +516,12 @@ export default function Home() {
 
       <Section className="py-16 md:py-24">
         <div className="grid md:grid-cols-2 overflow-hidden rounded-2xl bg-[#214b3e] text-white">
-          <img src="/images/saijai-lake.jpg" alt="タイの湖に浮かぶサイジャイヴィレッジ" loading="lazy" className="w-full h-64 md:h-full min-h-64 object-cover" />
+          <img src="/images/saijai-lake.jpg" alt="タイの湖に浮かぶSaaiJai Village" loading="lazy" className="w-full h-64 md:h-full min-h-64 object-cover" />
           <div className="p-7 md:p-12 flex flex-col justify-center items-start">
-            <p className="text-xs tracking-[0.18em] text-white/75 mb-4">THAILAND · SAAIJAI VILLAGE</p>
+            <p className="text-xs tracking-[0.18em] text-white/75 mb-4">THAILAND · SaaiJai Village</p>
             <h2 className="text-3xl md:text-4xl font-serif font-bold leading-relaxed mb-5">湖にエコビレッジを<br />つくろう。</h2>
-            <p className="text-sm leading-8 text-white/90 mb-7">タイ・チェンマイ郊外、小舟で訪れる水上の村。泊まったり、学んだり、一緒に手を動かしたり。らんぼうも関わるサイジャイを紹介します。</p>
-            <Link href="/saijai" className="inline-flex items-center gap-3 rounded bg-[#f6f4ec] text-[#214b3e] px-5 py-4 text-sm font-bold hover:bg-white">サイジャイを知る <ArrowRight size={18} aria-hidden="true" /></Link>
+            <p className="text-sm leading-8 text-white/90 mb-7">タイ・チェンマイ郊外、小舟で訪れる水上の村。泊まったり、学んだり、一緒に手を動かしたり。EarthfamilyJourneyの旅で出逢い、今は僕も村づくりに関わっている場所です。</p>
+            <Link href="/saijai" className="inline-flex items-center gap-3 rounded bg-[#f6f4ec] text-[#214b3e] px-5 py-4 text-sm font-bold hover:bg-white">SaaiJai Villageを知る <ArrowRight size={18} aria-hidden="true" /></Link>
           </div>
         </div>
       </Section>

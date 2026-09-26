@@ -11,7 +11,7 @@ const ways = [
     number: "01",
     title: "湖の上に、泊まる。",
     image: "saijai-stay.jpg",
-    alt: "竹の壁と木の床に囲まれたサイジャイの客室",
+    alt: "竹の壁と木の床に囲まれたSaaiJai Villageの客室",
     text: "朝、目の前に湖がある。泳いだり、本を読んだり、何もせずに過ごしたり。ひとりでも、家族でも、仲間と一緒でも。",
     href: "/stay/",
     link: "宿泊の案内を見る",
@@ -20,7 +20,7 @@ const ways = [
     number: "02",
     title: "村づくりに、加わる。",
     image: "saijai-life.webp",
-    alt: "サイジャイで過ごす湖のそばの時間",
+    alt: "SaaiJai Villageで過ごす湖のそばの時間",
     text: "SaaiJai familyは、みんなで相談しながら、この場所を育てていく仲間。現地で手を動かすことも、離れた場所から関わることも。",
     href: "/murabito/",
     link: "SaaiJai familyを知る",
@@ -29,7 +29,7 @@ const ways = [
     number: "03",
     title: "暮らしの中で、学ぶ。",
     image: "saijai-family.webp",
-    alt: "サイジャイから眺める夕焼けの湖",
+    alt: "SaaiJai Villageから眺める夕焼けの湖",
     text: "湖で遊び、初めて会う人とごはんを食べる。水や電気をどう使うか考える。子どもも大人も、一緒に学ぶ時間をつくっていきます。",
     href: "/worldschooling/",
     link: "ワールドスクーリングを見る",
@@ -40,7 +40,7 @@ export default function Saijai() {
   useSEO({
     title: "SaaiJai Village｜湖にエコビレッジをつくろう",
     description:
-      "タイ・チェンマイ郊外、湖に浮かぶサーイジャイヴィレッジ。らんぼうも村づくりに関わるこの場所で、泊まる、学ぶ、一緒につくる。",
+      "タイ・チェンマイ郊外、湖に浮かぶSaaiJai Village。らんぼうも村づくりに関わるこの場所で、泊まる、学ぶ、一緒につくる。",
     ogUrl: "/saijai",
     canonical: "/saijai",
     ogImage: "https://www.tabigaku.party/images/saijai-lake.jpg",
@@ -53,7 +53,7 @@ export default function Saijai() {
           <img
             className="sj-hero-image"
             src="/images/saijai-lake.jpg"
-            alt="緑の山々に囲まれた湖に浮かぶサイジャイヴィレッジ"
+            alt="緑の山々に囲まれた湖に浮かぶSaaiJai Village"
             fetchPriority="high"
           />
           <div className="sj-hero-shade" />
@@ -71,12 +71,12 @@ export default function Saijai() {
               ここから、一緒にはじめませんか。
             </p>
             <a className="sj-button sj-button-light" href="#saijai-about">
-              サイジャイって、どんな場所？{" "}
+              SaaiJai Villageって、どんな場所？{" "}
               <ArrowRight size={18} aria-hidden="true" />
             </a>
           </div>
           <span className="sj-hero-caption">
-            サーイジャイヴィレッジ · タイ北部
+            SaaiJai Village · タイ北部
           </span>
         </section>
 
@@ -92,14 +92,13 @@ export default function Saijai() {
           <div className="sj-prose">
             <p>
               タイ・チェンマイ郊外のシーランナー国立公園（Sri Lanna National
-              Park）。山に囲まれた湖の上に、サイジャイはあります。
+              Park）。山に囲まれた湖の上に、SaaiJai Villageはあります。
             </p>
             <p>
-              僕たち家族も、ここで数日間を過ごしました。湖で遊んで、ごはんを食べて、人と話す。そんな毎日の中に、子どもも大人も楽しめる時間がありました。
+              僕たち家族がEarthfamilyJourneyの旅の中で出逢ったのが、この場所です。ここで数日間を過ごし、湖で遊んで、ごはんを食べて、人と話す。そんな毎日の中に、子どもも大人も楽しめる時間がありました。
             </p>
             <p>
-              以前は「OmWaters
-              Thailand」と呼ばれていたこの場所。今はサイジャイヴィレッジとして、建物を直しながら、これからの暮らしをみんなでつくろうとしています。僕も、その仲間として関わっています。
+              SaaiJai Villageでは、建物を直しながら、これからの暮らしをみんなでつくろうとしています。僕も、その仲間として関わっています。
             </p>
             <p className="sj-signature">旅する学校 / らんぼう</p>
           </div>
@@ -183,7 +182,7 @@ export default function Saijai() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                サイジャイ公式サイトへ{" "}
+                SaaiJai Village公式サイトへ{" "}
                 <ArrowUpRight size={18} aria-hidden="true" />
               </a>
               <a
