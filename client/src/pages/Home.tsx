@@ -1,12 +1,13 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useSEO } from "@/hooks/useSEO";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Calendar, ArrowRight, Award } from "lucide-react";
+import { ArrowRight, Award } from "lucide-react";
 import { Link } from "wouter";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SubstackCTA from "@/components/SubstackCTA";
 import ShareButtons from "@/components/ShareButtons";
+import JourneyCards from "@/components/JourneyCards";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Curtain } from "@/components/Fx";
 
@@ -527,87 +528,21 @@ export default function Home() {
       </Section>
 
       {/* ── Journeys ── */}
-      <Section id="journeys" background="muted" className="py-24 md:py-36">
-        <SectionHeader title="現在募集中のJourney" subtitle="UPCOMING JOURNEYS" centered />
-        <ShareButtons
-          url="https://www.tabigaku.party/"
-          text="「旅は、最高の学校。」祝島→神山10日間の地球家族ジャーニー（8/5出発）、歩きお遍路、家族タイ旅…子どもが主役の本物の旅、いま募集中。"
-          title="＼ このJourneyをシェア ／"
-        />
+      <Section id="journeys" background="muted" className="school-journeys">
+        <header className="school-journeys__heading">
+          <p className="school-journeys__eyebrow">UPCOMING JOURNEYS</p>
+          <h2>募集中の<span>JOURNEY</span></h2>
+          <p className="school-journeys__intro">日程と対象から、あなたに合う旅を。<br />写真をタップすると、大きく見られます。</p>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {journeys.map((j, i) => (
-            <motion.a
-              key={j.id}
-              href={j.href}
-              {...(j.href.startsWith("/") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "0px" }}
-              transition={{ duration: 0.55, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -4, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] } }}
-              className="group bg-card rounded-2xl overflow-hidden shadow-md border border-border hover:shadow-xl hover:border-primary/20 transition-all duration-500 ease-out flex flex-col cursor-pointer"
-            >
-              {/* Image */}
-              <div className="relative h-56 overflow-hidden bg-muted">
-                <Curtain delay={i * 0.1} cover="#1d5c4d">
-                  <img
-                    src={j.image}
-                    alt={j.alt}
-                    loading="eager"
-                    decoding="async"
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                  />
-                </Curtain>
-                {/* Gradient overlay at bottom */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                {/* Tags over image */}
-                <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
-                  {j.tags.map((tag) => (
-                    <span
-                      key={tag.label}
-                      className={`${tag.color} text-white text-[0.6rem] font-bold px-2.5 py-0.5 rounded-full tracking-wide`}
-                    >
-                      {tag.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
+        <JourneyCards journeys={journeys} />
 
-              {/* Body */}
-              <div className="p-6 md:p-7 flex-1 flex flex-col gap-3">
-                {/* Date */}
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Calendar className="w-3.5 h-3.5 shrink-0" />
-                  <span>{j.date}</span>
-                </div>
-
-                {/* Title */}
-                <div>
-                  <h3 className="text-lg font-serif font-bold text-foreground group-hover:text-primary transition-colors leading-snug">
-                    {j.emoji && <span className="mr-1">{j.emoji}</span>}
-                    {j.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1 leading-snug">
-                    {j.subtitle}
-                  </p>
-                </div>
-
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 text-left">
-                  {j.description}
-                </p>
-
-                {/* CTA */}
-                <div className="mt-2 flex items-center justify-between">
-                  <span className="text-xs font-bold text-primary tracking-wide">
-                    詳細・お申し込み
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-primary transition-transform duration-200 group-hover:translate-x-1" />
-                </div>
-              </div>
-            </motion.a>
-          ))}
+        <div className="school-journeys__share">
+          <ShareButtons
+            url="https://www.tabigaku.party/#journeys"
+            text="旅は、最高の学校。歩きお遍路、家族で出かける旅。旅する学校のJourneyを見てみよう。"
+            title="気になる旅を、いっしょに行きたい人へ"
+          />
         </div>
       </Section>
 

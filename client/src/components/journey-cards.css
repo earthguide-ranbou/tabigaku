@@ -1,0 +1,336 @@
+.school-journeys {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  scroll-margin-top: 4.5rem;
+}
+
+.school-journeys__heading {
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.school-journeys__eyebrow {
+  margin-bottom: 0.65rem;
+  color: var(--primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.school-journeys__heading h2 {
+  font-size: clamp(1.65rem, 3.4vw, 2.75rem);
+  line-height: 1.45;
+  letter-spacing: 0.025em;
+}
+
+.school-journeys__heading h2 span {
+  display: inline-block;
+  margin-left: 0.2em;
+}
+.school-journeys__intro {
+  margin-top: 0.7rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: #596259;
+}
+.school-journeys__share {
+  margin-top: 1.25rem;
+}
+
+.school-journey-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+.school-journey-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid #d9ded3;
+  border-radius: 1.25rem;
+  background: #fffef9;
+  color: #243c32;
+  box-shadow: 0 5px 18px #25382c08;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.school-journey-card__visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+  padding: 0.75rem 0.75rem 0.6rem;
+  border: 0;
+  border-radius: 1.2rem 1.2rem 0 0;
+  background: #e9ede3;
+  color: #3b5547;
+}
+
+.school-journey-card__image-frame {
+  display: block;
+  width: 100%;
+  height: clamp(170px, 48vw, 250px);
+  min-width: 0;
+}
+
+.school-journey-card__image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.school-journey-card__zoom {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.school-journey-card__zoom svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.school-journey-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1.15rem;
+  word-break: normal;
+  overflow-wrap: anywhere;
+}
+
+.school-journey-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.school-journey-card__tags li {
+  padding: 0.2rem 0.55rem;
+  border-radius: 0.4rem;
+  background: #eef1e9;
+  color: #3f5547;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.school-journey-card__tags .school-journey-card__status {
+  background: #215845;
+  color: #fff;
+}
+.school-journey-card__date {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin: 0;
+  color: #3f5547;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+.school-journey-card__date svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin-top: 0.18rem;
+}
+.school-journey-card__title {
+  margin: 0;
+  font-size: clamp(1.2rem, 1.7vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
+.school-journey-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.school-journey-card__subtitle {
+  margin-top: 0.3rem;
+  color: #516253;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+}
+.school-journey-card__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0 0 0.15rem;
+  color: #596259;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.school-journey-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 46px;
+  margin-top: auto;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid #dce4d8;
+  border-radius: 0.65rem;
+  background: #f0f4ec;
+  color: #214c3b;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.school-journey-card__link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.school-journey-card a:focus-visible,
+.school-journey-card button:focus-visible,
+.school-journey-preview a:focus-visible,
+.school-journey-preview button:focus-visible {
+  outline: 3px solid #b25e27;
+  outline-offset: 3px;
+}
+.school-journey-card:focus-within {
+  border-color: #759280;
+}
+
+.school-journey-preview {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 1.5rem);
+  max-width: 960px;
+  max-height: calc(100dvh - 1.5rem);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #fffef9;
+  color: #243c32;
+}
+.school-journey-preview__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e0e4da;
+}
+.school-journey-preview__title {
+  min-width: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-wrap: pretty;
+}
+.school-journey-preview__close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid #dce4d8;
+  border-radius: 50%;
+  background: #f0f4ec;
+}
+.school-journey-preview__close svg {
+  width: 21px;
+  height: 21px;
+}
+.school-journey-preview__body {
+  min-height: 0;
+  padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.school-journey-preview__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 60dvh;
+  object-fit: contain;
+}
+.school-journey-preview__description {
+  margin: 1rem auto 0;
+  max-width: 42rem;
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: #516253;
+}
+.school-journey-preview__footer {
+  flex-shrink: 0;
+  padding: 0.75rem 1rem max(0.75rem, env(safe-area-inset-bottom));
+  border-top: 1px solid #e0e4da;
+}
+
+@media (min-width: 760px) {
+  .school-journey-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .school-journey-card__content {
+    padding: 1.25rem;
+  }
+  .school-journey-card__image-frame {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1180px) {
+  .school-journey-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+  .school-journey-card__visual {
+    border-radius: 1.2rem 0 0 1.2rem;
+  }
+  .school-journey-card__image-frame {
+    height: 250px;
+  }
+  .school-journey-card__content {
+    padding: 1.1rem;
+    gap: 0.65rem;
+  }
+}
+
+@media (hover: hover) {
+  .school-journey-card:hover {
+    border-color: #9aad98;
+    box-shadow: 0 10px 24px #25382c0d;
+  }
+  .school-journey-card__link:hover {
+    background: #215845;
+    color: #fff;
+  }
+  .school-journey-card__title a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .school-journey-card,
+  .school-journey-card__link {
+    transition: none;
+  }
+}
