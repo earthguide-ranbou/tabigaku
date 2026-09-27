@@ -69,6 +69,7 @@ export default function JourneyCards({ journeys }: { journeys: Journey[] }) {
               </DialogTrigger>
               <DialogContent
                 className="school-journey-preview"
+                overlayClassName="school-journey-preview-overlay"
                 showCloseButton={false}
               >
                 <div className="school-journey-preview__header">

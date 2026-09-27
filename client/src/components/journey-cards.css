@@ -214,7 +214,12 @@
   border-color: #759280;
 }
 
+.school-journey-preview-overlay {
+  z-index: 100;
+}
+
 .school-journey-preview {
+  z-index: 101;
   display: flex;
   flex-direction: column;
   width: calc(100% - 1.5rem);
