@@ -9,6 +9,7 @@ export { seoHead, seoForPath } from './seo';
 export function renderPage(path: string): Promise<string> {
   return new Promise((resolve, reject) => {
     const output = new PassThrough();
+    output.setEncoding('utf8');
     let body = '';
     output.on('data', part => { body += part.toString(); });
     output.on('end', () => resolve(body));
