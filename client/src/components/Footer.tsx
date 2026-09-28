@@ -125,6 +125,7 @@ export default function Footer() {
         </div>
       </div>
 
+      <nav aria-label="管理・復旧" className="container mx-auto flex flex-wrap justify-center gap-5 pb-6 text-sm text-background/70"><a href="https://earthguide.tabigaku.party/admin" target="_blank" rel="noopener noreferrer">管理人ページ</a><a href="https://ranbou-homepage-recovery.runbou.chatgpt.site/#tabigaku" target="_blank" rel="noopener noreferrer nofollow">復旧室（本人専用）</a></nav>
       {/* Bottom bar */}
       <div className="border-t border-background/10">
         <div className="container mx-auto py-5 flex flex-col md:flex-row items-center justify-between gap-2">
