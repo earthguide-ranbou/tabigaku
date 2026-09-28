@@ -1,3 +1,4 @@
+import SiteSEO from "./components/SiteSEO";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -58,6 +59,7 @@ function Router() {
 
 function App() {
   return (
+    <SiteSEO>
     <HelmetProvider>
       <ErrorBoundary>
         <ThemeProvider
@@ -70,6 +72,7 @@ function App() {
         </ThemeProvider>
       </ErrorBoundary>
     </HelmetProvider>
+    </SiteSEO>
   );
 }
 

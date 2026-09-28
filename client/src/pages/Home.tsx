@@ -284,6 +284,8 @@ export default function Home() {
           {/* 上部にナビバー分のパディングを追加して「旅は、最高の学校だ。」がナビバーに醠ならないよう調整 */}
           <img
             src={FLYER_IMAGE}
+            fetchPriority="high"
+            decoding="async"
             alt="旅する学校 — 山岳トレッキング"
             className="w-full h-auto block"
             style={{ maxHeight: "100vh", objectFit: "contain", objectPosition: "center top", padding: "56px 4px 0" }}
@@ -316,7 +318,7 @@ export default function Home() {
             {/* エディトリアルライン */}
             <div className="flex items-center justify-center gap-3 mb-5">
               <div className="h-px flex-1 bg-foreground/15" />
-              <span className="text-[0.6rem] font-bold tracking-[0.25em] text-foreground/40 uppercase">Tabigaku</span>
+              <h1 className="text-base md:text-lg font-bold tracking-[0.15em] text-foreground/75">旅する学校</h1>
               <div className="h-px flex-1 bg-foreground/15" />
             </div>
 

@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-Sitemap: https://tabigaku.party/sitemap.xml
+Sitemap: https://www.tabigaku.party/sitemap.xml

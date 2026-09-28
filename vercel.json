@@ -3,8 +3,68 @@
   "outputDirectory": "dist/public",
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/henro",
+      "destination": "/henro.html"
+    },
+    {
+      "source": "/henro-shinsoku",
+      "destination": "/henro-shinsoku.html"
+    },
+    {
+      "source": "/guide",
+      "destination": "/guide.html"
+    },
+    {
+      "source": "/award",
+      "destination": "/award.html"
+    },
+    {
+      "source": "/sponsor",
+      "destination": "/sponsor.html"
+    },
+    {
+      "source": "/thai",
+      "destination": "/thai.html"
+    },
+    {
+      "source": "/saijai",
+      "destination": "/saijai.html"
+    },
+    {
+      "source": "/juku",
+      "destination": "/juku.html"
+    },
+    {
+      "source": "/efj",
+      "destination": "/efj.html"
+    },
+    {
+      "source": "/earth-family",
+      "destination": "/earth-family.html"
+    },
+    {
+      "source": "/earth-family-journey",
+      "destination": "/earth-family-journey.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/app-shell.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
+    },
+    {
+      "source": "/404.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, follow"
+        }
+      ]
     }
   ]
 }

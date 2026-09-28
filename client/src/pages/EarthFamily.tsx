@@ -6,37 +6,11 @@ const TEL = "tel:09075188816";
 
 export default function EarthFamily() {
   useEffect(() => {
-    const TITLE = "地球家族ジャーニー 2026｜祝島から神山へ 10日間の旅｜旅する学校";
-    const DESC = "2026年8月5日(水)出発。山口・祝島から徳島・神山へ、魂が震え、命が喜ぶ10日間の旅。百姓庵・俵山ビレッジ・地球子舎・阿波おどり。少人数制（10名ほど）・親子歓迎・小学生未満ドネーション制。3つの同行プランから選べます。";
-    document.title = TITLE;
-    const setMeta = (attr: string, key: string, content: string) => {
-      let el = document.querySelector(`meta[${attr}="${key}"]`);
-      if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
-      el.setAttribute("content", content);
-    };
-    setMeta("name", "description", DESC);
-    setMeta("property", "og:title", TITLE);
-    setMeta("property", "og:description", DESC);
-    setMeta("property", "og:type", "website");
-    setMeta("property", "og:url", "https://tabigaku.party/earth-family");
-    setMeta("property", "og:image", "https://tabigaku.party/efj/banner-DC-eJZFy.webp");
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.text = JSON.stringify({
-      "@context": "https://schema.org", "@type": "Event",
-      name: "地球家族ジャーニー 2026",
-      description: DESC,
-      startDate: "2026-08-05T11:30:00+09:00",
-      endDate: "2026-08-14T15:00:00+09:00",
-      location: { "@type": "Place", name: "山口・祝島 → 徳島・神山町" },
-      organizer: { "@type": "Organization", name: "旅する学校（あーすガイド）", url: "https://tabigaku.party" },
-    });
-    document.head.appendChild(ld);
     const link = document.createElement("link");
     link.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap";
     link.rel = "stylesheet";
     document.head.appendChild(link);
-    return () => { document.head.removeChild(ld); document.head.removeChild(link); };
+    return () => { document.head.removeChild(link); };
   }, []);
 
   const serif = { fontFamily: "'Noto Serif JP', serif" } as const;
