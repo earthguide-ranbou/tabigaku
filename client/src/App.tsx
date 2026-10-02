@@ -27,7 +27,7 @@ function ScrollToTop() {
     // The router pathname omits the hash; restore anchored direct visits after render.
     const hash = window.location.hash.slice(1);
     if (hash) {
-      const frame = requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash))?.scrollIntoView());
+      const frame = requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash))?.scrollIntoView({ behavior: "instant" }));
       return () => cancelAnimationFrame(frame);
     }
     window.scrollTo({ top: 0, behavior: "instant" });

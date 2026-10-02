@@ -318,3 +318,8 @@
     padding: 15px 18px;
   }
 }
+.booking-panel summary { position:relative; list-style:none; padding-right:26px; }
+.booking-panel summary::-webkit-details-marker { display:none; }
+.booking-panel summary::after { display:block; content:'+'; position:absolute; top:14px; right:2px; font-size:20px; font-weight:400; transform:none; }
+.booking-panel details[open] summary::after { content:'−'; transform:none; }
+.oj-page .booking-panel summary { padding-right:26px; }

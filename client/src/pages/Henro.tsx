@@ -72,7 +72,7 @@ export default function Henro() {
       {/* ===== HERO ===== */}
       <section className="henro-hero" style={{padding: 0, minHeight: "auto", background: "#f5f0e8"}}>
         <div style={{width: "100%", maxWidth: 900, margin: "0 auto", padding: "80px 16px 0"}}>
-          <img
+          <img width={1672} height={941}
             src="/images/henro-kochi-vol5.png"
             alt="歩きお遍路ジャーニー〜修行の道場・高知編 vol.5〜"
             style={{width: "100%", height: "auto", display: "block", borderRadius: 12}}
@@ -126,7 +126,7 @@ export default function Henro() {
             </blockquote>
           </div>
           <div className="henro-stage-img reveal">
-            <img
+            <img width={1080} height={813}
               src="/manus-storage/img1_ashizuri_b29ac393.jpg"
               alt="足摺岬近くの遍路道を歩く子どもたち"
               loading="lazy"
@@ -184,7 +184,7 @@ export default function Henro() {
           </p>
           <div className="henro-journey-imgs">
             <div className="henro-journey-img reveal">
-              <img
+              <img width={1080} height={1920}
                 src="/manus-storage/kids_walking_8dac5fb6.jpg"
                 alt="仲間と歩く遍路道"
                 loading="lazy"
@@ -192,7 +192,7 @@ export default function Henro() {
               <span className="henro-img-caption">仲間と歩く遍路道</span>
             </div>
             <div className="henro-journey-img reveal">
-              <img
+              <img width={1280} height={964}
                 src="/manus-storage/kids_reading_11616371.jpg"
                 alt="お寺で読経する子どもたち"
                 loading="lazy"
@@ -211,7 +211,7 @@ export default function Henro() {
           {/* ===== 川下り＆冒険写真 ===== */}
           <div className="henro-journey-adventure">
             <div className="henro-journey-adventure-img reveal">
-              <img
+              <img width={1474} height={1110}
                 src="/manus-storage/rafting_1d496717.jpg"
                 alt="四万十川を仲間とラフティングする子どもたち"
                 loading="lazy"
@@ -293,7 +293,7 @@ export default function Henro() {
             </p>
           </div>
           <div className="henro-about-img reveal">
-            <img
+            <img width={1568} height={882}
               src="/manus-storage/img4_yamashiro_2bd8a3b4.jpg"
               alt="山道を登る白装束の後ろ姿"
               loading="lazy"
@@ -306,7 +306,7 @@ export default function Henro() {
       <section className="henro-section henro-osettai">
         <div className="henro-section-inner henro-osettai-grid">
           <div className="henro-osettai-img reveal">
-            <img
+            <img width={1280} height={964}
               src="/manus-storage/kids_temizu_8d74ca62.jpg"
               alt="手水舎で作法を学ぶ子どもたち"
               loading="lazy"
@@ -341,7 +341,7 @@ export default function Henro() {
           <p className="henro-section-label reveal">HIGHLIGHTS</p>
           <h2 className="reveal">今回の旅の魅力</h2>
           <div className="henro-highlights-hero reveal">
-            <img
+            <img width={1080} height={1920}
               src="/manus-storage/dougyou_ninin_3b4ab71f.jpg"
               alt="同行二人、大木の下を歩く後ろ姿"
               loading="lazy"
@@ -364,7 +364,7 @@ export default function Henro() {
             「歩く」こと以上に、<em>「生きる力」</em>を育てる旅。
           </p>
           <div className="henro-highlights-img2 reveal">
-            <img
+            <img width={1280} height={1700}
               src="/manus-storage/kids_kasa_f5b7d7f3.jpg"
               alt="笠の子どもたちが道を歩く"
               loading="lazy"
@@ -492,7 +492,7 @@ export default function Henro() {
       <section className="henro-section henro-guide">
         <div className="henro-section-inner henro-guide-grid">
           <div className="henro-guide-img reveal">
-            <img
+            <img width={1280} height={1704}
               src="/manus-storage/guide_torii_3a17f72b.jpg"
               alt="らんぼう（上田直樹）"
               loading="lazy"

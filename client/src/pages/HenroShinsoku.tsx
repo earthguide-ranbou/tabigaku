@@ -93,7 +93,7 @@ export default function HenroShinsoku() {
 
 {/* ============ HERO ============ */}
 <section className="hero">
-  <div className="herokv"><img src={ASSET + "kv-hero.jpg"} alt="歩きお遍路ジャーニー ― 今、話題の「江戸走り（神足歩行術）」を“歩いて”体感する遍路旅" /></div>
+  <div className="herokv"><img width={1600} height={893} src={ASSET + "kv-hero.jpg"} alt="歩きお遍路ジャーニー ― 今、話題の「江戸走り（神足歩行術）」を“歩いて”体感する遍路旅" /></div>
   <div className="hero-inner">
     <span className="hero-badge">2026 秋 ・ 徳島 発心の道場 ・ 定員10名の少人数開催</span>
     <h1>白衣をまとい、<br className="br-sp" />江戸の歩法で<br className="br-sp" />1000年の祈りの道を<em className="nb">行く。</em></h1>
@@ -140,7 +140,7 @@ export default function HenroShinsoku() {
 
 {/* ============ BAND 1 ============ */}
 <div className="band reveal">
-  <img src={ASSET + "p-tanbo.jpg"} alt="夕日に輝く田んぼのあぜ道を歩くお遍路一行" loading="lazy" />
+  <img width={1600} height={2130} src={ASSET + "p-tanbo.jpg"} alt="夕日に輝く田んぼのあぜ道を歩くお遍路一行" loading="lazy" />
   <span className="cap">1000年続く、祈りの道。</span>
 </div>
 
@@ -217,7 +217,7 @@ export default function HenroShinsoku() {
 
 {/* ============ BAND 2 ============ */}
 <div className="band reveal">
-  <img src={ASSET + "p-kasa.jpg"} alt="菅笠をかぶり金剛杖をついて杉林の遍路道を行く" loading="lazy" />
+  <img width={1200} height={1593} src={ASSET + "p-kasa.jpg"} alt="菅笠をかぶり金剛杖をついて杉林の遍路道を行く" loading="lazy" />
   <span className="cap">同行二人 ― お大師さまと、一緒に歩く。</span>
 </div>
 
@@ -256,7 +256,7 @@ export default function HenroShinsoku() {
         </div>
       </div>
       <div className="route-photo">
-        <img src={ASSET + "p-torii.jpg"} alt="朱色の山門の前で笑顔のお遍路一行" loading="lazy" />
+        <img width={1200} height={1593} src={ASSET + "p-torii.jpg"} alt="朱色の山門の前で笑顔のお遍路一行" loading="lazy" />
       </div>
     </div>
   </div>
@@ -264,7 +264,7 @@ export default function HenroShinsoku() {
 
 {/* ============ BAND 3 ============ */}
 <div className="band reveal">
-  <img src={ASSET + "p-gate.jpg"} alt="札所の山門の前で金剛杖を持つお遍路さんたち" loading="lazy" />
+  <img width={1200} height={1597} src={ASSET + "p-gate.jpg"} alt="札所の山門の前で金剛杖を持つお遍路さんたち" loading="lazy" />
   <span className="cap">札所の門をくぐるたび、心が整っていく。</span>
 </div>
 
@@ -313,7 +313,7 @@ export default function HenroShinsoku() {
       この道を歩いてきたことを実感します。
     </p>
     <div className="settai-fig">
-      <img src={ASSET + "p-temple.jpg"} alt="提灯の灯る本堂で納経を受けるお遍路一行" loading="lazy" />
+      <img width={1200} height={1593} src={ASSET + "p-temple.jpg"} alt="提灯の灯る本堂で納経を受けるお遍路一行" loading="lazy" />
     </div>
     <p className="settai-em">
       ヘトヘトなときに差し出される、お茶やおむすび。<br />
@@ -337,7 +337,7 @@ export default function HenroShinsoku() {
 
 {/* ============ BAND 4 ============ */}
 <div className="band reveal">
-  <img src={ASSET + "hero.jpg"} alt="石灯籠の並ぶ参道を歩くお遍路一行" loading="lazy" />
+  <img width={1600} height={2130} src={ASSET + "hero.jpg"} alt="石灯籠の並ぶ参道を歩くお遍路一行" loading="lazy" />
   <span className="cap">さあ、白衣をまとって出かけよう。</span>
 </div>
 
@@ -349,7 +349,7 @@ export default function HenroShinsoku() {
     <h2 className="h2">この旅の<em>同行二人。</em></h2>
 
     <div className="guide">
-      <div className="ph"><img src={ASSET + "oba.jpg"} alt="江戸走り研究家 大場克則" loading="lazy" /></div>
+      <div className="ph"><img width={900} height={1041} src={ASSET + "oba.jpg"} alt="江戸走り研究家 大場克則" loading="lazy" /></div>
       <div>
         <div className="role">江戸走り研究家</div>
         <h3>大場 克則<small>おおば かつのり</small></h3>
@@ -363,7 +363,7 @@ export default function HenroShinsoku() {
     </div>
 
     <div className="guide">
-      <div className="ph"><img src={ASSET + "ranbou.jpg"} alt="あーすガイド代表 らんぼう（上田直樹）" loading="lazy" /></div>
+      <div className="ph"><img width={900} height={1197} src={ASSET + "ranbou.jpg"} alt="あーすガイド代表 らんぼう（上田直樹）" loading="lazy" /></div>
       <div>
         <div className="role">あーすガイド代表 ・ 旅する学校代表</div>
         <h3>らんぼう<small>上田 直樹（うえだ なおき）</small></h3>
