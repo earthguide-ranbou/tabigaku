@@ -272,8 +272,9 @@ export default function Efj() {
               <span className="besttag">いちばんおすすめ</span>
               <h3>Aプラン｜全部まるごと10日間</h3>
               <p className="dates">8月5日(水) 〜 8月14日(金)</p>
+              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
               <p className="price">100,000<small> 円（税込）</small></p>
-              <p className="jitsu">参加費（案内・コーディネート）＋実費（宿泊・食事・移動など）</p>
+              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
               <ul>
                 <li><b>訪れる予定の場所</b>｜まなまな／百姓庵／俵山ビレッジ／地球子舎＆こびとのおうちえん／祝島／神山町／阿波おどり</li>
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
@@ -284,8 +285,9 @@ export default function Efj() {
             <div className="efj-plan">
               <h3>Bプラン｜山口じっくり7日間</h3>
               <p className="dates">8月5日(水) 〜 8月11日(火)</p>
+              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
               <p className="price">78,000<small> 円（税込）</small></p>
-              <p className="jitsu">参加費＋実費（宿泊・食事・移動など）</p>
+              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
               <ul>
                 <li><b>訪れる予定の場所</b>｜まなまな／百姓庵／俵山ビレッジ／地球子舎＆こびとのおうちえん／祝島</li>
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
@@ -296,8 +298,9 @@ export default function Efj() {
             <div className="efj-plan">
               <h3>Cプラン｜神山＆阿波おどり3日間</h3>
               <p className="dates">8月12日(水) 〜 8月14日(金)</p>
+              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
               <p className="price">39,000<small> 円（税込）</small></p>
-              <p className="jitsu">参加費＋実費（宿泊・食事・移動など）</p>
+              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
               <ul>
                 <li><b>訪れる予定の場所</b>｜神山町／阿波おどり</li>
                 <li><b>待ち合わせ</b>｜8/12(水) 12:00 神山町 道の駅にて</li>

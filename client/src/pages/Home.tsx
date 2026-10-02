@@ -1,13 +1,8 @@
 import { useState } from "react";
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  CalendarDays,
-  Users,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import JourneyHero from "@/components/JourneyHero";
 import {
   journeys,
   journeyStatus,
@@ -35,37 +30,24 @@ export default function Home() {
     <div className="school-home">
       <Navigation />
       <main id="main-content">
-        <section className="school-hero" aria-labelledby="home-title">
-          <img
-            className="school-hero__image"
-            src="/manus-storage/img4_yamashiro_2bd8a3b4.jpg"
-            alt="山の景色を眺めながら、仲間と遍路道を歩く子どもたち"
-            width="1568"
-            height="882"
-            fetchPriority="high"
-          />
-          <div className="school-hero__shade" />
-          <div className="school-hero__copy">
-            <p className="school-eyebrow">自然と、人と、自分に出会う。</p>
-            <h1 id="home-title">
-              旅は、
-              <br />
-              最高の学校だ。
-            </h1>
-            <p className="school-hero__lead">
-              山を歩く。川で笑う。仲間と暮らす。
-              <br />
-              子どもも大人も、心が動く冒険へ。
-            </p>
-            <a className="school-button school-button--light" href="#journeys">
-              次の旅を見つける <ArrowDown size={17} aria-hidden="true" />
-            </a>
-          </div>
-          <div className="school-hero__caption">
-            <span>TABIGAKU JOURNEYS</span>
-            <span>徳島・神山から、その先へ。</span>
-          </div>
-        </section>
+        <JourneyHero />
+        <nav className="school-tags" aria-label="見たい項目へ移動">
+          <a href="#journeys">
+            <span>#</span> 旅を選ぶ
+          </a>
+          <a href="#about">
+            <span>#</span> 旅する学校
+          </a>
+          <a href="#guide">
+            <span>#</span> ガイド
+          </a>
+          <a href="#first">
+            <span>#</span> はじめての方
+          </a>
+          <a href="#contact">
+            <span>#</span> 相談する
+          </a>
+        </nav>
         <section
           className="school-section school-journeys"
           id="journeys"
@@ -139,11 +121,21 @@ export default function Home() {
                     {journey.age} <span>定員{journey.capacity}名</span>
                   </p>
                   <div className="school-trip__bottom">
-                    <p>
-                      <small>参加費＋実費の目安</small>
-                      <strong>{journey.estimate}</strong>
-                      <small>円 / 1名</small>
-                    </p>
+                    <dl className="school-trip__costs">
+                      <div>
+                        <dt>ガイド料</dt>
+                        <dd>
+                          <strong>{journey.fee}</strong> 円
+                          <small>（税込 / 1名）</small>
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>実費〈別途〉</dt>
+                        <dd>
+                          {journey.expenses} 円前後<small> / 1名</small>
+                        </dd>
+                      </div>
+                    </dl>
                     <a
                       href={journey.href}
                       aria-label={`${journey.title}の日程・費用を見る`}
@@ -172,7 +164,7 @@ export default function Home() {
             )}
           </div>
           <p className="school-price-note">
-            費用は通常料金での目安です。実費は行程で変わります。集合・解散地までの交通費や装備など、別途必要な費用は各旅の案内をご確認ください。
+            ガイド料は通常の参加費です。実費は食費・宿泊費など、旅の中で必要な費用の目安。集合・解散地までの交通費や装備などは、各旅の案内をご確認ください。
           </p>
           {past.length > 0 && (
             <details className="school-archive">
@@ -220,7 +212,7 @@ export default function Home() {
               <br className="school-desktop" />
               仲間と学び合う、旅の学び場です。
             </p>
-            <div className="school-guide">
+            <div className="school-guide" id="guide">
               <img
                 src="/manus-storage/guide_torii_3a17f72b.jpg"
                 alt="案内人らんぼう"
@@ -296,9 +288,9 @@ export default function Home() {
               </p>
             </details>
             <details>
-              <summary>参加費以外に、いくら必要ですか？</summary>
+              <summary>ガイド料以外に、いくら必要ですか？</summary>
               <p>
-                各旅のカードに「参加費＋実費」の目安を掲載しています。実費は食費・宿泊費などで変動します。集合・解散地までの交通費や装備、家族割引の適用は、各旅の詳細でご確認ください。
+                ガイド料（参加費）と実費を分けて掲載しています。募集中のお遍路旅では、実費は1名あたり2〜3万円前後が目安です。食費・宿泊費などで変動します。集合・解散地までの交通費や装備、家族割引の適用は、各旅の詳細でご確認ください。
               </p>
             </details>
             <details>
@@ -321,7 +313,7 @@ export default function Home() {
           </div>
           <div className="school-contact__links">
             <a
-              className="school-button school-button--light"
+              className="school-button line-action"
               href={SCHOOL_LINE}
               target="_blank"
               rel="noopener noreferrer"

@@ -226,3 +226,18 @@
 }
 .page-enter { animation: pageFadeIn .9s cubic-bezier(.22,.61,.36,1) both; }
 @media (prefers-reduced-motion: reduce) { .page-enter { animation: none; } }
+
+/* LINE destinations share one recognizable action color across all journeys. */
+a[href^="https://lin.ee/"]:is(.line-action, .btn, .booking-secondary, .apply-btn, .lc-btn, .fp-btn, .cta-btn, .efj-btn, [data-line-button]) {
+  background: #06c755 !important;
+  color: #073c1d !important;
+  border-color: #06c755 !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+}
+a[href^="https://lin.ee/"]:is(.line-action, .btn, .booking-secondary, .apply-btn, .lc-btn, .fp-btn, .cta-btn, .efj-btn, [data-line-button]):hover {
+  background: #05b94f !important;
+  border-color: #05b94f !important;
+  color: #063418 !important;
+  filter: none;
+}

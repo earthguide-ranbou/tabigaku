@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { SCHOOL_LINE } from "@/data/journeys";
+import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./school-navigation.css";
 
 const links = [
@@ -35,21 +37,27 @@ export default function Navigation() {
         本文へ移動
       </a>
       <div className="school-nav__inner">
-        <Link
+        <a
           href="/"
           className="school-nav__brand"
           aria-label="旅する学校 ホーム"
         >
           旅する学校<span>TABIGAKU</span>
-        </Link>
+        </a>
         <nav className="school-nav__desktop" aria-label="メインメニュー">
           {links.map(link => (
             <a key={link.href} href={link.href}>
               {link.label}
             </a>
           ))}
-          <a className="school-nav__contact" href="/#contact">
-            旅の相談 <ArrowUpRight size={14} aria-hidden="true" />
+          <a
+            className="school-nav__contact line-action"
+            href={SCHOOL_LINE}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackJourneyAction("consult", "navigation")}
+          >
+            LINEで相談 <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         </nav>
         <button
@@ -82,6 +90,18 @@ export default function Navigation() {
             <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         ))}
+        <a
+          className="line-action"
+          href={SCHOOL_LINE}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => {
+            setOpen(false);
+            trackJourneyAction("consult", "navigation");
+          }}
+        >
+          LINEで相談する <ArrowUpRight size={15} aria-hidden="true" />
+        </a>
       </nav>
       <span id="school-navigation-end" />
     </header>

@@ -318,8 +318,89 @@
     padding: 15px 18px;
   }
 }
-.booking-panel summary { position:relative; list-style:none; padding-right:26px; }
-.booking-panel summary::-webkit-details-marker { display:none; }
-.booking-panel summary::after { display:block; content:'+'; position:absolute; top:14px; right:2px; font-size:20px; font-weight:400; transform:none; }
-.booking-panel details[open] summary::after { content:'−'; transform:none; }
-.oj-page .booking-panel summary { padding-right:26px; }
+.booking-panel summary {
+  position: relative;
+  list-style: none;
+  padding-right: 26px;
+}
+.booking-panel summary::-webkit-details-marker {
+  display: none;
+}
+.booking-panel summary::after {
+  display: block;
+  content: "+";
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  font-size: 20px;
+  font-weight: 400;
+  transform: none;
+}
+.booking-panel details[open] summary::after {
+  content: "−";
+  transform: none;
+}
+.oj-page .booking-panel summary {
+  padding-right: 26px;
+}
+
+.booking-summary > div + div {
+  border-top: 1px solid #edf0e9;
+}
+.booking-family-costs,
+.oj-page .booking-family-costs {
+  padding: 0 4px 15px;
+  margin: 0;
+}
+.booking-family-costs > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 8px 0;
+  font-size: 13px;
+}
+.oj-page .booking-family-costs > div {
+  padding: 8px 0;
+}
+.booking-family-costs dd {
+  margin: 0;
+  font-weight: 600;
+}
+.oj-page .booking-hero-costs {
+  display: inline-grid;
+  text-align: left;
+  gap: 9px;
+  margin: 20px 0 12px;
+  padding: 18px 23px;
+  background: #f5f0e899;
+  border: 1px solid #b6bdad;
+  border-radius: 4px;
+  color: var(--sumi);
+}
+.booking-hero-costs > div {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 3px 24px;
+}
+.booking-hero-costs dt {
+  font-size: 12px;
+}
+.booking-hero-costs dd {
+  font-size: 15px;
+  font-weight: 700;
+}
+.booking-hero-costs small {
+  font-size: 10px;
+  font-weight: 400;
+}
+@media (min-width: 701px) and (max-width: 980px) {
+  .booking-quick {
+    flex-wrap: wrap;
+  }
+  .booking-quick > a {
+    flex-basis: 100%;
+  }
+}

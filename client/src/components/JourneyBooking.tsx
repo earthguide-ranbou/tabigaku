@@ -23,7 +23,7 @@ export function JourneyStatusNotice({ id }: { id: string }) {
 export function JourneyQuickInfo({ id }: { id: string }) {
   const journey = journeys.find(j => j.id === id)!;
   return (
-    <section className="booking-quick" aria-label="日程と参加費の概要">
+    <section className="booking-quick" aria-label="日程・ガイド料・実費の概要">
       <div>
         <small>日程・対象</small>
         <strong>{journey.dateLabel}</strong>
@@ -32,9 +32,14 @@ export function JourneyQuickInfo({ id }: { id: string }) {
         </span>
       </div>
       <div>
-        <small>参加費＋実費の目安 / 1名</small>
-        <strong>{journey.estimate}円</strong>
-        <span>通常参加費 {journey.fee}円 ＋ 実費2〜3万円前後</span>
+        <small>ガイド料（参加費）/ 1名</small>
+        <strong>{journey.fee}円（税込）</strong>
+        <span>通常料金</span>
+      </div>
+      <div>
+        <small>実費〈別途〉/ 1名</small>
+        <strong>{journey.expenses}円前後</strong>
+        <span>食費・宿泊費などの目安</span>
       </div>
       <a href="#apply">
         参加の案内を見る <ArrowRight size={16} aria-hidden="true" />
@@ -74,12 +79,28 @@ export function ApplicationPanel({ id }: { id: string }) {
                 <dd>{journey.age}</dd>
               </div>
               <div>
-                <dt>費用の目安</dt>
+                <dt>
+                  ガイド料
+                  <br />
+                  （参加費）
+                </dt>
                 <dd>
-                  <strong>{journey.estimate}円 / 1名</strong>
+                  <strong>{journey.fee}円</strong>（税込 / 1名）
                   <span>
-                    通常参加費 {journey.fee}円（税込）＋
-                    実費20,000〜30,000円前後
+                    {id === "kochi"
+                      ? "通常料金。保険料・通信費を含みます。"
+                      : "通常料金。家族での参加については下記をご覧ください。"}
+                  </span>
+                </dd>
+              </div>
+              <div>
+                <dt>実費〈別途〉</dt>
+                <dd>
+                  <strong>{journey.expenses}円前後</strong> / 1名
+                  <span>
+                    {id === "kochi"
+                      ? "旅の中で必要な食費・宿泊費・移動費など。現地でのお支払いです。"
+                      : "ケータリング・温泉・キャンプ場・行動食・宿・御朱印など。"}
                   </span>
                 </dd>
               </div>
@@ -91,10 +112,24 @@ export function ApplicationPanel({ id }: { id: string }) {
               <summary>家族で参加する場合の費用</summary>
               <p>
                 {id === "kochi"
-                  ? "兄弟2人で参加する場合、2人目の参加費は5,000円引きです。参加費合計151,000円＋2人分の実費40,000〜60,000円前後で、191,000〜211,000円が目安です。"
-                  : "家族の2人目以降（対象年齢に該当する方）は、参加費66,000円以上のドネーション制です。2人で参加し、2人目を66,000円とする場合、参加費合計166,000円＋2人分の実費40,000〜60,000円前後で、206,000〜226,000円が目安です。"}
-                集合・解散地までの交通費や装備などは別途ご確認ください。
+                  ? "兄弟2人で参加する場合、2人目のガイド料（参加費）は5,000円引きです。"
+                  : "家族の2人目以降（対象年齢に該当する方）は、ガイド料（参加費）66,000円以上のドネーション制です。"}
               </p>
+              <dl className="booking-family-costs">
+                <div>
+                  <dt>ガイド料・2人分</dt>
+                  <dd>
+                    {id === "kochi"
+                      ? "151,000円（税込）"
+                      : "166,000円（税込）〜"}
+                  </dd>
+                </div>
+                <div>
+                  <dt>実費・2人分〈別途〉</dt>
+                  <dd>40,000〜60,000円前後</dd>
+                </div>
+              </dl>
+              <p>集合・解散地までの交通費や装備などは別途ご確認ください。</p>
             </details>
             <details>
               <summary>フォーム入力・参加までの流れ</summary>
@@ -130,7 +165,7 @@ export function ApplicationPanel({ id }: { id: string }) {
                 申し込みフォームへ <ArrowUpRight size={17} aria-hidden="true" />
               </a>
               <a
-                className="booking-secondary"
+                className="booking-secondary line-action"
                 href={journey.line}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,7 +189,7 @@ export function ApplicationPanel({ id }: { id: string }) {
                 次の旅を見る <ArrowRight size={17} />
               </a>
               <a
-                className="booking-secondary"
+                className="booking-secondary line-action"
                 href={SCHOOL_LINE}
                 target="_blank"
                 rel="noopener noreferrer"

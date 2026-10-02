@@ -651,7 +651,7 @@ export default function Thai() {
           <h2 className="apply-title">お申し込み</h2>
           <p className="apply-steps">① フォームに記入 → ② 参加費をお振込 → 完了！</p>
           <a className="apply-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
-            📝 申し込みフォームはこちら
+            次回の旅をLINEで相談する
           </a>
           <div className="bank-box">
             <p className="bank-title">── お振込先 ──</p>

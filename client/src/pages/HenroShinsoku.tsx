@@ -102,7 +102,10 @@ export default function HenroShinsoku() {
       <div className="hero-date">2026.10.27 <b>TUE</b> ― 10.31 <b>SAT</b></div>
       <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
-    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>参加費＋実費の目安 120,000〜130,000円 / 1名</div>
+    <dl className="booking-hero-costs">
+      <div><dt>ガイド料（参加費）</dt><dd>100,000円<small>（税込 / 1名）</small></dd></div>
+      <div><dt>実費〈別途〉</dt><dd>20,000〜30,000円前後<small> / 1名</small></dd></div>
+    </dl>
     <div className="hero-btns">
       <a className="btn btn-shu" href="#apply">参加申し込みはこちら</a>
       <a className="btn btn-ink" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
@@ -329,7 +332,7 @@ export default function HenroShinsoku() {
   <div className="wrap reveal">
     <span className="tag center">SMALL GROUP ― 定員10名</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
-    <p className="lead-p" style={{marginInline: "auto"}}>参加費は100,000円（税込）、実費は20,000〜30,000円前後です。気になることは、お気軽にご相談ください。</p>
+    <p className="lead-p" style={{marginInline: "auto"}}>ガイド料（参加費）は100,000円（税込）。別途、実費20,000〜30,000円前後が目安です。気になることは、お気軽にご相談ください。</p>
     <a className="btn btn-shu" href="#apply">申し込む</a>
     <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
@@ -470,9 +473,9 @@ export default function HenroShinsoku() {
       </div>
 
       <div className="card">
-        <h3>参加費用</h3>
+        <h3>ガイド料（参加費）</h3>
         <div className="price">100,000<small> 円（税込）</small></div>
-        <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
+        <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>実費〈別途〉20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
           <b>早期割引（終了）</b>｜2026年9月10日で受付終了<br />
           <b>家族割引</b>｜2人目以降（2026年度に満10歳以上の方）は、1人につき66,000円以上のドネーション制<br />

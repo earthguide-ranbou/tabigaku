@@ -415,7 +415,7 @@ export default function Henro() {
           <h2 className="reveal">参加概要</h2>
           <div className="henro-info-table reveal">
             <div className="henro-info-row">
-              <span className="henro-info-key">参加費</span>
+              <span className="henro-info-key">ガイド料<br />（参加費）</span>
               <span className="henro-info-val">
                 <strong>78,000円</strong>（税込）
               </span>

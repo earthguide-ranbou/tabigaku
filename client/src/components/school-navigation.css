@@ -52,6 +52,8 @@
   gap: 24px;
   border: 1px solid #8c9a8d;
   padding: 10px 17px;
+  border-radius: 999px;
+  font-weight: 700;
 }
 .school-nav__toggle {
   display: none;
@@ -80,6 +82,12 @@
   padding: 15px 4px;
   border-bottom: 1px solid #dce0d5;
   font-size: 14px;
+}
+.school-nav__mobile a.line-action {
+  margin-top: 12px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  font-weight: 700;
 }
 .school-skip {
   position: absolute;

@@ -11,7 +11,7 @@ export type Journey = {
   age: string;
   capacity: number;
   fee: string;
-  estimate: string;
+  expenses: string;
   image: string;
   alt: string;
   place: string;
@@ -32,7 +32,7 @@ export const journeys: Journey[] = [
     age: "小学3年生〜中学3年生",
     capacity: 10,
     fee: "78,000",
-    estimate: "98,000〜108,000",
+    expenses: "20,000〜30,000",
     image: "/manus-storage/img1_ashizuri_b29ac393.jpg",
     alt: "足摺岬の海辺に集まった歩きお遍路の仲間たち",
     place: "高知・足摺岬から",
@@ -52,7 +52,7 @@ export const journeys: Journey[] = [
     age: "2026年度に満10歳〜65歳",
     capacity: 10,
     fee: "100,000",
-    estimate: "120,000〜130,000",
+    expenses: "20,000〜30,000",
     image: "/manus-storage/kids_reading_11616371.jpg",
     alt: "緑に包まれたお寺で、お経を読む旅の参加者",
     place: "徳島・神山から太龍寺へ",
@@ -72,7 +72,7 @@ export const journeys: Journey[] = [
     age: "家族向け",
     capacity: 10,
     fee: "",
-    estimate: "",
+    expenses: "",
     image: "/efj/tawara_people.jpg",
     alt: "旅先で出会った人たちと家族",
     place: "祝島から神山へ",
@@ -90,7 +90,7 @@ export const journeys: Journey[] = [
     age: "家族向け",
     capacity: 10,
     fee: "",
-    estimate: "",
+    expenses: "",
     image: "/manus-storage/thai_img_00_2e972116.jpg",
     alt: "タイの家族旅",
     place: "タイ",
