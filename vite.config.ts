@@ -203,7 +203,8 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+// Authoring overlays belong to the dev server, not visitors on the public site.
+const plugins = [react(), tailwindcss(), { ...jsxLocPlugin(), apply: "serve" as const }, { ...vitePluginManusRuntime(), apply: "serve" as const }, vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
   plugins,

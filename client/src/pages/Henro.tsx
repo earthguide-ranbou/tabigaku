@@ -1,3 +1,4 @@
+import { ApplicationPanel, JourneyQuickInfo, JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect } from "react";
 import "./henro.css";
 import ShareButtons from "@/components/ShareButtons";
@@ -50,17 +51,17 @@ export default function Henro() {
 
   return (
     <div className="henro-page">
+      <JourneyStatusNotice id="kochi" />
+      <h1 className="sr-only">歩きお遍路ジャーニー vol.5 高知編</h1>
       {/* ===== HEADER ===== */}
       <header className="henro-header">
         <div className="henro-header-inner">
-          <div className="henro-logo">
+          <a href="/" className="henro-logo" aria-label="旅する学校 ホームへ">
             <span className="henro-logo-main">歩きお遍路ジャーニー</span>
             <span className="henro-logo-sub">EARTHFAMILY JOURNEY</span>
-          </div>
+          </a>
           <a
-            href="https://1lejend.com/stepmail/kd.php?no=fncikq"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#apply"
             className="henro-cta-btn"
           >
             お申し込み
@@ -96,6 +97,7 @@ export default function Henro() {
       </section>
 
 
+      <JourneyQuickInfo id="kochi" />
       {/* ===== STAGE ===== */}
       <section className="henro-section henro-stage">
         <div className="henro-section-inner henro-stage-grid">
@@ -407,7 +409,7 @@ export default function Henro() {
       </section>
 
       {/* ===== INFORMATION ===== */}
-      <section id="information" className="henro-section henro-info" style={{ scrollMarginTop: "24px" }}>
+      <section id="information" className="henro-section henro-info" style={{ scrollMarginTop: "90px" }}>
         <div className="henro-section-inner">
           <p className="henro-section-label reveal">INFORMATION</p>
           <h2 className="reveal">参加概要</h2>
@@ -423,8 +425,8 @@ export default function Henro() {
               <span className="henro-info-val">20,000〜30,000円前後</span>
             </div>
             <div className="henro-info-row">
-              <span className="henro-info-key">早割</span>
-              <span className="henro-info-val">受付終了（2026年9月10日）</span>
+              <span className="henro-info-key">早割（終了）</span>
+              <span className="henro-info-val accent">2026年9月10日で受付終了</span>
             </div>
             <div className="henro-info-row">
               <span className="henro-info-key">兄弟割</span>
@@ -521,6 +523,7 @@ export default function Henro() {
         </div>
       </section>
 
+      <ApplicationPanel id="kochi" />
       {/* ===== CTA ===== */}
       <section className="henro-cta">
         <div className="henro-cta-inner reveal">
@@ -532,12 +535,10 @@ export default function Henro() {
             仲間と、弘法大師さんと、一歩ずつ。
           </p>
           <a
-            href="https://1lejend.com/stepmail/kd.php?no=fncikq"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#apply"
             className="henro-cta-btn-large"
           >
-            お申し込みはこちら →
+            参加の案内を確認する →
           </a>
           <p className="henro-cta-sub">
             定員10名・先着順

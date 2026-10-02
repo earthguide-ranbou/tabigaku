@@ -1,3 +1,4 @@
+import { ApplicationPanel, JourneyQuickInfo, JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect } from "react";
 import "./henro-shinsoku.css";
 import ShareButtons from "@/components/ShareButtons";
@@ -8,7 +9,7 @@ const ASSET = "/henro-assets/";
 export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
-    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。参加費100,000円（税込）＋実費。",
+    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。参加費と実費の目安、参加までの流れをご案内。",
     keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
@@ -43,7 +44,7 @@ export default function HenroShinsoku() {
           "priceCurrency": "JPY",
           "availability": "https://schema.org/LimitedAvailability",
           "validFrom": "2026-07-01",
-          "url": "https://share.google/tvcyQIuEC1A0Sl5UK"
+          "url": "https://www.tabigaku.party/henro-shinsoku#apply"
         },
         "image": "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
         "url": "https://tabigaku.party/henro-shinsoku"
@@ -60,7 +61,6 @@ export default function HenroShinsoku() {
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
 
     // Google Fonts
     const link = document.createElement("link");
@@ -86,6 +86,8 @@ export default function HenroShinsoku() {
 
   return (
     <div className="oj-page oj-body">
+<JourneyStatusNotice id="shinsoku" />
+<a className="booking-back" href="/">← 旅する学校 ホーム</a>
 
 
 
@@ -100,15 +102,16 @@ export default function HenroShinsoku() {
       <div className="hero-date">2026.10.27 <b>TUE</b> ― 10.31 <b>SAT</b></div>
       <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
-    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>参加費100,000円（税込）＋実費 ｜ 早期割引は終了しました</div>
+    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>参加費＋実費の目安 120,000〜130,000円 / 1名</div>
     <div className="hero-btns">
-      <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">参加申し込みはこちら</a>
+      <a className="btn btn-shu" href="#apply">参加申し込みはこちら</a>
       <a className="btn btn-ink" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
 </section>
 
+<JourneyQuickInfo id="shinsoku" />
 {/* ============ TICKER ============ */}
 <div className="ticker" aria-hidden="true">
   <div className="ticker-track">
@@ -324,10 +327,10 @@ export default function HenroShinsoku() {
 {/* ============ MID CTA ============ */}
 <section className="mid-cta">
   <div className="wrap reveal">
-    <span className="tag center">LIMITED ― 残席</span>
+    <span className="tag center">SMALL GROUP ― 定員10名</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
-    <p className="lead-p" style={{marginInline: "auto"}}>日程・参加費・宿泊や歩く距離を確認して、気になることはお気軽にご相談ください。</p>
-    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む</a>
+    <p className="lead-p" style={{marginInline: "auto"}}>参加費は100,000円（税込）、実費は20,000〜30,000円前後です。気になることは、お気軽にご相談ください。</p>
+    <a className="btn btn-shu" href="#apply">申し込む</a>
     <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
 </section>
@@ -471,7 +474,7 @@ export default function HenroShinsoku() {
         <div className="price">100,000<small> 円（税込）</small></div>
         <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
-          <b>早期割引は終了しました</b>｜受付期限：2026年9月10日（木）<br />
+          <b>早期割引（終了）</b>｜2026年9月10日で受付終了<br />
           <b>家族割引</b>｜2人目以降（2026年度に満10歳以上の方）は、1人につき66,000円以上のドネーション制<br />
           <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
         </div>
@@ -481,7 +484,7 @@ export default function HenroShinsoku() {
           <dt>STEP 2</dt><dd>送信完了後、3営業日以内にお振り込み</dd>
           <dt>STEP 3</dt><dd>確認メールを送信。申込みが重なった場合は先着順</dd>
         </dl>
-        <a className="btn btn-shu apply-btn" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込みフォームへ進む</a>
+        <a className="btn btn-shu apply-btn" href="#apply">申し込み前の確認へ</a>
         <p className="c-note">ご相談はお気軽にどうぞ。<br />
           らんぼう携帯：<a href="tel:09075188816">090-7518-8816</a> ／ <a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a>
         </p>
@@ -490,13 +493,14 @@ export default function HenroShinsoku() {
   </div>
 </section>
 
+<ApplicationPanel id="shinsoku" />
 {/* ============ CTA ============ */}
 <section className="cta">
   <div className="wrap reveal">
     <span className="tag center" style={{color: "#f3c9b8"}}>JOIN THE JOURNEY</span>
     <h2 className="h2">1000年の祈りの道を、<br /><em className="nb">自分の足</em>で歩く5日間。</h2>
     <p className="lead-p">秋の四国の山々を越えて、太龍寺へ。<br className="br-sp" />先人たちからの想いを未来に紡ぐ旅に、あなたも出ませんか。<br />定員10名・先着順です。</p>
-    <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">2026年10月27日の旅に申し込む</a>
+    <a className="btn btn-shu" href="#apply">2026年10月27日の旅に申し込む</a>
     <div><div className="seal">同行二人</div></div>
     <p className="contact">
       お問い合わせ：らんぼう（あーすガイド）　
@@ -508,7 +512,7 @@ export default function HenroShinsoku() {
 
 <ShareButtons
   url="https://www.tabigaku.party/henro-shinsoku"
-  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。疲れ知らずの体で聖地を歩く特別な旅。10/27-31・小3〜65歳。"
+  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。心とからだで聖地を味わう旅。2026/10/27-31・2026年度に満10歳〜65歳対象。"
   title="＼ 神足・お遍路をシェア ／"
 />
 
@@ -526,7 +530,7 @@ export default function HenroShinsoku() {
   </div>
 </footer>
 
-<a className="btn btn-shu float-cta" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む →</a>
+<a className="btn btn-shu float-cta" href="#apply">参加の案内を見る →</a>
 
 
     </div>

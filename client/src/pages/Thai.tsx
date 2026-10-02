@@ -1,3 +1,4 @@
+import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect } from "react";
 import "./thai.css";
 import ShareButtons from "@/components/ShareButtons";
@@ -71,6 +72,7 @@ export default function Thai() {
 
   return (
     <div className="thai-page">
+      <JourneyStatusNotice id="thailand" />
       <header className="brandbar">
         <div className="logo">
           Earthfamily<span>Journey</span>
@@ -648,7 +650,7 @@ export default function Thai() {
         <div className="apply reveal">
           <h2 className="apply-title">お申し込み</h2>
           <p className="apply-steps">① フォームに記入 → ② 参加費をお振込 → 完了！</p>
-          <a className="apply-btn" href="https://share.google/bR9LKsOJ0rsBj2DdG" target="_blank" rel="noopener">
+          <a className="apply-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
             📝 申し込みフォームはこちら
           </a>
           <div className="bank-box">
@@ -735,14 +737,14 @@ export default function Thai() {
           <span className="s-marker">GOサイン</span>
         </p>
         <p className="fp-sub reveal">この夏の思い出は、この夏しかつくれない。</p>
-        <a className="fp-btn" href="https://share.google/bR9LKsOJ0rsBj2DdG" target="_blank" rel="noopener">
-          🌏 この夏、タイで会おう！
+        <a className="fp-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
+          次回のタイの旅を相談する
         </a>
       </section>
 
       <ShareButtons
         url="https://www.tabigaku.party/thai"
-        text="子連れ海外を諦めてきたあなたへ。上田家と一緒に家族でタイを旅する9日間（6日間プランも）。8/22出発・募集中。"
+        text="子連れ海外を諦めてきたあなたへ。上田家と一緒に家族でタイを旅する9日間（6日間プランも）。2026年8/22〜8/30の開催内容をご紹介。"
         title="＼ タイ旅をシェア ／"
       />
 

@@ -1,7 +1,8 @@
+import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect } from "react";
 
 const IMG = "/efj/";
-const FORM = "https://1lejend.com/stepmail/kd.php?no=flieylTa";
+const FORM = "https://lin.ee/odygMT3";
 const TEL = "tel:09075188816";
 
 export default function EarthFamily() {
@@ -18,6 +19,7 @@ export default function EarthFamily() {
 
   return (
     <div style={{ background: "#f7f3ea", color: "#2b2b2b", ...maru }}>
+      <JourneyStatusNotice id="earth-family" />
       {/* ── HERO ── */}
       <header className="relative">
         <img src={IMG + "banner-DC-eJZFy.webp"} alt="祝島の海と伝統の舟" className="w-full object-cover" style={{ height: "clamp(300px, 60vh, 560px)" }} />
@@ -42,7 +44,7 @@ export default function EarthFamily() {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <a href={FORM} target="_blank" rel="noopener" className="inline-block px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg" style={{ background: "#d65a3a" }}>同行を申し込む</a>
+          <a href={FORM} target="_blank" rel="noopener" className="inline-block px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg" style={{ background: "#d65a3a" }}>次回の旅を相談する</a>
           <a href="#places" className="inline-block px-10 py-4 rounded-full font-bold text-lg border-2" style={{ borderColor: "#1d5c4d", color: "#1d5c4d" }}>旅先を見る</a>
         </div>
       </section>
@@ -127,7 +129,7 @@ export default function EarthFamily() {
                   <p><b>待ち合わせ｜</b>{p.meet}</p>
                   <p><b>お別れ｜</b>{p.bye}</p>
                 </div>
-                <a href={FORM} target="_blank" rel="noopener" className="block text-center mt-5 px-4 py-3 rounded-full text-white font-bold text-sm" style={{ background: "#1d5c4d" }}>このスタイルで申し込む</a>
+                <a href={FORM} target="_blank" rel="noopener" className="block text-center mt-5 px-4 py-3 rounded-full text-white font-bold text-sm" style={{ background: "#1d5c4d" }}>次回の参加を相談する</a>
               </div>
             ))}
           </div>
@@ -203,7 +205,7 @@ export default function EarthFamily() {
       <section className="py-16 text-center px-5">
         <h2 style={serif} className="text-2xl md:text-3xl font-bold leading-relaxed">心が喜ぶ方へ、<br />身体ごと飛び込んでみませんか？</h2>
         <p className="mt-4 text-sm leading-loose">家族と共に。大切な友人と一緒に。もちろんおひとりでも、ウェルカムです。<br />お会いできるのを、心から楽しみにしています。</p>
-        <a href={FORM} target="_blank" rel="noopener" className="inline-block mt-8 px-14 py-5 rounded-full text-white font-bold text-xl shadow-xl" style={{ background: "#d65a3a" }}>申込フォームへ進む</a>
+        <a href={FORM} target="_blank" rel="noopener" className="inline-block mt-8 px-14 py-5 rounded-full text-white font-bold text-xl shadow-xl" style={{ background: "#d65a3a" }}>次回の旅を相談する</a>
         <p className="mt-5 text-sm">📞 <a href={TEL} className="underline font-bold">電話で相談する（090-7518-8816）</a></p>
         <p className="mt-3 text-xs text-neutral-500">少人数制（10名ほど・先着順）｜2026年8月5日集合予定</p>
         <p className="mt-6 text-xs text-neutral-500">お問い合わせ｜メール <a href="mailto:earthguide.jpn@gmail.com" className="underline">earthguide.jpn@gmail.com</a>（件名は「地球家族ジャーニー」としてお送りください）</p>

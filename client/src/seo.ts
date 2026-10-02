@@ -41,14 +41,14 @@ export function applySeo(path: string) {
   const s = seoForPath(path);
   document.title = s.title;
   const set = (kind: 'name' | 'property', key: string, value: string) => {
-    const all = [...document.head.querySelectorAll<HTMLMetaElement>(`meta[${kind}="${key}"]`)];
+    const all = Array.from(document.head.querySelectorAll<HTMLMetaElement>(`meta[${kind}="${key}"]`));
     const el = all.shift() ?? document.head.appendChild(document.createElement('meta'));
     el.setAttribute(kind, key); el.content = value; all.forEach(e => e.remove());
   };
   set('name', 'description', s.description); set('name', 'robots', s.robots);
   for (const [k,v] of Object.entries({ 'og:title': s.title, 'og:description': s.description, 'og:url': s.url, 'og:image': s.image, 'og:type': 'website', 'og:site_name': site.name, 'og:locale': 'ja_JP' })) set('property', k, v);
   for (const [k,v] of Object.entries({ 'twitter:card': 'summary_large_image', 'twitter:title': s.title, 'twitter:description': s.description, 'twitter:image': s.image })) set('name', k, v);
-  const links = [...document.head.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]')];
+  const links = Array.from(document.head.querySelectorAll<HTMLLinkElement>('link[rel="canonical"]'));
   if (s.noindex) links.forEach(e => e.remove());
   else { const el = links.shift() ?? document.head.appendChild(document.createElement('link')); el.rel = 'canonical'; el.href = s.url; links.forEach(e => e.remove()); }
   document.head.querySelectorAll('script[type="application/ld+json"]').forEach(e => e.remove());

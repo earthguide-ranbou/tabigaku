@@ -24,10 +24,13 @@ import { useEffect } from "react";
 function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
-    // アンカーリンク（#付き）の場合はスクロールトップしない
-    if (!location.includes("#")) {
-      window.scrollTo({ top: 0, behavior: "instant" });
+    // The router pathname omits the hash; restore anchored direct visits after render.
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const frame = requestAnimationFrame(() => document.getElementById(decodeURIComponent(hash))?.scrollIntoView());
+      return () => cancelAnimationFrame(frame);
     }
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [location]);
   return null;
 }

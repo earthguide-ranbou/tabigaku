@@ -1,713 +1,346 @@
-import { useRef, useState, useEffect, useCallback } from "react";
-import { useSEO } from "@/hooks/useSEO";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowRight, Award } from "lucide-react";
-import { Link } from "wouter";
+import { useState } from "react";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  CalendarDays,
+  Users,
+} from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import SubstackCTA from "@/components/SubstackCTA";
-import ShareButtons from "@/components/ShareButtons";
-import JourneyCards from "@/components/JourneyCards";
-import { Section, SectionHeader } from "@/components/ui/section";
-import { Curtain } from "@/components/Fx";
+import {
+  journeys,
+  journeyStatus,
+  SCHOOL_LINE,
+  type Audience,
+} from "@/data/journeys";
+import { trackJourneyAction } from "@/lib/journey-analytics";
+import "./home.css";
 
-// ─── Image URLs (uploaded to webdev storage) ───────────────────────────────
-// チラシのメインビジュアル（山岳トレッキング写真）
-const FLYER_IMAGE = "/manus-storage/1000006557_f808d89c.jpg";
-const GROUP_PHOTO = "/manus-storage/group_photo_road_24eb956b.jpg";
-const TOKUSHIMA_SHIMBUN = "/manus-storage/tokushima_shimbun_e14fdcec.jpg";
-const BG_TEXTURE = "/manus-storage/bg_texture_paper_6f447ab3.jpg";
-
-// Journey images
-const SHIMA_JOURNEY = "/manus-storage/note_shima_journey_351f0c2e.jpg";
-const CHIKYU_KAZOKU = "/manus-storage/note_chikyu_kazoku_b81012db.png";
-const OHENRO_JOURNEY = "/manus-storage/note_ohenro_journey_e9f341c0.png";
-const KAMIYAMA_JOURNEY = "/manus-storage/kamiyama_journey_3f2b7506.jpeg";
-
-// 公式LINE（旅する学校）
-const LINE_TABIGAKU = "https://lin.ee/odygMT3";
-
-// スライドショー用写真（9枚、新聞画像は除外）
-const SLIDESHOW_IMAGES = [
-  { src: "/manus-storage/1000004115_06c74ce0.jpg", alt: "ラフティング体験 - 笑顔の子どもたち" },
-  { src: "/manus-storage/1000004123_e028eb96.jpg", alt: "川旅 - ラフトボートで川を下る" },
-  { src: "/manus-storage/1000004150_903a0660.jpg", alt: "川旅 - 集合写真" },
-  { src: "/manus-storage/1000004176_31a086d5.jpg", alt: "川旅 - 河原での集合写真" },
-  { src: "/manus-storage/1000001172_8a6f1543.jpg", alt: "滝登り体験" },
-  { src: "/manus-storage/1000004240_be8c9310.jpg", alt: "お遷路 - お寺での集合写真" },
-  { src: "/manus-storage/1000001570_3c9e3e33.jpg", alt: "お遷路 - 大木の下で" },
-  { src: "/manus-storage/1000001580_d659373c.jpg", alt: "お遷路 - 道を歩く子どもたち" },
-  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_101_23720d72.jpg", alt: "お遷路 - 交差点での一コマ" },
-  { src: "/manus-storage/1000005403_ebc39300.jpg", alt: "海旅 - 釣った魚を持つ笑顔の子" },
-  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_2087_16d1a6ff.jpg", alt: "海旅 - 海中の魚の群れ" },
-  { src: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_8374_72089744.jpg", alt: "海旅 - 漁師さんと船の上で" },
-  // 注意: TOKUSHIMA_SHIMBUN (新聞画像) はスライドショーに含めない
+const audiences: { value: Audience | "all"; label: string }[] = [
+  { value: "all", label: "すべて" },
+  { value: "children", label: "子ども" },
+  { value: "family", label: "親子・家族" },
+  { value: "adults", label: "大人" },
 ];
 
-const journeys = [
-  {
-    id: 1,
-    image: CHIKYU_KAZOKU,
-    alt: "地球家族ジャーニー",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "10日間", color: "bg-emerald-700" },
-      { label: "家族向け", color: "bg-sky-700" },
-      { label: "途中参加OK", color: "bg-amber-600" },
-    ],
-    date: "8月5日(水)〜8月14日(金)（途中参加OK）",
-    emoji: "🌊",
-    title: "地球家族ジャーニー",
-    subtitle: "〜祝島から神山へ 魂が震え、命が喜ぶ旅〜",
-    description: "祝島から神山へ。魂が震え、命が喜ぶ旅。家族で参加できる特別な夏の体験。途中参加も歓迎。",
-    href: "/efj",
-  },
-  {
-    id: 2,
-    image: "/manus-storage/thai_img_00_2e972116.jpg",
-    alt: "EarthfamilyJourney in Thailand",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "6〜9日間", color: "bg-emerald-700" },
-      { label: "家族向け", color: "bg-sky-700" },
-    ],
-    date: "8月22日(土)〜 8月30日(日)",
-    emoji: "✈️",
-    title: "EarthfamilyJourney in Thailand",
-    subtitle: "〜そうだ！タイに行こう〜",
-    description: "子連れ海外を諦めてきたあなたへ。上田家と一緒に、家族でタイを旅しよう。A日程6日間・B日程9日間。",
-    href: "/thai",
-  },
-  {
-    id: 3,
-    image: "/manus-storage/group_photo_1124f3c4.jpg",
-    alt: "歩きお遍路ジャーニー vol.5",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "6日間", color: "bg-emerald-700" },
-      { label: "小3〜中3", color: "bg-sky-700" },
-    ],
-    date: "10月10日(土)〜10月15日(木)",
-    emoji: "",
-    title: "歩きお遍路ジャーニー vol.5",
-    subtitle: "〜修行の道場・高知編〜",
-    description: "四国最南端・足摺岬から歩き始める6日間の巡礼。仲間と助け合い、一歩ずつ歩いた距離だけ強くなれる。対象：小学3年生〜中学3年生。",
-    href: "/henro",
-  },
-  {
-    id: 4,
-    image: OHENRO_JOURNEY,
-    alt: "歩きお遍路ジャーニー",
-    tags: [
-      { label: "募集中", color: "bg-primary" },
-      { label: "5日間", color: "bg-emerald-700" },
-      { label: "小3〜65歳", color: "bg-sky-700" },
-    ],
-    date: "10月23日(金)〜10月27日(火)",
-    emoji: "",
-    title: "歩きお遍路ジャーニー",
-    subtitle: "―神足歩行術で行く、発心の道場5日間の巻―",
-    description: "神足歩行術で行く、発心の道場5日間。古の身体技法を学び、疲れ知らずの体で聖地を巡る特別な旅。対象：小学3年生〜65歳。",
-    href: "/henro-shinsoku",
-  },
-];
-
-// ─── Slideshow Component ────────────────────────────────────────────────────
-// スワイプ式横スクロール実装。自動再生なし。バグなし。
-// 全画像を横に並べ、translateXで表示位置を切り替える。
-// 高さは常に現在の画像で確定するため、下のセクションが透けることがない。
-function PhotoSlideshow() {
-  const [current, setCurrent] = useState(0);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const total = SLIDESHOW_IMAGES.length;
-
-  const goTo = useCallback((index: number) => {
-    setCurrent(Math.max(0, Math.min(total - 1, index)));
-  }, [total]);
-
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  }, []);
-
-  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
-    const delta = e.changedTouches[0].clientX - touchStartX;
-    if (delta < -50 && current < total - 1) goTo(current + 1);
-    else if (delta > 50 && current > 0) goTo(current - 1);
-  }, [touchStartX, current, total, goTo]);
-
-  return (
-    <div
-      className="relative w-full overflow-hidden select-none page-enter"
-      style={{ aspectRatio: "4/3" }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* クロスフェード: 全画像をabsoluteで重ね、activeのみopacity:1 */}
-      {SLIDESHOW_IMAGES.map((img, i) => (
-        <div
-          key={i}
-          className="absolute inset-0"
-          style={{
-            opacity: i === current ? 1 : 0,
-            transition: "opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1)",
-            zIndex: i === current ? 1 : 0,
-          }}
-        >
-          <img
-            src={img.src}
-            alt={img.alt}
-            className="w-full h-full object-cover block"
-            draggable={false}
-            loading={i === 0 ? "eager" : "lazy"}
-          />
-        </div>
-      ))}
-
-      {/* ドットインジケーター */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10 pointer-events-none">
-        {SLIDESHOW_IMAGES.map((_, i) => (
-          <div
-            key={i}
-            className={`rounded-full transition-all duration-300 ${
-              i === current
-                ? "w-6 h-2 bg-white"
-                : "w-2 h-2 bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
-
-      {/* 左右タップ領域 */}
-      <button
-        className="absolute left-0 top-0 h-full w-1/3 z-10 opacity-0"
-        onClick={() => goTo(current - 1)}
-        aria-label="前の写真"
-      />
-      <button
-        className="absolute right-0 top-0 h-full w-1/3 z-10 opacity-0"
-        onClick={() => goTo(current + 1)}
-        aria-label="次の写真"
-      />
-
-      {/* カウンター */}
-      <div className="absolute top-4 right-4 z-10 bg-black/40 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full">
-        {current + 1} / {total}
-      </div>
-    </div>
-  );
-}
-
-// ─── Main Component ─────────────────────────────────────────────────────────
 export default function Home() {
-  useSEO({
-    title: "旅する学校｜徳島・神山発オルタナティブな学びの場｜歩き遍路｜旅育",
-    description: "徳島・神山発のオルタナティブな学びの場「旅する学校」。子どもたちと行く「歩き遍路」や四万十川カヌーなど、四国の大自然を舞台にした「旅育（たびいく）」プログラムを提供。安藤財団特別推奨モデル賞受賞。スプリングスクール・サマースクール参加者募集中。",
-    keywords: "旅する学校, 旅育, 歩き遍路, お遍路, 四国遍路, 徳島, 神山町, オルタナティブな学びの場, オルタナティブスクール, スプリングスクール, サマースクール, 自然体験, 子どもキャンプ, 教育, 移住体験, 安藤財団賞",
-    ogImage: "/manus-storage/group_photo_road_24eb956b.jpg",
-    ogUrl: "/",
-    structuredData: [
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "旅する学校 ／ あーすガイド",
-        "url": "https://tabigaku.party",
-        "logo": "https://tabigaku.party/favicon.ico",
-        "description": "徳島・神山発のオルタナティブな学びの場。旅育プログラム・お遍路ジャーニー・神山ガイドを提供。",
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "徳島県",
-          "addressLocality": "神山町",
-          "addressCountry": "JP"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "090-7518-8816",
-          "email": "earthguide.jpn@gmail.com",
-          "contactType": "customer service"
-        },
-        "sameAs": [
-          "https://www.instagram.com/earthguide.ranbow",
-          "https://note.com/shiftdaigaku",
-          "https://earthguide.tabigaku.party"
-        ]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "旅する学校",
-        "url": "https://tabigaku.party",
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://tabigaku.party/?s={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      }
-    ]
-  });
-
-  const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroScrollY } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const heroY = useTransform(heroScrollY, [0, 1], ["0%", "28%"]);
-  const heroOpacity = useTransform(heroScrollY, [0, 0.75], [1, 0]);
-
+  const [audience, setAudience] = useState<Audience | "all">("all");
+  const current = journeys.filter(j => journeyStatus(j) !== "ended");
+  const visible = current.filter(
+    j => audience === "all" || j.audiences.includes(audience)
+  );
+  const past = journeys.filter(j => journeyStatus(j) === "ended");
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary/20 overflow-x-hidden">
+    <div className="school-home">
       <Navigation />
-
-
-      {/* ── 募集バナー ── */}
-      <div className="w-full text-white" style={{background: "linear-gradient(90deg,#1d5c4d,#2e8b6e)", padding: "10px 16px", marginTop: "72px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em", lineHeight: 1.7, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "4px 20px", textAlign: "center"}}>
-        <a href="/henro" style={{color: "#fff"}}>
-          👣 歩きお遍路ジャーニー vol.5 募集中
-          <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細 →</span>
-        </a>
-        <a href="/henro-shinsoku" style={{color: "#fff"}}>
-          🔥 歩きお遍路ジャーニー 神足歩行術（秋編）10/27-31 定員10名
-          <span style={{textDecoration: "underline", textUnderlineOffset: "3px", marginLeft: 6}}>詳細・申込 →</span>
-        </a>
-      </div>
-
-      {/* ── Hero — チラシデザインをベースに ── */}
-      <div
-        ref={heroRef}
-        className="relative overflow-hidden bg-white"
-      >
-        {/* チラシ画像 — 元の縦長比率を尊重して全体表示。左側が切れないようパディングを添加 */}
-        <motion.div style={{ y: heroY }} className="relative z-0">
-          {/*
-            チラシ画像は左端にテキストが配置されているため、
-            左右に小さなパディングを設けて全体を表示。
-          */}
-          {/* 上部にナビバー分のパディングを追加して「旅は、最高の学校だ。」がナビバーに醠ならないよう調整 */}
+      <main id="main-content">
+        <section className="school-hero" aria-labelledby="home-title">
           <img
-            src={FLYER_IMAGE}
+            className="school-hero__image"
+            src="/manus-storage/img4_yamashiro_2bd8a3b4.jpg"
+            alt="山の景色を眺めながら、仲間と遍路道を歩く子どもたち"
+            width="1568"
+            height="882"
             fetchPriority="high"
-            decoding="async"
-            alt="旅する学校 — 山岳トレッキング"
-            className="w-full h-auto block"
-            style={{ maxHeight: "100vh", objectFit: "contain", objectPosition: "center top", padding: "56px 4px 0" }}
           />
-          {/* ナビバーエリアの上部に微妙な黒グラデーションを追加して「旅する学校」ロゴを見やすく */}
-          <div
-            className="absolute inset-x-0 top-0"
-            style={{ height: "80px", background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 100%)", zIndex: 1 }}
-          />
-          {/*
-            モヤは最下部のみ。
-            QRコード・クラフト紙エリア（下15%）だけ白へフェード。
-            写真中心部（子どもたち）には一切影響しない。
-          */}
-          {/* 下40%を完全に白で覆う。「続きは、ここから。」QRコードエリアを完全隐蔽 */}
-          <div
-            className="absolute inset-x-0 bottom-0"
-            style={{ height: "38%", background: "linear-gradient(to top, white 0%, white 65%, rgba(255,255,255,0) 100%)" }}
-          />
-        </motion.div>
-
-        {/* ヒーロー下部の白エリア — 白い部分を最小限に */}
-        <div className="relative z-10 bg-white px-6 pb-8 md:pb-10 -mt-24 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-sm mx-auto"
-          >
-            {/* エディトリアルライン */}
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <div className="h-px flex-1 bg-foreground/15" />
-              <h1 className="text-base md:text-lg font-bold tracking-[0.15em] text-foreground/75">旅する学校</h1>
-              <div className="h-px flex-1 bg-foreground/15" />
-            </div>
-
-            {/* メインキャッチコピー */}
-            <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-2">
-              ワクワクとドキドキ、
+          <div className="school-hero__shade" />
+          <div className="school-hero__copy">
+            <p className="school-eyebrow">自然と、人と、自分に出会う。</p>
+            <h1 id="home-title">
+              旅は、
+              <br />
+              最高の学校だ。
+            </h1>
+            <p className="school-hero__lead">
+              山を歩く。川で笑う。仲間と暮らす。
+              <br />
+              子どもも大人も、心が動く冒険へ。
             </p>
-            <p className="text-foreground/80 text-lg md:text-xl font-serif leading-relaxed tracking-wide mb-6">
-              がきたらGOサイン！
-            </p>
-
-            {/* サブテキスト */}
-            <p className="text-foreground/45 text-xs md:text-sm font-sans leading-relaxed tracking-wider mb-8">
-              子どもたちの笑顔が湢れる、本物の旅が待っている。
-            </p>
-
-            {/* スクロールインジケーター */}
-            <motion.a
-              href="#about"
-              onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
-              animate={{ y: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
-              className="inline-flex flex-col items-center gap-1.5 text-primary/60 hover:text-primary transition-colors duration-200"
-            >
-              <span className="text-[0.58rem] font-bold tracking-[0.3em] uppercase">Scroll</span>
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M9 3v12M3 9l6 6 6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </motion.a>
-          </motion.div>
-        </div>
-      </div>
-
-      {/* ── About ── */}
-      <Section id="about" className="py-28 md:py-40">
-        {/* Subtle background accent */}
-        <div className="absolute inset-y-0 right-0 w-[40%] bg-muted/60 -z-10 hidden lg:block" />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-center">
-          {/* Text */}
-          <div className="order-2 lg:order-1 space-y-0">
-            <SectionHeader title="旅こそが学校" subtitle="ABOUT US" />
-
-            <div className="space-y-5 text-foreground/80 text-base md:text-lg leading-[1.9] text-left">
-              <p>
-                未知なる世界に飛び出し、
-                <br className="hidden md:block" />
-                自然の中でめーいっぱい身体を動かす。
-              </p>
-              <p>
-                自分はどこから来て、今どこにいて、どこへ向かうのか？
-              </p>
-              <p>
-                先人から受け継がれてきたスピリットを感じながら、
-                <br className="hidden md:block" />
-                その物語を、体感として学んでゆく。
-              </p>
-              <p>「あ〜生きてて良かったなぁ〜！」という</p>
-              <p>いのちが喜ぶ瞬間を、積み重ねながら。</p>
-              <p>歩きお遍路、川旅、海旅など</p>
-              <p>
-                旅する学校では、自然の中で
-                <br className="hidden md:block" />
-                子どもたちと可能性の枠をひろげ、
-                <br className="hidden md:block" />
-                地球と共にあるよりよい未来を創造してゆきます。
-              </p>
-            </div>
-
-            {/* Award card */}
-            <Link
-              href="/award"
-              className="mt-10 flex items-start gap-5 bg-card rounded-xl p-6 shadow-md border border-border hover:shadow-lg hover:border-primary/25 transition-all duration-500 ease-out cursor-pointer group block"
-            >
-              <div className="bg-amber-50 border border-amber-200/60 p-3 rounded-full shrink-0 mt-0.5">
-                <Award className="w-7 h-7 text-amber-600" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold mb-1.5 text-foreground group-hover:text-primary transition-colors">
-                  安藤財団 特別推奨モデル賞受賞
-                </h3>
-                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                  2023年度 安藤スポーツ・食文化振興財団より、私たちの活動「子どもたちといく4泊5日の秋のお遷路巡礼の旅」が表彰されました。
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-primary font-bold text-xs tracking-wide">
-                  詳細を見る <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </Link>
+            <a className="school-button school-button--light" href="#journeys">
+              次の旅を見つける <ArrowDown size={17} aria-hidden="true" />
+            </a>
           </div>
-
-          {/* Image */}
-          <div className="order-1 lg:order-2 relative flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-md"
-            >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={GROUP_PHOTO}
-                  alt="Group Photo"
-                  className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary/8 rounded-full -z-10" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-muted rounded-full -z-10" />
-              {/* Small accent line */}
-              <div className="absolute top-6 -left-3 w-1 h-20 bg-primary/30 rounded-full" />
-            </motion.div>
+          <div className="school-hero__caption">
+            <span>TABIGAKU JOURNEYS</span>
+            <span>徳島・神山から、その先へ。</span>
           </div>
-        </div>
-      </Section>
-
-      {/* ── Photo Gallery Slideshow ── */}
-      <Section background="muted" className="py-16 md:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-8"
+        </section>
+        <section
+          className="school-section school-journeys"
+          id="journeys"
+          aria-labelledby="journeys-title"
         >
-          <SectionHeader
-            title="旅の記録"
-            subtitle="PHOTO GALLERY"
-            centered
-          />
-        </motion.div>
-
-        {/* 全幅表示 — containerのpxを完全に打ち消す (mobile: 1.25rem, md: 2rem, lg: 3rem) */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "0px" }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="-mx-5 md:-mx-8 lg:-mx-12 overflow-hidden shadow-2xl"
-        >
-          <PhotoSlideshow />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center text-sm text-muted-foreground mt-6"
-        >
-          川旅・山旅・お遷路…子どもたちの笑顔が湢れる旅の瞬間
-        </motion.p>
-      </Section>
-
-      {/* ── Media ── */}
-      <Section background="default" className="py-20 md:py-28">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-card rounded-2xl overflow-hidden shadow-lg border border-border/60"
+          <div className="school-heading">
+            <div>
+              <p className="school-eyebrow">NEXT JOURNEY</p>
+              <h2 id="journeys-title">次は、どんな冒険へ。</h2>
+            </div>
+            <p>
+              日常を少し離れて、
+              <br className="school-desktop" />
+              忘れられない時間を。
+            </p>
+          </div>
+          <div
+            className="school-filters"
+            role="group"
+            aria-label="参加する方から旅を選ぶ"
           >
-            <div className="flex flex-col md:flex-row">
-              {/* Image side */}
-              <div className="w-full md:w-[48%] shrink-0">
-                <div className="relative h-64 md:h-full overflow-hidden">
-                  <Curtain cover="#1d5c4d">
-                    <img
-                      src={TOKUSHIMA_SHIMBUN}
-                      alt="徳島新聞掲載記事"
-                      className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-1000 ease-out"
-                    />
-                  </Curtain>
+            {audiences.map(option => (
+              <button
+                type="button"
+                key={option.value}
+                aria-pressed={audience === option.value}
+                onClick={() => setAudience(option.value)}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          <div className="school-trip-grid" aria-live="polite">
+            {visible.map(journey => (
+              <article className="school-trip" key={journey.id}>
+                <a
+                  className="school-trip__photo"
+                  href={journey.href}
+                  aria-label={`${journey.title}の詳細`}
+                  onClick={() => trackJourneyAction("view_journey", journey.id)}
+                >
+                  <img
+                    src={journey.image}
+                    alt={journey.alt}
+                    width="1080"
+                    height="810"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className="school-trip__status">
+                    {journeyStatus(journey) === "upcoming"
+                      ? "募集中"
+                      : "開催中"}
+                  </span>
+                  <span className="school-trip__place">{journey.place}</span>
+                </a>
+                <div className="school-trip__body">
+                  <p className="school-trip__date">
+                    <CalendarDays size={15} aria-hidden="true" />
+                    {journey.dateLabel}
+                    <span>{journey.duration}</span>
+                  </p>
+                  <h3>
+                    <a href={journey.href}>{journey.title}</a>
+                  </h3>
+                  <p className="school-trip__description">
+                    {journey.description}
+                  </p>
+                  <p className="school-trip__audience">
+                    <Users size={15} aria-hidden="true" />
+                    {journey.age} <span>定員{journey.capacity}名</span>
+                  </p>
+                  <div className="school-trip__bottom">
+                    <p>
+                      <small>参加費＋実費の目安</small>
+                      <strong>{journey.estimate}</strong>
+                      <small>円 / 1名</small>
+                    </p>
+                    <a
+                      href={journey.href}
+                      aria-label={`${journey.title}の日程・費用を見る`}
+                      onClick={() =>
+                        trackJourneyAction("view_journey", journey.id)
+                      }
+                    >
+                      詳しく見る <ArrowRight size={17} aria-hidden="true" />
+                    </a>
+                  </div>
                 </div>
+              </article>
+            ))}
+            {visible.length === 0 && (
+              <div className="school-empty">
+                <p>この対象の次の旅は、準備中です。</p>
+                <a
+                  className="school-text-link"
+                  href={SCHOOL_LINE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LINEで次回の案内を受け取る <ArrowUpRight size={16} />
+                </a>
               </div>
-              {/* Text side */}
-              <div className="flex-1 p-8 md:p-10 flex flex-col justify-center gap-4">
-                <span className="inline-block bg-primary/10 text-primary text-[0.65rem] font-bold px-3 py-1 rounded-full tracking-widest uppercase w-fit">
-                  新聞掲載
-                </span>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold leading-tight text-foreground">
-                  徳島新聞に
-                  <br />
-                  掲載されました
-                </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base text-left">
-                  私たちの活動「歩き遍路ジャーニー」が徳島新聞に取り上げられました。
-                  子どもたちが60kmの道のりを踏破し、地域の方々と触れ合いながら成長していく様子が紹介されています。
+            )}
+          </div>
+          <p className="school-price-note">
+            費用は通常料金での目安です。実費は行程で変わります。集合・解散地までの交通費や装備など、別途必要な費用は各旅の案内をご確認ください。
+          </p>
+          {past.length > 0 && (
+            <details className="school-archive">
+              <summary>
+                これまでの旅を見る <span>{past.length}件</span>
+              </summary>
+              <div>
+                {past.map(j => (
+                  <a key={j.id} href={j.href}>
+                    <span>{j.dateLabel} · 開催終了</span>
+                    {j.title}
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </details>
+          )}
+        </section>
+        <section
+          className="school-about"
+          id="about"
+          aria-labelledby="about-title"
+        >
+          <div className="school-about__photo">
+            <img
+              src="/manus-storage/1000004115_06c74ce0.jpg"
+              alt="水しぶきを浴びながら、川旅を楽しむ子どもたち"
+              width="1474"
+              height="1110"
+              loading="lazy"
+            />
+            <span>教室は、世界じゅうにある。</span>
+          </div>
+          <div className="school-about__copy">
+            <p className="school-eyebrow">ABOUT TABIGAKU</p>
+            <h2 id="about-title">
+              「やってみたい」が、
+              <br />
+              生きる力になる。
+            </h2>
+            <p>
+              決められた正解より、自分で選ぶ一歩を。
+              <br />
+              旅する学校は、自然の中で遊び、人と出会い、
+              <br className="school-desktop" />
+              仲間と学び合う、旅の学び場です。
+            </p>
+            <div className="school-guide">
+              <img
+                src="/manus-storage/guide_torii_3a17f72b.jpg"
+                alt="案内人らんぼう"
+                width="60"
+                height="60"
+                loading="lazy"
+              />
+              <div>
+                <small>旅の案内人</small>
+                <p>
+                  らんぼう <span>上田 直樹</span>
                 </p>
               </div>
+              <a
+                href="https://earthguide.tabigaku.party/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="らんぼうの紹介を読む"
+              >
+                <ArrowUpRight size={22} />
+              </a>
             </div>
-          </motion.div>
-        </div>
-      </Section>
-
-      <Section className="py-16 md:py-24">
-        <div className="grid md:grid-cols-2 overflow-hidden rounded-2xl bg-[#214b3e] text-white">
-          <img src="/images/saijai-lake.jpg" alt="タイの湖に浮かぶSaaiJai Village" loading="lazy" className="w-full h-64 md:h-full min-h-64 object-cover" />
-          <div className="p-7 md:p-12 flex flex-col justify-center items-start">
-            <p className="text-xs tracking-[0.18em] text-white/75 mb-4">THAILAND · SaaiJai Village</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold leading-relaxed mb-5">湖にエコビレッジを<br />つくろう。</h2>
-            <p className="text-sm leading-8 text-white/90 mb-7">タイ・チェンマイ郊外、小舟で訪れる水上の村。泊まったり、学んだり、一緒に手を動かしたり。EarthfamilyJourneyの旅で出逢い、今は僕も村づくりに関わっている場所です。</p>
-            <Link href="/saijai" className="inline-flex items-center gap-3 rounded bg-[#f6f4ec] text-[#214b3e] px-5 py-4 text-sm font-bold hover:bg-white">SaaiJai Villageを知る <ArrowRight size={18} aria-hidden="true" /></Link>
+            <div className="school-evidence">
+              <a href="/award">
+                受賞歴・活動の紹介 <ArrowUpRight size={14} />
+              </a>
+              <a
+                href="/manus-storage/tokushima_shimbun_e14fdcec.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                徳島新聞での紹介 <ArrowUpRight size={14} />
+              </a>
+              <a
+                href="https://note.com/shiftdaigaku"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                旅の記録を読む <ArrowUpRight size={14} />
+              </a>
+            </div>
           </div>
-        </div>
-      </Section>
-
-      {/* ── Journeys ── */}
-      <Section id="journeys" background="muted" className="school-journeys">
-        <header className="school-journeys__heading">
-          <p className="school-journeys__eyebrow">UPCOMING JOURNEYS</p>
-          <h2>募集中の<span>JOURNEY</span></h2>
-          <p className="school-journeys__intro">日程と対象から、あなたに合う旅を。<br />写真をタップすると、大きく見られます。</p>
-        </header>
-
-        <JourneyCards journeys={journeys} />
-
-        <div className="school-journeys__share">
-          <ShareButtons
-            url="https://www.tabigaku.party/#journeys"
-            text="旅は、最高の学校。歩きお遍路、家族で出かける旅。旅する学校のJourneyを見てみよう。"
-            title="気になる旅を、いっしょに行きたい人へ"
-          />
-        </div>
-      </Section>
-
-      {/* ── CTA ── */}
-      <Section
-        background="image"
-        backgroundImage={BG_TEXTURE}
-        className="py-36 text-center"
-      >
-        {/* Subtle overlay for readability */}
-        <div className="absolute inset-0 bg-background/60 z-10" />
-        <div className="max-w-2xl mx-auto relative z-20">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[0.65rem] font-sans font-bold tracking-[0.22em] uppercase text-primary/70 mb-5"
-          >
-            CONTACT
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.85, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl md:text-5xl font-serif font-bold mb-10 text-foreground"
-          >
-            さあ、冒険の始まりだ。
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base md:text-lg text-muted-foreground mb-12 leading-relaxed"
-          >
-            自然の中で、仲間と共に、
-            <br className="hidden md:block" />
-            一生忘れられない思い出を作りませんか？
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center gap-6"
-          >
-            {/* LINE CTA（第一導線） */}
-            <a
-              href={LINE_TABIGAKU}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"
-              style={{ background: "linear-gradient(135deg,#06c755,#04a648)", boxShadow: "0 10px 30px rgba(6,199,85,.35)" }}
-            >
-              LINEで相談・申し込む
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <p className="text-xs text-muted-foreground -mt-3">※ 一番早くて確実です。相談だけでもOK</p>
-
-            {/* Contact card */}
-            <div
-              className="w-full max-w-md rounded-3xl px-8 py-9 flex flex-col items-center gap-5"
-              style={{
-                background: "rgba(255,255,255,.82)",
-                backdropFilter: "blur(8px)",
-                border: "1px solid rgba(29,92,77,.14)",
-                boxShadow: "0 20px 55px rgba(29,92,77,.10)",
-              }}
-            >
-              <p className="text-xs font-bold tracking-[0.25em]" style={{ color: "#1d5c4d" }}>
-                お電話・メールでもお気軽に
-              </p>
-              <a
-                href="tel:09075188816"
-                className="text-2xl md:text-3xl font-bold text-foreground hover:text-primary transition-colors tracking-widest"
-              >
-                090-7518-8816
-              </a>
-              <div style={{ width: 56, height: 1, background: "rgba(29,92,77,.18)" }} />
-              <a
-                href="mailto:earthguide.jpn@gmail.com"
-                className="text-sm md:text-base text-muted-foreground hover:text-primary transition-colors"
-              >
-                earthguide.jpn@gmail.com
-              </a>
-            </div>
-
-            {/* Note CTA */}
-            <a
-              href="https://earthguide.tabigaku.party/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-base transition-all duration-300 hover:scale-[1.03]"
-              style={{ color: "#1d5c4d", border: "2px solid rgba(29,92,77,.35)", background: "rgba(255,255,255,.5)" }}
-            >
-              あーすガイド公式HP
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* ============ LINE 登録しかけ ============ */}
-      <Section className="py-16 md:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-2xl mx-auto rounded-3xl p-8 md:p-12 text-center"
-          style={{ background: "linear-gradient(150deg,#eef7ee,#fdf9ef)", border: "1px solid #d8e8d8", boxShadow: "0 18px 50px rgba(29,92,77,.10)" }}
+        </section>
+        <section
+          className="school-section school-first"
+          id="first"
+          aria-labelledby="first-title"
         >
-          <p className="text-sm font-bold tracking-[0.2em] mb-3" style={{ color: "#04a648" }}>OFFICIAL LINE</p>
-          <h3 className="text-2xl md:text-3xl font-serif font-bold mb-5 text-foreground leading-snug">
-            次の冒険の先行案内を、<br />いち早くお届けします
-          </h3>
-          <p className="text-sm md:text-base text-muted-foreground leading-loose mb-6">
-            人気の旅は、募集開始からあっという間に満席になります。<br className="hidden md:block" />
-            公式LINEにご登録いただくと——
-          </p>
-          <div className="text-left inline-block text-sm md:text-base leading-loose mb-7" style={{ color: "#1d5c4d", fontWeight: 700 }}>
-            🌏 新しい旅・イベントの先行案内<br />
-            🎫 LINE登録者限定のお得な割引情報<br />
-            📖 らんぼうの旅日記・子育てと自然のヒント
-          </div>
           <div>
+            <p className="school-eyebrow">BEFORE YOU GO</p>
+            <h2 id="first-title">
+              はじめての一歩を、
+              <br />
+              一緒に。
+            </h2>
+            <p>
+              気になることは、
+              <br />
+              申し込む前に聞いてください。
+            </p>
+          </div>
+          <div className="school-faq">
+            <details>
+              <summary>子どもだけでも、初参加でも大丈夫？</summary>
+              <p>
+                子ども向けの高知編は小学3年生〜中学3年生が対象。神足歩行術の旅は2026年度に満10歳〜65歳が対象です。体力や旅の経験について不安があれば、事前に案内人へご相談ください。
+              </p>
+            </details>
+            <details>
+              <summary>宿泊・食事・安全面はどうなっていますか？</summary>
+              <p>
+                旅ごとにキャンプや宿泊、自炊などの過ごし方が異なります。お遍路の旅では保険に加入し、天候により行程を変更する場合があります。アレルギー、持病、服薬、写真掲載についてのご希望は、参加前にご相談ください。
+              </p>
+            </details>
+            <details>
+              <summary>参加費以外に、いくら必要ですか？</summary>
+              <p>
+                各旅のカードに「参加費＋実費」の目安を掲載しています。実費は食費・宿泊費などで変動します。集合・解散地までの交通費や装備、家族割引の適用は、各旅の詳細でご確認ください。
+              </p>
+            </details>
+            <details>
+              <summary>申し込みは、どう進めればいいですか？</summary>
+              <p>
+                旅の詳細で日程・費用・注意事項を確認し、申し込み案内からフォームへ進んでください。子どもの参加では参加者本人の情報と保護者の連絡先をご準備ください。迷ったらLINE・電話・メールでも相談できます。
+              </p>
+            </details>
+          </div>
+        </section>
+        <section className="school-contact" id="contact">
+          <div>
+            <p className="school-eyebrow">LET’S TAKE THE FIRST STEP</p>
+            <h2>
+              少し気になったら、
+              <br className="school-mobile" />
+              そこが旅のはじまり。
+            </h2>
+            <p>日程、体力、家族での参加。まずは気軽にお話ししましょう。</p>
+          </div>
+          <div className="school-contact__links">
             <a
-              href={LINE_TABIGAKU}
+              className="school-button school-button--light"
+              href={SCHOOL_LINE}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-[1.03] transition-all duration-300 shadow-xl"
-              style={{ background: "linear-gradient(135deg,#06c755,#04a648)", boxShadow: "0 10px 30px rgba(6,199,85,.35)" }}
+              onClick={() => trackJourneyAction("consult", "home")}
             >
-              無料でLINEに登録する
-              <ArrowRight className="w-5 h-5" />
+              LINEで相談する <ArrowUpRight size={17} />
             </a>
-            <p className="text-xs text-muted-foreground mt-3">※ 登録は10秒。いつでも解除できます</p>
+            <a
+              className="school-newsletter"
+              href="https://ranbou.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              旅のお便りを受け取る <ArrowUpRight size={14} />
+            </a>
           </div>
-        </motion.div>
-      </Section>
-
-      <SubstackCTA />
-      <Footer />
-
-      {/* フローティングLINEボタン */}
-      <a
-        href={LINE_TABIGAKU}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="公式LINEに登録"
-        style={{
-          position: "fixed", right: 16, bottom: 18, zIndex: 60,
-          display: "flex", alignItems: "center", gap: 8,
-          background: "linear-gradient(135deg,#06c755,#04a648)", color: "#fff",
-          fontWeight: 900, fontSize: 14, padding: "13px 20px", borderRadius: 999,
-          textDecoration: "none", boxShadow: "0 10px 28px rgba(6,199,85,.45)",
-        }}
-      >
-        <span style={{ fontSize: 18 }}>💬</span> LINE登録
-      </a>
+        </section>
+      </main>
+      <Footer compact />
     </div>
   );
 }

@@ -1,8 +1,9 @@
+import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 import ShareButtons from "@/components/ShareButtons";
 
 const LINE = "https://lin.ee/N9eyIcP";
-const FORM = "https://1lejend.com/stepmail/kd.php?no=flieylTa";
+const FORM = LINE; // Past event: route new interest to the next journey.
 const LNK: CSSProperties = { color: "#04a648", fontWeight: 800, fontSize: "13.5px", textDecoration: "underline", textUnderlineOffset: 3 };
 const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
 
@@ -37,6 +38,7 @@ function CountdownBadge({ light = false }: { light?: boolean }) {
 export default function Efj() {
   return (
     <div className="efj">
+      <JourneyStatusNotice id="earth-family" />
       <style>{`
         .efj { background:#faf7f2; color:#2c2c26; font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif; overflow-x:hidden; }
         .efj img { max-width:100%; }
@@ -133,7 +135,7 @@ export default function Efj() {
               そんなプレミアムな旅路へ、出発しませんか？
             </p>
             <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-              申し込みフォームへ →
+              次回の旅を相談する →
             </a>
             <span className="efj-btn-sub">※ ご相談は<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", fontWeight: 800, textDecoration: "underline" }}>公式LINE</a>からどうぞ。「地球家族ジャーニー希望」とメッセージを</span>
             <p className="period">2026年8月5日(水)〜14日(金)｜山口・祝島 → 徳島・神山｜少人数制（10名ほど）｜親子・ご家族歓迎｜小学生未満はドネーション制</p>
@@ -277,7 +279,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
                 <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
               </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
             </div>
             <div className="efj-plan">
               <h3>Bプラン｜山口じっくり7日間</h3>
@@ -289,7 +291,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
                 <li><b>お別れ</b>｜8/11 12:30 祝島にて（12:30発のフェリーがあります）</li>
               </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
             </div>
             <div className="efj-plan">
               <h3>Cプラン｜神山＆阿波おどり3日間</h3>
@@ -301,7 +303,7 @@ export default function Efj() {
                 <li><b>待ち合わせ</b>｜8/12(水) 12:00 神山町 道の駅にて</li>
                 <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
               </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">このスタイルで申し込む →</a>
+              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
             </div>
           </div>
           <div className="efj-note">
@@ -405,7 +407,7 @@ export default function Efj() {
               <CountdownBadge light />
               <div>
                 <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-                  🌏 申し込みフォームへ →
+                  🌏 次回の旅を相談する →
                 </a>
               </div>
               <a className="tel" href={LINE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>💬 相談は公式LINEから →</a>
@@ -424,7 +426,7 @@ export default function Efj() {
 
       <ShareButtons
         url="https://www.tabigaku.party/efj"
-        text="地球家族ジャーニー 2026｜8/5-14 祝島から神山へ10日間。太陽と風の塩づくり、島の暮らし、オルタナティブスクール、焚き火と星空、阿波おどり。魂が震え、命が喜ぶ旅へ。親子・家族歓迎・少人数制。"
+        text="地球家族ジャーニー 2026｜8/5-14 祝島から神山へ10日間。太陽と風の塩づくり、島の暮らし、オルタナティブスクール、焚き火と星空、阿波おどり。2026年8月の開催内容をご紹介。"
         title="＼ 地球家族ジャーニーをシェア ／"
       />
 
@@ -433,7 +435,7 @@ export default function Efj() {
       {/* ============ 固定CTA ============ */}
       <div className="efj-fixed">
         <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-          地球家族ジャーニーに申し込む（フォーム）
+          次回の地球家族ジャーニーを相談する
         </a>
         {(() => {
           const dep = new Date("2026-08-05T00:00:00+09:00").getTime();

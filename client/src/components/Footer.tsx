@@ -20,7 +20,14 @@ const navLinks = [
   { label: "スポンサーになる", href: "/sponsor", internal: true },
 ];
 
-export default function Footer() {
+export default function Footer({ compact = false }: { compact?: boolean }) {
+  if (compact) return (
+    <footer className="school-footer">
+      <div className="school-footer__top"><a href="/" className="school-footer__brand">旅する学校</a><div><a href="tel:09075188816">090-7518-8816</a><a href="mailto:earthguide.jpn@gmail.com">earthguide.jpn@gmail.com</a></div></div>
+      <nav className="school-footer__links" aria-label="関連サイトと活動"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="https://kamiyamag.tabigaku.party" target="_blank" rel="noopener noreferrer">神山ガイド</a><a href="/saijai">SaaiJai Village</a><a href="/earth-family-journey">家族の旅の記録</a><a href="/juku">らんぼう塾</a><a href="/sponsor">活動を応援する</a>{socialLinks.map(link => <a href={link.href} key={link.label} target="_blank" rel="noopener noreferrer">{link.label}</a>)}</nav>
+      <div className="school-footer__bottom"><small>© {new Date().getFullYear()} 旅する学校</small><details><summary>管理・復旧</summary><a href="https://earthguide.tabigaku.party/admin" target="_blank" rel="noopener noreferrer">管理人ページ</a><a href="https://ranbou-homepage-recovery.runbou.chatgpt.site/#tabigaku" target="_blank" rel="noopener noreferrer nofollow">復旧室（本人専用）</a></details></div>
+    </footer>
+  );
   return (
     <footer className="bg-foreground text-background">
       {/* Main footer */}

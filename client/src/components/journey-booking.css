@@ -1,0 +1,320 @@
+.booking-status {
+  position: relative;
+  z-index: 20;
+  background: #e8eddf;
+  color: #1b3d32;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 20px;
+  font-size: 13px;
+}
+.booking-status a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.booking-quick {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 27px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #f6f5ec;
+  color: #193d32;
+  border-bottom: 1px solid #d5ddcc;
+  text-align: left;
+}
+.booking-quick > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.booking-quick small {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.booking-quick strong {
+  font-size: clamp(15px, 1.5vw, 19px);
+}
+.booking-quick span {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.booking-quick > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  border-bottom: 1px solid #193d32;
+  padding: 12px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+.booking-panel {
+  background: #f5f4ec;
+  color: #193d32;
+  padding: 55px 24px;
+  scroll-margin-top: 90px;
+  text-align: left;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+}
+.booking-panel__inner {
+  max-width: 820px;
+  margin: auto;
+}
+.booking-panel .booking-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  margin: 0 0 13px;
+  font-weight: 700;
+}
+.booking-panel h2 {
+  color: #193d32;
+  font-size: clamp(26px, 4vw, 38px);
+  font-family: "Zen Old Mincho", serif;
+  margin: 0 0 18px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.booking-panel .booking-lead {
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0 0 22px;
+}
+.booking-summary {
+  padding: 20px 25px;
+  background: #fff;
+  margin: 0 0 14px;
+}
+.booking-summary > div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+}
+.booking-summary dt {
+  font-size: 12px;
+  font-weight: 500;
+}
+.booking-summary dd {
+  font-size: 14px;
+  margin: 0;
+}
+.booking-summary dd strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+.booking-summary dd span {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 1.8;
+}
+.booking-panel .booking-note {
+  font-size: 11px;
+  color: #64705f;
+  line-height: 1.9;
+  margin: 14px 0;
+}
+.booking-panel details {
+  border: 0;
+  border-bottom: 1px solid #d4dbcd;
+  background: none;
+  border-radius: 0;
+  margin: 0;
+}
+.booking-panel summary {
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  list-style: revert;
+  padding: 17px 0;
+  color: #193d32;
+}
+.booking-panel summary:after {
+  display: none;
+}
+.booking-panel details p,
+.booking-panel details ol {
+  font-size: 13px;
+  line-height: 1.95;
+  padding: 0 4px 15px;
+  margin: 0;
+  color: #465544;
+}
+.booking-panel details ol {
+  padding-left: 23px;
+  list-style: decimal;
+}
+.booking-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 25px 0 8px;
+}
+.booking-primary,
+.booking-secondary {
+  display: inline-flex;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 25px;
+  min-height: 53px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: 1px solid #193d32;
+}
+.booking-panel .booking-primary {
+  background: #193d32;
+  color: #fff;
+}
+.booking-secondary {
+  color: #193d32;
+  background: transparent;
+}
+.booking-primary:hover,
+.booking-secondary:hover {
+  filter: brightness(1.15);
+}
+.booking-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 12px;
+  margin: 24px 0 0 !important;
+}
+.booking-contact a {
+  color: #193d32;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.booking-panel :focus-visible,
+.booking-quick :focus-visible {
+  outline: 3px solid #a95832;
+  outline-offset: 4px;
+}
+@media (max-width: 700px) {
+  .booking-quick {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 18px;
+  }
+  .booking-quick > a {
+    justify-self: start;
+  }
+  .booking-panel {
+    padding: 38px 22px;
+  }
+  .booking-summary {
+    padding: 15px 18px;
+  }
+  .booking-summary > div {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  .booking-summary dd {
+    font-size: 13px;
+  }
+  .booking-summary dd strong {
+    font-size: 19px;
+  }
+  .booking-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .booking-primary,
+  .booking-secondary {
+    justify-content: space-between;
+  }
+  .booking-status {
+    font-size: 12px;
+    text-align: center;
+    gap: 8px;
+  }
+  .booking-status strong {
+    flex-basis: 100%;
+  }
+}
+.booking-back {
+  display: block;
+  padding: 14px 24px;
+  background: #f5f4ec;
+  color: #193d32;
+  font-size: 12px;
+  text-decoration: none;
+}
+.henro-page > .booking-status {
+  margin-top: 67px;
+}
+.henro-page > .booking-status + .sr-only + .henro-header {
+  top: 0;
+}
+/* Keep booking guidance readable inside the older event-specific style sheets. */
+.oj-page .booking-panel {
+  padding: 55px 24px;
+}
+.oj-page .booking-quick {
+  padding: 27px 24px;
+}
+.oj-page .booking-panel__inner {
+  margin: auto;
+}
+.oj-page .booking-summary {
+  padding: 20px 25px;
+  margin: 0 0 14px;
+}
+.oj-page .booking-summary > div {
+  padding: 10px 0;
+}
+.oj-page .booking-summary dd span {
+  margin-top: 6px;
+}
+.oj-page .booking-actions {
+  margin: 25px 0 8px;
+}
+.oj-page .booking-primary,
+.oj-page .booking-secondary {
+  padding: 16px 25px;
+}
+.oj-page .booking-panel details {
+  margin: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #d4dbcd;
+}
+.oj-page .booking-panel summary {
+  padding: 17px 0;
+}
+.oj-page .booking-panel details p {
+  padding: 0 4px 15px;
+}
+.oj-page .booking-panel details ol {
+  padding: 0 4px 15px 23px;
+}
+.oj-page .booking-back {
+  padding: 14px 24px;
+}
+.oj-page .booking-panel .booking-primary {
+  color: #fff;
+}
+.oj-page .booking-status {
+  padding: 20px;
+}
+@media (max-width: 700px) {
+  .oj-page .booking-panel {
+    padding: 38px 22px;
+  }
+  .oj-page .booking-quick {
+    padding: 24px;
+  }
+  .oj-page .booking-summary {
+    padding: 15px 18px;
+  }
+}

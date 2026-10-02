@@ -1,175 +1,89 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+import "./school-navigation.css";
 
-const navLinks = [
-  { label: "あーすガイド公式HP", href: "https://earthguide.tabigaku.party/", external: true },
-  { label: "ホーム", href: "/" },
+const links = [
+  { label: "旅を選ぶ", href: "/#journeys" },
   { label: "旅する学校とは", href: "/#about" },
-  { label: "Journey", href: "/#journeys" },
-  { label: "SaaiJai Village", href: "/saijai" },
-  { label: "神山ガイド", href: "https://kamiyamag.tabigaku.party", external: true },
-  { label: "ガイド紹介", href: "https://kamiyamag.tabigaku.party/guide", external: true },
-  { label: "ブログ", href: "https://note.com/shiftdaigaku", external: true },
-  { label: "受賞歴", href: "/award" },
-  { label: "スポンサーになる", href: "/sponsor#sponsor-content" },
+  { label: "はじめての方へ", href: "/#first" },
 ];
-
 export default function Navigation() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [location] = useLocation();
-
+  const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
+    setOpen(false);
+  }, [location]);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggle.current?.focus();
+      }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const isHome = location === "/" || location === "/saijai";
-
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [open]);
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out",
-        scrolled
-          ? "bg-background/95 backdrop-blur-xl shadow-[0_1px_0_0_var(--border)] py-3"
-          : "bg-transparent py-5"
-      )}
-    >
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div
-            className={cn(
-              "text-lg font-serif font-black tracking-widest transition-colors duration-300",
-              scrolled ? "text-foreground" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
-            )}
-          >
-            旅する学校
-          </div>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden xl:flex items-center gap-1">
-          {navLinks.map((link) => {
-            const isLast = link.label === "スポンサーになる";
-            const baseClass = cn(
-              "relative text-xs font-medium tracking-wide transition-all duration-200 px-3 py-2 rounded-sm",
-              isLast
-                ? cn(
-                    "ml-4 px-4 py-2 rounded-full border font-bold text-xs tracking-widest transition-all duration-200",
-                    scrolled || !isHome
-                      ? "border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                      : "border-white/80 text-white hover:bg-white/15"
-                  )
-                : cn(
-                    "hover:text-primary",
-                    scrolled || !isHome
-                      ? "text-foreground/80 hover:text-foreground"
-                      : "text-white/85 hover:text-white"
-                  )
-            );
-            if (link.external) {
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={baseClass}
-                >
-                  {link.label}
-                </a>
-              );
-            }
-            if (link.href.includes("#")) {
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={baseClass}
-                >
-                  {link.label}
-                </a>
-              );
-            }
-            return (
-              <Link key={link.label} href={link.href} className={baseClass}>
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Mobile menu button */}
-        <button
-          className={cn(
-            "xl:hidden p-2 rounded-md transition-colors",
-            scrolled || !isHome ? "text-foreground" : "text-white"
-          )}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="メニュー"
+    <header className="school-nav">
+      <a
+        className="school-skip"
+        href={location === "/" ? "#main-content" : "#school-navigation-end"}
+      >
+        本文へ移動
+      </a>
+      <div className="school-nav__inner">
+        <Link
+          href="/"
+          className="school-nav__brand"
+          aria-label="旅する学校 ホーム"
         >
-          {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          旅する学校<span>TABIGAKU</span>
+        </Link>
+        <nav className="school-nav__desktop" aria-label="メインメニュー">
+          {links.map(link => (
+            <a key={link.href} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+          <a className="school-nav__contact" href="/#contact">
+            旅の相談 <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        </nav>
+        <button
+          ref={toggle}
+          type="button"
+          className="school-nav__toggle"
+          aria-label={open ? "メニューを閉じる" : "メニューを開く"}
+          aria-expanded={open}
+          aria-controls="school-mobile-menu"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={23} /> : <Menu size={23} />}
         </button>
       </div>
-
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="xl:hidden bg-background/98 backdrop-blur-xl border-t border-border">
-          <nav className="container mx-auto py-6 flex flex-col gap-1">
-            {navLinks.map((link) => {
-              const isLast = link.label === "スポンサーになる";
-              const cls = cn(
-                "text-sm font-medium py-3 px-2 transition-colors border-b border-border/40 last:border-0",
-                isLast
-                  ? "text-primary font-bold"
-                  : "text-foreground/80 hover:text-foreground"
-              );
-              if (link.external) {
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cls}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
-              if (link.href.includes("#")) {
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className={cls}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                );
-              }
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className={cls}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
+      <nav
+        className="school-nav__mobile"
+        id="school-mobile-menu"
+        aria-label="モバイルメニュー"
+        hidden={!open}
+      >
+        {[
+          ...links,
+          { label: "旅の相談", href: "/#contact" },
+          { label: "SaaiJai Village", href: "/saijai" },
+          { label: "受賞歴・活動", href: "/award" },
+          { label: "活動を応援する", href: "/sponsor" },
+        ].map(link => (
+          <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            {link.label}
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        ))}
+      </nav>
+      <span id="school-navigation-end" />
     </header>
   );
 }
