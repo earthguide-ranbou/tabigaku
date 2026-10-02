@@ -58,27 +58,22 @@ export default function Home() {
               <p className="school-eyebrow">NEXT JOURNEY</p>
               <h2 id="journeys-title">次は、どんな冒険へ。</h2>
             </div>
-            <p>
-              日常を少し離れて、
-              <br className="school-desktop" />
-              忘れられない時間を。
-            </p>
-          </div>
-          <div
-            className="school-filters"
-            role="group"
-            aria-label="参加する方から旅を選ぶ"
-          >
-            {audiences.map(option => (
-              <button
-                type="button"
-                key={option.value}
-                aria-pressed={audience === option.value}
-                onClick={() => setAudience(option.value)}
-              >
-                {option.label}
-              </button>
-            ))}
+            <div
+              className="school-filters"
+              role="group"
+              aria-label="参加する方から旅を選ぶ"
+            >
+              {audiences.map(option => (
+                <button
+                  type="button"
+                  key={option.value}
+                  aria-pressed={audience === option.value}
+                  onClick={() => setAudience(option.value)}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="school-trip-grid" aria-live="polite">
             {visible.map(journey => (
@@ -102,7 +97,14 @@ export default function Home() {
                       ? "募集中"
                       : "開催中"}
                   </span>
-                  <span className="school-trip__place">{journey.place}</span>
+                  <span className="school-trip__place">
+                    <small>
+                      {journey.id === "kochi"
+                        ? "子どもたちの冒険"
+                        : "親子・大人の旅"}
+                    </small>
+                    {journey.place}
+                  </span>
                 </a>
                 <div className="school-trip__body">
                   <p className="school-trip__date">
@@ -143,7 +145,8 @@ export default function Home() {
                         trackJourneyAction("view_journey", journey.id)
                       }
                     >
-                      詳しく見る <ArrowRight size={17} aria-hidden="true" />
+                      この旅の日程・詳細を見る{" "}
+                      <ArrowRight size={17} aria-hidden="true" />
                     </a>
                   </div>
                 </div>
@@ -196,7 +199,9 @@ export default function Home() {
               height="1110"
               loading="lazy"
             />
-            <span>教室は、世界じゅうにある。</span>
+            <span>
+              <small>OUR CLASSROOM</small>教室は、世界じゅうにある。
+            </span>
           </div>
           <div className="school-about__copy">
             <p className="school-eyebrow">ABOUT TABIGAKU</p>
