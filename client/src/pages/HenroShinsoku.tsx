@@ -8,7 +8,7 @@ const ASSET = "/henro-assets/";
 export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
-    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。早割9/10（木）まで。",
+    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。参加費100,000円（税込）＋実費。",
     keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
@@ -100,7 +100,7 @@ export default function HenroShinsoku() {
       <div className="hero-date">2026.10.27 <b>TUE</b> ― 10.31 <b>SAT</b></div>
       <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
     </div>
-    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>早期割引 12,000円OFF ｜ 2026年9月10日（木）まで</div>
+    <div style={{margin: "16px 0 4px", display: "inline-block", background: "rgba(214,90,58,.14)", border: "1px solid rgba(214,90,58,.55)", color: "#d65a3a", borderRadius: "999px", padding: "8px 22px", fontSize: "13.5px", fontWeight: 700, letterSpacing: ".04em"}}>参加費100,000円（税込）＋実費 ｜ 早期割引は終了しました</div>
     <div className="hero-btns">
       <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">参加申し込みはこちら</a>
       <a className="btn btn-ink" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
@@ -326,7 +326,7 @@ export default function HenroShinsoku() {
   <div className="wrap reveal">
     <span className="tag center">LIMITED ― 残席</span>
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
-    <p className="lead-p" style={{marginInline: "auto"}}>早割は2026年9月10日（木）まで。気になったら、まずはお気軽にご相談ください。</p>
+    <p className="lead-p" style={{marginInline: "auto"}}>日程・参加費・宿泊や歩く距離を確認して、気になることはお気軽にご相談ください。</p>
     <a className="btn btn-shu" href="https://share.google/tvcyQIuEC1A0Sl5UK" target="_blank" rel="noopener">申し込む</a>
     <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
@@ -416,7 +416,7 @@ export default function HenroShinsoku() {
 </section>
 
 {/* ============ INFO ============ */}
-<section style={{background: "var(--washi2)", borderBlock: "1px solid var(--line)"}}>
+<section id="information" style={{scrollMarginTop: "24px", background: "var(--washi2)", borderBlock: "1px solid var(--line)"}}>
   <div className="wrap reveal">
     <span className="tag">INFORMATION ― 概要</span>
     <h2 className="h2">開催概要・<em>お申し込み。</em></h2>
@@ -471,7 +471,7 @@ export default function HenroShinsoku() {
         <div className="price">100,000<small> 円（税込）</small></div>
         <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>＋ 実費 20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
-          <b>早期割引</b>｜2026/9/10（木）までの申し込み＆一括入金で <b>12,000円引き</b><br />
+          <b>早期割引は終了しました</b>｜受付期限：2026年9月10日（木）<br />
           <b>家族割引</b>｜2人目以降（2026年度に満10歳以上の方）は、1人につき66,000円以上のドネーション制<br />
           <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
         </div>

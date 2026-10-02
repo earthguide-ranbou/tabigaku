@@ -407,7 +407,7 @@ export default function Henro() {
       </section>
 
       {/* ===== INFORMATION ===== */}
-      <section className="henro-section henro-info">
+      <section id="information" className="henro-section henro-info" style={{ scrollMarginTop: "24px" }}>
         <div className="henro-section-inner">
           <p className="henro-section-label reveal">INFORMATION</p>
           <h2 className="reveal">参加概要</h2>
@@ -424,7 +424,7 @@ export default function Henro() {
             </div>
             <div className="henro-info-row">
               <span className="henro-info-key">早割</span>
-              <span className="henro-info-val accent">5,000円引き（9月10日まで）</span>
+              <span className="henro-info-val">受付終了（2026年9月10日）</span>
             </div>
             <div className="henro-info-row">
               <span className="henro-info-key">兄弟割</span>
