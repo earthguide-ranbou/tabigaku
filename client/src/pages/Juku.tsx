@@ -4,7 +4,9 @@ import { Check, Compass, Globe2, HeartHandshake, MessageCircle, Mic2, Mountain, 
 import { useSEO } from "@/hooks/useSEO";
 import ShareButtons from "@/components/ShareButtons";
 import JukuMiniwork from "@/components/JukuMiniwork";
+import { useJukuScenes } from "@/hooks/useJukuScenes";
 import "./juku.css";
+import "./juku-scenes.css";
 
 const LINE = "https://lin.ee/p3CvLfQ";
 const FORM = "https://earthguide.tabigaku.party/forms/ranbou-juku";
@@ -35,6 +37,7 @@ const questions = [
 ];
 
 export default function Juku() {
+  const motionRoot = useJukuScenes();
   useEffect(() => {
     trackPublicAction("page_view", "juku");
     const root = document.getElementById("juku-top");
@@ -46,7 +49,8 @@ export default function Juku() {
     return () => root?.removeEventListener("click", onClick);
   }, []);
   useSEO({ title: "らんぼう塾｜いつでも入塾・39,800円・EARTH FAMILY DAO参加券つき", description: "ワクワクとドキドキがきたらGOサイン。Threads・AI・世界の暮らしを学び、仲間とやってみたいを形にする、らんぼう塾。いつでも入塾、受講料39,800円（税込）。EARTH FAMILY DAO参加券つき。" });
-  return <div className="ran-juku" id="juku-top">
+  return <div className="ran-juku" id="juku-top" ref={motionRoot}>
+    <div className="rj-reading-line" aria-hidden="true" />
     <a href="#juku-main" className="rj-skip">本文へ進む</a>
     <header className="rj-header">
       <a href="#juku-top" className="rj-brand" aria-label="らんぼう塾 トップ"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a>
@@ -54,12 +58,13 @@ export default function Juku() {
       <a className="rj-header-cta" href={FORM} data-eg-event="service_click">入塾する</a>
     </header>
     <main id="juku-main">
-      <section className="rj-hero" aria-labelledby="rj-title">
+      <section className="rj-hero" aria-labelledby="rj-title" data-rj-scene>
         <img className="rj-hero-image" src="/juku/desert2.jpg" width="960" height="640" alt="色鮮やかな山々を望み、広大な大地を走るらんぼうの旅の記録" fetchPriority="high" />
-        <div className="rj-hero-shade" /><div className="rj-hero-orbit" aria-hidden="true" />
+        <div className="rj-hero-shade" /><div className="rj-hero-flare" aria-hidden="true" />
+        <div className="rj-hero-orbit" aria-hidden="true"><svg viewBox="0 0 620 620" fill="none"><circle className="rj-orbit-path" cx="310" cy="310" r="285" pathLength="1" /><ellipse cx="310" cy="310" rx="135" ry="285" /><path d="M42 216Q310 356 578 216M42 404Q310 264 578 404" /><g className="rj-orbit-satellite"><circle cx="310" cy="25" r="6" /><circle cx="310" cy="25" r="15" /></g></svg></div>
         <div className="rj-hero-inner rj-wrap"><div className="rj-hero-copy">
           <p className="rj-eyebrow">YOUR LIFE. YOUR ADVENTURE.</p><p className="rj-hero-intro">ワクワクとドキドキがきたら、GOサイン。</p>
-          <h1 id="rj-title">人生は、<br /><em>もっと面白く</em><br />なる。</h1>
+          <h1 id="rj-title"><span className="rj-title-mask"><span data-rj-reveal="line">人生は、</span></span><span className="rj-title-mask"><em data-rj-reveal="line">もっと面白く</em></span><span className="rj-title-mask"><span data-rj-reveal="line">なる。</span></span></h1>
           <p className="rj-hero-description">Threads・AI・旅の学びを、仲間と実践。<br />「やってみたい」をカタチにする、オンラインの学び場。</p>
           <ul className="rj-hero-facts" aria-label="学び方"><li>オンライン中心</li><li>初心者歓迎</li><li>Zoom録画あり</li></ul>
           <div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">らんぼう塾に参加する</a><a className="rj-text-link rj-link-light" href="#learn">この塾でできること</a></div>
@@ -77,13 +82,19 @@ export default function Juku() {
         <div className="rj-learning-grid">{experiences.map(({ number, label, title, icon: Icon, text, tags }) => <article className="rj-learning" key={number} data-journey-reveal><div className="rj-learning-top"><span>{number} / {label}</span><Icon size={27} strokeWidth={1.4} aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p><ul>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul></article>)}</div>
         <div className="rj-contents-head"><h3>日々の学びと、会える楽しみ。</h3><p>忙しい日にも、あなたに合う関わり方で。</p></div>
         <div className="rj-contents-grid">{contents.map(({ icon: Icon, title, detail, text }) => <article className="rj-content" key={title}><Icon size={25} strokeWidth={1.5} aria-hidden="true" /><div><h4>{title}</h4><span>{detail}</span><p>{text}</p></div></article>)}</div><p className="rj-note">合宿・イベントの日程や参加条件は、その都度ご案内します。</p>
+        <div className="rj-community-gallery" id="moments" data-rj-scene>
+          <div className="rj-gallery-heading"><p className="rj-eyebrow">REAL PEOPLE. REAL CONNECTIONS.</p><h3>話す。笑う。<em>世界が広がる。</em></h3><p>らんぼうの活動で生まれた、対話と出会いのひとこま。</p></div>
+          <figure className="rj-community-photo rj-dialogue-photo"><div className="rj-photo-window" data-rj-reveal="photo"><img src="/juku/dialogue-1080.webp" srcSet="/juku/dialogue-540.webp 540w, /juku/dialogue-1080.webp 1080w" sizes="(max-width: 760px) calc(100vw - 40px), 42vw" width="1080" height="1439" loading="lazy" decoding="async" alt="小さなグループに分かれて、顔を合わせながら話す人たち" /></div><figcaption><span>01 / DIALOGUE</span><strong>話すことで、見えてくる。</strong></figcaption></figure>
+          <figure className="rj-community-photo rj-gathering-photo"><div className="rj-photo-window" data-rj-reveal="photo"><img src="/juku/community-1440.webp" srcSet="/juku/community-720.webp 720w, /juku/community-1440.webp 1440w" sizes="(max-width: 760px) calc(100vw - 40px), 53vw" width="1440" height="1081" loading="lazy" decoding="async" alt="らんぼうと集まった仲間たちの、笑顔の集合写真" /></div><figcaption><span>02 / CONNECTION</span><strong>出会いが、次のきっかけに。</strong></figcaption></figure>
+          <svg className="rj-photo-trail" viewBox="0 0 1000 140" fill="none" aria-hidden="true"><path d="M20 105C150 0 330 130 480 55S805 5 980 80" pathLength="1" /></svg>
+        </div>
         <JukuMiniwork />
       </section>
       <section className="rj-story" id="story" aria-labelledby="story-title"><div className="rj-wrap rj-story-grid">
-        <figure className="rj-running-visual" data-journey-reveal>
-          <span className="rj-running-word" aria-hidden="true">GO<br />SIGN.</span>
-          <img src="/juku/ranbou-go-sign-1086.webp" srcSet="/juku/ranbou-go-sign-540.webp 540w, /juku/ranbou-go-sign-1086.webp 1086w" sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1100px) 42vw, 510px" width="1086" height="1448" alt="笑顔で走るポーズをとるらんぼう" loading="lazy" decoding="async" />
-          <figcaption><span>ワクワクを、次の一歩に。</span><small>LEARN. TRY. SHARE.</small></figcaption>
+        <figure className="rj-forest-portrait" data-rj-scene>
+          <div className="rj-photo-window" data-rj-reveal="photo"><img src="/juku/ranbou-forest-1080.webp" srcSet="/juku/ranbou-forest-540.webp 540w, /juku/ranbou-forest-1080.webp 1080w" sizes="(max-width: 760px) calc(100vw - 54px), 44vw" width="1080" height="1440" alt="木漏れ日の差す森で、岩に腰をかけて笑うらんぼう" loading="lazy" decoding="async" /></div>
+          <div className="rj-photo-seal" aria-hidden="true"><Compass strokeWidth={1} /><span>STAY<br />CURIOUS.</span></div>
+          <figcaption><span>自然の中で、ことばがほどける。</span><small>A MOMENT WITH RANBOU</small></figcaption>
         </figure>
         <div className="rj-story-copy"><p className="rj-eyebrow">02 / A MESSAGE FROM RANBOU</p><h2 id="story-title">すべては、<br /><em>未完成からはじまる。</em></h2><p>地球を旅して、砂漠を走って、仲間と学校をつくってきた。その始まりは、いつも「やってみたい」でした。</p><p>不安でもいい。準備ができていなくても大丈夫。ひとりでは踏み出せなかった一歩も、同じ方向を向く仲間がいたら、面白くなる。</p><p>自分の人生を、自分の手で動かす。<br />その先に、次の世代へ手渡したい未来がある。<br />一緒に、次の景色を見にいこう。</p><div className="rj-signature"><img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="らんぼう（上田直樹）" width="72" height="72" loading="lazy" /><strong>らんぼう</strong><span>上田直樹<br />あーすガイド・旅する学校 代表／4児の父</span></div><a className="rj-text-link" href="https://earthguide.tabigaku.party/#profile" target="_blank" rel="noopener noreferrer">詳しいプロフィール・活動歴を見る</a></div>
       </div><div className="rj-wrap rj-story-records"><div><strong>地球一周</strong><span>旅から学び、生き方にする</span></div><div><strong>500回以上</strong><span>各地での講演・対話の経験</span></div><div><strong>神山から</strong><span>自然と人をつなぐ学びの場へ</span></div></div></section>
@@ -97,7 +108,11 @@ export default function Juku() {
         <div className="rj-price-card" data-journey-reveal><div className="rj-price-top"><span>らんぼう塾</span><span>随時受付中</span></div><p className="rj-price-label">受講料</p><p className="rj-amount"><span>¥</span>39,800<small>税込</small></p><p className="rj-price-bonus"><Ticket size={19} aria-hidden="true" /> EARTH FAMILY DAO参加券つき</p><p className="rj-price-caption">学びと交流に、世界の仲間とのつながりを。</p><ul className="rj-checklist">{["限定ラジオ・Zoomライブ・録画", "Threads攻略・AI活用の学び", "バズ部屋・LINE交流グループ", "神山合宿・ワクドキ祭りの参加機会", "DAO一般ライト会員・初年度年会費11,000円を含む"].map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul><a className="rj-button rj-button-dark" href={FORM} data-eg-event="service_click">申し込みへ進む</a><p className="rj-note">分割払いのご相談は<a href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer">公式LINE</a>へ。<br />合宿などの交通・宿泊・食事等の費用や、各企画の参加条件は事前にご確認ください。塾の参加・教材閲覧期間、更新やキャンセルの条件も、お申し込み前にご相談いただけます。</p></div>
       </div></section>
       <section className="rj-section rj-wrap rj-faq" id="faq" aria-labelledby="faq-title"><div><p className="rj-eyebrow">05 / BEFORE YOUR FIRST STEP</p><h2 id="faq-title">気になること、<br /><em>聞いてください。</em></h2><a className="rj-line-link" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" /> LINEで相談する</a></div><div className="rj-faq-list">{questions.map(([question, answer], i) => <details key={question}><summary>{question}</summary><p>{answer}</p>{i === 3 && <a href={DAO} target="_blank" rel="noopener noreferrer">DAOの詳しい説明を読む</a>}</details>)}</div></section>
-      <section className="rj-apply" id="apply" aria-labelledby="apply-title"><div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>準備ができていなくても、大丈夫。<br />あなたの「やってみたい」を、聞かせてください。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾の申し込みへ進む</a><a className="rj-button rj-button-line" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">お名前・メールアドレス・LINEと確認事項を入力し、内容を確認して送信できます。お支払い方法は受付後に、参加方法とDAO招待リンクは入金確認後にご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div></section>
+      <section className="rj-apply" id="apply" aria-labelledby="apply-title" data-rj-scene>
+        <img className="rj-apply-forest" src="/juku/forest-light-1152.webp" srcSet="/juku/forest-light-640.webp 640w, /juku/forest-light-1152.webp 1152w" sizes="100vw" width="1152" height="1536" loading="lazy" decoding="async" alt="" />
+        <div className="rj-canopy-light" aria-hidden="true" /><div className="rj-motes" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
+        <div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>準備ができていなくても、大丈夫。<br />あなたの「やってみたい」を、聞かせてください。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾の申し込みへ進む</a><a className="rj-button rj-button-line" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">お名前・メールアドレス・LINEと確認事項を入力し、内容を確認して送信できます。お支払い方法は受付後に、参加方法とDAO招待リンクは入金確認後にご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div>
+      </section>
     </main>
     <footer className="rj-footer"><div className="rj-wrap rj-footer-top"><a href="#juku-top" className="rj-brand"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a><p>いのちが喜ぶことを、カタチにする。</p><nav aria-label="関連ページ"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="/">旅する学校</a><a href={DAO} target="_blank" rel="noopener noreferrer">EARTH FAMILY DAO</a></nav></div><ShareButtons url="https://www.tabigaku.party/juku" text="いのちが喜ぶことを、カタチにする。らんぼう塾はいつでも入塾、39,800円（税込）。Threads・AI・世界の暮らしを学び、仲間と実践。EARTH FAMILY DAO参加券つき。" title="この学びを、大切な人に。" /><p className="rj-copyright">閲覧・クリックなど、個人情報を含まない利用状況を集計しています。</p><p className="rj-copyright">© らんぼう塾 / あーすガイド・旅する学校</p></footer>
     <div className="rj-sticky" aria-label="入塾のご案内"><div><span>いつでも入塾・DAO参加券つき</span><strong>39,800<small>円（税込）</small></strong></div><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾する</a></div>
