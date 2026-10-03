@@ -102,3 +102,33 @@ html[data-tabigaku-motion="on"] [data-rj-scene] .rj-photo-window img{transform:t
   .rj-apply h2{font-size:35px;letter-spacing:.015em}
 }
 @media(prefers-reduced-motion:reduce){.ran-juku [data-rj-scene] .rj-photo-window img{transform:none}.rj-photo-trail path{stroke-dashoffset:0}}
+
+/* Four complementary ways to turn curiosity into a shared project. */
+.rj-hero-copy{min-width:0}
+.rj-hero-theme{display:flex;align-items:center;gap:clamp(10px,1.5vw,20px);width:fit-content;max-width:100%;padding-bottom:14px;border-bottom:1px solid #e0eea64d;color:var(--rj-lime);font-size:clamp(23px,2.5vw,33px);font-weight:600;line-height:1.4;letter-spacing:.045em}
+.rj-hero-theme b{color:#ccdca1;font-size:.65em;font-weight:400}
+.rj-learning-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.rj-learning{padding:32px 20px 32px 0}
+.rj-learning+.rj-learning{padding-left:20px}
+.rj-learning-top{gap:12px;margin-bottom:23px}
+.rj-learning-top span{font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.045em}
+.rj-learning h3{font-size:22px;min-height:3.2em}
+.rj-learning p{font-size:15px;line-height:1.95}
+@media(min-width:761px) and (max-width:1100px){
+  .rj-hero-inner{grid-template-columns:minmax(0,1fr) 245px;gap:32px}
+  .rj-hero h1{font-size:clamp(42px,5.2vw,57px)}
+  .rj-learning-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rj-learning:nth-child(odd){padding-left:0;border-left:0}
+  .rj-learning:nth-child(n+3){border-top:1px solid var(--rj-line)}
+  .rj-learning h3{min-height:0}
+}
+@media(max-width:760px){
+  .rj-hero-theme{font-size:23px;gap:14px;padding-bottom:12px}
+  .rj-hero h1{font-size:clamp(32px,10.5vw,60px)}
+  .rj-learning-grid{grid-template-columns:1fr}
+  .rj-learning,.rj-learning+.rj-learning{padding:28px 0}
+  .rj-learning-top{margin-bottom:17px}
+  .rj-learning h3{font-size:24px;min-height:0}
+  .rj-learning p{font-size:16px;line-height:1.85}
+}
+@media(max-width:370px){.rj-hero-theme{font-size:21px;gap:11px}}
