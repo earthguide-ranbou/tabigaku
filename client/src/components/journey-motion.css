@@ -1,0 +1,747 @@
+.journey-motion-control {
+  position: fixed;
+  right: 18px;
+  bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  z-index: 45;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid #bac8ba;
+  border-radius: 99px;
+  color: #204738;
+  background: #fffffff2;
+  box-shadow: 0 3px 16px #163d2610;
+  font:
+    500 10px/1.3 "Zen Kaku Gothic New",
+    sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+.journey-motion-control:focus-visible {
+  outline: 3px solid #bd7b3f;
+  outline-offset: 3px;
+}
+.journey-motion-control:disabled {
+  cursor: default;
+  color: #607366;
+}
+.school-hero {
+  isolation: isolate;
+}
+.school-hero__copy {
+  position: relative;
+  z-index: 1;
+}
+.school-hero__copy > *:not(.journey-landscape) {
+  position: relative;
+  z-index: 1;
+}
+.journey-landscape {
+  position: absolute;
+  width: min(42vw, 560px);
+  right: -84px;
+  bottom: -26px;
+  z-index: -1;
+  pointer-events: none;
+  overflow: visible;
+  color: #7a9780;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  opacity: 0.32;
+}
+.journey-sun {
+  fill: #e3b7701c;
+  stroke: #b88a4e;
+  transform-origin: 450px 62px;
+}
+.journey-sun-halo {
+  stroke: #b88a4e;
+  stroke-dasharray: 1 9;
+}
+.journey-ridge--back {
+  opacity: 0.6;
+}
+.journey-river {
+  stroke: #428c96;
+  stroke-width: 2.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.journey-birds {
+  stroke-width: 2;
+  stroke-linecap: round;
+  transform-origin: 370px 57px;
+}
+.journey-compass {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 88px;
+  height: 88px;
+  stroke: currentColor;
+  color: #ffffffe6;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 5px #183b3255);
+  pointer-events: none;
+}
+.journey-compass__needle {
+  transform-origin: 55px 55px;
+  transform: rotate(18deg);
+}
+html[data-tabigaku-motion="on"]
+  .school-hero[data-in-view="true"]
+  .journey-compass__needle {
+  animation: journey-compass-sway 12s ease-in-out infinite;
+}
+html[data-tabigaku-motion="on"]
+  .school-hero[data-in-view="true"]
+  .journey-birds {
+  animation: journey-birds-drift 11s ease-in-out infinite;
+}
+html[data-tabigaku-motion="on"] .school-hero[data-in-view="true"] .journey-sun {
+  animation: journey-sun-breathe 9s ease-in-out infinite;
+}
+html[data-tabigaku-motion="on"]
+  .school-hero[data-in-view="true"]
+  .journey-river {
+  animation: journey-river-draw 7s ease-in-out both;
+}
+.school-hero h1 span:last-child {
+  position: relative;
+}
+.school-hero h1 span:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 3.7em;
+  height: 8px;
+  border-top: 2px solid #b48b56;
+  border-radius: 50%;
+  transform: rotate(-3deg);
+  transform-origin: left;
+}
+html[data-tabigaku-motion="on"] .school-hero[data-in-view="true"] h1 span {
+  animation: journey-title-rise 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+html[data-tabigaku-motion="on"] .school-hero h1 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+html[data-tabigaku-motion="on"] .school-hero h1 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.school-journeys,
+.school-about,
+.school-first {
+  position: relative;
+}
+.school-heading .school-eyebrow::before,
+.school-about__copy > .school-eyebrow::before,
+.school-first > div > .school-eyebrow::before {
+  display: inline-grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  margin-right: 11px;
+  border: 1px solid #aebdab;
+  border-radius: 50%;
+  letter-spacing: 0;
+  color: #6f876c;
+  font:
+    10px/1 Georgia,
+    serif;
+  vertical-align: middle;
+}
+.school-heading .school-eyebrow::before {
+  content: "01";
+}
+.school-about__copy > .school-eyebrow::before {
+  content: "02";
+}
+.school-first > div > .school-eyebrow::before {
+  content: "03";
+}
+.school-trip {
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s;
+}
+.school-trip__photo img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.school-trip__bottom > a svg {
+  transition: transform 0.25s;
+}
+.school-contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.school-contact::before,
+.school-contact::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -115px;
+  top: -210px;
+  width: 480px;
+  height: 480px;
+  border: 1px solid #d1e1b928;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.school-contact::after {
+  right: -85px;
+  top: -180px;
+  width: 420px;
+  height: 420px;
+}
+.journey-fx-reveal {
+  display: block;
+}
+.journey-fx-curtain {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  html[data-tabigaku-motion="on"] .school-trip:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 50px #25493013;
+  }
+  html[data-tabigaku-motion="on"] .school-trip:hover .school-trip__photo img {
+    transform: scale(1.035);
+  }
+  html[data-tabigaku-motion="on"] .school-trip__bottom > a:hover svg {
+    transform: translateX(4px);
+  }
+}
+@keyframes journey-compass-sway {
+  0%,
+  100% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(31deg);
+  }
+}
+@keyframes journey-birds-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-13px, -4px);
+  }
+}
+@keyframes journey-sun-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+@keyframes journey-river-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes journey-title-rise {
+  from {
+    transform: translateY(16px);
+    opacity: 0.72;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+html[data-tabigaku-motion="off"] *,
+html[data-tabigaku-motion="off"] *::before,
+html[data-tabigaku-motion="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+html[data-tabigaku-motion="off"] .school-hero .school-hero__image {
+  transform: none;
+}
+@media (max-width: 800px) {
+  .journey-landscape {
+    width: 310px;
+    right: -8px;
+    bottom: 11px;
+    opacity: 0.22;
+  }
+  .journey-compass {
+    width: 69px;
+    height: 69px;
+    top: 17px;
+    right: 19px;
+  }
+  .school-hero h1 span:last-child {
+    display: inline-block;
+  }
+  .school-hero h1 span:last-child::after {
+    width: 100%;
+    bottom: -2px;
+  }
+  .journey-motion-control {
+    right: 12px;
+    padding: 8px 10px;
+  }
+}
+@media (max-width: 380px) {
+  .journey-landscape {
+    width: 240px;
+    right: 0;
+    bottom: 25px;
+    opacity: 0.16;
+  }
+  .journey-compass {
+    width: 58px;
+    height: 58px;
+    top: 17px;
+    right: 13px;
+  }
+  .school-hero__signature {
+    max-width: calc(100% - 100px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
+  .journey-landscape *,
+  .journey-compass * {
+    transition: none !important;
+  }
+}
+
+/* A travel-journal composition: vivid photography, paper details, generous type. */
+.school-home {
+  --school-paper: #fbfaf5;
+  background: #fbfaf5;
+}
+.school-home .school-hero {
+  padding-top: 32px;
+  padding-bottom: 40px;
+  gap: 44px;
+  grid-template-columns: minmax(0, 0.43fr) minmax(0, 0.57fr);
+  height: min(750px, calc(100svh - 100px));
+  min-height: 650px;
+  background:
+    radial-gradient(ellipse at 8% 70%, #edf0df90, transparent 53%), #fbfaf5;
+}
+.school-home .school-hero__visual {
+  border-radius: 160px 16px 80px 16px;
+  box-shadow: 0 24px 55px #21483614;
+}
+.school-home .school-hero h1 {
+  font-size: clamp(64px, 7.7vw, 106px);
+  line-height: 1.18;
+  letter-spacing: 0.025em;
+  margin-top: 24px;
+  margin-bottom: 33px;
+}
+.school-home .school-hero__copy {
+  padding-bottom: 40px;
+  align-self: center;
+}
+.school-home .school-hero__lead {
+  font-size: 14px;
+  line-height: 2.1;
+}
+.school-home .school-hero__signature {
+  top: 112px;
+  left: 32px;
+}
+.school-hero__frame {
+  position: absolute;
+  inset: 20px 22px auto 68px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #fff;
+  font:
+    8px/1.7 Arial,
+    sans-serif;
+  letter-spacing: 0.18em;
+  pointer-events: none;
+  text-shadow: 0 1px 6px #224e38;
+}
+.school-hero__frame span:last-child {
+  display: none;
+}
+.school-home .journey-compass {
+  top: 40px;
+  right: 28px;
+}
+.school-hero__postcard {
+  position: absolute;
+  z-index: 3;
+  width: 174px;
+  left: calc(43% - 92px);
+  bottom: 45px;
+  margin: 0;
+  padding: 8px 8px 0;
+  background: #fffdf7;
+  box-shadow: 0 16px 42px #20372d27;
+  transform: rotate(-6deg);
+  pointer-events: none;
+  border: 1px solid #f3f0e4;
+}
+.school-hero__postcard img {
+  display: block;
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+  object-position: center;
+}
+.school-hero__postcard figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 11px 1px;
+  font-size: 8px;
+  letter-spacing: 0.025em;
+  color: #3d5146;
+}
+html[data-tabigaku-motion="on"]
+  .school-hero[data-in-view="true"]
+  .school-hero__postcard {
+  animation: journey-postcard-float 9s ease-in-out infinite;
+}
+.school-home .school-button--forest {
+  background: #254e3e;
+  border-color: #254e3e;
+  box-shadow: 0 7px 20px #163f2920;
+}
+.school-home .school-button--forest svg {
+  width: 25px;
+  height: 25px;
+  padding: 4px;
+  border: 1px solid #ffffff60;
+  border-radius: 50%;
+}
+.school-home .school-tags {
+  background: #fbfaf5ed;
+  border-block-color: #d3dacb;
+}
+.school-home .school-heading {
+  margin-bottom: 30px;
+}
+.school-home .school-trip {
+  border-radius: 12px 12px 36px 12px;
+  border-color: #e1e5d7;
+  box-shadow: 0 10px 35px #30563208;
+}
+.school-home .school-trip__photo {
+  aspect-ratio: 1.8;
+}
+.school-home .school-trip__bottom > a {
+  border-top: 1px solid #dce3d6;
+  padding-top: 16px;
+  margin-top: 5px;
+  color: #214d3c;
+}
+.school-home .school-about {
+  padding-top: 25px;
+  padding-bottom: 65px;
+}
+.school-home .school-about__photo {
+  border-radius: 130px 12px 12px 12px;
+}
+.school-home .school-first {
+  padding-top: 50px;
+  padding-bottom: 60px;
+}
+.school-home .school-contact {
+  border-radius: 16px 16px 70px 16px;
+  padding-top: 55px;
+  padding-bottom: 55px;
+}
+#root
+  :is(
+    .reveal,
+    .reveal-fade,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .juku-reveal
+  ) {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+@keyframes journey-postcard-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-4.5deg);
+  }
+}
+@media (min-width: 1250px) {
+  .school-home .school-hero__copy {
+    padding-left: clamp(35px, 4.5vw, 80px);
+  }
+  .school-hero__postcard {
+    left: calc(43% - 73px);
+    width: 187px;
+    bottom: 52px;
+  }
+  .school-hero__postcard img {
+    height: 123px;
+  }
+  .school-home .school-hero__actions {
+    gap: 13px 19px;
+  }
+  .school-home .school-hero__signature {
+    top: 135px;
+  }
+  .school-home .journey-compass {
+    width: 94px;
+    height: 94px;
+  }
+}
+@media (max-width: 1100px) and (min-width: 801px) {
+  .school-home .school-hero {
+    gap: 26px;
+    min-height: 610px;
+  }
+  .school-home .school-hero h1 {
+    font-size: 70px;
+  }
+  .school-home .school-hero__copy {
+    padding-left: 8px;
+  }
+  .school-hero__postcard {
+    width: 146px;
+    left: calc(43% - 43px);
+    bottom: 43px;
+  }
+  .school-hero__postcard img {
+    height: 93px;
+  }
+  .school-hero__postcard figcaption {
+    font-size: 7px;
+  }
+  .school-home .school-hero__lead {
+    font-size: 12px;
+  }
+  .school-home .school-hero__actions {
+    gap: 11px;
+  }
+  .school-home .school-hero .school-button {
+    padding-inline: 16px;
+    gap: 9px;
+  }
+  .school-home .school-hero__first {
+    font-size: 10px;
+  }
+}
+@media (max-width: 800px) {
+  .school-home .school-hero {
+    height: auto;
+    min-height: 0;
+    padding: 16px 24px 30px;
+    gap: 25px;
+  }
+  .school-home .school-hero__visual {
+    height: clamp(280px, 55vw, 390px);
+    border-radius: 95px 12px 45px 12px;
+  }
+  .school-home .school-hero__copy {
+    padding: 0 8px;
+  }
+  .school-home .school-hero h1 {
+    font-size: clamp(42px, 7.5vw, 61px);
+    margin: 13px 0 23px;
+    line-height: 1.3;
+  }
+  .school-home .school-hero__lead {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .school-home .school-hero__signature {
+    top: 71px;
+    left: 25px;
+  }
+  .school-home .journey-compass {
+    top: 30px;
+    right: 23px;
+    width: 65px;
+    height: 65px;
+  }
+  .school-hero__frame {
+    top: 18px;
+    left: 57px;
+    right: 22px;
+    font-size: 7px;
+  }
+  .school-hero__postcard {
+    display: none;
+  }
+  .school-home .school-about {
+    padding-top: 8px;
+    padding-bottom: 40px;
+  }
+  .school-home .school-about__photo {
+    border-radius: 80px 12px 12px 12px;
+  }
+  .school-home .school-contact {
+    padding: 38px 28px;
+  }
+  .school-home .school-first {
+    padding-block: 38px;
+  }
+  .school-home .school-heading {
+    margin-bottom: 23px;
+  }
+}
+@media (max-width: 580px) {
+  .school-home .school-hero {
+    padding: 12px 16px 27px;
+    gap: 24px;
+  }
+  .school-home .school-hero__visual {
+    height: clamp(266px, 71vw, 345px);
+  }
+  .school-home .school-hero h1 {
+    font-size: clamp(34px, 10.1vw, 48px);
+    margin-bottom: 23px;
+  }
+  .school-home .school-hero__lead {
+    font-size: 12px;
+    line-height: 2;
+  }
+  .school-home .school-hero__copy {
+    padding-inline: 7px;
+  }
+  .school-home .school-hero__signature {
+    top: 65px;
+    left: 21px;
+  }
+  .school-home .school-hero__actions {
+    gap: 12px;
+  }
+  .school-home .school-trip__photo {
+    aspect-ratio: 1.65;
+  }
+  .school-home .school-about__photo {
+    border-radius: 70px 12px 12px 12px;
+  }
+  .school-home .school-contact {
+    padding: 35px 25px;
+    border-radius: 12px 12px 45px 12px;
+  }
+  .school-home .school-button--forest svg {
+    width: 22px;
+    height: 22px;
+  }
+  .school-home .school-hero .school-button {
+    padding-inline: 17px;
+    gap: 12px;
+  }
+  .school-home .school-hero__first {
+    font-size: 10px;
+  }
+}
+@media (max-width: 360px) {
+  .school-home .school-hero__visual {
+    height: 248px;
+  }
+  .school-home .school-hero h1 {
+    font-size: 34px;
+  }
+  .school-home .school-hero__first {
+    font-size: 9px;
+  }
+  .school-home .school-hero .school-button {
+    padding-inline: 12px;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .school-home .journey-compass {
+    right: 16px;
+    width: 58px;
+    height: 58px;
+  }
+}
+
+/* Final readability and safe overlays at narrow widths. */
+.school-hero__postcard {
+  bottom: 145px;
+}
+.school-hero__frame {
+  left: 124px;
+  top: 25px;
+}
+.school-home .school-hero .school-button,
+.school-home .school-contact .school-button,
+.school-home .school-trip__bottom > a {
+  font-size: 14px;
+  min-height: 48px;
+}
+.school-home .school-hero__lead,
+.school-home .school-about__copy > p:not(.school-eyebrow),
+.school-home .school-faq summary,
+.school-home .school-faq details p {
+  font-size: 14px;
+}
+.school-home .school-price-note {
+  font-size: 12px;
+  line-height: 1.9;
+}
+@media (min-width: 1250px) {
+  .school-hero__postcard {
+    bottom: 150px;
+  }
+}
+@media (max-width: 1100px) and (min-width: 801px) {
+  .school-hero__postcard {
+    bottom: 155px;
+  }
+  .school-hero__frame {
+    left: 104px;
+  }
+}
+@media (max-width: 800px) {
+  .school-home .school-hero__copy {
+    align-self: stretch;
+  }
+  .school-hero__frame {
+    left: 87px;
+    top: 22px;
+  }
+  .school-home .school-hero__first {
+    font-size: 11px;
+  }
+  .school-home .school-hero .school-button {
+    gap: 10px;
+    padding-inline: 17px;
+  }
+}
+@media (max-width: 380px) {
+  .school-home .school-hero__actions {
+    gap: 12px 15px;
+  }
+  .school-home .school-hero .school-button {
+    padding-inline: 14px;
+  }
+}

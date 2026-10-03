@@ -25,6 +25,7 @@ export default function Thai() {
 
   useEffect(() => {
     // IntersectionObserver for reveal animations
+    if (!("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -757,3 +758,4 @@ export default function Thai() {
     </div>
   );
 }
+

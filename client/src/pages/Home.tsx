@@ -232,7 +232,7 @@ export default function Home() {
                 </p>
               </div>
               <a
-                href="https://earthguide.tabigaku.party/"
+                href="https://earthguide.tabigaku.party/#profile"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="らんぼうの紹介を読む"
@@ -341,3 +341,4 @@ export default function Home() {
     </div>
   );
 }
+

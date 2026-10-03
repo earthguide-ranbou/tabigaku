@@ -1,5 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, Pause, Play } from "lucide-react";
+
+import { JourneyLandscape, JourneyCompass, useJourneyMotion } from "./JourneyMotion";
 
 const scenes = [
   {
@@ -29,35 +31,39 @@ export default function JourneyHero() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [motionAllowed, setMotionAllowed] = useState(false);
-
+  const { enabled: motionAllowed } = useJourneyMotion();
+  const section = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setMotionAllowed(!preference.matches);
-    update();
-    preference.addEventListener("change", update);
-    return () => preference.removeEventListener("change", update);
+    if (!section.current) return;
+    if (!("IntersectionObserver" in window)) { setInView(true); return; }
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: .05 });
+    observer.observe(section.current);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!motionAllowed || paused || hovered) return;
+    if (!motionAllowed || !inView || paused || hovered) return;
     const timer = window.setInterval(() => {
       if (document.visibilityState === "visible") {
         setActive(index => (index + 1) % scenes.length);
       }
     }, 7500);
     return () => window.clearInterval(timer);
-  }, [motionAllowed, paused, hovered]);
+  }, [motionAllowed, inView, paused, hovered]);
 
   return (
     <section
+      ref={section}
+      data-in-view={inView}
       className="school-hero"
       aria-labelledby="home-title"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      data-playing={motionAllowed && !paused && !hovered}
+      data-playing={motionAllowed && inView && !paused && !hovered}
     >
       <div className="school-hero__copy">
+        <JourneyLandscape />
         <p className="school-eyebrow">自然と、人と、自分に出会う。</p>
         <h1 id="home-title">
           <span>旅は、</span>
@@ -87,6 +93,7 @@ export default function JourneyHero() {
         </div>
       </div>
       <div className="school-hero__visual">
+        <div className="school-hero__frame" aria-hidden="true"><span>FIELD NOTES / TABIGAKU</span><span>LEARN · WANDER · GROW</span></div>
         <div className="school-hero__scenes">
           {scenes.map((scene, index) => (
             <img
@@ -105,6 +112,7 @@ export default function JourneyHero() {
           ))}
         </div>
         <div className="school-hero__shade" />
+        <JourneyCompass />
         <p className="school-hero__signature">
           TABIGAKU JOURNEYS<span>徳島・神山から、その先へ。</span>
         </p>
@@ -161,6 +169,11 @@ export default function JourneyHero() {
           </div>
         </div>
       </div>
+      <figure className="school-hero__postcard">
+        <img src={scenes[1].src} alt="遍路道を一歩ずつ進む子どもたち" width="1568" height="882" loading="lazy" decoding="async" />
+        <figcaption><span>ちいさな一歩、大きな世界。</span><ArrowUpRight size={15} aria-hidden="true" /></figcaption>
+      </figure>
     </section>
   );
 }
+

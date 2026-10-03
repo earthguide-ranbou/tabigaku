@@ -69,6 +69,7 @@ export default function HenroShinsoku() {
       "https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap";
     document.head.appendChild(link);
 
+    if (!("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       (es) => {
         es.forEach((e) => {
@@ -539,3 +540,4 @@ export default function HenroShinsoku() {
     </div>
   );
 }
+

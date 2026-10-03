@@ -23,6 +23,7 @@ export default function Henro() {
   });
 
   useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -588,3 +589,4 @@ export default function Henro() {
     </div>
   );
 }
+

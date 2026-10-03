@@ -1,3 +1,4 @@
+import JourneyMotion from "./components/JourneyMotion";
 import SiteSEO from "./components/SiteSEO";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/sonner";
@@ -70,7 +71,7 @@ function App() {
         >
           <TooltipProvider>
             <Toaster />
-            <Router />
+            <JourneyMotion><Router /></JourneyMotion>
           </TooltipProvider>
         </ThemeProvider>
       </ErrorBoundary>
@@ -82,3 +83,4 @@ function App() {
 export default App;
 
 // FORCE_REBUILD: 2026-08-21T09:21:43.428971
+

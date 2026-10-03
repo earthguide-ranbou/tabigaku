@@ -26,6 +26,7 @@ export default function Juku() {
 
   useEffect(() => {
     const els = document.querySelectorAll(".juku-reveal");
+    if (!("IntersectionObserver" in window)) return;
     const obs = new IntersectionObserver(
       (es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } }),
       { threshold: 0.08 }
@@ -465,3 +466,4 @@ export default function Juku() {
     </div>
   );
 }
+
