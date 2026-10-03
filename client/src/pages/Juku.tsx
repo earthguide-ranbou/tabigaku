@@ -80,8 +80,12 @@ export default function Juku() {
         <JukuMiniwork />
       </section>
       <section className="rj-story" id="story" aria-labelledby="story-title"><div className="rj-wrap rj-story-grid">
-        <div><p className="rj-eyebrow">02 / A MESSAGE FROM RANBOU</p><h2 id="story-title">すべては、<br /><em>未完成からはじまる。</em></h2></div>
-        <div className="rj-story-copy"><p>地球を旅して、砂漠を走って、仲間と学校をつくってきた。その始まりは、いつも「やってみたい」でした。</p><p>不安でもいい。準備ができていなくても大丈夫。ひとりでは踏み出せなかった一歩も、同じ方向を向く仲間がいたら、面白くなる。</p><p>自分の人生を、自分の手で動かす。<br />その先に、次の世代へ手渡したい未来がある。<br />一緒に、次の景色を見にいこう。</p><div className="rj-signature"><img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="らんぼう（上田直樹）" width="72" height="72" loading="lazy" /><strong>らんぼう</strong><span>上田直樹<br />あーすガイド・旅する学校 代表／4児の父</span></div><a className="rj-text-link" href="https://earthguide.tabigaku.party/#profile" target="_blank" rel="noopener noreferrer">詳しいプロフィール・活動歴を見る</a></div>
+        <figure className="rj-running-visual" data-journey-reveal>
+          <span className="rj-running-word" aria-hidden="true">GO<br />SIGN.</span>
+          <img src="/juku/ranbou-go-sign-1086.webp" srcSet="/juku/ranbou-go-sign-540.webp 540w, /juku/ranbou-go-sign-1086.webp 1086w" sizes="(max-width: 760px) calc(100vw - 64px), (max-width: 1100px) 42vw, 510px" width="1086" height="1448" alt="笑顔で走るポーズをとるらんぼう" loading="lazy" decoding="async" />
+          <figcaption><span>ワクワクを、次の一歩に。</span><small>LEARN. TRY. SHARE.</small></figcaption>
+        </figure>
+        <div className="rj-story-copy"><p className="rj-eyebrow">02 / A MESSAGE FROM RANBOU</p><h2 id="story-title">すべては、<br /><em>未完成からはじまる。</em></h2><p>地球を旅して、砂漠を走って、仲間と学校をつくってきた。その始まりは、いつも「やってみたい」でした。</p><p>不安でもいい。準備ができていなくても大丈夫。ひとりでは踏み出せなかった一歩も、同じ方向を向く仲間がいたら、面白くなる。</p><p>自分の人生を、自分の手で動かす。<br />その先に、次の世代へ手渡したい未来がある。<br />一緒に、次の景色を見にいこう。</p><div className="rj-signature"><img src="/efj/profile_ranbow-bO9RdlJ2.webp" alt="らんぼう（上田直樹）" width="72" height="72" loading="lazy" /><strong>らんぼう</strong><span>上田直樹<br />あーすガイド・旅する学校 代表／4児の父</span></div><a className="rj-text-link" href="https://earthguide.tabigaku.party/#profile" target="_blank" rel="noopener noreferrer">詳しいプロフィール・活動歴を見る</a></div>
       </div><div className="rj-wrap rj-story-records"><div><strong>地球一周</strong><span>旅から学び、生き方にする</span></div><div><strong>500回以上</strong><span>各地での講演・対話の経験</span></div><div><strong>神山から</strong><span>自然と人をつなぐ学びの場へ</span></div></div></section>
       <section className="rj-dao" id="dao" aria-labelledby="dao-title">
         <div className="rj-dao-photo"><img src="/images/saijai-lake.jpg" alt="緑の山々と湖に包まれた水上エコビレッジ、SaaiJai Village" loading="lazy" width="1536" height="864" /><span>SaaiJai Village, Thailand</span></div>

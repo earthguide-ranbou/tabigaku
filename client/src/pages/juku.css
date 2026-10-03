@@ -18,6 +18,15 @@
 @media(prefers-reduced-motion:reduce){.ran-juku *{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rj-hero-pass{transform:none}.rj-button:hover{transform:none}}
 
 /* A clear first step, with a compact lesson visitors can try before joining. */
+.rj-running-visual{position:relative;isolation:isolate;display:grid;grid-template-rows:minmax(0,1fr) auto;aspect-ratio:4/5;min-width:0;margin:0;padding:22px 24px 25px;border:1px solid #c9d7c4;border-radius:180px 180px 8px 8px;background:linear-gradient(155deg,#f5f7e9 7%,#dce8d4 65%,#cedeca);overflow:hidden}
+.rj-running-visual:before{content:"";position:absolute;inset:8% 9% 18%;border:1px solid #8fa98461;border-radius:50%;z-index:-1}
+.rj-running-visual img{position:relative;display:block;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;z-index:1}
+.rj-running-word{position:absolute;left:7%;top:25%;font:400 clamp(55px,6.4vw,87px)/.88 Georgia,serif;letter-spacing:-.065em;color:#55785024;transform:rotate(-8deg);pointer-events:none}
+.rj-running-visual figcaption{position:relative;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px;padding-top:13px;border-top:1px solid #b1c4a8;z-index:2;color:#294d3b}
+.rj-running-visual figcaption>span{font-family:"Shippori Mincho","Noto Serif JP",serif;font-size:17px;font-weight:600;letter-spacing:.035em}
+.rj-running-visual figcaption small{font:500 9px/1.7 sans-serif;letter-spacing:.15em;color:#49664c}
+@media(max-width:760px){.rj-running-visual{width:100%;max-width:480px;justify-self:center;aspect-ratio:4/5;padding:18px 18px 20px;border-radius:150px 150px 6px 6px}.rj-running-word{font-size:clamp(54px,16vw,75px)}.rj-running-visual figcaption>span{font-size:16px}.rj-running-visual figcaption small{font-size:8px;letter-spacing:.1em}}
+@media(max-width:370px){.rj-running-visual figcaption{align-items:start;flex-direction:column;gap:3px}.rj-running-visual figcaption small{font-size:9px}}
 .rj-hero-facts{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:17px 0 0;padding:0;color:#f0f5e6;font-size:13px;font-weight:500}
 .rj-hero-facts li{display:flex;align-items:center;gap:7px}
 .rj-hero-facts li:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--rj-lime)}
