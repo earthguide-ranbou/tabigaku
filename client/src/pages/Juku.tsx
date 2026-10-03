@@ -1,10 +1,12 @@
+import { useEffect } from "react";
+import { trackPublicAction, type MetricEvent } from "@/lib/public-metrics";
 import { Check, Compass, Globe2, HeartHandshake, MessageCircle, Mic2, Mountain, Radio, Sparkles, Ticket, Users, Video } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import ShareButtons from "@/components/ShareButtons";
 import "./juku.css";
 
 const LINE = "https://lin.ee/p3CvLfQ";
-const FORM = "https://1lejend.com/stepmail/kd.php?no=floxcw";
+const FORM = "https://earthguide.tabigaku.party/forms/ranbou-juku";
 const DAO = "https://earth-family-journey-world.runbou.chatgpt.site/earth-family-dao/";
 const DAO_GUIDE = "https://earth-family-journey-world.runbou.chatgpt.site/dao/guide/";
 const experiences = [
@@ -30,6 +32,16 @@ const questions = [
 ];
 
 export default function Juku() {
+  useEffect(() => {
+    trackPublicAction("page_view", "juku");
+    const root = document.getElementById("juku-top");
+    const onClick = (event: MouseEvent) => {
+      const link = event.target instanceof Element ? event.target.closest<HTMLElement>("[data-eg-event]") : null;
+      if (link) trackPublicAction(link.dataset.egEvent as MetricEvent, "juku");
+    };
+    root?.addEventListener("click", onClick);
+    return () => root?.removeEventListener("click", onClick);
+  }, []);
   useSEO({ title: "らんぼう塾｜いつでも入塾・39,800円・EARTH FAMILY DAO参加券つき", description: "ワクワクとドキドキがきたらGOサイン。Threads・AI・世界の暮らしを学び、仲間とやってみたいを形にする、らんぼう塾。いつでも入塾、受講料39,800円（税込）。EARTH FAMILY DAO参加券つき。" });
   return <div className="ran-juku" id="juku-top">
     <a href="#juku-main" className="rj-skip">本文へ進む</a>
@@ -73,12 +85,12 @@ export default function Juku() {
       </section>
       <section className="rj-voice rj-wrap" aria-labelledby="voice-title"><p className="rj-eyebrow" id="voice-title">A VOICE FROM OUR COMMUNITY / 参加者の声</p><blockquote>「やってみるといいんとちゃう。」<br />その言葉が、今回一番残っています。</blockquote><p>未完成でもいいから、やってみる。<br />やったからこそ見える景色がある。</p><cite>0期受講生・長崎／女性の感想より抜粋</cite></section>
       <section className="rj-price-section" id="price" aria-labelledby="price-title"><div className="rj-wrap rj-price-grid"><div className="rj-price-intro"><p className="rj-eyebrow">04 / START WHEN YOU'RE READY</p><h2 id="price-title">心が動いた、<br /><em>そのタイミングで。</em></h2><p>募集期や開講日を待つ必要はありません。<br />思い立った日から、あなたの一歩を。</p><div className="rj-price-statement"><span>いつでも入塾できます</span><p>受講料は一律。<br />EARTH FAMILY DAO参加券も含まれます。</p></div></div>
-        <div className="rj-price-card" data-journey-reveal><div className="rj-price-top"><span>らんぼう塾</span><span>随時受付中</span></div><p className="rj-price-label">受講料</p><p className="rj-amount"><span>¥</span>39,800<small>税込</small></p><p className="rj-price-bonus"><Ticket size={19} aria-hidden="true" /> EARTH FAMILY DAO参加券つき</p><ul className="rj-checklist">{["限定ラジオ・Zoomライブ・録画", "Threads攻略・AI活用の学び", "バズ部屋・LINE交流グループ", "神山合宿・ワクドキ祭りの参加機会", "DAO一般ライト会員・1年間の年会費無料"].map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul><a className="rj-button rj-button-dark" href="#apply">申し込みへ進む</a><p className="rj-note">分割払いのご相談は<a href={LINE} target="_blank" rel="noopener noreferrer">公式LINE</a>へ。<br />合宿などの交通・宿泊・食事等の費用や、各企画の参加条件は事前にご確認ください。</p></div>
+        <div className="rj-price-card" data-journey-reveal><div className="rj-price-top"><span>らんぼう塾</span><span>随時受付中</span></div><p className="rj-price-label">受講料</p><p className="rj-amount"><span>¥</span>39,800<small>税込</small></p><p className="rj-price-bonus"><Ticket size={19} aria-hidden="true" /> EARTH FAMILY DAO参加券つき</p><ul className="rj-checklist">{["限定ラジオ・Zoomライブ・録画", "Threads攻略・AI活用の学び", "バズ部屋・LINE交流グループ", "神山合宿・ワクドキ祭りの参加機会", "DAO一般ライト会員・1年間の年会費無料"].map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul><a className="rj-button rj-button-dark" href="#apply">申し込みへ進む</a><p className="rj-note">分割払いのご相談は<a href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer">公式LINE</a>へ。<br />合宿などの交通・宿泊・食事等の費用や、各企画の参加条件は事前にご確認ください。</p></div>
       </div></section>
-      <section className="rj-section rj-wrap rj-faq" id="faq" aria-labelledby="faq-title"><div><p className="rj-eyebrow">05 / BEFORE YOUR FIRST STEP</p><h2 id="faq-title">気になること、<br /><em>聞いてください。</em></h2><a className="rj-line-link" href={LINE} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" /> LINEで相談する</a></div><div className="rj-faq-list">{questions.map(([question, answer], i) => <details key={question}><summary>{question}</summary><p>{answer}</p>{i === 3 && <a href={DAO} target="_blank" rel="noopener noreferrer">DAOの詳しい説明を読む</a>}</details>)}</div></section>
-      <section className="rj-apply" id="apply" aria-labelledby="apply-title"><div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>準備ができていなくても、大丈夫。<br />あなたの「やってみたい」を、聞かせてください。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} target="_blank" rel="noopener noreferrer">申し込みフォームを開く</a><a className="rj-button rj-button-line" href={LINE} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">フォームは別タブで開きます。入金確認後に、参加方法とDAO招待リンクをご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div></section>
+      <section className="rj-section rj-wrap rj-faq" id="faq" aria-labelledby="faq-title"><div><p className="rj-eyebrow">05 / BEFORE YOUR FIRST STEP</p><h2 id="faq-title">気になること、<br /><em>聞いてください。</em></h2><a className="rj-line-link" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" /> LINEで相談する</a></div><div className="rj-faq-list">{questions.map(([question, answer], i) => <details key={question}><summary>{question}</summary><p>{answer}</p>{i === 3 && <a href={DAO} target="_blank" rel="noopener noreferrer">DAOの詳しい説明を読む</a>}</details>)}</div></section>
+      <section className="rj-apply" id="apply" aria-labelledby="apply-title"><div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>準備ができていなくても、大丈夫。<br />あなたの「やってみたい」を、聞かせてください。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">申し込みフォームを開く</a><a className="rj-button rj-button-line" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">お名前・メールアドレスと確認事項を入力し、内容を確認して送信できます。お支払い方法は受付後に、参加方法とDAO招待リンクは入金確認後にご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div></section>
     </main>
-    <footer className="rj-footer"><div className="rj-wrap rj-footer-top"><a href="#juku-top" className="rj-brand"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a><p>いのちが喜ぶことを、カタチにする。</p><nav aria-label="関連ページ"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="/">旅する学校</a><a href={DAO} target="_blank" rel="noopener noreferrer">EARTH FAMILY DAO</a></nav></div><ShareButtons url="https://www.tabigaku.party/juku" text="いのちが喜ぶことを、カタチにする。らんぼう塾はいつでも入塾、39,800円（税込）。Threads・AI・世界の暮らしを学び、仲間と実践。EARTH FAMILY DAO参加券つき。" title="この学びを、大切な人に。" /><p className="rj-copyright">© らんぼう塾 / あーすガイド・旅する学校</p></footer>
+    <footer className="rj-footer"><div className="rj-wrap rj-footer-top"><a href="#juku-top" className="rj-brand"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a><p>いのちが喜ぶことを、カタチにする。</p><nav aria-label="関連ページ"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="/">旅する学校</a><a href={DAO} target="_blank" rel="noopener noreferrer">EARTH FAMILY DAO</a></nav></div><ShareButtons url="https://www.tabigaku.party/juku" text="いのちが喜ぶことを、カタチにする。らんぼう塾はいつでも入塾、39,800円（税込）。Threads・AI・世界の暮らしを学び、仲間と実践。EARTH FAMILY DAO参加券つき。" title="この学びを、大切な人に。" /><p className="rj-copyright">閲覧・クリックなど、個人情報を含まない利用状況を集計しています。</p><p className="rj-copyright">© らんぼう塾 / あーすガイド・旅する学校</p></footer>
     <div className="rj-sticky" aria-label="入塾のご案内"><div><span>いつでも入塾・DAO参加券つき</span><strong>39,800<small>円（税込）</small></strong></div><a className="rj-button rj-button-lime" href="#apply">入塾する</a></div>
   </div>;
 }
