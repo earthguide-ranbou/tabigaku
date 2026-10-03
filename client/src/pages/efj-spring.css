@@ -1,0 +1,2014 @@
+.efjs {
+  --ink: #103e44;
+  --blue: #074755;
+  --muted: #567077;
+  --sun: #f5d78c;
+  --paper: #fffdf8;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  overflow-x: clip;
+  padding-bottom: 88px;
+}
+.efjs * {
+  box-sizing: border-box;
+}
+.efjs a {
+  color: inherit;
+  text-decoration: none;
+}
+.efjs img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.efjs figure,
+.efjs p,
+.efjs h1,
+.efjs h2,
+.efjs h3 {
+  margin: 0;
+}
+.efjs h1,
+.efjs h2,
+.efjs h3 {
+  font-family: "Zen Old Mincho", "Noto Serif JP", serif;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+}
+.efjs h2 {
+  font-size: clamp(29px, 3.35vw, 46px);
+  line-height: 1.6;
+}
+.efjs button,
+.efjs a,
+.efjs summary {
+  -webkit-tap-highlight-color: transparent;
+}
+.efjs :focus-visible {
+  outline: 3px solid #b67626;
+  outline-offset: 5px;
+}
+.efjs section[id],
+.efjs article[id] {
+  scroll-margin-top: 32px;
+}
+.efjs-skip {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  background: white;
+  padding: 12px;
+}
+.efjs-skip:focus {
+  top: 12px;
+}
+.efjs-wrap {
+  width: min(1160px, calc(100% - 112px));
+  margin-inline: auto;
+}
+.efjs-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  line-height: 1.8;
+}
+.efjs-nav {
+  height: 100px;
+  padding: 0 4.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: var(--blue);
+  color: #fff;
+}
+.efjs-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.efjs-brand > span {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 23px;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+.efjs-brand small {
+  display: block;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+}
+.efjs-nav nav {
+  display: flex;
+  gap: 36px;
+  font-size: 14px;
+}
+.efjs-nav nav a {
+  position: relative;
+}
+.efjs-nav nav a:after {
+  content: "";
+  height: 1px;
+  background: var(--sun);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+.efjs-nav nav a:hover:after {
+  transform: scaleX(1);
+}
+.efjs-nav-join {
+  font-size: 14px;
+  border: 1px solid #ffffff55;
+  border-radius: 100px;
+  padding: 12px 24px;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+}
+.efjs-hero {
+  color: white;
+  background: var(--blue);
+  position: relative;
+  isolation: isolate;
+}
+.efjs-hero-inner {
+  max-width: 1480px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  min-height: 705px;
+  padding: 35px 6.3% 65px;
+  gap: 10px;
+}
+.efjs-hero-copy {
+  position: relative;
+  z-index: 2;
+  padding-top: 13px;
+}
+.efjs-hero .efjs-eyebrow {
+  color: #e7d49f;
+  letter-spacing: 0.13em;
+  font-size: 11px;
+}
+.efjs-hero .efjs-eyebrow > span {
+  width: 28px;
+  height: 1px;
+  background: #e7d49f;
+}
+.efjs-hero-name {
+  font-size: 15px;
+  letter-spacing: 0.15em;
+  margin-top: 23px !important;
+}
+.efjs-hero h1 {
+  font-size: clamp(47px, 5.8vw, 86px);
+  line-height: 1.36;
+  letter-spacing: 0.015em;
+  margin: 13px 0 25px;
+}
+.efjs-hero h1 > span {
+  display: block;
+}
+.efjs-hero h1 em {
+  font-style: normal;
+  color: var(--sun);
+}
+.efjs-hero-lead {
+  font-size: 16px;
+  line-height: 2.1;
+  color: #e2eded;
+}
+.efjs-date {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 23px;
+}
+.efjs-date > span {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  border-right: 1px solid #ffffff50;
+  padding-right: 16px;
+  line-height: 2.2;
+}
+.efjs-date strong {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  line-height: 1.4;
+  font-weight: 400;
+  white-space: nowrap;
+}
+.efjs-date small {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 13px;
+  padding-left: 8px;
+}
+.efjs-date i {
+  font-style: normal;
+  font-size: 24px;
+  margin: 0 15px;
+  color: #ffffff88;
+}
+.efjs-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 24px;
+}
+.efjs-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-height: 55px;
+  padding: 15px 24px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 700;
+  transition:
+    background 0.25s,
+    box-shadow 0.25s;
+  cursor: pointer;
+  text-align: center;
+}
+.efjs-button--sun {
+  background: var(--sun);
+  color: var(--ink) !important;
+}
+.efjs-button--sun:hover {
+  background: #ffe8b0;
+}
+.efjs-button--dark {
+  background: var(--ink);
+  color: white !important;
+}
+.efjs-button--dark:hover {
+  background: #176373;
+}
+.efjs-button--line {
+  background: #06c755;
+  color: #fff !important;
+  box-shadow: 0 8px 24px #06c75518;
+}
+.efjs-button--line:hover {
+  background: #04aa48;
+}
+.efjs-quiet-link {
+  font-size: 14px;
+  border-bottom: 1px solid #ffffff70;
+  padding-bottom: 4px;
+}
+.efjs-hero-note {
+  font-size: 12px;
+  color: #c2dbdf;
+  margin-top: 19px !important;
+  letter-spacing: 0.015em;
+}
+.efjs-hero-art {
+  position: relative;
+  min-height: 610px;
+  margin-left: 6%;
+  align-self: center;
+}
+.efjs-hero-sea {
+  position: absolute;
+  left: 1%;
+  top: 5%;
+  width: 72%;
+  height: 83%;
+  overflow: hidden;
+  border-radius: 180px 180px 8px 8px;
+  background: #145666;
+}
+.efjs-hero-sea img {
+  height: 100%;
+  object-position: 52% 55%;
+}
+.efjs-hero-sea:after,
+.efjs-hero-forest:after {
+  content: "";
+  position: absolute;
+  inset: 65% 0 0;
+  background: linear-gradient(transparent, #002d38b0);
+}
+.efjs-hero-art figcaption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 10px;
+  z-index: 2;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+.efjs-hero-art figcaption span {
+  font-family: Georgia, serif;
+  font-size: 19px;
+  border-right: 1px solid #ffffff75;
+  padding-right: 11px;
+  margin-right: 10px;
+}
+.efjs-hero-forest {
+  position: absolute;
+  width: 45%;
+  height: 51%;
+  bottom: 0;
+  right: -3%;
+  z-index: 3;
+  border: 7px solid var(--blue);
+  border-radius: 6px 6px 100px 6px;
+  overflow: hidden;
+  background: #1f6354;
+}
+.efjs-hero-forest img {
+  height: 100%;
+  object-position: center;
+}
+.efjs-hero-forest figcaption {
+  font-size: 12px;
+  left: 14px;
+  bottom: 42px;
+}
+.efjs-hero-forest figcaption span {
+  font-size: 16px;
+}
+.efjs-vertical {
+  position: absolute;
+  right: 1%;
+  top: 10%;
+  writing-mode: vertical-rl;
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: #c4dce0;
+}
+.efjs-seal {
+  position: absolute;
+  z-index: 4;
+  left: -7%;
+  bottom: 0;
+  width: 143px;
+  height: 143px;
+  border-radius: 50%;
+  background: var(--sun);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transform: rotate(-9deg);
+  box-shadow: 0 0 0 7px var(--blue);
+}
+.efjs-seal > span {
+  font-size: 12px;
+  font-family: "Zen Old Mincho", serif;
+  letter-spacing: 0.07em;
+}
+.efjs-seal b {
+  font-family: Georgia, serif;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 1.1;
+}
+.efjs-seal small {
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  margin-top: 3px;
+}
+.efjs-hero-line {
+  position: absolute;
+  inset: -2% -5%;
+  width: 110%;
+  height: 105%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+.efjs-hero-line path {
+  stroke: #f5d78cb0;
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.efjs-hero-bottom {
+  border-top: 1px solid #ffffff26;
+  margin-inline: 4.5%;
+  padding: 21px 1.9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+}
+.efjs-hero-bottom i {
+  font-style: normal;
+  color: #cdb477;
+  margin: 0 16px;
+}
+.efjs-hero-bottom > span:nth-child(2) {
+  font-family: Georgia, serif;
+  font-size: 16px;
+  letter-spacing: 0.07em;
+}
+.efjs-hero-bottom small {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  margin-left: 20px;
+}
+.efjs-hero-bottom > a {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff45;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.efjs-route-section {
+  padding-top: 104px;
+  padding-bottom: 72px;
+}
+.efjs-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
+}
+.efjs-intro .efjs-eyebrow {
+  color: #957139;
+  margin-bottom: 20px;
+}
+.efjs-intro > p {
+  color: var(--muted);
+  line-height: 2.3;
+}
+.efjs-route {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 65px;
+}
+.efjs-route svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  fill: none;
+  pointer-events: none;
+}
+.efjs-route-base {
+  stroke: #c8d5ce;
+  stroke-width: 1;
+  stroke-dasharray: 5 8;
+}
+.efjs-route-flow {
+  stroke: #b98b3d;
+  stroke-width: 2;
+  stroke-dasharray: 0.045 0.955;
+}
+.efjs-route > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 8px;
+}
+.efjs-route-number {
+  display: grid;
+  place-items: center;
+  width: 53px;
+  height: 53px;
+  background: var(--paper);
+  border: 1px solid #b5c5c1;
+  border-radius: 50%;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  transition: background 0.3s;
+}
+.efjs-route .is-active .efjs-route-number,
+.efjs-route a:hover .efjs-route-number {
+  color: var(--paper);
+  background: var(--blue);
+  border-color: var(--blue);
+}
+.efjs-route-period {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 18px;
+}
+.efjs-route strong {
+  font-family: "Zen Old Mincho", serif;
+  font-size: 23px;
+  line-height: 1.8;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.efjs-route-en {
+  font-family: Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  color: #638083;
+  margin-top: 5px;
+}
+.efjs-route-note {
+  font-size: 13px;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 31px !important;
+  line-height: 1.9;
+}
+.efjs-stops {
+  padding-bottom: 105px;
+}
+.efjs-stop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+  gap: 85px;
+  align-items: center;
+  padding-block: 52px;
+}
+.efjs-stop:nth-child(2) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+}
+.efjs-stop:nth-child(2) .efjs-stop-photo {
+  order: 2;
+}
+.efjs-stop-photo {
+  position: relative;
+  min-width: 0;
+}
+.efjs-stop-photo img {
+  height: 550px;
+  border-radius: 4px 4px 130px 4px;
+}
+.efjs-stop--1 .efjs-stop-photo img {
+  object-position: center 75%;
+}
+.efjs-stop--2 .efjs-stop-photo img {
+  height: 390px;
+  object-position: 43% center;
+  border-radius: 100px 4px 4px 4px;
+}
+.efjs-stop--3 .efjs-stop-photo img {
+  object-position: center 43%;
+  border-radius: 140px 4px 4px 4px;
+}
+.efjs-stop-photo figcaption {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.efjs-photo-index {
+  position: absolute;
+  top: -42px;
+  right: 13px;
+  font-family: Georgia, serif;
+  font-size: 98px;
+  line-height: 1;
+  color: #e3cc95;
+  font-style: italic;
+  text-shadow: 0 1px 0 #fff;
+}
+.efjs-stop--2 .efjs-photo-index {
+  right: auto;
+  left: 10px;
+}
+.efjs-stop-copy .efjs-eyebrow {
+  color: #9b7537;
+  gap: 12px;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.13em;
+}
+.efjs-stop-period {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  margin-left: auto;
+  font-size: 12px;
+  border: 1px solid #d4d9cd;
+  border-radius: 2px;
+  padding: 2px 12px;
+  color: var(--muted);
+}
+.efjs-stop-place {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px !important;
+  font-size: 13px;
+  color: var(--muted);
+}
+.efjs-stop h2 {
+  margin: 15px 0 24px;
+  font-size: clamp(29px, 3.15vw, 42px);
+}
+.efjs-body {
+  color: var(--muted);
+  line-height: 2.15;
+  font-size: 16px;
+}
+.efjs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+.efjs-tags li {
+  font-size: 12px;
+  padding: 5px 9px;
+  background: #eef3ee;
+  color: #4b6766;
+  border-radius: 2px;
+}
+.efjs-text-link {
+  display: inline-block;
+  font-size: 14px;
+  border-bottom: 1px solid #a8bebb;
+  padding-block: 3px;
+  line-height: 1.8;
+}
+.efjs-text-link:hover {
+  border-color: var(--ink);
+}
+.efjs-night {
+  position: relative;
+  min-height: 530px;
+  background: #152f32;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  isolation: isolate;
+  overflow: hidden;
+}
+.efjs-night > img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-position: center 47%;
+  z-index: -2;
+}
+.efjs-night:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #071b1fe8 0%,
+    #081d1cba 35%,
+    #061c1730 75%
+  );
+  z-index: -1;
+}
+.efjs-night > div {
+  width: min(1160px, calc(100% - 112px));
+  margin: 65px auto;
+}
+.efjs-night .efjs-eyebrow {
+  color: var(--sun);
+  margin-bottom: 20px;
+}
+.efjs-night h2 {
+  font-size: clamp(30px, 3.4vw, 46px);
+  line-height: 1.65;
+  margin-bottom: 25px;
+}
+.efjs-night p:not(.efjs-eyebrow) {
+  font-size: 15px;
+  line-height: 2.1;
+  color: #e1e7df;
+}
+.efjs-night-caption {
+  position: absolute;
+  bottom: 18px;
+  right: 4.5%;
+  font-size: 11px;
+  color: #d3ddce;
+}
+.efjs-guide {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 70px;
+  align-items: center;
+  padding-block: 100px;
+  max-width: 960px;
+}
+.efjs-guide-portrait {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #cbd6cd;
+  border-radius: 50% 50% 4px 4px;
+}
+.efjs-guide-portrait img {
+  height: 280px;
+  border-radius: 50% 50% 0 0;
+}
+.efjs-guide-portrait span {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-align: center;
+  padding-top: 13px;
+  padding-bottom: 5px;
+}
+.efjs-guide h2 {
+  font-size: 32px;
+  margin: 12px 0 20px;
+}
+.efjs-guide .efjs-eyebrow {
+  color: #97773e;
+}
+.efjs-guide-role {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 18px 0 !important;
+  line-height: 2;
+}
+.efjs-price-section {
+  padding: 85px 0 82px;
+  background: #edf3f0;
+}
+.efjs-price-heading {
+  text-align: center;
+}
+.efjs-price-heading .efjs-eyebrow {
+  justify-content: center;
+  color: #80622e;
+  margin-bottom: 20px;
+}
+.efjs-price-heading h2 {
+  font-size: clamp(32px, 3.4vw, 46px);
+  margin-bottom: 24px;
+}
+.efjs-price-heading > p:last-child {
+  font-size: 16px;
+  line-height: 2;
+  color: #536e6f;
+}
+.efjs-ticket {
+  display: grid;
+  grid-template-columns: 1fr 295px;
+  max-width: 1040px;
+  margin: 45px auto 0;
+  background: #fffdf8;
+  box-shadow: 0 16px 55px #20453a09;
+  border: 1px solid #d9e4dc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.efjs-ticket-main {
+  padding: 40px 42px;
+}
+.efjs-ticket-label {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #607978;
+}
+.efjs-ticket h3 {
+  font-size: 30px;
+  margin-top: 13px;
+  margin-bottom: 15px;
+}
+.efjs-ticket-main > p:first-of-type {
+  font-size: 13px;
+  color: #587270;
+}
+.efjs-price-row {
+  display: flex;
+  gap: 32px;
+  margin-block: 25px;
+}
+.efjs-price-row > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.efjs-price-row > div > span {
+  font-size: 13px;
+  color: #58706b;
+}
+.efjs-price-row strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+.efjs-price-row strong small {
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+.efjs-price-row .efjs-early-price {
+  border-left: 1px solid #d9ddcd;
+  padding-left: 28px;
+}
+.efjs-early-price strong {
+  color: #1a6259;
+}
+.efjs-early-price > span {
+  color: #1a6259 !important;
+  font-weight: 700;
+}
+.efjs-early-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 13px !important;
+  color: #3d6055 !important;
+  line-height: 1.8;
+}
+.efjs-early-note svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.efjs-cost-note {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #596f69;
+  border-top: 1px solid #dce2d8;
+  padding-top: 21px;
+  margin-top: 22px !important;
+}
+.efjs-cost-note b {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 5px;
+}
+.efjs-ticket-side {
+  background: #e5ecd9;
+  border-left: 1px dashed #b8c8b4;
+  padding: 37px 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.efjs-ticket-season {
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+}
+.efjs-ticket-days {
+  font-family: Georgia, serif;
+  font-size: 88px;
+  line-height: 1;
+  margin-top: 15px;
+  color: #245b50;
+}
+.efjs-ticket-days small {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-left: 10px;
+}
+.efjs-ticket-side ul {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 28px;
+  line-height: 2.2;
+  font-size: 13px;
+}
+.efjs-ticket-side li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.efjs-ticket-side .efjs-button {
+  width: 100%;
+  font-size: 13px;
+  padding: 14px 8px;
+}
+.efjs-practical {
+  max-width: 900px;
+  margin: 46px auto 0;
+}
+.efjs-practical details {
+  border-bottom: 1px solid #cbd8cc;
+}
+.efjs-practical summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 23px 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.efjs-practical summary::-webkit-details-marker {
+  display: none;
+}
+.efjs-practical summary svg {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.efjs-practical details[open] summary svg {
+  transform: rotate(45deg);
+}
+.efjs-practical details > div {
+  padding: 0 38px 25px 0;
+  color: #4d6966;
+  font-size: 15px;
+  line-height: 2;
+}
+.efjs-practical details p + p {
+  margin-top: 14px;
+}
+.efjs-apply {
+  padding: 96px 0 90px;
+  text-align: center;
+}
+.efjs-apply .efjs-eyebrow {
+  justify-content: center;
+  color: #90743e;
+}
+.efjs-apply h2 {
+  margin: 23px 0 25px;
+  font-size: clamp(33px, 3.8vw, 50px);
+}
+.efjs-apply > p:not(.efjs-eyebrow) {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 2.1;
+}
+.efjs-apply .efjs-button {
+  margin-top: 30px;
+  min-width: 330px;
+  padding: 19px 30px;
+}
+.efjs-apply .efjs-apply-message {
+  font-size: 12px !important;
+  margin: 14px auto 24px !important;
+  max-width: 470px;
+}
+.efjs-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  font-size: 13px;
+}
+.efjs-contact a {
+  border-bottom: 1px solid #b2c6c1;
+}
+.efjs-footer {
+  background: var(--blue);
+  color: #d9e7e5;
+  padding: 44px 24px 24px;
+  text-align: center;
+}
+.efjs-footer .efjs-brand {
+  justify-content: center;
+  color: white;
+}
+.efjs-footer > p {
+  font-size: 12px;
+  margin: 22px 0 14px;
+}
+.efjs-footer > div:not(:last-child) {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  font-size: 13px;
+}
+.efjs-footer > div:last-child {
+  max-width: 560px;
+  margin-inline: auto;
+  color: var(--ink);
+}
+.efjs-fixed {
+  position: fixed;
+  z-index: 40;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  min-height: 84px;
+  padding: 12px 24px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: #fffdf8f5;
+  border-top: 1px solid #cdd8ce;
+  backdrop-filter: blur(14px);
+}
+.efjs-fixed > div {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.efjs-fixed > div > span {
+  font-family: Georgia, serif;
+  font-size: 19px;
+  white-space: nowrap;
+}
+.efjs-fixed > div > span small {
+  font-size: 13px;
+  margin-left: 6px;
+}
+.efjs-fixed strong {
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.efjs-fixed strong small {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 6px;
+}
+.efjs-fixed .efjs-button {
+  min-height: 48px;
+  padding: 12px 26px;
+  font-size: 14px;
+}
+.efjs[data-motion="on"] .efjs-hero[data-visible="true"] .efjs-hero-sea img {
+  animation: efjs-sea-drift 18s ease-in-out infinite alternate;
+}
+.efjs[data-motion="on"] .efjs-hero[data-visible="true"] .efjs-hero-forest {
+  animation: efjs-photo-float 9s ease-in-out infinite;
+}
+.efjs[data-motion="on"] .efjs-hero[data-visible="true"] .efjs-seal {
+  animation: efjs-seal-sway 11s ease-in-out infinite;
+}
+.efjs[data-motion="on"] .efjs-hero[data-visible="true"] .efjs-hero-line path {
+  animation: efjs-line-draw 4s ease-out both;
+}
+.efjs[data-motion="on"] .efjs-hero h1 > span {
+  animation: efjs-title-rise 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.efjs[data-motion="on"] .efjs-hero h1 > span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.efjs[data-motion="on"] .efjs-hero h1 > span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.efjs[data-motion="on"] .efjs-route-flow {
+  animation: efjs-route-travel 9s linear infinite;
+}
+@keyframes efjs-sea-drift {
+  from {
+    transform: scale(1.015) translateY(0);
+  }
+  to {
+    transform: scale(1.075) translateY(4px);
+  }
+}
+@keyframes efjs-photo-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1deg);
+  }
+}
+@keyframes efjs-seal-sway {
+  0%,
+  100% {
+    transform: rotate(-9deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+@keyframes efjs-line-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes efjs-title-rise {
+  from {
+    opacity: 0.6;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes efjs-route-travel {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+@media (min-width: 1600px) {
+  .efjs-hero-inner {
+    padding-inline: 80px;
+  }
+}
+@media (max-width: 1100px) {
+  .efjs-wrap {
+    width: calc(100% - 72px);
+  }
+  .efjs-hero-inner {
+    padding-inline: 5%;
+    min-height: 690px;
+  }
+  .efjs-hero-art {
+    min-height: 550px;
+    margin-left: 5%;
+  }
+  .efjs-hero h1 {
+    font-size: clamp(48px, 6.2vw, 70px);
+  }
+  .efjs-hero-actions {
+    gap: 18px;
+  }
+  .efjs-hero-actions .efjs-button {
+    padding-inline: 17px;
+    font-size: 14px;
+  }
+  .efjs-quiet-link {
+    font-size: 13px;
+  }
+  .efjs-hero-lead {
+    font-size: 15px;
+  }
+  .efjs-intro {
+    gap: 40px;
+  }
+  .efjs-stop {
+    gap: 45px;
+  }
+  .efjs-stop-photo img {
+    height: 470px;
+  }
+  .efjs-ticket {
+    grid-template-columns: 1fr 260px;
+  }
+  .efjs-ticket-main {
+    padding: 34px 30px;
+  }
+  .efjs-price-row {
+    gap: 20px;
+  }
+  .efjs-price-row strong {
+    font-size: 36px;
+  }
+  .efjs-price-row .efjs-early-price {
+    padding-left: 20px;
+  }
+  .efjs-night > div {
+    width: calc(100% - 72px);
+  }
+}
+@media (max-width: 800px) {
+  .efjs-nav {
+    height: 83px;
+    padding-inline: 24px;
+    gap: 18px;
+  }
+  .efjs-nav nav {
+    gap: 20px;
+  }
+  .efjs-nav nav a {
+    font-size: 12px;
+  }
+  .efjs-brand > span {
+    font-size: 21px;
+  }
+  .efjs-brand small {
+    font-size: 8px;
+  }
+  .efjs-nav-join {
+    font-size: 12px;
+    padding: 10px 16px;
+  }
+  .efjs-hero-inner {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
+    padding-bottom: 45px;
+    min-height: 640px;
+  }
+  .efjs-hero-copy {
+    padding-top: 0;
+  }
+  .efjs-hero .efjs-eyebrow {
+    font-size: 9px;
+    gap: 7px;
+    letter-spacing: 0.06em;
+  }
+  .efjs-hero .efjs-eyebrow > span {
+    width: 16px;
+  }
+  .efjs-hero h1 {
+    font-size: 5.6vw;
+  }
+  .efjs-hero-lead {
+    font-size: 14px;
+  }
+  .efjs-date strong {
+    font-size: 29px;
+  }
+  .efjs-date i {
+    margin-inline: 10px;
+  }
+  .efjs-hero-art {
+    min-height: 475px;
+    margin-left: 6%;
+  }
+  .efjs-seal {
+    width: 113px;
+    height: 113px;
+    bottom: 2%;
+    left: -6%;
+  }
+  .efjs-seal b {
+    font-size: 47px;
+  }
+  .efjs-seal > span {
+    font-size: 10px;
+  }
+  .efjs-seal small {
+    font-size: 7px;
+  }
+  .efjs-hero-forest {
+    right: -4%;
+    width: 49%;
+  }
+  .efjs-hero-art figcaption {
+    left: 13px;
+    font-size: 12px;
+  }
+  .efjs-hero-forest figcaption {
+    left: 10px;
+    font-size: 10px;
+  }
+  .efjs-hero-forest figcaption span {
+    font-size: 13px;
+    padding-right: 6px;
+    margin-right: 4px;
+  }
+  .efjs-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .efjs-hero-bottom {
+    font-size: 12px;
+    padding: 17px 0;
+    letter-spacing: 0.05em;
+  }
+  .efjs-hero-bottom i {
+    margin-inline: 10px;
+  }
+  .efjs-hero-bottom > span:nth-child(2) {
+    font-size: 13px;
+  }
+  .efjs-hero-bottom small {
+    margin-left: 10px;
+  }
+  .efjs-route-section {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+  .efjs-intro {
+    gap: 28px;
+  }
+  .efjs-intro > p {
+    font-size: 14px;
+  }
+  .efjs-route strong {
+    font-size: 20px;
+  }
+  .efjs-route-period {
+    font-size: 11px;
+  }
+  .efjs-stop {
+    gap: 34px;
+    padding-block: 40px;
+  }
+  .efjs-stop-photo img {
+    height: 420px;
+  }
+  .efjs-stop--2 .efjs-stop-photo img {
+    height: 345px;
+  }
+  .efjs-stop h2 {
+    font-size: 28px;
+  }
+  .efjs-body {
+    font-size: 15px;
+  }
+  .efjs-stop-place {
+    font-size: 11px;
+  }
+  .efjs-stop-copy .efjs-eyebrow {
+    font-size: 11px;
+  }
+  .efjs-stop-period {
+    font-size: 10px;
+    padding-inline: 8px;
+  }
+  .efjs-tags {
+    gap: 5px;
+  }
+  .efjs-tags li {
+    font-size: 11px;
+    padding-inline: 6px;
+  }
+  .efjs-text-link {
+    font-size: 12px;
+  }
+  .efjs-guide {
+    grid-template-columns: 190px 1fr;
+    gap: 36px;
+    padding-block: 72px;
+  }
+  .efjs-guide-portrait img {
+    height: 225px;
+  }
+  .efjs-guide h2 {
+    font-size: 28px;
+  }
+  .efjs-ticket {
+    grid-template-columns: 1fr;
+  }
+  .efjs-ticket-main {
+    padding: 34px;
+  }
+  .efjs-ticket-side {
+    border-left: 0;
+    border-top: 1px dashed #b8c8b4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 28px;
+    padding: 25px 34px;
+  }
+  .efjs-ticket-season {
+    grid-column: 1;
+  }
+  .efjs-ticket-days {
+    display: none;
+  }
+  .efjs-ticket-side ul {
+    grid-row: 2;
+    grid-column: 1;
+    margin: 8px 0 0;
+  }
+  .efjs-ticket-side .efjs-button {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+  .efjs-price-row strong {
+    font-size: 44px;
+  }
+  .efjs-practical summary {
+    font-size: 15px;
+  }
+  .efjs-fixed {
+    gap: 25px;
+  }
+  .efjs-fixed > div {
+    gap: 20px;
+  }
+  .efjs-fixed > div > span {
+    font-size: 16px;
+  }
+  .efjs-fixed strong {
+    font-size: 16px;
+  }
+  .efjs-fixed strong small {
+    font-size: 11px;
+  }
+}
+@media (max-width: 620px) {
+  .efjs {
+    padding-bottom: 85px;
+  }
+  .efjs-wrap {
+    width: calc(100% - 44px);
+  }
+  .efjs-nav {
+    height: 78px;
+    padding-inline: 22px;
+  }
+  .efjs-nav nav {
+    display: none;
+  }
+  .efjs-nav-join {
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+  .efjs-brand {
+    gap: 9px;
+  }
+  .efjs-brand > svg {
+    width: 24px;
+  }
+  .efjs-brand > span {
+    font-size: 20px;
+  }
+  .efjs-hero-inner {
+    display: flex;
+    flex-direction: column;
+    padding: 23px 26px 0;
+    gap: 27px;
+  }
+  .efjs-hero .efjs-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.07em;
+  }
+  .efjs-hero-name {
+    font-size: 13px;
+    margin-top: 17px !important;
+    letter-spacing: 0.12em;
+  }
+  .efjs-hero h1 {
+    font-size: clamp(39px, 11.5vw, 64px);
+    line-height: 1.31;
+    margin: 13px 0 23px;
+  }
+  .efjs-hero-lead {
+    font-size: 14px;
+    line-height: 2;
+  }
+  .efjs-date {
+    margin-top: 22px;
+    gap: 13px;
+  }
+  .efjs-date > span {
+    font-size: 16px;
+    padding-right: 13px;
+  }
+  .efjs-date strong {
+    font-size: 31px;
+  }
+  .efjs-date small {
+    font-size: 12px;
+    padding-left: 7px;
+  }
+  .efjs-date i {
+    margin: 0 12px;
+    font-size: 22px;
+  }
+  .efjs-hero-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .efjs-hero-actions .efjs-button {
+    font-size: 13px;
+    padding: 14px 17px;
+    min-height: 51px;
+    gap: 9px;
+  }
+  .efjs-quiet-link {
+    font-size: 12px;
+  }
+  .efjs-hero-note {
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 15px !important;
+  }
+  .efjs-hero-art {
+    width: 100%;
+    margin: 0;
+    min-height: 377px;
+    max-width: 460px;
+    align-self: center;
+  }
+  .efjs-hero-sea {
+    width: 67%;
+    height: 90%;
+    top: 0;
+    left: 4%;
+    border-radius: 130px 130px 4px 4px;
+  }
+  .efjs-hero-forest {
+    height: 68%;
+    width: 41%;
+    right: 0;
+    bottom: 0;
+    border-width: 5px;
+    border-bottom-right-radius: 70px;
+  }
+  .efjs-hero-sea img {
+    object-position: center 58%;
+  }
+  .efjs-hero-art figcaption {
+    font-size: 12px;
+    bottom: 15px;
+  }
+  .efjs-hero-forest figcaption {
+    font-size: 11px;
+    bottom: 25px;
+  }
+  .efjs-hero-forest figcaption span {
+    font-size: 14px;
+  }
+  .efjs-seal {
+    left: 0;
+    bottom: 0;
+    width: 103px;
+    height: 103px;
+  }
+  .efjs-seal > span {
+    font-size: 9px;
+  }
+  .efjs-seal b {
+    font-size: 45px;
+  }
+  .efjs-seal small {
+    font-size: 6px;
+  }
+  .efjs-vertical {
+    right: 7%;
+    top: 4%;
+    font-size: 10px;
+  }
+  .efjs-hero-line {
+    height: 112%;
+    top: -7%;
+  }
+  .efjs-hero-bottom {
+    margin: 30px 26px 0;
+    padding: 21px 0;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .efjs-hero-bottom > span:first-child {
+    width: 100%;
+    font-size: 13px;
+  }
+  .efjs-hero-bottom i {
+    margin-inline: 13px;
+  }
+  .efjs-hero-bottom > span:nth-child(2) {
+    font-size: 13px;
+  }
+  .efjs-hero-bottom > a {
+    width: 33px;
+    height: 33px;
+  }
+  .efjs-route-section {
+    padding: 63px 0 27px;
+  }
+  .efjs-intro {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .efjs h2 {
+    font-size: 30px;
+    line-height: 1.6;
+  }
+  .efjs-intro .efjs-eyebrow {
+    font-size: 11px;
+    margin-bottom: 17px;
+  }
+  .efjs-intro > p {
+    font-size: 15px;
+    line-height: 2.15;
+  }
+  .efjs-desktop-break {
+    display: none;
+  }
+  .efjs-route {
+    margin-top: 39px;
+    gap: 5px;
+  }
+  .efjs-route svg {
+    height: 55px;
+    top: 0;
+    left: -2%;
+    width: 104%;
+  }
+  .efjs-route > a {
+    padding: 0;
+  }
+  .efjs-route-number {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  .efjs-route-period {
+    font-size: 10px;
+    max-width: 90px;
+    line-height: 1.8;
+    min-height: 36px;
+    margin-top: 13px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .efjs-route strong {
+    font-size: 17px;
+    line-height: 1.55;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    max-width: 110px;
+  }
+  .efjs-route-en {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+  .efjs-route-note {
+    font-size: 11px;
+    text-align: left;
+    margin-top: 23px !important;
+    padding: 14px 15px;
+    background: #eff4ee;
+    border-radius: 3px;
+  }
+  .efjs-stops {
+    padding-bottom: 58px;
+  }
+  .efjs-stop,
+  .efjs-stop:nth-child(2) {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-block: 35px;
+  }
+  .efjs-stop:nth-child(2) .efjs-stop-photo {
+    order: 0;
+  }
+  .efjs-stop-photo img {
+    height: 400px;
+    border-radius: 4px 4px 90px 4px;
+  }
+  .efjs-stop--2 .efjs-stop-photo img {
+    height: 235px;
+    border-radius: 70px 4px 4px 4px;
+  }
+  .efjs-stop--3 .efjs-stop-photo img {
+    height: 385px;
+    border-radius: 95px 4px 4px 4px;
+  }
+  .efjs-photo-index {
+    font-size: 75px;
+    top: -25px;
+    right: 16px;
+  }
+  .efjs-stop-photo figcaption {
+    font-size: 10px;
+  }
+  .efjs-stop-copy .efjs-eyebrow {
+    font-size: 12px;
+  }
+  .efjs-stop-period {
+    font-size: 11px;
+  }
+  .efjs-stop-place {
+    font-size: 12px;
+    margin-top: 13px !important;
+  }
+  .efjs-stop h2 {
+    font-size: 30px;
+    margin: 13px 0 19px;
+  }
+  .efjs-body {
+    font-size: 15px;
+    line-height: 2.1;
+  }
+  .efjs-tags {
+    margin: 21px 0 16px;
+    gap: 6px;
+  }
+  .efjs-tags li {
+    font-size: 11px;
+    padding: 5px 9px;
+  }
+  .efjs-text-link {
+    font-size: 13px;
+  }
+  .efjs-night {
+    min-height: 470px;
+  }
+  .efjs-night > img {
+    object-position: 62% center;
+  }
+  .efjs-night:after {
+    background: linear-gradient(90deg, #071b1fe0, #071b1f65);
+  }
+  .efjs-night > div {
+    width: calc(100% - 52px);
+    margin: 49px auto 65px;
+  }
+  .efjs-night .efjs-eyebrow {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+  .efjs-night h2 {
+    font-size: 32px;
+    line-height: 1.65;
+  }
+  .efjs-night p:not(.efjs-eyebrow) {
+    font-size: 14px;
+    line-height: 2;
+  }
+  .efjs-night-caption {
+    font-size: 10px;
+    bottom: 18px;
+    right: 23px;
+  }
+  .efjs-guide {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding: 58px 0;
+  }
+  .efjs-guide-portrait {
+    width: 173px;
+    justify-self: center;
+    padding: 7px;
+  }
+  .efjs-guide-portrait img {
+    height: 195px;
+  }
+  .efjs-guide-portrait span {
+    font-size: 9px;
+    padding-top: 10px;
+  }
+  .efjs-guide h2 {
+    font-size: 29px;
+    margin-top: 10px;
+  }
+  .efjs-guide-role {
+    font-size: 11px;
+  }
+  .efjs-price-section {
+    padding: 58px 0 45px;
+  }
+  .efjs-price-heading .efjs-eyebrow {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+  .efjs-price-heading h2 {
+    font-size: 31px;
+  }
+  .efjs-price-heading > p:last-child {
+    font-size: 13px;
+    line-height: 2;
+  }
+  .efjs-ticket {
+    margin-top: 31px;
+  }
+  .efjs-ticket-main {
+    padding: 25px 20px;
+  }
+  .efjs-ticket-label {
+    font-size: 11px;
+  }
+  .efjs-ticket h3 {
+    font-size: 25px;
+    margin-top: 14px;
+    margin-bottom: 13px;
+  }
+  .efjs-ticket-main > p:first-of-type {
+    font-size: 12px;
+  }
+  .efjs-price-row {
+    gap: 13px;
+    margin-block: 24px;
+  }
+  .efjs-price-row > div > span {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .efjs-price-row strong {
+    font-size: 33px;
+    line-height: 1.35;
+  }
+  .efjs-price-row strong small {
+    font-size: 12px;
+    margin-left: 3px;
+  }
+  .efjs-price-row .efjs-early-price {
+    padding-left: 13px;
+  }
+  .efjs-early-note {
+    font-size: 11px !important;
+    gap: 5px;
+  }
+  .efjs-early-note svg {
+    width: 14px;
+    margin-top: 2px;
+  }
+  .efjs-cost-note {
+    font-size: 12px;
+    margin-top: 18px !important;
+    padding-top: 17px;
+  }
+  .efjs-cost-note b {
+    font-size: 13px;
+  }
+  .efjs-ticket-side {
+    padding: 22px 20px;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  .efjs-ticket-season {
+    font-size: 10px;
+  }
+  .efjs-ticket-side ul {
+    grid-column: 1;
+    grid-row: auto;
+    margin: 0;
+    font-size: 12px;
+  }
+  .efjs-ticket-side .efjs-button {
+    grid-column: 1;
+    grid-row: auto;
+    font-size: 14px;
+  }
+  .efjs-practical {
+    margin-top: 29px;
+  }
+  .efjs-practical summary {
+    font-size: 14px;
+    line-height: 1.8;
+    padding: 20px 0;
+    gap: 10px;
+  }
+  .efjs-practical summary svg {
+    width: 17px;
+  }
+  .efjs-practical details > div {
+    font-size: 14px;
+    padding: 0 0 23px;
+    line-height: 2;
+  }
+  .efjs-apply {
+    padding: 65px 0 59px;
+  }
+  .efjs-apply .efjs-eyebrow {
+    font-size: 11px;
+  }
+  .efjs-apply h2 {
+    font-size: 32px;
+    margin-top: 19px;
+  }
+  .efjs-apply > p:not(.efjs-eyebrow) {
+    font-size: 14px;
+  }
+  .efjs-apply .efjs-button {
+    min-width: 0;
+    width: 100%;
+    padding: 18px 10px;
+    font-size: 14px;
+    margin-top: 26px;
+  }
+  .efjs-apply .efjs-apply-message {
+    font-size: 11px !important;
+    max-width: 280px;
+    margin-top: 15px !important;
+  }
+  .efjs-contact {
+    font-size: 11px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .efjs-footer {
+    padding: 35px 22px 15px;
+  }
+  .efjs-footer > p {
+    font-size: 10px;
+  }
+  .efjs-fixed {
+    gap: 12px;
+    justify-content: space-between;
+    padding: 11px 16px calc(11px + env(safe-area-inset-bottom, 0px));
+    min-height: 80px;
+  }
+  .efjs-fixed > div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .efjs-fixed > div > span {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .efjs-fixed > div > span small {
+    font-size: 11px;
+  }
+  .efjs-fixed strong {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .efjs-fixed strong small {
+    font-size: 9px;
+    margin-left: 4px;
+  }
+  .efjs-fixed .efjs-button {
+    font-size: 12px;
+    padding: 12px 16px;
+    min-height: 47px;
+  }
+}
+@media (max-width: 360px) {
+  .efjs-nav {
+    padding-inline: 17px;
+  }
+  .efjs-brand > span {
+    font-size: 18px;
+  }
+  .efjs-brand > svg {
+    width: 21px;
+  }
+  .efjs-nav-join {
+    font-size: 11px;
+    padding-inline: 11px;
+  }
+  .efjs-hero-inner {
+    padding-inline: 21px;
+  }
+  .efjs-hero h1 {
+    font-size: 38px;
+  }
+  .efjs-hero-actions {
+    gap: 15px;
+  }
+  .efjs-hero-actions .efjs-button {
+    font-size: 12px;
+    padding-inline: 13px;
+  }
+  .efjs-quiet-link {
+    font-size: 11px;
+  }
+  .efjs-hero-art {
+    min-height: 330px;
+  }
+  .efjs-hero-note {
+    font-size: 10px;
+  }
+  .efjs-hero .efjs-eyebrow {
+    font-size: 9px;
+  }
+  .efjs-wrap {
+    width: calc(100% - 36px);
+  }
+  .efjs-price-row strong {
+    font-size: 28px;
+  }
+  .efjs-price-row > div > span {
+    font-size: 10px;
+  }
+  .efjs-price-row .efjs-early-price {
+    padding-left: 10px;
+  }
+  .efjs-ticket-main {
+    padding-inline: 17px;
+  }
+  .efjs-fixed {
+    padding-inline: 11px;
+    gap: 9px;
+  }
+  .efjs-fixed .efjs-button {
+    font-size: 11px;
+    padding-inline: 12px;
+  }
+  .efjs-fixed strong {
+    font-size: 14px;
+  }
+  .efjs-fixed strong small {
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .efjs *,
+  .efjs *:before,
+  .efjs *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

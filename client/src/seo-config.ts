@@ -56,9 +56,10 @@ export const pages: Record<string, PageSEO> = {
     "description": "限定ラジオ、Zoomライブ、神山合宿などを通じて、世界と自分の生き方を学ぶ111日間のオンラインプログラム「らんぼう塾」。内容、参加案内、よくある質問をご紹介します。"
   },
   "/efj": {
-    "label": "EarthfamilyJourney",
-    "title": "EarthfamilyJourney・家族で学ぶ旅｜旅する学校",
-    "description": "旅する学校のEarthfamilyJourney。家族で地球を旅し、現地の人々や暮らし、自然に出会うプログラムの内容と参加案内をご紹介します。"
+    "label": "地球家族ジャーニー2027春",
+    "title": "地球家族ジャーニー2027春｜3/29〜4/4 祝島・おうちえん・神山｜旅する学校",
+    "description": "2027年3月29日〜4月4日、祝島→こびとのおうちえん→神山町へ。らんぼうと訪ねる、いのちがよろこぶ7日間。参加費88,000円、2月28日までの早期割引80,000円。宿泊・食事・交通等の実費別途。おひとり・友人・親子歓迎。",
+    "image": "/efj/iwaishima-BUClfDH1.webp"
   },
   "/earth-family": {
     "label": "地球家族ジャーニー2026",

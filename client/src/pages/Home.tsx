@@ -134,7 +134,15 @@ export default function Home() {
                       <div>
                         <dt>実費〈別途〉</dt>
                         <dd>
-                          {journey.expenses} 円前後<small> / 1名</small>
+                          {journey.expenses ? (
+                            <>
+                              {journey.expenses} 円前後<small> / 1名</small>
+                            </>
+                          ) : (
+                            <>
+                              宿泊・食事・交通など<small>各自でお支払い</small>
+                            </>
+                          )}
                         </dd>
                       </div>
                     </dl>
@@ -341,4 +349,3 @@ export default function Home() {
     </div>
   );
 }
-

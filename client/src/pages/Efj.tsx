@@ -1,456 +1,694 @@
+import { useEffect, useRef, useState } from "react";
+import {
+  ArrowDown,
+  Check,
+  Compass,
+  Leaf,
+  MapPin,
+  MessageCircle,
+  Plus,
+  Waves,
+} from "lucide-react";
+import { useJourneyMotion } from "@/components/JourneyMotion";
 import { JourneyStatusNotice } from "@/components/JourneyBooking";
-import { useEffect, useRef, type ReactNode, type CSSProperties } from "react";
 import ShareButtons from "@/components/ShareButtons";
+import { trackJourneyAction } from "@/lib/journey-analytics";
+import "./efj-spring.css";
 
 const LINE = "https://lin.ee/N9eyIcP";
-const FORM = LINE; // Past event: route new interest to the next journey.
-const LNK: CSSProperties = { color: "#04a648", fontWeight: 800, fontSize: "13.5px", textDecoration: "underline", textUnderlineOffset: 3 };
-const KEYWORDS = ["太陽と風の塩づくり", "島の暮らし", "オルタナティブスクール", "焚き火と星空", "森のようちえん", "地域再生の聖地", "阿波おどり", "いのちの循環", "家族で参加OK"];
+const EARLY_DEADLINE = "2027-02-28T23:59:59+09:00";
+const DEPARTURE = "2027-03-29T00:00:00+09:00";
+const STOPS = [
+  {
+    id: "iwaishima",
+    name: "祝島",
+    en: "IWAISHIMA",
+    period: "前半",
+    region: "山口県・瀬戸内海",
+    image: "/efj/iwaishima-BUClfDH1.webp",
+    alt: "祝島で受け継がれてきた祭りの舟と、瀬戸内海の青",
+    caption: "島に受け継がれる風景（過去の祭りの様子）",
+    title: (
+      <>
+        海と生きる。
+        <br />
+        その豊かさに、ふれる。
+      </>
+    ),
+    text: "潮の香りがする路地を歩き、島で暮らす人の話に耳をすます。食べること、つくること、分かち合うこと。祝島の暮らしの中に、これからも大切にしたいものが息づいています。",
+    tags: ["島の暮らし", "海とともに生きる知恵", "いのちの循環"],
+    link: "https://note.com/shiftdaigaku/n/na0c2592111c5",
+    linkText: "らんぼうの祝島への想いを読む",
+    Icon: Waves,
+  },
+  {
+    id: "ouchien",
+    name: "こびとのおうちえん",
+    en: "OUCHIEN",
+    period: "中盤",
+    region: "山口県",
+    image: "/efj/terakoya-DlVpWx4L.webp",
+    alt: "地球子舎で、らんぼうと仲間がゆったり過ごす時間",
+    caption: "地球子舎で出会った人たちと",
+    title: (
+      <>
+        「育つ」を、
+        <br />
+        もういちど感じてみる。
+      </>
+    ),
+    text: "森のようちえん「こびとのおうちえん」と、オルタナティブスクール「地球子舎」の大下さんを訪ねて。子育て、学び、幸せのかたち。対話の中で、いつもの「当たり前」が少しほどけていくかもしれません。",
+    tags: ["森のようちえん", "オルタナティブな学び", "生き方を語る"],
+    link: "https://oh-shita.com/terakoya/about1/",
+    linkText: "地球子舎について知る",
+    Icon: Leaf,
+  },
+  {
+    id: "kamiyama",
+    name: "神山町",
+    en: "KAMIYAMA",
+    period: "後半",
+    region: "徳島県・山あいの町",
+    image: "/efj/waterfall-DgiO-S5j.webp",
+    alt: "神山町の緑深い森を流れる滝",
+    caption: "森の深呼吸が聞こえてくる、神山の風景",
+    title: (
+      <>
+        森の中で、
+        <br />
+        自分の声を聴く。
+      </>
+    ),
+    text: "らんぼうが暮らす、徳島・神山町へ。森や川のそばで過ごし、この町に根を張る人たちに出会う。「やったらええんちゃうん？」そんな空気にふれて、帰ってからの毎日が少し楽しみになる旅の締めくくりを。",
+    tags: ["森と川", "地域の暮らし", "これからの自分"],
+    link: "https://kamiyamag.tabigaku.party/",
+    linkText: "神山の魅力をもっと知る",
+    Icon: Compass,
+  },
+];
 
-function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+function useTravelSeason() {
+  // Keep the prerender and initial client render identical.
+  const [now, setNow] = useState<number | null>(null);
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (!("IntersectionObserver" in window)) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }),
-      { threshold: 0.12 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const update = () => setNow(Date.now());
+    update();
+    const timer = window.setInterval(update, 60_000);
+    return () => window.clearInterval(timer);
   }, []);
-  return <div ref={ref} className={`efj-reveal ${className}`}>{children}</div>;
+  return {
+    early: now === null || now <= Date.parse(EARLY_DEADLINE),
+    departed: now !== null && now >= Date.parse(DEPARTURE),
+  };
 }
 
-function CountdownBadge({ light = false }: { light?: boolean }) {
-  const dep = new Date("2026-08-05T00:00:00+09:00").getTime();
-  const end = new Date("2026-08-15T00:00:00+09:00").getTime();
-  const now = Date.now();
-  if (now >= end) return null;
-  const days = Math.ceil((dep - now) / 86400000);
+function LineLink({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <span className="efj-count" style={light ? { boxShadow: "0 4px 14px rgba(0,0,0,.15)" } : undefined}>
-      🌏 {days > 0 ? <>出発まであと <b>{days}</b> 日｜少人数制・先着順</> : "ただいま旅の途中！"}
-    </span>
+    <a
+      className={`efjs-button efjs-button--line ${className}`}
+      href={LINE}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => trackJourneyAction("consult", "earth-family")}
+    >
+      <MessageCircle size={19} aria-hidden="true" />
+      {children}
+    </a>
   );
 }
 
 export default function Efj() {
-  return (
-    <div className="efj">
-      <JourneyStatusNotice id="earth-family" />
-      <style>{`
-        .efj { background:#faf7f2; color:#2c2c26; font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",sans-serif; overflow-x:hidden; }
-        .efj img { max-width:100%; }
-        /* HERO */
-        .efj-hero { background:#123c32; }
-        .efj-hero .banner { display:block; width:100%; max-width:1200px; margin:0 auto; height:auto; }
-        .efj-hero .cta-band { text-align:center; padding:26px 20px 46px; }
-        .efj-hero .inner { max-width:860px; margin:0 auto; color:#fff; }
-        .efj-hero .lead-copy { font-size:clamp(14px,2.3vw,16.5px); line-height:2.1; color:rgba(255,255,255,.92); margin:0 auto 20px; max-width:640px; }
-        .efj-hero .period { font-size:clamp(12.5px,1.9vw,14.5px); opacity:.8; margin:14px 0 18px; letter-spacing:.03em; }
-        .efj-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 6px; box-shadow:0 4px 14px rgba(0,0,0,.25); }
-        .efj-count b { font-size:18px; }
-        .efj-btn { display:inline-block; background:linear-gradient(135deg,#06c755,#04a648); color:#fff; font-weight:900; font-size:clamp(15px,2.4vw,18px); padding:16px 34px; border-radius:999px; text-decoration:none; box-shadow:0 8px 24px rgba(6,199,85,.35); transition:transform .2s ease; }
-        .efj-btn:hover { transform:translateY(-2px); }
-        .efj-btn-sub { display:block; margin-top:10px; font-size:12px; opacity:.75; }
-        /* MARQUEE */
-        .efj-marquee { background:#FFD94D; padding:13px 0; overflow:hidden; white-space:nowrap; }
-        .efj-marquee .track { display:inline-block; animation:efjscroll 26s linear infinite; }
-        .efj-marquee span { display:inline-block; font-weight:900; font-size:14.5px; color:#1F1B16; padding:0 14px; letter-spacing:.06em; }
-        .efj-marquee .star { color:#d65a3a; }
-        @keyframes efjscroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-        /* SECTIONS */
-        .efj-sec { max-width:900px; margin:0 auto; padding:clamp(48px,7vw,80px) 20px 0; }
-        .efj-label { font-size:12px; font-weight:900; letter-spacing:.28em; color:#d65a3a; margin:0 0 10px; }
-        .efj-h2 { font-size:clamp(24px,4.6vw,36px); font-weight:900; line-height:1.4; margin:0 0 20px; letter-spacing:.02em; }
-        .efj-h2 .u { background:linear-gradient(transparent 62%, #ffe08a 62%); }
-        .efj-lead { font-size:clamp(14.5px,2.3vw,16.5px); line-height:2.1; color:#4a443a; margin:0 0 18px; }
-        .efj-reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-        .efj-reveal.is-in { opacity:1; transform:none; }
-        .efj-feats { display:grid; gap:14px; margin-top:26px; }
-        .efj-feat { background:#fff; border:1px solid #eee2d0; border-radius:16px; padding:18px 20px; font-size:14.5px; line-height:1.9; color:#4a443a; }
-        .efj-feat b { display:block; font-size:16px; color:#1d5c4d; margin-bottom:6px; }
-        /* ITINERARY with photos */
-        .efj-itin { margin-top:30px; }
-        .efj-stop { background:#fff; border:1px solid #eee2d0; border-radius:20px; overflow:hidden; margin-bottom:22px; box-shadow:0 4px 18px rgba(60,45,20,.06); }
-        .efj-stop .photo { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
-        .efj-stop .body { padding:20px 22px 24px; }
-        .efj-stop .date { display:inline-block; font-size:12.5px; font-weight:900; color:#fff; background:#d65a3a; border-radius:999px; padding:4px 12px; letter-spacing:.06em; margin:0 0 10px; }
-        .efj-stop h3 { font-size:clamp(18px,3vw,23px); font-weight:900; margin:0 0 4px; }
-        .efj-stop .tagline { font-size:13.5px; font-weight:800; color:#1d5c4d; margin:0 0 10px; }
-        .efj-stop p { font-size:14px; line-height:1.95; color:#4a443a; margin:0; }
-        .efj-finale { background:linear-gradient(160deg,#123c32,#1d5c4d); color:#fff; border-radius:20px; padding:clamp(28px,5vw,44px); text-align:center; margin-top:8px; }
-        .efj-finale .big { font-size:clamp(18px,3.4vw,26px); font-weight:900; line-height:1.7; margin:0 0 8px; }
-        .efj-finale p { color:rgba(255,255,255,.85); font-size:14px; line-height:1.9; margin:0; }
-        /* SCENES masonry-ish */
-        .efj-scenes { columns:2; column-gap:10px; margin-top:24px; }
-        @media (min-width:640px){ .efj-scenes { columns:3; } }
-        .efj-scenes img { width:100%; border-radius:12px; margin-bottom:10px; display:block; break-inside:avoid; }
-        /* PLANS */
-        .efj-plans { display:grid; gap:16px; margin-top:26px; }
-        .efj-plan { background:#fff; border:2px solid #eee2d0; border-radius:20px; padding:clamp(20px,4vw,28px); }
-        .efj-plan.best { border-color:#d65a3a; box-shadow:0 10px 30px rgba(214,90,58,.14); }
-        .efj-plan .besttag { display:inline-block; background:#d65a3a; color:#fff; font-size:12px; font-weight:900; padding:4px 12px; border-radius:999px; margin-bottom:8px; }
-        .efj-plan h3 { font-size:clamp(18px,3vw,22px); font-weight:900; margin:0 0 2px; }
-        .efj-plan .dates { font-size:13px; color:#6b6353; margin:0 0 12px; }
-        .efj-plan .price { font-size:clamp(30px,6vw,40px); font-weight:900; color:#1d5c4d; margin:0; }
-        .efj-plan .price small { font-size:14px; font-weight:700; color:#6b6353; }
-        .efj-plan .jitsu { font-size:12.5px; color:#9a917f; margin:2px 0 12px; }
-        .efj-plan ul { list-style:none; padding:0; margin:0 0 14px; font-size:13.5px; line-height:2; color:#4a443a; }
-        .efj-plan ul b { color:#1d5c4d; }
-        .efj-note { background:#f7f2e8; border-radius:16px; padding:18px 20px; font-size:13.5px; line-height:2; color:#4a443a; margin-top:20px; }
-        .efj-note b { color:#1d5c4d; }
-        /* GUIDE */
-        .efj-guide { background:#fff; border:1px solid #eee2d0; border-radius:20px; padding:clamp(22px,4vw,32px); margin-top:26px; }
-        .efj-guide .head { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
-        .efj-guide .head img { width:84px; height:84px; border-radius:50%; object-fit:cover; border:3px solid #ffd94d; }
-        .efj-guide .head .name { font-size:20px; font-weight:900; margin:0; }
-        .efj-guide .head .role { font-size:12.5px; font-weight:800; color:#d65a3a; margin:2px 0 0; }
-        .efj-guide p { font-size:14px; line-height:2.05; color:#4a443a; margin:0 0 12px; }
-        .efj-guide .path { font-size:13.5px; line-height:2.1; color:#4a443a; margin:0; }
-        .efj-guide blockquote { border-left:4px solid #d65a3a; padding-left:14px; font-size:14.5px; font-weight:700; line-height:2; color:#2c2c26; margin:14px 0 0; }
-        .efj-know { display:grid; gap:16px; margin-top:26px; }
-        .efj-knowbox { background:#fff; border:1px solid #eee2d0; border-radius:16px; padding:18px 20px; font-size:13.5px; line-height:2; color:#4a443a; }
-        .efj-knowbox b { display:block; color:#1d5c4d; margin-bottom:6px; font-size:15px; }
-        .efj-final { text-align:center; background:linear-gradient(160deg,#123c32,#1d5c4d); border-radius:28px; color:#fff; padding:clamp(34px,6vw,56px) clamp(20px,5vw,48px); }
-        .efj-final .big { font-size:clamp(20px,4.2vw,30px); font-weight:900; line-height:1.7; margin:0 0 14px; }
-        .efj-final p { color:rgba(255,255,255,.85); line-height:2; font-size:clamp(13.5px,2.2vw,15.5px); }
-        .efj-final .tel { display:inline-block; margin-top:14px; color:rgba(255,255,255,.85); font-size:13.5px; text-decoration:underline; text-underline-offset:4px; }
-        .efj-fixed { position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(250,247,242,.94); backdrop-filter:blur(10px); border-top:1px solid #eee2d0; padding:10px 16px; text-align:center; }
-        .efj-fixed .efj-btn { padding:13px 30px; font-size:15.5px; }
-        .efj-fixed .cd { display:block; font-size:11.5px; font-weight:800; color:#b3532f; margin-top:6px; }
-        @media (prefers-reduced-motion: reduce) { .efj-reveal { opacity:1; transform:none; transition:none; } .efj-marquee .track { animation:none; } }
-      `}</style>
+  const { enabled } = useJourneyMotion();
+  const root = useRef<HTMLDivElement>(null);
+  const hero = useRef<HTMLElement>(null);
+  const [heroVisible, setHeroVisible] = useState(true);
+  const [activeStop, setActiveStop] = useState("iwaishima");
+  const { early, departed } = useTravelSeason();
 
-      {/* ============ HERO ============ */}
-      <header className="efj-hero">
-        <img className="banner" src="/efj/banner.jpg" alt="地球家族ジャーニー 2026 祝島から神山へ 魂が震え、命が喜ぶ旅" />
-        <div className="cta-band">
-          <div className="inner">
-            <CountdownBadge />
-            <p className="lead-copy">
-              山とともに、海とともに生きる。どこか懐かしくて、魂がふるえて、大切なものをおもいだす。
-              1人で、家族と、友人と——笑い楽しみながら、人生観が変わってしまうかもしれない。
-              そんなプレミアムな旅路へ、出発しませんか？
-            </p>
-            <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-              次回の旅を相談する →
-            </a>
-            <span className="efj-btn-sub">※ ご相談は<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", fontWeight: 800, textDecoration: "underline" }}>公式LINE</a>からどうぞ。「地球家族ジャーニー希望」とメッセージを</span>
-            <p className="period">2026年8月5日(水)〜14日(金)｜山口・祝島 → 徳島・神山｜少人数制（10名ほど）｜親子・ご家族歓迎｜小学生未満はドネーション制</p>
-          </div>
-        </div>
+  useEffect(() => {
+    if (!("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      entries =>
+        entries.forEach(entry => {
+          if (entry.target === hero.current)
+            setHeroVisible(entry.isIntersecting);
+          if (
+            entry.isIntersecting &&
+            entry.target.hasAttribute("data-efj-stop")
+          )
+            setActiveStop(entry.target.id);
+        }),
+      { threshold: 0.18 }
+    );
+    if (hero.current) observer.observe(hero.current);
+    root.current
+      ?.querySelectorAll("[data-efj-stop]")
+      .forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="efjs" ref={root} data-motion={enabled ? "on" : "off"}>
+      <a href="#efj-content" className="efjs-skip">
+        本文へ
+      </a>
+      <JourneyStatusNotice id="earth-family" />
+      <header className="efjs-nav">
+        <a className="efjs-brand" href="/" aria-label="旅する学校のホームへ">
+          <Compass size={28} strokeWidth={1.3} aria-hidden="true" />
+          <span>
+            旅する学校<small>EARTH FAMILY JOURNEY</small>
+          </span>
+        </a>
+        <nav aria-label="地球家族ジャーニーのページ内メニュー">
+          <a href="#route">旅の舞台</a>
+          <a href="#price">日程・参加費</a>
+          <a href="#guide">案内人</a>
+        </nav>
+        <a className="efjs-nav-join" href="#apply">
+          参加のご案内
+        </a>
       </header>
 
-      {/* ============ KEYWORD MARQUEE ============ */}
-      <div className="efj-marquee" aria-hidden="true">
-        <div className="track">
-          {[0, 1].map((n) => (
-            <span key={n}>
-              {KEYWORDS.map((k, i) => (
-                <span key={i}>{k}<span className="star">　✳︎　</span></span>
-              ))}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ============ CONCEPT ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">ABOUT THIS JOURNEY</p>
-          <h2 className="efj-h2">いのちが喜び、<span className="u">脳みそがスパーク</span>しちゃう旅へ</h2>
-          <p className="efj-lead">
-            どうも、らんぼうです。僕は山口県の祝島や徳島県の神山町を拠点に、国内外のさまざまな場所を、仲間と一緒に巡ってきました。
-            そこに生きる人たちの自然と共にある暮らしや想い、自然の美しさに心を打たれ、
-            この感動を一人でも多くの人と共有したいと思うようになったからです。
-          </p>
-          <p className="efj-lead">
-            そんなわけでこの夏、いのちが喜び、脳みそがスパークしちゃうような旅へご案内します。
-            家族と共に。大切な友人と一緒に。もちろんおひとりでも、ウェルカムです。
-          </p>
-          <div className="efj-feats">
-            <div className="efj-feat"><b>🌿 自然とともに暮らす知恵</b>塩づくり、島の自給、森の暮らし。これからの時代にほんとうに必要な「暮らしの知恵」を、実践する人たちから直接学びます。</div>
-            <div className="efj-feat"><b>🔥 子どもも大人も本気であそぶ</b>焚き火を囲んで語り合い、川の音を聴き、星を見上げる。頭で考えるんじゃなくて、からだ全部で感じる忘れられないひとときを。</div>
-            <div className="efj-feat"><b>🍙 心とからだが喜ぶ食</b>目に見える山や海の幸に感謝していただく、心もカラダも喜ぶ食。いのちの循環を、おいしく感じる時間が流れています。</div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ ITINERARY ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">ITINERARY</p>
-          <h2 className="efj-h2">10日間の<span className="u">旅の道すじ</span></h2>
-          <p className="efj-lead">山口県でアイデンティティーを呼び覚まし、徳島の聖地で未来に触れる。魂が震え、いのちが喜ぶ、忘れられない日々が待っています。</p>
-          <div className="efj-itin">
-            <div className="efj-stop">
-              <img className="photo" src="/efj/hyakushoan.jpg" alt="百姓庵の塩と油谷湾の海" loading="lazy" />
-              <div className="body">
-                <span className="date">8/5(水)｜山口県長門市・油谷湾</span>
-                <h3>百姓庵</h3>
-                <p className="tagline">太陽と風と海がつくる、ほんものの塩</p>
-                <p>日本でも数少ない伝統製法で塩づくりを続ける百姓庵。太陽と風、そして海の力だけでつくられる「百姓の塩」は、全国の一流料理人たちからも高く評価されています。でも本当に凄いのは塩だけではなく、井上悠然さん＆かみさん一家のニュースタイルな暮らしぶり。自然と共に、未来をつくる。これからの時代に必要な暮らしの知恵を学びます。</p>
-                <p style={{ margin: "10px 0 0" }}><a href="https://hyakusho-an.com/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 株式会社百姓庵 公式サイト</a></p>
+      <main id="efj-content">
+        <section
+          className="efjs-hero"
+          ref={hero}
+          data-visible={heroVisible}
+          aria-labelledby="efj-title"
+        >
+          <div className="efjs-hero-inner">
+            <div className="efjs-hero-copy">
+              <p className="efjs-eyebrow">
+                <span /> EARTH FAMILY JOURNEY · SPRING 2027
+              </p>
+              <p className="efjs-hero-name">地球家族ジャーニー</p>
+              <h1 id="efj-title">
+                <span>この春、</span>
+                <span>いのちが</span>
+                <span>
+                  <em>よろこぶ</em>旅へ。
+                </span>
+              </h1>
+              <p className="efjs-hero-lead">
+                海と暮らす島。学びが生まれる場所。
+                <br />
+                そして、森に抱かれた町へ。
+                <br />
+                大切なものを、からだで思い出す7日間。
+              </p>
+              <div className="efjs-date">
+                <span>2027</span>
+                <strong>
+                  3.29<small>月</small>
+                  <i>—</i>4.4<small>日</small>
+                </strong>
               </div>
-            </div>
-            <div className="efj-stop">
-              <img className="photo" src="/efj/tawara_dusk.jpg" alt="夕暮れの俵山温泉の街並み" loading="lazy" />
-              <div className="body">
-                <span className="date">8/6(木)–7(金)｜山口県長門市・俵山温泉</span>
-                <h3>俵山ビレッジ</h3>
-                <p className="tagline">地方から未来を創る、挑戦者の村</p>
-                <p>レトロな湯治場・俵山温泉に誕生した地域創生の拠点。全国から挑戦者が集まるこの場所では、吉武大輔さんが「地方から未来を創る」を実践中です。地方だからこそ可能性がある。そんな新しい時代のコミュニティづくりを、温泉街の風情とともに体感します。</p>
-                <p style={{ margin: "10px 0 0" }}><a href="https://www.ccj.works/tawarayama-village/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 俵山ビレッジ 公式サイト</a></p>
-              </div>
-            </div>
-            <div className="efj-stop">
-              <img className="photo" src="/efj/terakoya.jpg" alt="地球子舎で過ごす家族と仲間" loading="lazy" />
-              <div className="body">
-                <span className="date">8/7(金)–8(土)｜山口県</span>
-                <h3>オルタナティブスクール</h3>
-                <p className="tagline">地球子舎＆こびとのおうちえん／森の学校みっけ——「子育てとは？」「教育とは？」「幸せとは？」</p>
-                <p>神山町の「森の学校みっけ」のモデル校でもある、山口のオルタナティブスクール「地球子舎」。代表で森のようちえん「こびとのおうちえん」を運営する大下さんを訪ねます。大下さんと話していると、不思議と意識が変わり、人生が変わったという人も多い。当たり前だと思っていた価値観がほどけ、自分らしい生き方のヒントが見えてきます。</p>
-                <p style={{ margin: "10px 0 0", display: "flex", gap: 16, flexWrap: "wrap" }}>
-                  <a href="https://oh-shita.com/terakoya/about1/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 地球子舎（てらこや）</a>
-                  <a href="https://www.mikkeforest.org/" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 森の学校みっけ</a>
-                </p>
-              </div>
-            </div>
-            <div className="efj-stop">
-              <img className="photo" src="/efj/iwaishima.jpg" alt="祝島の海と伝統の舟" loading="lazy" />
-              <div className="body">
-                <span className="date">8/8(土)–11(火)｜山口県・瀬戸内の島</span>
-                <h3>祝島</h3>
-                <p className="tagline">いのちの循環に触れる、島時間</p>
-                <p>必要なものは自分たちでつくる。先人から受け継がれてきた島の暮らしを、からだごと体感します。心もカラダも喜ぶ食を通じ、いのちの循環を感じる。目に見える山や海の幸に感謝し、未来の世代のために大切なものを繋げようとする姿——僕はこういう生き方に心から感動するし、みんなと共有したいです。</p>
-                <p style={{ margin: "10px 0 0" }}><a href="https://note.com/shiftdaigaku/n/na0c2592111c5" target="_blank" rel="noopener noreferrer" style={LNK}>▶ 祝島に想いを馳せて（note記事）</a></p>
-              </div>
-            </div>
-            <div className="efj-stop">
-              <img className="photo" src="/efj/waterfall.jpg" alt="神山の滝と新緑" loading="lazy" />
-              <div className="body">
-                <span className="date">8/12(水)–14(金)｜徳島県・地方再生の聖地</span>
-                <h3>神山町</h3>
-                <p className="tagline">「やったらええんちゃうん？」の町</p>
-                <p>移住希望者200人以上、視察が絶えない不思議な町。その理由は、町のあちこちで巻き起こる"オルタナティブ"な奇跡にあります。焚き火を囲んで語り合う。朝の森でからだをゆるめる。動物に触れ、川の音を聴き、星を見上げる。頭で考えるんじゃなくて、からだ全部で感じる時間。日常から離れて、自然の中で自分にご褒美をあげませんか？</p>
-              </div>
-            </div>
-          </div>
-          <div className="efj-finale">
-            <p className="big">感動のフィナーレは、<br />徳島の大祭・阿波おどり！</p>
-            <p>「踊る阿呆に観る阿呆、同じ阿呆なら踊らなソンソン！」魂が震え、いのちが喜ぶ。人生観がガラッと変わってしまうかもしれない。そんな忘れられない時間を、共に過ごしてみませんか？</p>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ SCENES ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">SCENES</p>
-          <h2 className="efj-h2">旅の風景</h2>
-          <div className="efj-scenes">
-            <img src="/efj/fire.jpg" alt="神山の夜、焚き火を囲む仲間" loading="lazy" />
-            <img src="/efj/pizza.jpg" alt="ピザ窯を囲む仲間" loading="lazy" />
-            <img src="/efj/tawara_people.jpg" alt="俵山の街で笑顔の集合写真" loading="lazy" />
-            <img src="/efj/iwaishima.jpg" alt="祝島の青い海と伝統の舟" loading="lazy" />
-            <img src="/efj/waterfall.jpg" alt="神山の滝と新緑" loading="lazy" />
-            <img src="/efj/night.jpg" alt="俵山ビレッジの夜のイベント" loading="lazy" />
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ PLANS ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">HOW TO JOIN</p>
-          <h2 className="efj-h2">あなたに合った<span className="u">3つの同行スタイル</span></h2>
-          <p className="efj-lead">参加費としてお預かりするのは、道中の案内とコーディネート代として。宿・交通費・食事等は各自で実費となります。行き先は時にインスピレーションでみんなで決めたり、フレキシブルに行きます。</p>
-          <div className="efj-plans">
-            <div className="efj-plan best">
-              <span className="besttag">いちばんおすすめ</span>
-              <h3>Aプラン｜全部まるごと10日間</h3>
-              <p className="dates">8月5日(水) 〜 8月14日(金)</p>
-              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
-              <p className="price">100,000<small> 円（税込）</small></p>
-              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
-              <ul>
-                <li><b>訪れる予定の場所</b>｜まなまな／百姓庵／俵山ビレッジ／地球子舎＆こびとのおうちえん／祝島／神山町／阿波おどり</li>
-                <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
-                <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
-              </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
-            </div>
-            <div className="efj-plan">
-              <h3>Bプラン｜山口じっくり7日間</h3>
-              <p className="dates">8月5日(水) 〜 8月11日(火)</p>
-              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
-              <p className="price">78,000<small> 円（税込）</small></p>
-              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
-              <ul>
-                <li><b>訪れる予定の場所</b>｜まなまな／百姓庵／俵山ビレッジ／地球子舎＆こびとのおうちえん／祝島</li>
-                <li><b>待ち合わせ</b>｜8/5(水) 11:30 山口県の駅にて</li>
-                <li><b>お別れ</b>｜8/11 12:30 祝島にて（12:30発のフェリーがあります）</li>
-              </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
-            </div>
-            <div className="efj-plan">
-              <h3>Cプラン｜神山＆阿波おどり3日間</h3>
-              <p className="dates">8月12日(水) 〜 8月14日(金)</p>
-              <p style={{fontSize: "12px", marginTop: "14px"}}>ガイド料（参加費）</p>
-              <p className="price">39,000<small> 円（税込）</small></p>
-              <p className="jitsu">実費〈別途〉：宿泊・食事・移動など</p>
-              <ul>
-                <li><b>訪れる予定の場所</b>｜神山町／阿波おどり</li>
-                <li><b>待ち合わせ</b>｜8/12(水) 12:00 神山町 道の駅にて</li>
-                <li><b>お別れ</b>｜8/14(金) 15:00 神山町 道の駅にて</li>
-              </ul>
-              <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">次回の参加を相談する →</a>
-            </div>
-          </div>
-          <div className="efj-note">
-            <b>🌱 この旅のかたち</b><br />
-            これは、らんぼうが大好きな人と場所を訪ねてまわる夏の旅。そこに、ご家族や仲間が「一緒に行きたい！」と同行してくれるかたちです。現地で落ち合って、同じ時間を過ごして、またそれぞれの暮らしへ帰っていく。おすすめの宿や便は、いくらでも相談に乗ります。参加費は、道中の案内とコーディネートの分としてお預かりしています。行き先は、時にはインスピレーションでみんなで決めたり、フレキシブルに。その柔らかさも、この旅ならではのおもしろさとして一緒に楽しんでください。<br /><br />
-            <b>🎫 うれしい割引</b><br />
-            ・らんぼう塾割引｜10,000円割引（お一人様＆一家族全体で）<br />
-            ・家族割引｜ご家族でご参加の場合、小学生以上の2人目以降のお子さまやご家族分の参加費は、そのスタイルの半額以上のドネーション制。「この旅の価値に期待してこれだけ応援したい！」そんな感覚に合わせて金額をお選びください。<br />
-            ※小学生未満のお子様はドネーション制　※割引は併用可能です<br /><br />
-            <b>🚙 途中からでも、途中まででも大歓迎</b><br />
-            「10日間はむずかしい」「この区間だけ行ってみたい」——そんな方こそ、この旅にぴったりです。祝島で合流、神山町や阿波おどりだけ合流、お子さまの夏休みに合わせて数日だけ、お仕事のお休みに合わせて週末だけ。あなたの都合に合わせて、途中合流・途中お別れができます。参加費は、実際にご一緒する区間に合わせてご相談させていただきますので、まずは「こんな合流かたちはできる？」と、公式LINEや申し込みフォームから気軽に聞いてみてください。旅の途中で会えるのも、僕たちにとって楽しみのひとつです。<br /><br />
-            <b>👨‍👩‍👧 ご参加にあたって</b><br />
-            10名ほどの少人数でじっくり巡ります（先着順）。移動は基本的に各自のお車でお願いしています。どうしても難しい方はご相談ください。みなさんの"お気持ち"が、次の未来を育てていきます。ご家族でのご参加も大歓迎です。
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ GUIDE ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">NAVIGATOR</p>
-          <h2 className="efj-h2">案内人は、<span className="u">あーすガイド・らんぼう</span></h2>
-          <div className="efj-guide">
-            <a className="head" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>
-              <img src="/efj/profile.jpg" alt="あーすガイド・らんぼう" loading="lazy" />
-              <div>
-                <p className="name">らんぼう</p>
-                <p className="role">あーすガイド代表・旅する学校主宰</p>
-                <p style={{ fontSize: "12px", fontWeight: 800, color: "#1d5c4d", margin: "4px 0 0" }}>▶ プロフィール詳細はあーすガイドへ</p>
-              </div>
-            </a>
-            <p>
-              地球一周を皮切りに10年の旅暮らしを経て、マサイ族の村やアマゾン、モンゴルなど世界各地で"自然と共に生きる叡智"を学ぶ。
-              帰国後は全国で500本以上のトークや上映会、現地の案内を重ね、一緒に巡った40人以上が各地に移住。
-              2022年、徳島・神山町でオルタナティブスクール「森の学校みっけ」を仲間と設立。
-              地域再生の聖地・神山町を拠点に、企業研修や視察の案内も行う。
-            </p>
-            <p className="path">
-              🌏 地球一周・10年の旅暮らし<br />
-              🗣 全国で500本以上の講演・上映会<br />
-              🏜 アタカマ砂漠250km チーム優勝（映画化）<br />
-              🏫 森の学校みっけ 創設（移住60人以上）<br />
-              🥾 旅する学校 主宰｜安藤財団 推奨モデル特別賞（2023）<br />
-              🎓 KAMIYAMA FIELD SCHOOL 設立（2026）
-            </p>
-            <blockquote>
-              「心が喜ぶ方へ、身体ごと飛び込んでみませんか？ 自然の中に帰ることで、見えてくる"ほんとの自分"。気がつけば、笑って、泣いて、語って、地球を丸ごと感じる旅になると思います」—— らんぼう
-            </blockquote>
-            <div style={{ marginTop: 14, display: "flex", gap: "10px 18px", flexWrap: "wrap", justifyContent: "center" }}>
-              <a href="https://www.instagram.com/earthguide.ranbow" target="_blank" rel="noopener noreferrer" style={LNK}>📷 Instagram</a>
-              <a href="https://www.facebook.com/share/1Bj4CyBUBv/" target="_blank" rel="noopener noreferrer" style={LNK}>👍 Facebook</a>
-              <a href="https://line.me/ti/p/aPfKqCmmiM" target="_blank" rel="noopener noreferrer" style={LNK}>💬 LINE</a>
-              <a href="https://www.tiktok.com/@ranbou.earthguide" target="_blank" rel="noopener noreferrer" style={LNK}>🎵 TikTok</a>
-              <a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener noreferrer" style={LNK}>✏️ note</a>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ GOOD TO KNOW ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <p className="efj-label">GOOD TO KNOW</p>
-          <h2 className="efj-h2">持ち物とご案内</h2>
-          <div className="efj-know">
-            <div className="efj-knowbox">
-              <b>🎒 持ち物</b>
-              カッパ上下／半袖・短パン／長袖・長ズボン／タオル／帽子／汚れてもいい靴・サンダル／ヘッドライト／海セット（水中メガネ・水着など）／洗面用具／お米8合／寝袋・マット／保険証／虫除け・常備薬／愛と勇気 ❤️<br />
-              大自然の中で過ごす時間が多い旅です。動きやすく、汚れても気にならない服装でお越しください。
-            </div>
-            <div className="efj-knowbox">
-              <b>📝 キャンセルについて</b>
-              7日前まで：20,000円／6日前以降〜当日：全額をお預かりします（現地の方々との調整や準備があるため、ご了承ください）
-            </div>
-            <div className="efj-knowbox">
-              <b>🏦 お振込先</b>
-              PAYPAY銀行 かわせみ支店（007）<br />
-              普通 4304359 ウエダ ナオキ<br />
-              ※お申し込み後、参加費をお振込みください。お振込みの確認をもってご参加確定となります。
-            </div>
-            <div className="efj-knowbox">
-              <b>📮 お問い合わせ</b>
-              LINE｜<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#04a648", fontWeight: 800 }}>公式LINEはこちら</a><br />
-              TEL｜090-7518-8816　Mail｜earthguide.jpn@gmail.com<br />
-              ※メールの件名は「地球家族ジャーニー」としてお送りください
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ FINAL ============ */}
-      <section className="efj-sec">
-        <Reveal>
-          <div className="efj-final">
-            <p className="big">心が喜ぶ方へ、<br />身体ごと飛び込んでみませんか？</p>
-            <p>
-              家族と共に。大切な友人と一緒に。もちろんおひとりでも、ウェルカムです。<br />
-              お会いできるのを、心から楽しみにしています。
-            </p>
-            <div style={{ marginTop: 22 }}>
-              <CountdownBadge light />
-              <div>
-                <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-                  🌏 次回の旅を相談する →
+              <div className="efjs-hero-actions">
+                <a className="efjs-button efjs-button--sun" href="#route">
+                  旅の舞台を見てみる <ArrowDown size={17} aria-hidden="true" />
+                </a>
+                <a className="efjs-quiet-link" href="#price">
+                  日程・参加費を見る
                 </a>
               </div>
-              <a className="tel" href={LINE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "underline" }}>💬 相談は公式LINEから →</a>
-              <a className="tel" href="tel:09075188816">📞 電話で相談する（090-7518-8816）</a>
+              <p className="efjs-hero-note">
+                おひとりでも、家族でも。少人数で、深く出会う旅。
+              </p>
+            </div>
+            <div className="efjs-hero-art" aria-label="祝島の海から神山の森へ">
+              <span className="efjs-vertical" aria-hidden="true">
+                FOLLOW YOUR WONDER
+              </span>
+              <figure className="efjs-hero-sea">
+                <img
+                  src="/efj/iwaishima-BUClfDH1.webp"
+                  alt="祝島の青い海と、島の祭りで漕ぎ出す舟（過去の風景）"
+                  width="860"
+                  height="1144"
+                  fetchPriority="high"
+                />
+                <figcaption>
+                  <span>01</span> 祝島の海へ
+                </figcaption>
+              </figure>
+              <figure className="efjs-hero-forest">
+                <img
+                  src="/efj/waterfall-DgiO-S5j.webp"
+                  alt="神山の森を流れる清らかな滝"
+                  width="620"
+                  height="825"
+                />
+                <figcaption>
+                  <span>03</span> 神山の森へ
+                </figcaption>
+              </figure>
+              <div className="efjs-seal" aria-hidden="true">
+                <span>旅は、最高の学校。</span>
+                <b>7</b>
+                <small>DAYS OF WONDER</small>
+              </div>
+              <svg
+                className="efjs-hero-line"
+                viewBox="0 0 550 600"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M18 458C-5 357 201 312 211 215S319 22 431 71 555 245 473 305 282 421 354 523"
+                  pathLength="1"
+                />
+              </svg>
             </div>
           </div>
-        </Reveal>
-      </section>
+          <div className="efjs-hero-bottom">
+            <span>
+              祝島 <i>／</i> おうちえん <i>／</i> 神山町
+            </span>
+            <span>
+              2027.03.29 — 04.04 <small>6泊7日</small>
+            </span>
+            <a href="#route" aria-label="旅の舞台へスクロール">
+              <ArrowDown size={20} aria-hidden="true" />
+            </a>
+          </div>
+        </section>
 
-      <div style={{ textAlign: "center", fontSize: 12.5, color: "#8a8274", padding: "0 20px 26px", lineHeight: 2.2 }}>
-        企画・運営｜あーすガイド（らんぼう）／ 旅する学校<br />
-        <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={LNK}>あーすガイド公式サイト</a>
-        <span style={{ margin: "0 10px", color: "#c9c2b2" }}>｜</span>
-        <a href="https://note.com/shiftdaigaku/n/nf42ffcc4f0a9" target="_blank" rel="noopener noreferrer" style={LNK}>この旅の元になったnote記事</a>
-      </div>
+        <section
+          className="efjs-route-section efjs-wrap"
+          id="route"
+          aria-labelledby="route-title"
+        >
+          <div className="efjs-intro" data-journey-reveal>
+            <div>
+              <p className="efjs-eyebrow">THE JOURNEY</p>
+              <h2 id="route-title">
+                知らない景色が、
+                <br />
+                これからの自分になる。
+              </h2>
+            </div>
+            <p>
+              ただ通り過ぎるだけでは出会えない、
+              <br className="efjs-desktop-break" />
+              土地の暮らしと、そこに生きる人たち。
+              <br />
+              らんぼうが大好きな場所を、一緒に訪ねます。
+              <br />
+              心が動く方へ、少しだけ日常を飛び出して。
+            </p>
+          </div>
+          <div
+            className="efjs-route"
+            aria-label="祝島、おうちえん、神山町の順に訪ねます"
+          >
+            <svg
+              viewBox="0 0 1000 110"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <path
+                className="efjs-route-base"
+                d="M80 55C245-25 285 130 500 55S765-15 920 55"
+              />
+              <path
+                className="efjs-route-flow"
+                d="M80 55C245-25 285 130 500 55S765-15 920 55"
+                pathLength="1"
+              />
+            </svg>
+            {STOPS.map((stop, i) => (
+              <a
+                key={stop.id}
+                href={`#${stop.id}`}
+                className={activeStop === stop.id ? "is-active" : ""}
+              >
+                <span className="efjs-route-number">0{i + 1}</span>
+                <span className="efjs-route-period">
+                  {stop.period} · {stop.region}
+                </span>
+                <strong>{stop.name}</strong>
+                <span className="efjs-route-en">{stop.en}</span>
+              </a>
+            ))}
+          </div>
+          <p className="efjs-route-note">
+            3つの場所を、この順番で。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。
+          </p>
+        </section>
 
-      <ShareButtons
-        url="https://www.tabigaku.party/efj"
-        text="地球家族ジャーニー 2026｜8/5-14 祝島から神山へ10日間。太陽と風の塩づくり、島の暮らし、オルタナティブスクール、焚き火と星空、阿波おどり。2026年8月の開催内容をご紹介。"
-        title="＼ 地球家族ジャーニーをシェア ／"
-      />
+        <section
+          className="efjs-stops efjs-wrap"
+          aria-label="旅で訪ねる3つの場所"
+        >
+          {STOPS.map((stop, i) => (
+            <article
+              className={`efjs-stop efjs-stop--${i + 1}`}
+              id={stop.id}
+              key={stop.id}
+              data-efj-stop
+            >
+              <figure className="efjs-stop-photo" data-journey-reveal>
+                <img
+                  src={stop.image}
+                  alt={stop.alt}
+                  width={i === 1 ? 1100 : i === 0 ? 860 : 620}
+                  height={i === 1 ? 618 : i === 0 ? 1144 : 825}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>{stop.caption}</figcaption>
+                <span className="efjs-photo-index" aria-hidden="true">
+                  0{i + 1}
+                </span>
+              </figure>
+              <div className="efjs-stop-copy" data-journey-reveal>
+                <p className="efjs-eyebrow">
+                  <stop.Icon size={18} aria-hidden="true" /> {stop.en}{" "}
+                  <span className="efjs-stop-period">{stop.period}</span>
+                </p>
+                <p className="efjs-stop-place">
+                  <MapPin size={14} aria-hidden="true" />
+                  {stop.region} · {stop.name}
+                </p>
+                <h2>{stop.title}</h2>
+                <p className="efjs-body">{stop.text}</p>
+                <ul className="efjs-tags">
+                  {stop.tags.map(tag => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+                <a
+                  className="efjs-text-link"
+                  href={stop.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {stop.linkText}
+                </a>
+              </div>
+            </article>
+          ))}
+        </section>
 
-      <div style={{ height: 90 }} />
+        <section className="efjs-night" aria-labelledby="night-title">
+          <img
+            src="/efj/kamiyama_fire-DUPc2W-8.webp"
+            alt="神山の夜、焚き火を囲んで語り合う仲間たち"
+            width="1100"
+            height="618"
+            loading="lazy"
+          />
+          <div data-journey-reveal>
+            <p className="efjs-eyebrow">MORE THAN A TRIP</p>
+            <h2 id="night-title">
+              帰るころには、
+              <br />
+              誰かの「ただいま」が
+              <br />
+              待つ場所になる。
+            </h2>
+            <p>
+              大人も、子どもも。初めましての人も。
+              <br />
+              同じ景色を見て、話して、笑って。
+              <br />
+              旅の思い出に、人のぬくもりが残っていく。
+            </p>
+          </div>
+          <span className="efjs-night-caption">過去の神山でのひととき</span>
+        </section>
 
-      {/* ============ 固定CTA ============ */}
-      <div className="efj-fixed">
-        <a className="efj-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-          次回の地球家族ジャーニーを相談する
+        <section
+          className="efjs-guide efjs-wrap"
+          id="guide"
+          aria-labelledby="guide-title"
+          data-journey-reveal
+        >
+          <div className="efjs-guide-portrait">
+            <img
+              src="/efj/profile_ranbow-bO9RdlJ2.webp"
+              alt="旅の案内人、らんぼう（上田直樹）"
+              width="400"
+              height="400"
+              loading="lazy"
+            />
+            <span>YOUR NAVIGATOR</span>
+          </div>
+          <div>
+            <p className="efjs-eyebrow">この旅の案内人</p>
+            <h2 id="guide-title">どうも、らんぼうです。</h2>
+            <p className="efjs-body">
+              僕が心を動かされた人と場所に、みんなを案内したい。そんな想いから生まれた旅です。地球一周、10年の旅暮らしを経て、今は神山町で4人の子どもの父として暮らしています。自然の中で、いつもと違う毎日を一緒に楽しみましょう。
+            </p>
+            <p className="efjs-guide-role">
+              上田直樹｜あーすガイド代表・旅する学校主宰
+              <br />
+              「森の学校みっけ」共同創設／全国で500本以上の講演・上映会
+            </p>
+            <a
+              className="efjs-text-link"
+              href="https://earthguide.tabigaku.party/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              らんぼうの詳しいプロフィール
+            </a>
+          </div>
+        </section>
+
+        <section
+          className="efjs-price-section"
+          id="price"
+          aria-labelledby="price-title"
+        >
+          <div className="efjs-wrap">
+            <div className="efjs-price-heading">
+              <p className="efjs-eyebrow">YOUR NEXT JOURNEY</p>
+              <h2 id="price-title">
+                この春の7日間を、
+                <br />
+                一生ものの出会いに。
+              </h2>
+              <p>
+                2027年3月29日（月）〜4月4日（日）
+                <br />
+                祝島 → こびとのおうちえん → 神山町
+              </p>
+            </div>
+            <div className="efjs-ticket" data-journey-reveal>
+              <div className="efjs-ticket-main">
+                <span className="efjs-ticket-label">
+                  地球家族ジャーニー · 6泊7日
+                </span>
+                <h3>春の、まるごと7日間。</h3>
+                <p>ガイド料・コーディネート料（税込／1名）</p>
+                <div className="efjs-price-row">
+                  <div>
+                    <span>通常参加費</span>
+                    <strong>
+                      88,000<small>円</small>
+                    </strong>
+                  </div>
+                  <div className="efjs-early-price">
+                    <span>
+                      {early ? "1か月前までの早期割引" : "早期割引（受付終了）"}
+                    </span>
+                    <strong>
+                      80,000<small>円</small>
+                    </strong>
+                  </div>
+                </div>
+                <p className="efjs-early-note">
+                  <Check size={17} aria-hidden="true" />
+                  早割は2027年2月28日（日）までのお申し込み
+                </p>
+                <p className="efjs-cost-note">
+                  <b>実費は別途</b>
+                  宿泊・食事・移動（船賃など）・施設利用等の費用は、各自でのお支払いです。参加費には含まれません。
+                </p>
+              </div>
+              <div className="efjs-ticket-side">
+                <span className="efjs-ticket-season">SPRING 2027</span>
+                <span className="efjs-ticket-days">
+                  7<small>DAYS</small>
+                </span>
+                <ul>
+                  <li>
+                    <Check size={16} aria-hidden="true" />
+                    10名ほどの少人数
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" />
+                    おひとり・友人・親子歓迎
+                  </li>
+                  <li>
+                    <Check size={16} aria-hidden="true" />
+                    途中合流も相談できます
+                  </li>
+                </ul>
+                <a href="#apply" className="efjs-button efjs-button--dark">
+                  参加について相談する
+                </a>
+              </div>
+            </div>
+            <div className="efjs-practical" aria-label="参加前に確認したいこと">
+              <details>
+                <summary>
+                  家族での参加・割引について
+                  <Plus size={20} aria-hidden="true" />
+                </summary>
+                <div>
+                  <p>
+                    小学生未満のお子さまはドネーション制。ご家族で参加する場合、小学生以上の2人目以降のご家族は、参加費の半額以上のドネーション制です。
+                  </p>
+                  <p>
+                    らんぼう塾の方は10,000円割引（お一人様、または一家族全体で）。家族割とらんぼう塾割は併用できます。早割との組み合わせや、ご家族全体の参加費はお申し込み時にご案内します。宿泊・食事・交通などの実費は、それぞれ別途必要です。
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  集合・移動・宿泊・途中参加について
+                  <Plus size={20} aria-hidden="true" />
+                </summary>
+                <div>
+                  <p>
+                    3月29日から祝島を前半に訪ね、おうちえんを経て、4月4日に神山町で旅を終える予定です。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。
+                  </p>
+                  <p>
+                    移動は基本的に各自のお車でお願いしています。難しい方は事前にご相談ください。宿泊・交通の手配は各自で行うかたちですが、おすすめの宿や移動方法をご相談いただけます。途中合流・途中お別れの参加費も、同行する区間に合わせて個別にご案内します。
+                  </p>
+                  <p>
+                    天候や受け入れ先の都合により、行程・体験内容を変更する場合があります。
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  春の旅の持ち物
+                  <Plus size={20} aria-hidden="true" />
+                </summary>
+                <div>
+                  <p>
+                    動きやすい服、長袖・長ズボン、防寒着、雨具、歩きやすく汚れてもよい靴、帽子、タオル、水筒、洗面用具、常備薬、健康保険の資格確認ができるもの。春でも海辺や山あいの朝晩は冷えるので、重ね着できる準備を。
+                  </p>
+                  <p>
+                    寝袋・マットなど、宿泊方法に応じて必要なものは、行程のご案内とあわせてお知らせします。アレルギーや体調面で気になることは、事前にご相談ください。
+                  </p>
+                </div>
+              </details>
+              <details>
+                <summary>
+                  お申し込み・お支払い・キャンセル
+                  <Plus size={20} aria-hidden="true" />
+                </summary>
+                <div>
+                  <p>
+                    公式LINEへ「2027年春の地球家族ジャーニー参加希望」とお送りください。参加人数・お子さまの年齢・参加希望区間などを伺い、費用と参加方法をご案内します。お振り込みの確認をもって参加確定となります。
+                  </p>
+                  <p>
+                    お振込先：PAYPAY銀行 かわせみ支店（007）／普通
+                    4304359／ウエダ ナオキ。金額のご案内後にお手続きください。
+                  </p>
+                  <p>
+                    キャンセル料：開催7日前まで20,000円／6日前以降〜当日は参加費の全額。現地との調整・準備があるため、あらかじめご了承ください。
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="efjs-apply efjs-wrap"
+          id="apply"
+          aria-labelledby="apply-title"
+          data-journey-reveal
+        >
+          <p className="efjs-eyebrow">LET’S GO TOGETHER</p>
+          <h2 id="apply-title">
+            心が動いたら、
+            <br />
+            それが、旅のはじまり。
+          </h2>
+          <p>
+            「家族で行ける？」「途中からでも大丈夫？」
+            <br />
+            そんな話からで大丈夫。気軽に声をかけてください。
+          </p>
+          <LineLink>
+            {departed ? "次の旅をLINEで相談する" : "LINEで参加希望・相談を送る"}
+          </LineLink>
+          <p className="efjs-apply-message">
+            「2027年春の地球家族ジャーニー参加希望」とお送りください。
+          </p>
+          <div className="efjs-contact">
+            <a href="tel:09075188816">電話 090-7518-8816</a>
+            <a href="mailto:earthguide.jpn@gmail.com?subject=2027年春の地球家族ジャーニー">
+              メールで問い合わせる
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="efjs-footer">
+        <a className="efjs-brand" href="/">
+          <Compass size={26} aria-hidden="true" />
+          <span>
+            旅する学校<small>EARTH FAMILY JOURNEY</small>
+          </span>
         </a>
-        {(() => {
-          const dep = new Date("2026-08-05T00:00:00+09:00").getTime();
-          const end = new Date("2026-08-15T00:00:00+09:00").getTime();
-          const now = Date.now();
-          if (now >= end) return null;
-          const days = Math.ceil((dep - now) / 86400000);
-          return days > 0 ? <span className="cd">出発 8/5 まで あと{days}日｜少人数制・先着順</span> : null;
-        })()}
-      </div>
+        <p>企画・運営｜あーすガイド（らんぼう）／旅する学校</p>
+        <div>
+          <a
+            href="https://earthguide.tabigaku.party/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            あーすガイド
+          </a>
+          <a
+            href="https://www.instagram.com/earthguide.ranbow"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://note.com/shiftdaigaku"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            note
+          </a>
+        </div>
+        <ShareButtons
+          url="https://www.tabigaku.party/efj"
+          text="地球家族ジャーニー2027春｜3/29〜4/4、祝島→こびとのおうちえん→神山町。いのちがよろこぶ7日間。参加費88,000円、2/28までの早割80,000円（宿泊・食事・交通等の実費別途）。"
+          title="この旅を、大切な人に。"
+        />
+      </footer>
+      <aside className="efjs-fixed" aria-label="参加費と参加のご案内">
+        <div>
+          <span>
+            3/29 — 4/4 <small>2027</small>
+          </span>
+          <strong>
+            {early ? "早割 80,000" : "通常 88,000"}
+            <small>円 / 実費別途</small>
+          </strong>
+        </div>
+        <a className="efjs-button efjs-button--dark" href="#apply">
+          {departed ? "次の旅を相談" : "参加のご案内"}
+        </a>
+      </aside>
     </div>
   );
 }
-

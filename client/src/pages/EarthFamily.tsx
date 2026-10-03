@@ -1,4 +1,4 @@
-import { JourneyStatusNotice } from "@/components/JourneyBooking";
+import "@/components/journey-booking.css";
 import { useEffect } from "react";
 
 const IMG = "/efj/";
@@ -19,7 +19,7 @@ export default function EarthFamily() {
 
   return (
     <div style={{ background: "#f7f3ea", color: "#2b2b2b", ...maru }}>
-      <JourneyStatusNotice id="earth-family" />
+      <aside className="booking-status"><strong>2026年8月の開催は終了しました。</strong><span>以下は過去の開催内容です。</span><a href="/efj">2027年春の地球家族ジャーニーを見る</a></aside>
       {/* ── HERO ── */}
       <header className="relative">
         <img src={IMG + "banner-DC-eJZFy.webp"} alt="祝島の海と伝統の舟" className="w-full object-cover" style={{ height: "clamp(300px, 60vh, 560px)" }} />
