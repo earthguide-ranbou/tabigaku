@@ -1,469 +1,84 @@
-/**
- * らんぼう塾 ランディングページ (/juku)
- * 軍配 KPI宣言: らんぼう塾1期生の申込数
- * 素材: note記事(n0770f382a7d8)の写真・文章表現（著作者＝使用者本人の許可済み）
- */
-import { useEffect } from "react";
+import { Check, Compass, Globe2, HeartHandshake, MessageCircle, Mic2, Mountain, Radio, Sparkles, Ticket, Users, Video } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
 import ShareButtons from "@/components/ShareButtons";
+import "./juku.css";
 
 const LINE = "https://lin.ee/p3CvLfQ";
 const FORM = "https://1lejend.com/stepmail/kd.php?no=floxcw";
-
-function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
-  return (
-    <div className={`juku-reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  );
-}
+const DAO = "https://earth-family-journey-world.runbou.chatgpt.site/earth-family-dao/";
+const DAO_GUIDE = "https://earth-family-journey-world.runbou.chatgpt.site/dao/guide/";
+const experiences = [
+  { number: "01", label: "EXPRESS", title: "想いを、届ける。", icon: MessageCircle, text: "Threadsの発信から、AIを使った文章・画像・サイトづくりまで。自分の活動を伝える力を、実例とともに育てます。", tags: ["Threads攻略", "AI活用", "発信・仕事づくり"] },
+  { number: "02", label: "EXPLORE", title: "世界の見方が、変わる。", icon: Compass, text: "旅の現場、地域の暮らし、学校づくり。らんぼうの経験やゲストの話から、ニュースだけでは見えない世界に触れます。", tags: ["世界と暮らし", "オルタナティブ教育", "ゲストトーク"] },
+  { number: "03", label: "CONNECT", title: "ひとりの夢を、仲間と。", icon: HeartHandshake, text: "やってみたいことを話す。誰かの挑戦に力を貸す。オンラインの交流から、神山や旅先での出会いへつながります。", tags: ["仲間との交流", "企画・実践", "EARTH FAMILY DAO"] },
+];
+const contents = [
+  { icon: Radio, title: "限定ラジオ", detail: "火・木・土に配信", text: "旅のリアルや、活動の裏側。好きな時間に聴ける、らんぼうの声。" },
+  { icon: Video, title: "Zoomライブ", detail: "月2回・録画あり", text: "質問や相談、ゲストとの対話。リアルタイムで会えなくても、録画で学べます。" },
+  { icon: Sparkles, title: "バズ部屋", detail: "Threadsを一緒に育てる", text: "投稿を見せ合い、工夫を共有。自分の言葉が届く発信を考えます。" },
+  { icon: Users, title: "LINE交流グループ", detail: "日々の気づきを分かち合う", text: "小さな一歩も、迷っていることも。普段の暮らしの中でつながれる場所。" },
+  { icon: Mountain, title: "神山合宿", detail: "リアルで会う・任意参加", text: "自然と人に出会う神山で、画面越しの仲間と同じ時間を過ごします。" },
+  { icon: Mic2, title: "ワクドキ祭り", detail: "塾生でつくる発表の場", text: "それぞれの「やってみたい」を持ち寄って、次の一歩につなげます。" },
+];
+const questions = [
+  ["いつから参加できますか？", "いつでもお申し込みいただけます。募集期や開講日の指定はありません。お申し込みと入金の確認後、学びの場や交流グループへの参加方法をご案内します。"],
+  ["忙しくても、子育て中でも参加できますか？", "オンライン中心なので、ご自身のペースで参加できます。Zoomライブには録画があり、限定ラジオも好きな時間に聴けます。リアルでの集まりは任意参加です。"],
+  ["SNSやAIの初心者でも大丈夫ですか？", "大丈夫です。らんぼう自身の実例や、仲間の工夫を共有しながら学びます。わからないことや試してみたいことは、Zoomや交流の場で気軽に相談してください。"],
+  ["DAO参加券には何が含まれますか？", "EARTH FAMILY DAOの一般ライト会員と同じ条件で、1年間の年会費が無料になります。年間3泊までの拠点利用は、1日2〜3時間のお手伝いと引き換えで、食費は各自負担。滞在先の受け入れ確認が必要です。ご家族での利用やほかのコースを希望する場合は、運営へご相談ください。"],
+  ["DAOには、どうやって参加しますか？", "入塾後に管理人から専用の招待リンクを受け取り、会員登録してください。登録・承認のあとに利用を始められます。一般の有料コースへ重ねて申し込む必要はありません。"],
+  ["分割払いや、入塾前の相談はできますか？", "はい。公式LINEからご相談ください。「自分に合うかな？」という段階でも大丈夫です。受講料は39,800円（税込）です。"],
+];
 
 export default function Juku() {
-  useSEO({
-    title: "らんぼう塾｜世界を学び、仲間と人生を動かす111日間【1期生募集】",
-    description: "限定ラジオ・Zoomライブ・神山合宿・バズ部屋。Threads攻略から世界の裏側、学校づくりのリアルまで。111日間のオンラインプログラム「らんぼう塾」1期生募集中。",
-  });
-
-  useEffect(() => {
-    const els = document.querySelectorAll(".juku-reveal");
-    if (!("IntersectionObserver" in window)) return;
-    const obs = new IntersectionObserver(
-      (es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); obs.unobserve(e.target); } }),
-      { threshold: 0.08 }
-    );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
-  }, []);
-
-  return (
-    <div className="juku">
-      <style>{`
-        .juku { background:#faf7f2; color:#2b2620; font-family:inherit; }
-        .juku-reveal { opacity:0; transform:translateY(22px); transition:opacity .8s cubic-bezier(.22,.61,.36,1), transform .8s cubic-bezier(.22,.61,.36,1); }
-        .juku-reveal.in { opacity:1; transform:none; }
-        .juku-hero2 { background:#123c32; }
-        .juku-hero2 .flyer { display:block; width:100%; max-width:1100px; margin:0 auto; height:auto; }
-        .juku-hero2 .cta-band { background:#123c32; text-align:center; padding:26px 20px 40px; }
-        .juku-hero2 .cta-band .inner { max-width:860px; margin:0 auto; color:#fff; }
-        .juku-hero2 .period { font-size:clamp(13px,2.2vw,15.5px); font-weight:700; color:rgba(255,255,255,.85); margin:0 0 16px; }
-        .juku-kicker { display:inline-block; background:#d65a3a; color:#fff; font-weight:800; font-size:12.5px; letter-spacing:.12em; border-radius:999px; padding:7px 18px; margin-bottom:18px; }
-        .juku-h1 { font-size:clamp(28px,6vw,52px); font-weight:900; line-height:1.35; margin:0 0 14px; text-shadow:0 2px 24px rgba(0,0,0,.4); }
-        .juku-h1 .accent { color:#ffd94d; }
-        .juku-hero-sub { font-size:clamp(14px,2.4vw,18px); line-height:1.9; color:rgba(255,255,255,.92); margin:0 0 26px; }
-        .juku-btn { display:inline-block; background:linear-gradient(135deg,#06C755,#04a347); color:#fff; font-weight:800; font-size:clamp(15px,2.6vw,18px); padding:16px 40px; border-radius:999px; text-decoration:none; box-shadow:0 10px 30px rgba(6,199,85,.4); transition:transform .25s ease, box-shadow .25s ease; }
-        .juku-btn:hover { transform:translateY(-3px) scale(1.02); box-shadow:0 16px 40px rgba(6,199,85,.5); }
-        .juku-btn-sub { display:block; margin-top:12px; color:rgba(255,255,255,.75); font-size:12.5px; }
-        .juku-sec { max-width:860px; margin:0 auto; padding:clamp(56px,9vw,96px) 20px 0; }
-        .juku-sec:last-of-type { padding-bottom:40px; }
-        .juku-label { text-align:center; font-size:11.5px; font-weight:800; letter-spacing:.28em; color:#d65a3a; margin-bottom:10px; }
-        .juku-h2 { text-align:center; font-size:clamp(22px,4.4vw,34px); font-weight:900; line-height:1.45; margin:0 0 12px; }
-        .juku-h2 .u { background:linear-gradient(transparent 62%, #ffe08a 62%); }
-        .juku-lead { text-align:center; color:#6b6357; font-size:clamp(13.5px,2.2vw,15.5px); line-height:2; margin:0 auto 34px; max-width:640px; }
-        .juku-photo-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:10px; margin:24px auto 0; max-width:640px; }
-        .juku-photo-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.1); }
-        .juku-photo-grid img:nth-child(odd) { transform:rotate(-1.5deg); }
-        .juku-photo-grid img:nth-child(even) { transform:rotate(1.5deg); }
-        .juku-caption { text-align:center; font-size:12px; color:#9a917f; margin-top:8px; }
-        .juku-story { font-size:clamp(14.5px,2.4vw,16.5px); line-height:2.2; }
-        .juku-story p { margin:0 0 1.6em; }
-        .juku-story .big { font-size:clamp(18px,3.4vw,24px); font-weight:900; line-height:1.8; text-align:center; margin:1.6em 0; }
-        .juku-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; }
-        .juku-stat { background:#fff; border-radius:16px; padding:22px 14px; text-align:center; box-shadow:0 6px 20px rgba(0,0,0,.06); border:1px solid #f0eade; }
-        .juku-stat b { display:block; font-size:clamp(22px,4.4vw,30px); font-weight:900; color:#d65a3a; font-variant-numeric:tabular-nums; }
-        .juku-stat span { font-size:12px; color:#6b6357; font-weight:700; }
-        .juku-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
-        .juku-card { background:#fff; border-radius:18px; padding:24px 20px; box-shadow:0 6px 24px rgba(0,0,0,.06); border:1px solid #f0eade; }
-        .juku-card .ico { font-size:26px; }
-        .juku-card h3 { font-size:16.5px; font-weight:800; margin:10px 0 6px; }
-        .juku-card p { font-size:13.5px; line-height:1.9; color:#6b6357; margin:0; }
-        .juku-card .tag { display:inline-block; font-size:11px; font-weight:800; color:#1d5c4d; background:#e7f2ec; border-radius:999px; padding:3px 10px; margin-top:10px; }
-        .juku-quote { border-left:4px solid #d65a3a; background:#fff; border-radius:0 16px 16px 0; padding:20px 24px; margin:26px 0; font-size:15px; line-height:2.1; box-shadow:0 6px 20px rgba(0,0,0,.05); }
-        .juku-change { background:#1d5c4d; border-radius:24px; padding:clamp(28px,5vw,48px) clamp(20px,4vw,40px); color:#fff; }
-        .juku-change h3 { text-align:center; font-size:clamp(19px,3.6vw,26px); font-weight:900; margin:0 0 22px; }
-        .juku-change li { list-style:none; padding:10px 0 10px 34px; position:relative; font-size:clamp(14px,2.4vw,16px); line-height:1.8; border-bottom:1px dashed rgba(255,255,255,.2); }
-        .juku-change li::before { content:"✓"; position:absolute; left:4px; color:#ffd94d; font-weight:900; }
-        .juku-change ul { margin:0; padding:0; }
-        .juku-price { background:#fff; border:2px solid #f0e4d4; border-radius:24px; padding:clamp(26px,5vw,44px); text-align:center; box-shadow:0 12px 40px rgba(0,0,0,.07); }
-        .juku-price .term { font-weight:800; color:#6b6357; font-size:14px; }
-        .juku-price .amount { font-size:clamp(40px,9vw,64px); font-weight:900; color:#2b2620; font-variant-numeric:tabular-nums; line-height:1.1; }
-        .juku-price .amount small { font-size:18px; }
-        .juku-price .perday { display:inline-block; margin-top:10px; background:#fff3df; color:#b06a00; font-weight:800; font-size:13.5px; border-radius:999px; padding:6px 16px; }
-        .juku-price .discount { margin-top:16px; font-size:14px; color:#6b6357; }
-        .juku-price .discount b { color:#d65a3a; font-size:18px; }
-        .juku-spec { text-align:left; max-width:560px; margin:22px auto 0; font-size:13.5px; line-height:2; color:#6b6357; }
-        .juku-faq details { background:#fff; border:1px solid #f0eade; border-radius:14px; margin-bottom:10px; overflow:hidden; }
-        .juku-faq summary { cursor:pointer; font-weight:800; font-size:14.5px; padding:16px 18px; list-style:none; }
-        .juku-faq summary::before { content:"Q. "; color:#d65a3a; }
-        .juku-faq .a { padding:0 18px 16px; font-size:13.5px; line-height:2; color:#6b6357; }
-        .juku-profile { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(24px,4vw,44px); background:#fff; border-radius:24px; padding:clamp(26px,5vw,44px); box-shadow:0 10px 36px rgba(0,0,0,.07); border:1px solid #f0eade; }
-        .juku-profile img { width:clamp(160px,30vw,230px); height:clamp(160px,30vw,230px); object-fit:cover; border-radius:50%; box-shadow:0 10px 30px rgba(0,0,0,.16); flex-shrink:0; }
-        .juku-profile .txt { flex:1 1 320px; max-width:520px; }
-        .juku-profile h3 { font-size:clamp(20px,3.4vw,26px); font-weight:900; margin:0 0 4px; }
-        .juku-profile .role { font-size:13px; font-weight:800; color:#d65a3a; margin:0 0 12px; }
-        .juku-profile p { font-size:14px; line-height:2.1; color:#4a443a; margin:0 0 14px; }
-        .juku-eg-link { display:inline-block; background:#1d5c4d; color:#fff; font-weight:800; font-size:14px; padding:12px 24px; border-radius:999px; text-decoration:none; transition:transform .2s ease; }
-        .juku-eg-link:hover { transform:translateY(-2px); }
-        .juku-final { text-align:center; background:linear-gradient(160deg,#123c32,#1d5c4d); border-radius:28px; color:#fff; padding:clamp(34px,6vw,56px) clamp(20px,5vw,48px); }
-        .juku-final .big { font-size:clamp(20px,4.2vw,30px); font-weight:900; line-height:1.7; margin:0 0 14px; }
-        .juku-final p { color:rgba(255,255,255,.85); line-height:2; font-size:clamp(13.5px,2.2vw,15.5px); }
-        .juku-fixed { position:fixed; left:0; right:0; bottom:0; z-index:50; background:rgba(250,247,242,.94); backdrop-filter:blur(10px); border-top:1px solid #eee2d0; padding:10px 16px; text-align:center; }
-        .juku-fixed .juku-btn { padding:13px 30px; font-size:15.5px; }
-        .juku-price .regular { font-size:14px; color:#9a917f; margin:0 0 4px; }
-        .juku-price .regular s { font-weight:800; font-size:17px; }
-        .juku-price .tokkak { display:inline-block; background:#d65a3a; color:#fff; font-weight:900; font-size:12.5px; padding:5px 14px; border-radius:999px; margin:0 0 10px; letter-spacing:.06em; }
-        @media (prefers-reduced-motion: reduce) { .juku-reveal { opacity:1; transform:none; transition:none; } }
-        .juku-count { display:inline-block; background:#FFD94D; color:#1F1B16; font-weight:900; font-size:14px; padding:8px 18px; border-radius:999px; margin:0 auto 14px; letter-spacing:.02em; box-shadow:0 4px 14px rgba(0,0,0,.25); }
-        .juku-count b { font-size:18px; }
-        .juku-fixed .cd { display:block; font-size:11.5px; font-weight:800; color:#b3532f; margin-top:6px; }
-        .juku-voice { background:#fff; border:1px solid #eee2d0; border-left:5px solid #d65a3a; border-radius:18px; padding:clamp(20px,4vw,30px); margin-top:clamp(24px,4vw,36px); }
-        .juku-voice .vlabel { font-size:12px; font-weight:900; letter-spacing:.2em; color:#d65a3a; margin:0 0 10px; }
-        .juku-voice blockquote { font-size:clamp(15px,2.4vw,18px); font-weight:800; line-height:1.9; color:#2c2c26; margin:0 0 10px; }
-        .juku-voice .who { font-size:12.5px; color:#9a917f; margin:0; }
-        .juku-anchor { font-size:13px; line-height:1.9; color:#6b6353; background:#f7f2e8; border-radius:12px; padding:12px 16px; margin:12px 0 0; }
-      `}</style>
-
-      {/* ============ HERO ============ */}
-      <header className="juku-hero2">
-        <img className="flyer" src="/juku/title.jpg" alt="ワクワクとドキドキがきたらGOサイン！111日で、人生はもっと面白くなる。らんぼう塾 1期生募集" />
-        <div className="cta-band">
-          <div className="inner">
-            {(() => {
-              const open = new Date("2026-08-18T00:00:00+09:00").getTime();
-              const days = Math.ceil((open - Date.now()) / 86400000);
-              return days > 0 ? (
-                <span className="juku-count">🌈 1期生 受付中｜開講まであと <b>{days}</b> 日</span>
-              ) : null;
-            })()}
-            <p style={{ fontSize: "clamp(17px,3.4vw,24px)", fontWeight: 900, color: "#FFD94D", margin: "4px 0 14px", letterSpacing: ".04em", lineHeight: 1.6 }}>
-              いのちが喜ぶことを、カタチにする。
-            </p>
-            <p className="period">111日間のオンラインプログラム｜2026年8月18日(火)〜12月6日(日)</p>
-            <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-              お申し込みはこちら →
-            </a>
-            <span className="juku-btn-sub">※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#FFD94D", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ。</span>
-          </div>
-        </div>
-      </header>
-
-      {/* ============ STORY ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">WHY</p>
-          <h2 className="juku-h2">この塾をはじめる<span className="u">理由</span></h2>
-          <div className="juku-story">
-            <p style={{ fontWeight: 700, color: "#1d5c4d", lineHeight: 2.2, borderLeft: "4px solid #FFD94D", paddingLeft: 16, margin: "0 0 22px" }}>
-              海が汚れ、川が枯れ、動物たちが姿を消し、人が人と争い、地球が病んでいく。<br />
-              自分にできることは微力かもしれない。それでも、未来に一石を投じたい。未来は動いたぶんだけ変わるハズ。<br />
-              魂が喜ぶ方へ。いのちが喜ぶ方へ。
-            </p>
-            <p>
-              <b>世界で起きているホントのことを、知りたい。自分の人生を、自分の手で動かしたい。</b><br />
-              ——そう思ったことがある人へ、この塾をつくりました。
-            </p>
-            <p>
-              地球一周の旅で、戦争や貧困、環境破壊が起きている現場を、この目で見てきました。
-              ネイティブアメリカンの長老からは、<b>「7世代先の子どもたちのことを考えて行動しなさい」</b>と教わりました。
-              その言葉が、今も僕の行動の原点です。
-            </p>
-            <p>
-              悲しい現実も、たくさん見てきた。それでも、未来はまだ、つくれると信じています。
-              <b>よりよい未来をつくるために、自分にできることを。この世界に、小さくても一石を投じていく。いのちが喜ぶことを、ひとつずつカタチにしていく。</b>
-              その積み重ねが、7世代先の子どもたちに誇れる明日になるはずだから。
-            </p>
-            <p>
-              僕の人生には、一つだけルールがあります。<br />
-              <b>「ワクワクとドキドキが同時に来たらGOサイン。」</b>
-            </p>
-            <p>
-              その繰り返しで、地球一周したり、砂漠1000kmを走ったり、学校をつくったりしてきました。
-              カヌーで1500キロの航海をしたり、家族でバリ島出産旅に行ったり、マサイの村には4度お伺いしました。
-              交通事故に遭い、むちうちで前しか向けなくなった1ヶ月後、250キロの砂漠を走る極限レースで奇跡の全員完走＆チーム優勝したこともありました（笑）。
-            </p>
-            <div className="juku-photo-grid">
-              <img src="/juku/canoe.jpg" alt="カヌーで宮崎〜広島1500km航海" loading="lazy" />
-              <img src="/juku/kayak.jpg" alt="瀬戸内カヤック横断隊" loading="lazy" />
-              <img src="/juku/maasai.jpg" alt="マサイの村にて" loading="lazy" />
-              <img src="/juku/rainbow.jpg" alt="標高5200mレインボーマウンテン" loading="lazy" />
-            </div>
-            <p className="juku-caption">カヌー1500km航海／瀬戸内カヤック横断／マサイの村／標高5200mレインボーマウンテン</p>
-            <p>
-              心の声に従って動き続けてきたら、想像以上に面白いことばかりでした。この感動を共有したい。
-              そして、この塾で育てたいものがもう一つあります。<b>それぞれの場所で、いのちに沿った仕事をしていく仲間</b>です。
-              ひとりでやるから折れてしまう。同じ方向を向いた仲間がいるから、面白くなる。
-              人生一度きり。何か変えたい。何か始めたい。
-              そんな人たちと一緒に、次の景色を見に行く場所が<b>らんぼう塾</b>です。
-            </p>
-            <p className="big">不安でもいい。準備ができてなくて大丈夫。<br />すべては未完成からはじまる。</p>
-          </div>
-        </Reveal>
+  useSEO({ title: "らんぼう塾｜いつでも入塾・39,800円・EARTH FAMILY DAO参加券つき", description: "ワクワクとドキドキがきたらGOサイン。Threads・AI・世界の暮らしを学び、仲間とやってみたいを形にする、らんぼう塾。いつでも入塾、受講料39,800円（税込）。EARTH FAMILY DAO参加券つき。" });
+  return <div className="ran-juku" id="juku-top">
+    <a href="#juku-main" className="rj-skip">本文へ進む</a>
+    <header className="rj-header">
+      <a href="#juku-top" className="rj-brand" aria-label="らんぼう塾 トップ"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a>
+      <nav aria-label="らんぼう塾のメニュー"><a href="#learn">学べること</a><a href="#dao">DAO参加特典</a><a href="#price">料金</a><a href="#faq">よくある質問</a></nav>
+      <a className="rj-header-cta" href="#apply">入塾する</a>
+    </header>
+    <main id="juku-main">
+      <section className="rj-hero" aria-labelledby="rj-title">
+        <img className="rj-hero-image" src="/juku/desert2.jpg" width="960" height="640" alt="色鮮やかな山々を望み、広大な大地を走るらんぼうの旅の記録" fetchPriority="high" />
+        <div className="rj-hero-shade" /><div className="rj-hero-orbit" aria-hidden="true" />
+        <div className="rj-hero-inner rj-wrap"><div className="rj-hero-copy">
+          <p className="rj-eyebrow">YOUR LIFE. YOUR ADVENTURE.</p><p className="rj-hero-intro">ワクワクとドキドキがきたら、GOサイン。</p>
+          <h1 id="rj-title">人生は、<br /><em>もっと面白く</em><br />なる。</h1>
+          <p className="rj-hero-description">好きなこと。伝えたいこと。やってみたいこと。<br />その小さな種を、仲間と育てる場所。</p>
+          <div className="rj-actions"><a className="rj-button rj-button-lime" href="#apply">らんぼう塾に参加する</a><a className="rj-text-link rj-link-light" href="#learn">この塾でできること</a></div>
+        </div><aside className="rj-hero-pass" aria-label="入塾のご案内">
+          <span className="rj-pass-kicker"><Ticket size={20} aria-hidden="true" /> YOUR NEXT CHAPTER</span>
+          <p className="rj-pass-title">始めたい日が、<br />あなたのスタート。</p>
+          <div className="rj-pass-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong></div>
+          <p className="rj-pass-bonus">EARTH FAMILY DAO<br /><b>参加券つき</b></p><a href="#dao">特典の内容を見る</a>
+        </aside></div>
+        <div className="rj-hero-foot rj-wrap"><span>LEARN. TRY. SHARE.</span><span>らんぼうの旅の記録より</span></div>
       </section>
-
-      {/* ============ RESULTS ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">RESULTS</p>
-          <h2 className="juku-h2">やることは全部、<span className="u">自分で証明済み</span></h2>
-          <p className="juku-lead">SNSも、AIも、使い方ひとつで人生は大きく変わります。0期生と一緒に実際に起きたことです。</p>
-          <div className="juku-stats">
-            <div className="juku-stat"><b>15,000</b><span>Threadsフォロワー（2ヶ月半で）</span></div>
-            <div className="juku-stat"><b>500万</b><span>総再生View達成</span></div>
-            <div className="juku-stat"><b>500回+</b><span>全国各地での講演</span></div>
-            <div className="juku-stat"><b>100人+</b><span>移住のキッカケづくり</span></div>
-            <div className="juku-stat"><b>500km+</b><span>子どもたちと歩いたお遍路</span></div>
-          </div>
-        </Reveal>
+      <div className="rj-intro-band"><div className="rj-wrap"><p>いのちが喜ぶことを、<strong>カタチにする。</strong></p><span>オンライン中心</span><span>自分のペースで学べる</span><span>仲間と実践する</span></div></div>
+      <section className="rj-section rj-wrap" id="learn" aria-labelledby="learn-title">
+        <div className="rj-section-head"><div><p className="rj-eyebrow">01 / OPEN YOUR POSSIBILITIES</p><h2 id="learn-title">学ぶだけでは、<br /><em>終わらない。</em></h2></div><p>「何か始めたい。でも、ひとりだと動けない。」<br />そんな想いを持ち寄って、聴いて、話して、やってみる。<br />発信も、生き方も。ここから少しずつ。</p></div>
+        <div className="rj-learning-grid">{experiences.map(({ number, label, title, icon: Icon, text, tags }) => <article className="rj-learning" key={number} data-journey-reveal><div className="rj-learning-top"><span>{number} / {label}</span><Icon size={27} strokeWidth={1.4} aria-hidden="true" /></div><h3>{title}</h3><p>{text}</p><ul>{tags.map(tag => <li key={tag}>{tag}</li>)}</ul></article>)}</div>
+        <div className="rj-contents-head"><h3>日々の学びと、会える楽しみ。</h3><p>忙しい日にも、あなたに合う関わり方で。</p></div>
+        <div className="rj-contents-grid">{contents.map(({ icon: Icon, title, detail, text }) => <article className="rj-content" key={title}><Icon size={25} strokeWidth={1.5} aria-hidden="true" /><div><h4>{title}</h4><span>{detail}</span><p>{text}</p></div></article>)}</div><p className="rj-note">合宿・イベントの日程や参加条件は、その都度ご案内します。</p>
       </section>
-
-      {/* ============ CONTENTS ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">CONTENTS</p>
-          <h2 className="juku-h2">111日間の<span className="u">全部入り</span>プログラム</h2>
-          <p className="juku-lead">「知る」だけで終わらせない。聴いて、話して、会って、伸ばして、つながる。続くしかけが全部そろっています。</p>
-          <div className="juku-cards">
-            <div className="juku-card">
-              <div className="ico">🎙</div>
-              <h3>限定ラジオ</h3>
-              <p>世界の裏側、旅のリアル、学校づくりの失敗と成功。ここでしか話せないことを惜しみなく。</p>
-              <span className="tag">火・木・土 配信</span>
-            </div>
-            <div className="juku-card">
-              <div className="ico">💻</div>
-              <h3>Zoomライブミーティング</h3>
-              <p>月2回の生配信。ゲスト出演もあり。質問し放題、相談し放題。録画ありだから忙しくても追いつけます。</p>
-              <span className="tag">月2回・録画あり</span>
-            </div>
-            <div className="juku-card">
-              <div className="ico">🌈</div>
-              <h3>神山合宿</h3>
-              <p>地方創生の聖地・神山町に集まる特別合宿。画面越しの仲間が、リアルの仲間に変わる日。</p>
-              <span className="tag">リアル開催</span>
-            </div>
-            <div className="juku-card">
-              <div className="ico">🤝</div>
-              <h3>ワクドキ祭り</h3>
-              <p>塾生同士が「やりたいこと」を持ち寄る発表の場。本気で夢を語れる仲間がここにいます。</p>
-              <span className="tag">塾生企画</span>
-            </div>
-            <div className="juku-card">
-              <div className="ico">📈</div>
-              <h3>バズ部屋</h3>
-              <p>Threads伸ばしあいルーム。投稿を見せ合い、伸びた工夫を全員で共有。</p>
-              <span className="tag">Threads攻略</span>
-            </div>
-            <div className="juku-card">
-              <div className="ico">💬</div>
-              <h3>LINE交流グループ</h3>
-              <p>111日間つながり続ける日常の場。世界情勢から今日の一歩まで、何でも話せる仲間。</p>
-              <span className="tag">常時開放</span>
-            </div>
-          </div>
-        </Reveal>
+      <section className="rj-story" id="story" aria-labelledby="story-title"><div className="rj-wrap rj-story-grid">
+        <div className="rj-story-visual" data-journey-reveal><img src="/juku/kfs.jpg" alt="神山の学びの場で、輪になって対話するらんぼうと仲間たち" loading="lazy" width="1400" height="1051" /><span>SMALL STEPS.<br /><i>Real possibilities.</i></span><p>仲間と学び、つくる時間。</p></div>
+        <div className="rj-story-copy"><p className="rj-eyebrow">02 / A MESSAGE FROM RANBOU</p><h2 id="story-title">すべては、<br /><em>未完成からはじまる。</em></h2><p>地球を旅して、砂漠を走って、仲間と学校をつくってきた。その始まりは、いつも「やってみたい」でした。</p><p>不安でもいい。準備ができていなくても大丈夫。ひとりでは踏み出せなかった一歩も、同じ方向を向く仲間がいたら、面白くなる。</p><p>自分の人生を、自分の手で動かす。<br />その先に、次の世代へ手渡したい未来がある。<br />一緒に、次の景色を見にいこう。</p><div className="rj-signature"><strong>らんぼう</strong><span>上田直樹<br />あーすガイド・旅する学校 代表／4児の父</span></div><a className="rj-text-link" href="https://earthguide.tabigaku.party/#profile" target="_blank" rel="noopener noreferrer">詳しいプロフィール・活動歴を見る</a></div>
+      </div><div className="rj-wrap rj-story-records"><div><strong>地球一周</strong><span>旅から学び、生き方にする</span></div><div><strong>500回以上</strong><span>各地での講演・対話の経験</span></div><div><strong>神山から</strong><span>自然と人をつなぐ学びの場へ</span></div></div></section>
+      <section className="rj-dao" id="dao" aria-labelledby="dao-title">
+        <div className="rj-dao-photo"><img src="/images/saijai-lake.jpg" alt="緑の山々と湖に包まれた水上エコビレッジ、SaaiJai Village" loading="lazy" width="1536" height="864" /><span>SaaiJai Village, Thailand</span></div>
+        <div className="rj-wrap rj-dao-inner"><div className="rj-dao-copy"><p className="rj-eyebrow">03 / BEYOND THE CLASSROOM</p><span className="rj-bonus-label"><Ticket size={18} aria-hidden="true" /> 受講料に含まれる参加特典</span><h2 id="dao-title">学びの先に、<br /><em>「ただいま」がある。</em></h2><p className="rj-dao-name">EARTH FAMILY DAO</p><p>世界の暮らしに出会い、得意なことを持ち寄り、一緒に未来をつくるコミュニティ。<br />らんぼう塾には、その仲間になる参加券がついています。</p><div className="rj-actions"><a className="rj-button rj-button-lime" href={DAO} target="_blank" rel="noopener noreferrer">DAOの説明ページを見る</a><a className="rj-text-link rj-link-light" href={DAO_GUIDE} target="_blank" rel="noopener noreferrer">使い方ガイド</a></div></div>
+        <div className="rj-dao-ticket" data-journey-reveal><div className="rj-ticket-heading"><Globe2 size={31} strokeWidth={1.3} aria-hidden="true" /><span>EARTH FAMILY DAO<small>らんぼう塾 参加特典</small></span></div><h3>仲間になる、<br />ひとつのきっかけ。</h3><ul className="rj-checklist"><li><Check aria-hidden="true" />一般ライト会員と同じ条件で参加</li><li><Check aria-hidden="true" />1年間の年会費が無料</li><li><Check aria-hidden="true" />年間3泊までの拠点利用</li></ul><div className="rj-ticket-detail"><p>滞在は1日2〜3時間のお手伝いと交換。食費は各自負担です。受け入れ日程・人数・家族での利用可否は、各拠点との事前相談が必要です。</p><p>入塾後、管理人から専用の招待リンクをご案内します。会員登録と承認後に利用できます。</p></div><div className="rj-ticket-bottom"><span>LEARN HERE. CONNECT EVERYWHERE.</span><Ticket size={24} aria-hidden="true" /></div></div></div>
       </section>
-
-      {/* ============ LEARN ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">LEARN</p>
-          <h2 className="juku-h2">この塾で<span className="u">学べること</span></h2>
-          <div className="juku-quote">
-            <b>🔥 Threads攻略</b><br />
-            Threadsで1カ月半で10,000フォロワー、2ヶ月半で15,000フォロワー達成。2026年1月、XのアクティブユーザーをThreadsがついに超えました。
-          </div>
-          <div className="juku-quote">
-            <b>🌏 世界でいま起きている「ホントのこと」</b><br />
-            ニュースを見ていても、何がホントか分からない——そんな時代です。地球一周し、紛争地や世界各地を自分の足で歩いてきたからこそ見えた、メディアには流れない現場のリアル。世界でいま何が起きているのか、その「ホントのこと」をお話しします。知ったうえで、よりよい未来のためにできることを、みんなで考えていきます。
-          </div>
-          <div className="juku-quote">
-            <b>🤖 AI活用術</b><br />
-            AIとは切っても切り離せない時代。文章・画像・チラシ・サイト制作まで、らんぼう自身が実際に活用して見えてきた使い方を、リアルな実例とともにシェアします。
-          </div>
-          <div className="juku-quote">
-            <b>🌈 ゲストトーク｜本物（虹の戦士）に会える</b><br />
-            地球のあちこちで、らんぼうが巡り会ってきた「本物」たちが塾にやってきます。教科書には載っていない生き方、活動のはじめ方、好きを仕事に変える仕事づくりを、本人の言葉で直接聞ける特別授業です。「こんな生き方があったのか」。その出逢いが、あなたの人生の選択肢を増やします。
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ CHANGE ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <div className="juku-change">
-            <h3>111日後のあなたは、こう変わっている</h3>
-            <ul>
-              <li>想いを言葉にできるようになっている</li>
-              <li>世界や未来を自分の言葉で語れるようになっている</li>
-              <li>好きなことが少しずつ仕事になり始めている</li>
-              <li>本気で夢を語れる仲間がいる</li>
-              <li>気づけば、自分のヴィジョンに向かって歩き出している</li>
-            </ul>
-          </div>
-          <p className="juku-lead" style={{ marginTop: 24 }}>
-            劇的に人生が変わるかは分かりません。でも、きっと昨日までの自分とは少し違っています。<br />
-            人生って、ある日突然変わるより、コツコツ続けた時間が振り返ると一番大きな一歩だったりするんです。
-          </p>
-        </Reveal>
-      </section>
-
-      {/* ============ VOICES ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">VOICES</p>
-          <h2 className="juku-h2">参加者の<span className="u">声</span></h2>
-          <div className="juku-voice">
-            <p className="vlabel">0期 受講生の声</p>
-            <blockquote>
-              「自分がどの環境に身を置くか？　今回、身をもって体感しました。<br /><br />
-              <b>『やってみるといいんとちゃう。』</b><br />
-              その言葉が、今回一番残っています。<br /><br />
-              今まで、やったらダメ！できない！無理！わがままを言ってはいけない！そんな環境で育ってきました。自分が自分に制限をかけていたことに、気づけました。<br /><br />
-              『やってみるといいんとちゃう』なんて言ってくれる人は、周りにいなかった。<br /><br />
-              自分の足を地につけて、行動してみる。やってみないとわからないこともある。やったからこそ見える景色がある。ホンマに、未完成でもいいからやってみる‼︎　そこに意味があったんだと、私は思いました。」
-            </blockquote>
-            <p className="who">—— 0期受講生（長崎・女性）</p>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ PROFILE ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">PROFILE</p>
-          <h2 className="juku-h2">プロフィール｜<span className="u">らんぼう</span></h2>
-          <div className="juku-profile">
-            <img src="/juku/canoe.jpg" alt="らんぼう" loading="lazy" />
-            <div className="txt">
-              <h3>らんぼう</h3>
-              <p className="role">旅人・砂漠ランナー・学校づくり・4児の父</p>
-              <p>
-                地球一周の旅暮らしを経て、徳島・神山町へ。砂漠1000km走破。
-                オルタナティブスクール3校を仲間と立ち上げ、のべ100人の子どもたちと500km以上の歩きお遍路旅。
-                全国各地で500回以上の講演。Threadsは2ヶ月半で15,000フォロワー。
-                やることは全部、まず自分でやってみる人です。
-              </p>
-              <a className="juku-eg-link" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">
-                らんぼうの全貌は「あーすガイド」へ →
-              </a>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ PRICE ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">PRICE</p>
-          <h2 className="juku-h2">受講料</h2>
-          <div className="juku-price">
-            <p className="tokkak">🌈 1期生特別価格（今回だけ）</p>
-            <p className="term">111日間・全コンテンツ込み</p>
-            <p className="regular">正規価格 <s>49,800円</s> のところ</p>
-            <p className="amount">39,800<small>円（税込）</small></p>
-            <p className="perday">1日あたり 約358円 ＝ コーヒー1杯以下</p>
-            <p className="juku-anchor">内訳：限定ラジオ 約48回（火・木・土×16週）＋ Zoomライブ 約8回 ＋ 神山合宿・ワクドキ祭り ＋ バズ部屋・LINEグループ111日間。1コンテンツあたり 約710円 の計算です。</p>
-            <p className="discount">
-              仲間と一緒につくり上げる記念すべき1期だからこその価格です。<b>2期以降は正規価格49,800円を予定</b>しています。
-            </p>
-            <div className="juku-spec">
-              <b>【期間】</b>2026年8月18日(火)〜12月6日(日)（111日間）<br />
-              <b>【形式】</b>オンライン中心（限定ラジオ・Zoom・LINEグループ）＋神山合宿・ワクドキ祭り<br />
-              <b>【申込後の流れ】</b>申込フォームでお申し込み → 受講料のお振込確認後、8月18日までにLINEグループへご招待<br />
-              <b>【振込先】</b>PAYPAY銀行 かわせみ支店(007) 普通 4304359 ウエダナオキ
-            </div>
-            <div style={{ marginTop: 26 }}>
-              <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-                お申し込みフォームへ →
-              </a>
-              <span className="juku-btn-sub" style={{ color: "#9a917f" }}>※ 分割払いのご相談などは<a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "#04a347", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: 3 }}>公式LINE</a>からどうぞ</span>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ FAQ ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <p className="juku-label">FAQ</p>
-          <h2 className="juku-h2">よくある質問</h2>
-          <div className="juku-faq">
-            <details>
-              <summary>忙しくてリアルタイム参加が難しいのですが</summary>
-              <div className="a">Zoomは録画をお渡ししますし、限定ラジオは好きな時間に聴けます。111日あるので、ご自分のペースで追いつけます。</div>
-            </details>
-            <details>
-              <summary>SNS初心者でも大丈夫ですか</summary>
-              <div className="a">大丈夫です。バズ部屋でみんなと一緒に伸ばしてゆきます。未経験スタートでも大丈夫です。</div>
-            </details>
-            <details>
-              <summary>神山合宿・ワクドキ祭りは必須ですか</summary>
-              <div className="a">任意です。来られる方はぜひ。来られなくてもオンラインで十分に価値を受け取れる設計です。</div>
-            </details>
-            <details>
-              <summary>子育て中でも参加できますか</summary>
-              <div className="a">オンライン中心なので、家事や子育ての合間にご参加いただけます。Zoomは録画もあるので、リアルタイムでなくても大丈夫です。らんぼう自身も4児の父です。</div>
-            </details>
-            <details>
-              <summary>申し込む前に相談できますか</summary>
-              <div className="a">はい。LINEで無料相談を受け付けています。「自分に合うかな？」という段階から一緒に考えますので、お気軽にどうぞ。</div>
-            </details>
-            <details>
-              <summary>どんな人が向いていますか</summary>
-              <div className="a">「何か変えたい」「何か始めたい」人。教育・旅・地域づくり・発信に関心がある人。完璧な準備はいりません。ワクワクとドキドキが来ているなら、それがGOサインです。</div>
-            </details>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ============ FINAL ============ */}
-      <section className="juku-sec">
-        <Reveal>
-          <div className="juku-final">
-            <p className="big">ワクワクとドキドキは、<br />未来の自分から届くGOサイン。</p>
-            <p>
-              一緒に、そんな景色を見に行きませんか？<br />
-              いのちに沿った一歩を、同じ方向を向く仲間と踏み出す111日間。<br />
-              不安でもいい。準備ができてなくて大丈夫。すべては未完成からはじまる。
-            </p>
-            <div style={{ marginTop: 22 }}>
-              <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-                🌈 1期生として参加する →
-              </a>
-              <p style={{ marginTop: 14 }}>
-                <a href={LINE} target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.85)", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  分割のご相談・質問は公式LINEから →
-                </a>
-              </p>
-              <p style={{ marginTop: 18 }}>
-                <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{ color: "rgba(255,255,255,.8)", fontSize: 13, textDecoration: "underline", textUnderlineOffset: 4 }}>
-                  らんぼう公式サイト「あーすガイド」を見る →
-                </a>
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <ShareButtons
-        url="https://www.tabigaku.party/juku"
-        text="111日間のオンラインプログラム「らんぼう塾」1期生募集中。限定ラジオ・ゲスト出演Zoom・神山合宿・バズ部屋・AI活用術まで。世界を学び、仲間と人生を動かす。"
-        title="＼ らんぼう塾をシェア ／"
-      />
-
-      <div style={{ height: 90 }} />
-
-      {/* ============ 固定CTA ============ */}
-      <div className="juku-fixed">
-        <a className="juku-btn" href={FORM} target="_blank" rel="noopener noreferrer">
-          らんぼう塾 1期生に申し込む
-        </a>
-        {(() => {
-          const open = new Date("2026-08-18T00:00:00+09:00").getTime();
-          const days = Math.ceil((open - Date.now()) / 86400000);
-          return days > 0 ? <span className="cd">開講 8/18 まで あと{days}日</span> : null;
-        })()}
-      </div>
-    </div>
-  );
+      <section className="rj-voice rj-wrap" aria-labelledby="voice-title"><p className="rj-eyebrow" id="voice-title">A VOICE FROM OUR COMMUNITY / 参加者の声</p><blockquote>「やってみるといいんとちゃう。」<br />その言葉が、今回一番残っています。</blockquote><p>未完成でもいいから、やってみる。<br />やったからこそ見える景色がある。</p><cite>0期受講生・長崎／女性の感想より抜粋</cite></section>
+      <section className="rj-price-section" id="price" aria-labelledby="price-title"><div className="rj-wrap rj-price-grid"><div className="rj-price-intro"><p className="rj-eyebrow">04 / START WHEN YOU'RE READY</p><h2 id="price-title">心が動いた、<br /><em>そのタイミングで。</em></h2><p>募集期や開講日を待つ必要はありません。<br />思い立った日から、あなたの一歩を。</p><div className="rj-price-statement"><span>いつでも入塾できます</span><p>受講料は一律。<br />EARTH FAMILY DAO参加券も含まれます。</p></div></div>
+        <div className="rj-price-card" data-journey-reveal><div className="rj-price-top"><span>らんぼう塾</span><span>随時受付中</span></div><p className="rj-price-label">受講料</p><p className="rj-amount"><span>¥</span>39,800<small>税込</small></p><p className="rj-price-bonus"><Ticket size={19} aria-hidden="true" /> EARTH FAMILY DAO参加券つき</p><ul className="rj-checklist">{["限定ラジオ・Zoomライブ・録画", "Threads攻略・AI活用の学び", "バズ部屋・LINE交流グループ", "神山合宿・ワクドキ祭りの参加機会", "DAO一般ライト会員・1年間の年会費無料"].map(item => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul><a className="rj-button rj-button-dark" href="#apply">申し込みへ進む</a><p className="rj-note">分割払いのご相談は<a href={LINE} target="_blank" rel="noopener noreferrer">公式LINE</a>へ。<br />合宿などの交通・宿泊・食事等の費用や、各企画の参加条件は事前にご確認ください。</p></div>
+      </div></section>
+      <section className="rj-section rj-wrap rj-faq" id="faq" aria-labelledby="faq-title"><div><p className="rj-eyebrow">05 / BEFORE YOUR FIRST STEP</p><h2 id="faq-title">気になること、<br /><em>聞いてください。</em></h2><a className="rj-line-link" href={LINE} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" /> LINEで相談する</a></div><div className="rj-faq-list">{questions.map(([question, answer], i) => <details key={question}><summary>{question}</summary><p>{answer}</p>{i === 3 && <a href={DAO} target="_blank" rel="noopener noreferrer">DAOの詳しい説明を読む</a>}</details>)}</div></section>
+      <section className="rj-apply" id="apply" aria-labelledby="apply-title"><div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>準備ができていなくても、大丈夫。<br />あなたの「やってみたい」を、聞かせてください。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} target="_blank" rel="noopener noreferrer">申し込みフォームを開く</a><a className="rj-button rj-button-line" href={LINE} target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">フォームは別タブで開きます。入金確認後に、参加方法とDAO招待リンクをご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div></section>
+    </main>
+    <footer className="rj-footer"><div className="rj-wrap rj-footer-top"><a href="#juku-top" className="rj-brand"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a><p>いのちが喜ぶことを、カタチにする。</p><nav aria-label="関連ページ"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="/">旅する学校</a><a href={DAO} target="_blank" rel="noopener noreferrer">EARTH FAMILY DAO</a></nav></div><ShareButtons url="https://www.tabigaku.party/juku" text="いのちが喜ぶことを、カタチにする。らんぼう塾はいつでも入塾、39,800円（税込）。Threads・AI・世界の暮らしを学び、仲間と実践。EARTH FAMILY DAO参加券つき。" title="この学びを、大切な人に。" /><p className="rj-copyright">© らんぼう塾 / あーすガイド・旅する学校</p></footer>
+    <div className="rj-sticky" aria-label="入塾のご案内"><div><span>いつでも入塾・DAO参加券つき</span><strong>39,800<small>円（税込）</small></strong></div><a className="rj-button rj-button-lime" href="#apply">入塾する</a></div>
+  </div>;
 }
-
