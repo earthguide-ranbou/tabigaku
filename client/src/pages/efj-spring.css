@@ -2024,3 +2024,26 @@
 .efjs-application-frame { display: block; width: 100%; height: 1750px; border: 0; border-radius: 16px; margin-block: 28px; background: #f2f6f3; }
 .efjs-route { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 700px) { .efjs-gallery-grid { grid-template-columns: 1fr; } .efjs-gallery-grid img { height: 260px; } .efjs-application-frame { height: 2000px; } }
+
+.efjs-body p + p { margin-top: 1.1em; }
+.efjs-stop-copy .efjs-body { line-height: 2; }
+.efjs-gallery-grid { grid-template-columns: 1.1fr 1fr; gap: 24px; }
+.efjs-gallery-grid figure:first-child { grid-column: 1 / -1; }
+.efjs-gallery-grid figure:first-child img { height: clamp(270px, 42vw, 540px); object-position: center 55%; }
+.efjs-gallery-grid img { height: 350px; border-radius: 20px; }
+.efjs-gallery-grid figcaption { font-size: 17px; color: #17464b; }
+.efjs-gallery-grid figure:first-child figcaption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.efjs-moments { padding-block: 40px 96px; }
+.efjs-moments h2 { margin-top: 16px; }
+.efjs-moments-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 32px; margin-block: 40px 30px; }
+.efjs-moments article { border-top: 1px solid #b7c9ba; padding-top: 22px; }
+.efjs-moments article > span { font: 11px sans-serif; letter-spacing: .15em; color: #827240; }
+.efjs-moments h3 { font-size: 21px; margin-block: 18px 12px; }
+.efjs-moments article p { line-height: 1.9; color: #51645c; }
+@media(max-width:700px) {
+ .efjs-gallery-grid { grid-template-columns: 1fr; gap: 18px; }
+ .efjs-gallery-grid img { height: 290px; }
+ .efjs-moments-grid { grid-template-columns: 1fr; gap: 24px; }
+ .efjs-moments { padding-bottom: 64px; }
+ .efjs-stop h2 { line-height: 1.65; }
+}

@@ -75,7 +75,7 @@ export const journeys: Journey[] = [
     expenses: "",
     image: "/efj/iwaishima-BUClfDH1.webp",
     alt: "祝島の青い海と島に受け継がれてきた祭りの舟",
-    place: "祝島 → 神山町（おうちえん訪問は調整中）",
+    place: "祝島 → 神山町",
     description: "いのちがよろこぶ、春の7日間。2/28までの早割80,000円。",
     line: "https://lin.ee/N9eyIcP",
     audiences: ["family", "adults"],

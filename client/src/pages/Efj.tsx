@@ -35,7 +35,7 @@ const STOPS = [
         その豊かさに、ふれる。
       </>
     ),
-    text: "船で海を渡った先に、潮の香りの路地と、海に寄り添う暮らしが待っています。石垣のある道をゆっくり歩き、島の人の話に耳をすます。山と海からいただく食べもの、手を動かして暮らす知恵、隣の人と分かち合う温かさ。映画「祝福の海」で心が動いた方には、その風景の中へ一歩入ってみる旅に。らんぼうが何度も通ってきた島で、いのちをつなぐ暮らしを一緒に感じましょう。個別の訪問先・体験内容は現地と調整してご案内します。",
+    text: "船を降りたら、時計を気にするのを少しやめてみる。潮の香りがする路地、海を見下ろす石垣の道。島の人の話に耳をすますうちに、旅の速度がゆっくり変わっていきます。\n食べること、つくること、分かち合うこと。山と海の恵みをいただきながら暮らす知恵に、これからの毎日のヒントがある。\n映画『祝福の海』で心が動いた方も、初めて祝島を知った方も。らんぼうが何度も通ってきた島で、その風景の中に身を置いてみませんか。",
     tags: ["島の暮らし", "海とともに生きる知恵", "いのちの循環"],
     link: "https://note.com/shiftdaigaku/n/na0c2592111c5",
     linkText: "らんぼうの祝島への想いを読む",
@@ -57,7 +57,7 @@ const STOPS = [
         自分の声を聴く。
       </>
     ),
-    text: "らんぼうが11年暮らす、徳島・神山町へ。山あいの道を進み、川の音に耳をすまし、森の中で深呼吸する。自然の豊かさと、新しい暮らしや学びをつくる人たちの挑戦が、同じ町に息づいています。「やったらええんちゃうん？」と背中を押してくれる空気の中で、子育て、仕事、これからの暮らしを語り合う。観光だけでは見えにくい町の日常を、ここで暮らす案内人と訪ねます。森の学校みっけなどの訪問先は受け入れ状況に合わせて調整し、決まり次第お知らせします。",
+    text: "山あいの道を進むと、聞こえてくるのは川の音。森で深呼吸して、ふと肩の力が抜ける。神山には、そんな時間が流れています。\nそして、面白いのは景色だけじゃない。ここに根を張り、自分らしい仕事や暮らし、子どもたちの学びをつくる人がいる。「やったらええんちゃうん？」という空気が、小さな一歩を応援してくれる。\nこの町で11年暮らすらんぼうと、観光の先にある日常へ。子育てのこと、働き方のこと、これからのこと。帰るころ、自分の毎日もちょっと楽しみになるような出会いを。",
     tags: ["森と川", "地域の暮らし", "これからの自分"],
     link: "https://kamiyamag.tabigaku.party/",
     linkText: "神山の魅力をもっと知る",
@@ -150,7 +150,7 @@ export default function Efj() {
           <a href="#guide">案内人</a>
         </nav>
         <a className="efjs-nav-join" href="#apply">
-          参加のご案内
+          申し込みへ
         </a>
       </header>
 
@@ -175,9 +175,9 @@ export default function Efj() {
                 </span>
               </h1>
               <p className="efjs-hero-lead">
-                海と暮らす島。学びが生まれる場所。
+                瀬戸内の小さな島から、四国の山あいへ。
                 <br />
-                そして、森に抱かれた町へ。
+                会いに行こう。暮らしを楽しむ人たちに。
                 <br />
                 大切なものを、からだで思い出す7日間。
               </p>
@@ -224,7 +224,7 @@ export default function Efj() {
                   height="825"
                 />
                 <figcaption>
-                  <span>03</span> 神山の森へ
+                  <span>02</span> 神山の森へ
                 </figcaption>
               </figure>
               <div className="efjs-seal" aria-hidden="true">
@@ -284,7 +284,7 @@ export default function Efj() {
           </div>
           <div
             className="efjs-route"
-            aria-label="祝島から神山町へ。おうちえんへの訪問は調整中です"
+            aria-label="祝島から神山町へ。海と森、人と暮らしに出会う7日間"
           >
             <svg
               viewBox="0 0 1000 110"
@@ -317,7 +317,7 @@ export default function Efj() {
             ))}
           </div>
           <p className="efjs-route-note">
-            前半は祝島、後半は神山町へ。こびとのおうちえんへの訪問は調整中で、現時点では確定していません。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。
+            前半は祝島、後半は神山町へ。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。
           </p>
         </section>
 
@@ -336,8 +336,8 @@ export default function Efj() {
                 <img
                   src={stop.image}
                   alt={stop.alt}
-                  width={i === 1 ? 1100 : i === 0 ? 860 : 620}
-                  height={i === 1 ? 618 : i === 0 ? 1144 : 825}
+                  width={i === 0 ? 860 : 620}
+                  height={i === 0 ? 1144 : 825}
                   loading="lazy"
                   decoding="async"
                 />
@@ -356,7 +356,7 @@ export default function Efj() {
                   {stop.region} · {stop.name}
                 </p>
                 <h2>{stop.title}</h2>
-                <p className="efjs-body">{stop.text}</p>
+                <div className="efjs-body">{stop.text.split("\n").map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
                 <ul className="efjs-tags">
                   {stop.tags.map(tag => (
                     <li key={tag}>{tag}</li>
@@ -384,8 +384,15 @@ export default function Efj() {
             <figure><img src="/efj/waterfall-DgiO-S5j.webp" alt="神山の森と滝" loading="lazy" width="620" height="825" /><figcaption>神山｜水の音に、心がほどける。</figcaption></figure>
             <figure><img src="/efj/kamiyama_fire-DUPc2W-8.webp" alt="神山で焚き火を囲む旅の仲間" loading="lazy" width="1100" height="618" /><figcaption>神山｜火を囲めば、話したくなる。</figcaption></figure>
           </div>
-          <small>写真は過去の風景です。季節や天候により景色は変わり、掲載した体験の実施を保証するものではありません。</small>
-          <details><summary>こびとのおうちえんについて（訪問調整中）</summary><p>山口県の森のようちえん「こびとのおうちえん」への訪問も検討しています。まだ確定していないため、今回の行程に含まれない可能性があります。決まり次第、このページとお申し込みいただいた方へのご案内でお知らせします。</p></details>
+          <small>写真は過去の旅の風景です。訪問先や体験は、季節・天候・受け入れ状況に合わせてご案内します。</small>
+        </section>
+        <section className="efjs-moments efjs-wrap" aria-labelledby="moments-title">
+          <p className="efjs-eyebrow">TAKE SOMETHING HOME</p><h2 id="moments-title">おみやげは、<br />新しい景色と、生き方のヒント。</h2>
+          <div className="efjs-moments-grid">
+            <article><span>01 / SLOW DOWN</span><h3>急がない時間に、戻る。</h3><p>潮風を感じる。水の音を聴く。いつも予定で埋まる時間に、少し余白をつくってみる。</p></article>
+            <article><span>02 / MEET PEOPLE</span><h3>その人の暮らしに、出会う。</h3><p>どうしてここに暮らしているんだろう。何を大切にしているんだろう。顔の見える出会いから、旅が深まっていく。</p></article>
+            <article><span>03 / FIND YOUR NEXT</span><h3>「やってみたい」を持ち帰る。</h3><p>家族で話したいこと。自分の暮らしで試したいこと。小さな気づきが、帰ってからの日々につながる。</p></article>
+          </div><a className="efjs-text-link" href="#price">7日間の日程・参加費を見る →</a>
         </section>
         <section className="efjs-night" aria-labelledby="night-title">
           <img
@@ -469,7 +476,7 @@ export default function Efj() {
               <p>
                 2027年3月29日（月）〜4月4日（日）
                 <br />
-                祝島 → 神山町（おうちえん訪問は調整中）
+                祝島 → 神山町
               </p>
             </div>
             <div className="efjs-ticket" data-journey-reveal>
@@ -524,7 +531,7 @@ export default function Efj() {
                   </li>
                 </ul>
                 <a href="#apply" className="efjs-button efjs-button--dark">
-                  参加について相談する
+                  この旅に申し込む
                 </a>
               </div>
             </div>
@@ -550,7 +557,7 @@ export default function Efj() {
                 </summary>
                 <div>
                   <p>
-                    3月29日から前半は祝島、後半は神山町を訪ね、4月4日に旅を終える予定です。こびとのおうちえんへの訪問は調整中で、訪問できない場合もあります。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。
+                    3月29日から前半は祝島、後半は神山町を訪ね、4月4日に旅を終える予定です。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。
                   </p>
                   <p>
                     移動は基本的に各自のお車でお願いしています。難しい方は事前にご相談ください。宿泊・交通の手配は各自で行うかたちですが、おすすめの宿や移動方法をご相談いただけます。途中合流・途中お別れの参加費も、同行する区間に合わせて個別にご案内します。
@@ -581,7 +588,7 @@ export default function Efj() {
                 </summary>
                 <div>
                   <p>
-                    公式LINEへ「2027年春の地球家族ジャーニー参加希望」とお送りください。参加人数・お子さまの年齢・参加希望区間などを伺い、費用と参加方法をご案内します。お振り込みの確認をもって参加確定となります。
+                    下の申し込みフォームから、参加希望をお送りください。参加人数・お子さまの年齢・参加希望区間などを伺い、費用と参加方法をご案内します。お振り込みの確認をもって参加確定となります。
                   </p>
                   <p>
                     お振込先：PAYPAY銀行 かわせみ支店（007）／普通
@@ -664,11 +671,11 @@ export default function Efj() {
         </div>
         <ShareButtons
           url="https://www.tabigaku.party/efj"
-          text="地球家族ジャーニー2027春｜3/29〜4/4、祝島→神山町（おうちえん訪問は調整中）。いのちがよろこぶ7日間。参加費88,000円、2/28までの早割80,000円（宿泊・食事・交通等の実費別途）。"
+          text="地球家族ジャーニー2027春｜3/29〜4/4、祝島→神山町。いのちがよろこぶ7日間。参加費88,000円、2/28までの早割80,000円（宿泊・食事・交通等の実費別途）。"
           title="この旅を、大切な人に。"
         />
       </footer>
-      <aside className="efjs-fixed" aria-label="参加費と参加のご案内">
+      <aside className="efjs-fixed" aria-label="参加費と申し込みへ">
         <div>
           <span>
             3/29 — 4/4 <small>2027</small>
@@ -679,7 +686,7 @@ export default function Efj() {
           </strong>
         </div>
         <a className="efjs-button efjs-button--dark" href="#apply">
-          {departed ? "次の旅を相談" : "参加のご案内"}
+          {departed ? "次の旅を相談" : "申し込みへ"}
         </a>
       </aside>
     </div>
