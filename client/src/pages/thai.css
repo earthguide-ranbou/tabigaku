@@ -960,3 +960,53 @@
 .thai-page .thai-next-announcement dl>div{grid-template-columns:75px 1fr}.thai-page .thai-next-announcement dd{font-size:14px}
 .thai-page .thai-next-line{font-size:13px;padding:15px 18px}.thai-page .thai-next-lead{font-size:17px}
 }
+
+/* A welcoming first step for solo travellers. */
+.thai-page .thai-next-hero{overflow:hidden}
+.thai-page .thai-next-hero h1{font-size:clamp(31px,4.1vw,59px)}
+.thai-page .thai-next-hero-copy>p.thai-solo-badge{font-size:13px!important;letter-spacing:.06em;margin-top:22px;color:#fff7db}
+.thai-page .thai-solo-badge:before{content:"✳";margin-right:10px;color:#e8cd91}
+.thai-page .thai-solo-welcome{display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:88px 0}
+.thai-page .thai-solo-welcome h2{font-size:clamp(26px,2.8vw,36px)}
+.thai-page .thai-solo-text-link{display:inline-block;color:#245e58;border-bottom:1px solid #809e94;padding:8px 0;font-size:14px;font-weight:700}
+.thai-page .thai-moments{background:#e5ede7;padding:75px 0 60px}
+.thai-page .thai-moments-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:28px}
+.thai-page .thai-moments-heading h2{margin-bottom:0}.thai-page .thai-moments-heading>p{font-size:14px;line-height:2;color:#47695f}
+.thai-page .thai-moment-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.thai-page .thai-moment-buttons button{display:flex;gap:12px;align-items:center;padding:17px 21px;min-height:60px;background:#fffdf5;border:1px solid #bccdc3;border-radius:5px;color:#22554c;font:inherit;font-size:16px;cursor:pointer;transition:background .25s,color .25s}
+.thai-page .thai-moment-buttons small{font-size:11px;opacity:.8}.thai-page .thai-moment-buttons button>span{margin-left:auto}
+.thai-page .thai-moment-buttons button[aria-pressed="true"]{background:#22574e;color:#fff;border-color:#22574e}
+.thai-page .thai-moment-panel{position:relative;isolation:isolate;min-height:510px;border-radius:14px 90px 14px 14px;overflow:hidden;background:#254b47;display:flex;align-items:end}
+.thai-page .thai-moment-panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.thai-page .thai-moment-panel:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#0c2e30ed,transparent 100%),linear-gradient(90deg,#0c2e3055,transparent)}
+.thai-page .thai-moment-copy{padding:45px;max-width:620px;color:#fff}.thai-page .thai-moment-copy>span{font:11px/1.7 sans-serif;letter-spacing:.2em;color:#e8d7ae}
+.thai-page .thai-moment-copy h3{font-size:clamp(24px,3vw,36px);line-height:1.6;margin:15px 0}.thai-page .thai-moment-copy p{font-size:16px;line-height:2}
+.thai-page .thai-moment-copy a{display:inline-block;padding:12px 0 2px;margin-top:10px;font-size:13px;border-bottom:1px solid #ffffff99}
+.thai-page .thai-moments-caption{font-size:12px;color:#46675d;padding-top:14px}
+.thai-page .thai-solo-faq{padding:0 0 75px;max-width:880px}
+.thai-page .thai-solo-faq h2{font-size:clamp(25px,3vw,35px)}
+.thai-page .thai-solo-faq details{border-top:1px solid #b5c7bb}.thai-page .thai-solo-faq details:last-of-type{border-bottom:1px solid #b5c7bb}
+.thai-page .thai-solo-faq summary{cursor:pointer;min-height:60px;padding:20px 6px;font-size:16px;font-weight:700;color:#24574e}
+.thai-page .thai-solo-faq details p{padding:0 6px 25px;font-size:15px;line-height:2.1}
+.thai-page :is(a,button,summary):focus-visible{outline:3px solid #c9974b;outline-offset:5px}
+.thai-page :is(#solo-welcome,#lake-moments,#saijai-story,#saijai-film,#next-journey,#solo-questions,#family-story){scroll-margin-top:82px}
+.thai-page .thai-next-film video{aspect-ratio:16/9}
+html[data-tabigaku-motion="on"] .thai-page .thai-next-hero>img{animation:thai-lake-breath 22s ease-in-out infinite alternate}
+html[data-tabigaku-motion="on"] .thai-page .thai-moment-panel>img{animation:thai-moment-enter .65s ease-out both}
+@keyframes thai-lake-breath{from{transform:scale(1)}to{transform:scale(1.045)}}
+@keyframes thai-moment-enter{from{opacity:.55;transform:scale(1.025)}to{opacity:1;transform:scale(1)}}
+@media(max-width:700px){
+ .thai-page .thai-solo-welcome{grid-template-columns:1fr;gap:12px;padding:55px 0}
+ .thai-page .thai-moments{padding:50px 0 40px}.thai-page .thai-moments-heading{display:block}
+ .thai-page .thai-moments-heading>p{margin-top:20px}
+ .thai-page .thai-moment-buttons{gap:7px}.thai-page .thai-moment-buttons button{font-size:13px;flex-wrap:wrap;gap:4px 7px;padding:12px 9px}
+ .thai-page .thai-moment-buttons button>span{display:none}.thai-page .thai-moment-buttons small{width:100%;font-size:10px}
+ .thai-page .thai-moment-panel{min-height:460px;border-radius:12px 55px 12px 12px}.thai-page .thai-moment-copy{padding:27px}
+ .thai-page .thai-moment-copy p{font-size:14px}
+ .thai-page .thai-solo-faq{padding-bottom:50px}.thai-page .thai-solo-faq summary{font-size:15px}
+ .thai-page .thai-next-hero h1{font-size:clamp(26px,6.8vw,42px);letter-spacing:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .thai-page .thai-next-hero>img,.thai-page .thai-moment-panel>img{animation:none!important;transform:none!important}
+ .thai-page .thai-moment-buttons button{transition:none}
+}
