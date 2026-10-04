@@ -1,4 +1,3 @@
-import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import { useEffect } from "react";
 import "./thai.css";
 import ShareButtons from "@/components/ShareButtons";
@@ -6,10 +5,10 @@ import { useSEO } from "@/hooks/useSEO";
 
 export default function Thai() {
   useSEO({
-    title: "タイ・家族旅 EarthfamilyJourney ｜旅する学校",
-    description: "家族で地球を旅するEarthfamilyJourneyタイ編。A日程8/22～8/27・B日程8/22～8/30。タイ・バリ・世界の先住民の土地へ。いのちが喜ぶ方向へ、家族みんなでGOサイン。徳島・神山発のあーすガイド・らんぼうが案内する子連れ海外旅プログラム。",
+    title: "2027年1月・チェンマイから｜EarthfamilyJourney タイ編｜詳細近日公開",
+    description: "2027年1月、チェンマイから始まるEarthfamilyJourney。家族旅で出逢った湖上のサージャイ・ヴィレッジを写真と動画で紹介。日程・料金・参加方法は近日公開。",
     keywords: "家族旅, タイ 旅, EarthfamilyJourney, 旅育, 子連れ 海外旅行, あーすガイド, らんぼう, 神山町, 徳島, 先住民 体験, バリ島, 家族 海外体験, 子ども 海外",
-    ogImage: "https://tabigaku.party/manus-storage/thai_img_00_2e972116.jpg",
+    ogImage: "https://www.tabigaku.party/images/saijai-lake.jpg",
     ogUrl: "/thai",
     structuredData: [
       {
@@ -51,20 +50,6 @@ export default function Thai() {
       io.observe(el);
     });
 
-    // Countdown
-    const cd = document.getElementById("cd");
-    if (cd) {
-      const days = Math.ceil(
-        (new Date("2026-08-22T00:00:00+09:00").getTime() - new Date().getTime()) / 86400000
-      );
-      if (days > 0) {
-        cd.textContent = String(days);
-      } else {
-        const countdown = cd.closest(".countdown") as HTMLElement;
-        if (countdown) countdown.style.display = "none";
-      }
-    }
-
     // Hide the main site's nav/footer if present
     document.body.style.overflow = "auto";
 
@@ -73,36 +58,47 @@ export default function Thai() {
 
   return (
     <div className="thai-page">
-      <JourneyStatusNotice id="thailand" />
+
       <header className="brandbar">
         <div className="logo">
           Earthfamily<span>Journey</span>
         </div>
       </header>
 
-      <section className="hero">
-        <h1 className="sr-only">
-          EarthfamilyJourney in Thailand ── 地球を家族と旅をする育成プログラム
-        </h1>
-        <div className="hero-visual">
-          <img
-            src="/manus-storage/thai_img_00_2e972116.jpg"
-            alt="EarthfamilyJourney in Thailand そうだ！タイに行こう"
-          />
+      <section className="thai-next-hero">
+        <img src="/images/saijai-lake.jpg" alt="緑の山と湖に抱かれたサージャイ・ヴィレッジ" fetchPriority="high" />
+        <div className="thai-next-hero-copy">
+          <p className="thai-next-kicker">EARTH FAMILY JOURNEY · THAILAND</p>
+          <p className="thai-next-badge">2027年1月・チェンマイスタート予定</p>
+          <h1>旅のつづきは、<br />「また会いたい」の先へ。</h1>
+          <p>家族で出逢った、湖の上の小さな村。<br />次は、その景色をあなたと。</p>
+          <a href="#next-journey">次の旅の予告を見る ↓</a>
+          <small>日程・料金・参加方法は近日公開</small>
         </div>
-        <div className="plans">
-          <div className="plan-chip a">
-            <b>A日程・6日間</b>8/22（土）〜 8/27（木）
-          </div>
-          <div className="plan-chip b">
-            <b>B日程・9日間</b>8/22（土）〜 8/30（日）
-          </div>
-        </div>
-        <p className="countdown">
-          ✈️ 8月22日 出発まで、あと<b id="cd">--</b>日！
-        </p>
       </section>
+      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">1月の旅について</a><a href="#family-story">家族旅のストーリー</a></nav>
 
+      <section className="thai-next-wrap thai-next-story" id="saijai-story">
+        <div><p className="thai-next-kicker">OUR ENCOUNTER / SAAIJAI VILLAGE</p><h2>旅先に、<br />帰りたい場所ができた。</h2></div>
+        <div className="thai-next-prose"><p>2026年、家族でタイを旅する中で出逢ったのが、サージャイ・ヴィレッジ（SaaiJai Village）。チェンマイ郊外、山々に囲まれた湖の上にあるエコビレッジです。</p><p>小舟でたどり着いて、湖で遊び、ごはんを食べ、人と話す。特別な予定を詰め込まなくても、目の前の暮らしが、子どもにも大人にも新しい発見をくれる。</p><p>そこで過ごした数日間から、僕たちの旅に、もうひとつのつながりが生まれました。今は僕も、建物を直しながら、この場所のこれからを一緒につくる仲間として関わっています。</p><p className="thai-next-sign">また訪ねたい人がいる。<br />今度は、あなたにも会ってほしい。<br /><small>らんぼう / 旅する学校</small></p></div>
+      </section>
+      <section className="thai-next-gallery thai-next-wrap" aria-label="サージャイの暮らしの写真">
+        <figure><img src="/images/saijai-stay.jpg" alt="竹の壁と木の床に囲まれたサージャイの客室" loading="lazy" /><figcaption>目覚めたら、すぐそばに湖。</figcaption></figure>
+        <figure><img src="/images/saijai-life.webp" alt="サージャイの湖のそばで過ごす時間" loading="lazy" /><figcaption>ゆっくり過ごす時間も、旅の宝物。</figcaption></figure>
+        <figure><img src="/images/saijai-family.webp" alt="サージャイから眺める夕焼けの湖" loading="lazy" /><figcaption>一日の終わりを、同じ景色の中で。</figcaption></figure>
+      </section>
+      <section className="thai-next-film" id="saijai-film"><div className="thai-next-wrap">
+        <p className="thai-next-kicker">30 SECONDS BY THE LAKE</p><h2>まずは、30秒。<br />湖の上の暮らしへ。</h2><p>家族で訪れたサージャイの風景を、映像で。</p>
+        <video controls playsInline preload="none" poster="https://saaijai-village.com/assets/saijai-journey.webp" aria-label="家族で訪れたサージャイ・ヴィレッジの水上生活、30秒の動画"><source src="https://saaijai-village.com/assets/saijai-journey.mp4" type="video/mp4" /></video>
+        <div className="thai-next-links"><a href="https://saaijai-village.com/assets/saijai-journey.mp4" target="_blank" rel="noopener noreferrer">動画を別の画面で見る ↗</a><a href="/saijai">サージャイの紹介ページへ →</a><a href="https://saaijai-village.com/" target="_blank" rel="noopener noreferrer">SaaiJai Village 公式サイト ↗</a></div>
+      </div></section>
+      <section className="thai-next-wrap thai-next-announcement" id="next-journey">
+        <p className="thai-next-kicker">NEXT JOURNEY / COMING SOON</p><h2>2027年1月。<br />チェンマイから、はじまる。</h2><p className="thai-next-lead">知らない場所が、なつかしい場所になる。<br />そんな出逢いを重ねる旅を、準備しています。</p>
+        <dl><div><dt>スタート</dt><dd>タイ・チェンマイ</dd></div><div><dt>時期</dt><dd>2027年1月予定</dd></div><div><dt>詳細</dt><dd>日程・行程・料金・参加方法は近日公開</dd></div></dl>
+        <p>サージャイとの出逢いから広がった、次の家族旅。訪問先や滞在日数など、詳しい内容はこのページでお知らせします。</p>
+        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">1月のタイ旅についてLINEで相談する ↗</a><small>「1月のタイ旅が気になっています」と送ってください。</small>
+      </section>
+      <details className="thai-next-details" id="family-story"><summary>家族で世界を旅する理由。これまでの写真とストーリーを読む <span>＋</span></summary>
       <section className="story">
         <div className="inner">
           <p className="s-eyebrow reveal">── 子連れ海外を、諦めてきたあなたへ ──</p>
@@ -180,7 +176,7 @@ export default function Thai() {
 
           <div className="s-block reveal">
             <p className="s-big">
-              この夏、行き先は<span className="accent">タイ</span>。
+              次の旅は、行き先は<span className="accent">タイ</span>。
             </p>
           </div>
 
@@ -191,7 +187,7 @@ export default function Thai() {
                 alt="エメラルドの海に浮かぶロングテールボートと石灰岩の島"
                 loading="lazy"
               />
-              <figcaption>エメラルドの海と、そびえる石灰岩。ここが子どもたちの遊び場になる。</figcaption>
+              <figcaption>エメラルドの海と、そびえる石灰岩。タイに広がる景色。</figcaption>
             </figure>
             <figure className="tilt-r reveal">
               <img
@@ -322,7 +318,7 @@ export default function Thai() {
 
           <div className="s-block reveal" style={{ marginBottom: 0 }}>
             <p className="s-big">
-              この夏、<br />
+              次の旅は、<br />
               一緒に<span className="accent">タイ</span>へ行こう。
             </p>
             <p className="s-arrow">↓</p>
@@ -483,261 +479,14 @@ export default function Thai() {
         </div>
       </section>
 
-      <main className="pricing">
-        <h2 className="section-title">
-          参加費について<small className="sp-note">＊直近の旅につき、今回は特別価格（割安）です。</small>
-        </h2>
-
-        <div className="deal-banner reveal">
-          <div className="deal">
-            <span className="deal-tag">🈹 早割</span>
-            <p>
-              <b>7/21（火）まで</b>の申込＆入金で、<br />
-              参加費が <b className="deal-price">2万円引き</b>
-              <small>（1家族につき）</small>
-              <br />
-              <small>例）A日程 14.9万円 → <b>12.9万円</b>＋実費</small>
-            </p>
-          </div>
-          <div className="deal d-orange">
-            <span className="deal-tag orange">🤝 友人紹介割</span>
-            <p>
-              紹介した方も、された方も、<b>双方 <b className="deal-price" style={{ fontSize: "20px" }}>5,000円引き</b></b>
-              <small>（1家族につき）</small>
-              <br />
-              <small>申し込みフォームにご紹介者のお名前をご記入ください。</small>
-            </p>
-          </div>
-          <div className="deal d-green">
-            <span className="deal-tag green">💳 分割OK</span>
-            <p>
-              お支払いの<b>分割もご相談に乗ります</b>。<br />
-              「一括はちょっと…」もLINEで気軽にどうぞ。
-            </p>
-          </div>
-          <p className="deal-combo">
-            ＼ 早割 × 紹介割は<b>併用OK</b>！ 最大<b>2.5万円引き</b> ／
-          </p>
-        </div>
-
-        {/* ① 参加費 */}
-        <div className="price-card pinkcard">
-          <div className="card-head pink">
-            <div className="ribbon"><span>申込時</span></div>
-            <h2>参加費</h2>
-            <p>申込時の必要費用はこれだけ！</p>
-          </div>
-          <div className="card-body">
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">
-                <b>出発前 旅スキル講座 ＋ 参加者限定コミュニティ会費</b>
-                <span className="note">（事前Zoomミーティング2回＋記事＋LINEグループでの相談など、なんでも質問OK）</span>
-                <div className="hayawari">
-                  <span className="hw-badge">早割</span>
-                  <div className="hw-prices">
-                    <s>通常 5万円</s><b>3万円</b><small>（1家族につき）</small>
-                  </div>
-                  <p className="hw-note">※ 7/21（火）までに入金＆お申し込み完了の方が対象です</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">
-                <b>現地サポート</b>
-                <span className="note">（基本はみんなで一緒に行動。ごはんも遊びも、上田家と仲間たちと毎日わいわい過ごします。自由時間＝「海外旅の練習」チャレンジタイムもあるから、家族の旅する力がぐんぐん育ちます。気になることはその場で気軽に相談OK）</span>
-                <div className="plan-rows">
-                  <div className="plan-row">
-                    <span>A日程 8/22–27</span><span className="price">99,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
-                  </div>
-                  <div className="plan-row">
-                    <span>B日程 8/22–30</span><span className="price">147,000円<small style={{ fontSize: "12px" }}>＋実費</small></span>
-                  </div>
-                </div>
-                <span className="note" style={{ marginTop: "8px" }}>※中学生以下は半額。4歳児以下は無料。</span>
-              </div>
-            </div>
-
-            <div className="totals">
-              <div className="label">── 合 計 ──</div>
-              <div className="total-row">
-                <div className="name">A日程<small>8/22–27</small></div>
-                <div className="t-right">
-                  <s className="t-old">通常 14.9万円</s>
-                  <div className="amount"><span className="hw-badge">早割</span>12.9<small>万円</small><small>＋実費</small></div>
-                </div>
-              </div>
-              <div className="total-row">
-                <div className="name">B日程<small>8/22–30</small></div>
-                <div className="t-right">
-                  <s className="t-old">通常 19.7万円</s>
-                  <div className="amount"><span className="hw-badge">早割</span>17.7<small>万円</small><small>＋実費</small></div>
-                </div>
-              </div>
-              <p className="caption">※大人1人の場合。<b>早割は7/21（火）までの申込＆入金</b>で適用。<b>友人紹介割（双方5,000円引き）との併用OK</b>。実費（航空券・現地での宿泊費/飲食費など）は別途。</p>
-
-              <div className="example-box">
-                <p className="ex-title">💡 料金例：B日程に早割を使って<br />家族3人で参加する場合</p>
-                <p className="ex-family">大人1人＋小学生1人＋3歳のお子さん</p>
-                <div className="ex-row"><span>旅スキル講座＋コミュニティ会費（1家族・早割）</span><span>30,000円</span></div>
-                <div className="ex-row"><span>現地サポート：大人</span><span>147,000円</span></div>
-                <div className="ex-row"><span>現地サポート：小学生 <small>（中学生以下半額）</small></span><span>73,500円</span></div>
-                <div className="ex-row"><span>現地サポート：3歳 <small>（4歳以下無料）</small></span><span className="free-tag">0円</span></div>
-                <div className="ex-total"><span>家族の合計</span><span>250,500円<small>＋実費</small></span></div>
-                <p className="ex-family" style={{ marginTop: "10px" }}>※ 友人紹介割を併用すると、さらに −5,000円！</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="connector"><span>＋</span></div>
-
-        {/* ② 航空券 */}
-        <div className="price-card bluecard">
-          <div className="card-head blue">
-            <div className="ribbon"><span>出発までに取得</span></div>
-            <h2>航空券について</h2>
-          </div>
-          <div className="card-body">
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">航空券はご自身で購入<span className="note">（じつはこれが一番おトク。安いタイミングも、好きな経路も選べます）</span></div>
-            </div>
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">「取ったことない…」でも大丈夫<span className="note">（選び方のコツは出発前講座で共有。わからないことはLINEグループでみんなで解決できます）</span></div>
-            </div>
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">夏の航空券は、日ごとに値上がりしがち<span className="note">（だからこそ、決断は早いほどおトク。迷っている今日が、いちばん安い日かもしれません✈️）</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="connector"><span>＋</span></div>
-
-        {/* ③ 旅費 */}
-        <div className="price-card greencard">
-          <div className="card-head green">
-            <div className="ribbon"><span>現地で必要</span></div>
-            <h2>旅費</h2>
-          </div>
-          <div className="card-body">
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">宿泊費・飲食費・交通費・観光費など<span className="note">（現地で各家族が直接お支払い。家族のペースと予算で自由に使えます）</span></div>
-            </div>
-            <div className="check-item">
-              <div className="mark">✓</div>
-              <div className="txt">予算の目安や現地の相場も共有<span className="note">（出発前講座で「いくら持っていけばいい？」の目安がつかめます）</span></div>
-            </div>
-          </div>
-        </div>
-
-        <p className="diy-note reveal">
-          大丈夫、一人じゃない。<br />
-          やり方は講座で、迷ったら仲間とLINEで。
-        </p>
-
-        <div className="legal-note reveal">
-          <p>
-            <b>▼ このプログラムについて</b><br />
-            EarthfamilyJourneyは、「自分たちで旅をつくる力」を家族で育てる<b>教育プログラム</b>です。参加費は、出発前講座・参加者コミュニティの運営・現地での相談や学びの伴走に対するものです。航空券や宿泊などの予約・お支払いは、各ご家族がご自身で行うスタイル。旅の主役は、それぞれのご家族です。上田家と参加者みんなの知恵をシェアしながら、それぞれのペースで旅をつくっていきます。
-          </p>
-        </div>
-
-        <div className="apply reveal">
-          <h2 className="apply-title">お申し込み</h2>
-          <p className="apply-steps">① フォームに記入 → ② 参加費をお振込 → 完了！</p>
-          <a className="apply-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
-            次回の旅をLINEで相談する
-          </a>
-          <div className="bank-box">
-            <p className="bank-title">── お振込先 ──</p>
-            <div className="bank-row"><span>銀行</span><b>PayPay銀行</b></div>
-            <div className="bank-row"><span>支店</span><b>かわせみ支店（007）</b></div>
-            <div className="bank-row"><span>口座</span><b>普通　4304359</b></div>
-            <div className="bank-row"><span>名義</span><b>ウエダナオキ</b></div>
-            <p className="bank-note">
-              ※ 早割（参加費2万円引き）は、7/21（火）までにお申し込み＆ご入金完了の方が対象です。友人紹介割（双方5,000円引き）と併用できます。<br />
-              ※ お支払いの分割もご相談に乗ります。LINEでお気軽にどうぞ。
-            </p>
-          </div>
-        </div>
-
-        <div className="faq">
-          <h2 className="faq-heading">よくある質問</h2>
-          <p className="faq-sub">気になること、先に答えます。</p>
-
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>タイのどこに行くの？</p>
-            <p className="fa"><span className="amark">A.</span><span>行き先は、タイ子連れ旅経験者のまいちゃんと相談しながら、イメージを膨らませてみんなで決めていきます。道中はインスピレーションで決まることも！？ それがこの旅のおもしろさです。</span></p>
-          </div>
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>集合場所と解散場所は？</p>
-            <p className="fa"><span className="amark">A.</span><span><b>集合</b>：8/22（土）11:00（現地時間）バンコク近郊に現地集合。<br /><b>解散</b>：現地解散です。<br />・A日程 → 8/27（木）15:00 チェンマイ近郊<br />・B日程 → 8/30（日）11:00 チェンマイ近郊<br />より細かい集合・解散場所は、出発前のZoomでみんなで決めてゆきます。</span></p>
-          </div>
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>航空券はどうやって取るの？</p>
-            <p className="fa"><span className="amark">A.</span><span>各自での取得をお願いしています。「取ったことない…」という方も大丈夫。出発前の旅スキル講座で、取り方から丁寧にサポートします。</span></p>
-          </div>
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>英語もタイ語も話せないけど大丈夫？</p>
-            <p className="fa"><span className="amark">A.</span><span>大丈夫。言葉が通じなくても、笑顔と身ぶりで意外と伝わります。そして「伝わった！」の瞬間こそ、子どもにとって最高の学び。困ったときはLINEグループで相談できます。</span></p>
-          </div>
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>1人でも参加できますか？</p>
-            <p className="fa"><span className="amark">A.</span><span>もちろん大歓迎です。<b>大人1人での参加（お子さんなし）</b>も、<b>親1人＋お子さんでの参加</b>もOK。基本はみんなで一緒に過ごすので、1人で来てもさみしくありません。むしろ旅の仲間がどんと増えます。</span></p>
-          </div>
-          <div className="faq-item">
-            <p className="fq"><span className="q">Q.</span>子どもが小さくても大丈夫？</p>
-            <p className="fa"><span className="amark">A.</span><span>うちは0歳の赤ちゃんを連れて旅してきた家族です。小さい子のペースに合わせた旅の工夫、たっぷりお伝えします。ちなみに4歳以下は参加費が無料です。</span></p>
-          </div>
-        </div>
-
-        <div className="cancel-policy reveal">
-          <h2 className="cp-heading">キャンセルポリシー</h2>
-          <p className="cp-intro">
-            旅の準備は、お申し込みいただいた瞬間から始まっています。<br />
-            みなさんの「行く！」に応えるために、一つひとつ動いています。
-          </p>
-          <p className="cp-intro">
-            だからこそ、やむを得ずキャンセルされる場合は、<br />
-            以下のキャンセル料が発生することをご了承ください。
-          </p>
-          <div className="cp-table">
-            <div className="cp-row">
-              <span className="cp-period">出発日の<b>14日前</b>まで</span>
-              <span className="cp-fee">50,000円</span>
-            </div>
-            <div className="cp-row cp-row-full">
-              <span className="cp-period">出発日の<b>13日前</b>以降</span>
-              <span className="cp-fee">参加費の<b>100%</b></span>
-            </div>
-          </div>
-          <p className="cp-note">
-            ※ 体調不良やご家庭の事情など、どうしてもの場合はまずLINEでご相談ください。<br />
-            一緒に最善の方法を考えます。
-          </p>
-        </div>
-
-        <div className="line-card reveal">
-          <p className="lc-title">不安なことは、なんでも聞いてください</p>
-          <p className="lc-sub">「うちの子でも大丈夫？」「仕事の調整が…」そんな相談からでOK。</p>
-          <img src="/manus-storage/thai_img_24_bd029101.png" alt="LINE友だち追加QRコード" />
-          <a className="lc-btn" href="https://lin.ee/p3CvLfQ">📱 LINEで相談する（友だち追加）</a>
-          <p className="lc-note">スマホの方はボタンをタップ／パソコンの方はQRコードを読み取ってください</p>
-        </div>
-      </main>
+      </details>
 
       <section className="final-push">
         <p className="fp-big reveal">
           ワクワクとドキドキが来たら<br />
           <span className="s-marker">GOサイン</span>
         </p>
-        <p className="fp-sub reveal">この夏の思い出は、この夏しかつくれない。</p>
+        <p className="fp-sub reveal">2027年1月、チェンマイから。詳しい旅の案内は近日公開。</p>
         <a className="fp-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
           次回のタイの旅を相談する
         </a>
@@ -745,7 +494,7 @@ export default function Thai() {
 
       <ShareButtons
         url="https://www.tabigaku.party/thai"
-        text="子連れ海外を諦めてきたあなたへ。上田家と一緒に家族でタイを旅する9日間（6日間プランも）。2026年8/22〜8/30の開催内容をご紹介。"
+        text="2027年1月、チェンマイから始まるEarthfamilyJourney。サージャイとの出逢い、その先の旅へ。詳細近日公開。"
         title="＼ タイ旅をシェア ／"
       />
 

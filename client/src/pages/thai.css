@@ -913,3 +913,50 @@
   .cp-intro{text-align:left;font-size:.84rem;}
   .cp-note{text-align:left;}
 }
+
+/* January journey preview */
+.thai-page .thai-next-hero{position:relative;min-height:720px;display:flex;align-items:center;background:#163e3d;color:#fff;isolation:isolate}
+.thai-page .thai-next-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.thai-page .thai-next-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,35,39,.82),rgba(7,35,39,.3) 70%);z-index:-1}
+.thai-page .thai-next-hero-copy{width:min(1120px,88%);margin:0 auto;padding:90px 0}
+.thai-page .thai-next-kicker{font-size:12px;font-weight:700;letter-spacing:.18em;margin:0 0 24px}
+.thai-page .thai-next-badge{display:inline-block;border:1px solid #ffffff88;border-radius:30px;padding:8px 18px;font-size:14px;margin:0 0 28px}
+.thai-page .thai-next-hero h1{font-size:clamp(32px,4.5vw,64px);line-height:1.6;letter-spacing:.06em;color:#fff;margin:0 0 20px}
+.thai-page .thai-next-hero-copy>p:not(.thai-next-kicker):not(.thai-next-badge){font-size:18px;line-height:2.1}
+.thai-page .thai-next-hero-copy>a{display:inline-block;background:#fff;color:#164746;padding:16px 27px;border-radius:40px;margin:24px 0 12px;text-decoration:none;font-weight:700}
+.thai-page .thai-next-hero-copy>small,.thai-page .thai-next-announcement>small{display:block;font-size:12px}
+.thai-page .thai-next-nav{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding:25px 20px;background:#e8f0ec}
+.thai-page .thai-next-nav a{color:#205554;font-size:14px;text-underline-offset:6px}
+.thai-page .thai-next-wrap{max-width:1120px;width:88%;margin:auto}
+.thai-page .thai-next-story{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;padding:100px 0 60px}
+.thai-page .thai-next-wrap h2{font-size:clamp(28px,3vw,42px);line-height:1.7;color:#225b58;margin:0 0 30px;letter-spacing:.04em}
+.thai-page .thai-next-prose p{font-size:16px;line-height:2.2;margin:0 0 24px}
+.thai-page .thai-next-sign{color:#245e58;font-weight:700}.thai-page .thai-next-sign small{font-size:12px;font-weight:400}
+.thai-page .thai-next-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding-bottom:85px}
+.thai-page .thai-next-gallery figure{margin:0}.thai-page .thai-next-gallery img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:110px 110px 10px 10px}
+.thai-page .thai-next-gallery figcaption{font-size:13px;padding:15px 0;line-height:1.8}
+.thai-page .thai-next-film{background:#e7efea;padding:75px 0;text-align:center}
+.thai-page .thai-next-film video{display:block;width:min(100%,880px);max-height:620px;background:#102f30;margin:30px auto;border-radius:16px}
+.thai-page .thai-next-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}.thai-page .thai-next-links a{font-size:14px;color:#215653;text-underline-offset:5px}
+.thai-page .thai-next-announcement{text-align:center;padding:95px 0}.thai-page .thai-next-lead{font-size:20px;line-height:2}
+.thai-page .thai-next-announcement dl{max-width:720px;margin:35px auto;text-align:left;border-top:1px solid #c5d4cc}
+.thai-page .thai-next-announcement dl>div{display:grid;grid-template-columns:120px 1fr;padding:20px 10px;border-bottom:1px solid #c5d4cc;gap:15px}
+.thai-page .thai-next-announcement dt{font-size:13px;color:#426b63}.thai-page .thai-next-announcement dd{margin:0;font-weight:700;font-size:16px}
+.thai-page .thai-next-announcement>p{line-height:2;max-width:740px;margin:20px auto}
+.thai-page .thai-next-line{display:inline-block;background:#06a84f;color:#fff;border-radius:40px;padding:17px 28px;text-decoration:none;font-weight:700;margin:20px 0 15px}
+.thai-page .thai-next-details{width:88%;max-width:1120px;margin:0 auto 70px;border-top:1px solid #c5d4cc;border-bottom:1px solid #c5d4cc}
+.thai-page .thai-next-details>summary{cursor:pointer;font-weight:700;color:#225b58;padding:30px 10px;line-height:1.8}
+.thai-page .thai-next-details>summary span{float:right}.thai-page .thai-next-details .reveal{opacity:1;transform:none}
+.thai-page .thai-next-details .story,.thai-page .thai-next-details .profiles{padding-top:45px}
+.thai-page .thai-next-nav a:focus-visible,.thai-page .thai-next-links a:focus-visible,.thai-page .thai-next-line:focus-visible,.thai-page .thai-next-details>summary:focus-visible{outline:3px solid #be864c;outline-offset:5px}
+@media(max-width:650px){
+.thai-page .thai-next-hero{min-height:660px}.thai-page .thai-next-hero-copy{padding:65px 0}
+.thai-page .thai-next-hero-copy>p:not(.thai-next-kicker):not(.thai-next-badge){font-size:15px}
+.thai-page .thai-next-hero h1{font-size:32px;letter-spacing:0}.thai-page .thai-next-badge{font-size:12px;padding:7px 12px}
+.thai-page .thai-next-nav{gap:16px 20px}.thai-page .thai-next-nav a{font-size:12px}
+.thai-page .thai-next-story{grid-template-columns:1fr;gap:8px;padding-top:65px}
+.thai-page .thai-next-gallery{grid-template-columns:1fr;gap:24px;padding-bottom:55px}.thai-page .thai-next-gallery img{aspect-ratio:4/3;border-radius:18px}
+.thai-page .thai-next-film{padding:50px 0}.thai-page .thai-next-announcement{padding:60px 0}
+.thai-page .thai-next-announcement dl>div{grid-template-columns:75px 1fr}.thai-page .thai-next-announcement dd{font-size:14px}
+.thai-page .thai-next-line{font-size:13px;padding:15px 18px}.thai-page .thai-next-lead{font-size:17px}
+}

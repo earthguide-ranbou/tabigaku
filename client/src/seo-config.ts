@@ -40,9 +40,9 @@ export const pages: Record<string, PageSEO> = {
   },
   "/thai": {
     "label": "タイの家族旅",
-    "title": "タイの家族旅・EarthfamilyJourney｜旅する学校",
-    "description": "家族で旅し、現地の暮らしと人に出会うEarthfamilyJourneyタイ編。あーすガイド・らんぼうが案内する、子連れの海外体験と旅を通じた学びをご紹介します。",
-    "image": "/manus-storage/thai_img_00_2e972116.jpg"
+    "title": "2027年1月・チェンマイから｜タイの家族旅｜詳細近日公開",
+    "description": "2027年1月、チェンマイから始まるEarthfamilyJourney。サージャイとの出逢いを写真と動画で紹介。日程・料金・参加方法は近日公開。",
+    "image": "/images/saijai-lake.jpg"
   },
   "/saijai": {
     "label": "SaaiJai Village",
