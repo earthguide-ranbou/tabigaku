@@ -39,6 +39,12 @@ export const pages: Record<string, PageSEO> = {
     "description": "旅する学校の子どもたちの冒険を、一緒に支えませんか。旅育・自然体験の活動を継続するためのスポンサーと支援のご案内、協賛についてのお問い合わせはこちら。"
   },
   "/thai": {
+    "label": "タイ旅2026・開催終了",
+    "title": "2026年8月・タイ旅の開催案内｜EarthfamilyJourney｜旅する学校",
+    "description": "2026年8月22〜30日に開催したEarthfamilyJourneyタイ編の案内。A日程6日間・B日程9日間の当時の日程、料金、家族旅の写真とストーリーを掲載しています。",
+    "image": "/manus-storage/thai_img_00_2e972116.jpg"
+  },
+  "/thai-2027": {
     "label": "タイの旅・ひとり参加歓迎",
     "title": "2027年1月・チェンマイから｜ひとり参加歓迎のタイ旅｜詳細近日公開",
     "description": "2027年1月、チェンマイから始まるEarthfamilyJourney。おひとり・友人同士・親子歓迎。サージャイとの出逢いを写真と動画で紹介。日程・料金・参加方法は近日公開。",

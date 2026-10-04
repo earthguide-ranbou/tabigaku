@@ -27,6 +27,10 @@
       "destination": "/thai.html"
     },
     {
+      "source": "/thai-2027",
+      "destination": "/thai-2027.html"
+    },
+    {
       "source": "/saijai",
       "destination": "/saijai.html"
     },

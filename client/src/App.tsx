@@ -13,6 +13,7 @@ import Award from "./pages/Award";
 import Guide from "./pages/Guide";
 import Sponsor from "./pages/Sponsor";
 import Thai from "./pages/Thai";
+import Thai2027 from "./pages/Thai2027";
 import Henro from "./pages/Henro";
 import HenroShinsoku from "./pages/HenroShinsoku";
 import Juku from "./pages/Juku";
@@ -47,6 +48,7 @@ function Router() {
       <Route path={"/guide"} component={Guide} />
       <Route path={"/sponsor"} component={Sponsor} />
       <Route path={"/thai"} component={Thai} />
+      <Route path={"/thai-2027"} component={Thai2027} />
       <Route path={"/henro"} component={Henro} />
       <Route path={"/henro-shinsoku"} component={HenroShinsoku} />
       <Route path={"/juku"} component={Juku} />
