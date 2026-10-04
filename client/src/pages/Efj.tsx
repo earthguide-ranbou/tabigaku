@@ -35,33 +35,11 @@ const STOPS = [
         その豊かさに、ふれる。
       </>
     ),
-    text: "潮の香りがする路地を歩き、島で暮らす人の話に耳をすます。食べること、つくること、分かち合うこと。祝島の暮らしの中に、これからも大切にしたいものが息づいています。",
+    text: "船で海を渡った先に、潮の香りの路地と、海に寄り添う暮らしが待っています。石垣のある道をゆっくり歩き、島の人の話に耳をすます。山と海からいただく食べもの、手を動かして暮らす知恵、隣の人と分かち合う温かさ。映画「祝福の海」で心が動いた方には、その風景の中へ一歩入ってみる旅に。らんぼうが何度も通ってきた島で、いのちをつなぐ暮らしを一緒に感じましょう。個別の訪問先・体験内容は現地と調整してご案内します。",
     tags: ["島の暮らし", "海とともに生きる知恵", "いのちの循環"],
     link: "https://note.com/shiftdaigaku/n/na0c2592111c5",
     linkText: "らんぼうの祝島への想いを読む",
     Icon: Waves,
-  },
-  {
-    id: "ouchien",
-    name: "こびとのおうちえん",
-    en: "OUCHIEN",
-    period: "中盤",
-    region: "山口県",
-    image: "/efj/terakoya-DlVpWx4L.webp",
-    alt: "地球子舎で、らんぼうと仲間がゆったり過ごす時間",
-    caption: "地球子舎で出会った人たちと",
-    title: (
-      <>
-        「育つ」を、
-        <br />
-        もういちど感じてみる。
-      </>
-    ),
-    text: "森のようちえん「こびとのおうちえん」と、オルタナティブスクール「地球子舎」の大下さんを訪ねて。子育て、学び、幸せのかたち。対話の中で、いつもの「当たり前」が少しほどけていくかもしれません。",
-    tags: ["森のようちえん", "オルタナティブな学び", "生き方を語る"],
-    link: "https://oh-shita.com/terakoya/about1/",
-    linkText: "地球子舎について知る",
-    Icon: Leaf,
   },
   {
     id: "kamiyama",
@@ -79,7 +57,7 @@ const STOPS = [
         自分の声を聴く。
       </>
     ),
-    text: "らんぼうが暮らす、徳島・神山町へ。森や川のそばで過ごし、この町に根を張る人たちに出会う。「やったらええんちゃうん？」そんな空気にふれて、帰ってからの毎日が少し楽しみになる旅の締めくくりを。",
+    text: "らんぼうが11年暮らす、徳島・神山町へ。山あいの道を進み、川の音に耳をすまし、森の中で深呼吸する。自然の豊かさと、新しい暮らしや学びをつくる人たちの挑戦が、同じ町に息づいています。「やったらええんちゃうん？」と背中を押してくれる空気の中で、子育て、仕事、これからの暮らしを語り合う。観光だけでは見えにくい町の日常を、ここで暮らす案内人と訪ねます。森の学校みっけなどの訪問先は受け入れ状況に合わせて調整し、決まり次第お知らせします。",
     tags: ["森と川", "地域の暮らし", "これからの自分"],
     link: "https://kamiyamag.tabigaku.party/",
     linkText: "神山の魅力をもっと知る",
@@ -269,7 +247,7 @@ export default function Efj() {
           </div>
           <div className="efjs-hero-bottom">
             <span>
-              祝島 <i>／</i> おうちえん <i>／</i> 神山町
+              祝島 <i>／</i> 神山町
             </span>
             <span>
               2027.03.29 — 04.04 <small>6泊7日</small>
@@ -306,7 +284,7 @@ export default function Efj() {
           </div>
           <div
             className="efjs-route"
-            aria-label="祝島、おうちえん、神山町の順に訪ねます"
+            aria-label="祝島から神山町へ。おうちえんへの訪問は調整中です"
           >
             <svg
               viewBox="0 0 1000 110"
@@ -339,13 +317,13 @@ export default function Efj() {
             ))}
           </div>
           <p className="efjs-route-note">
-            3つの場所を、この順番で。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。
+            前半は祝島、後半は神山町へ。こびとのおうちえんへの訪問は調整中で、現時点では確定していません。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。
           </p>
         </section>
 
         <section
           className="efjs-stops efjs-wrap"
-          aria-label="旅で訪ねる3つの場所"
+          aria-label="祝島と神山の魅力"
         >
           {STOPS.map((stop, i) => (
             <article
@@ -397,6 +375,18 @@ export default function Efj() {
           ))}
         </section>
 
+        <section className="efjs-wrap efjs-gallery" aria-labelledby="gallery-title">
+          <p className="efjs-eyebrow">SEA · FOREST · PEOPLE</p>
+          <h2 id="gallery-title">この景色の中へ、会いに行こう。</h2>
+          <p>海を渡る時間、森で息をつく時間、火を囲んで話す時間。祝島と神山の、忘れられない風景。</p>
+          <div className="efjs-gallery-grid">
+            <figure><img src="/efj/iwaishima-life.jpg" alt="瀬戸内海から望む祝島の山並みと集落" loading="lazy" width="1200" height="628" /><figcaption>祝島｜海の向こうに、暮らしがある。<a href="https://note.com/shiftdaigaku/n/na0c2592111c5" target="_blank" rel="noopener noreferrer">らんぼうの島の記録 →</a></figcaption></figure>
+            <figure><img src="/efj/waterfall-DgiO-S5j.webp" alt="神山の森と滝" loading="lazy" width="620" height="825" /><figcaption>神山｜水の音に、心がほどける。</figcaption></figure>
+            <figure><img src="/efj/kamiyama_fire-DUPc2W-8.webp" alt="神山で焚き火を囲む旅の仲間" loading="lazy" width="1100" height="618" /><figcaption>神山｜火を囲めば、話したくなる。</figcaption></figure>
+          </div>
+          <small>写真は過去の風景です。季節や天候により景色は変わり、掲載した体験の実施を保証するものではありません。</small>
+          <details><summary>こびとのおうちえんについて（訪問調整中）</summary><p>山口県の森のようちえん「こびとのおうちえん」への訪問も検討しています。まだ確定していないため、今回の行程に含まれない可能性があります。決まり次第、このページとお申し込みいただいた方へのご案内でお知らせします。</p></details>
+        </section>
         <section className="efjs-night" aria-labelledby="night-title">
           <img
             src="/efj/kamiyama_fire-DUPc2W-8.webp"
@@ -479,7 +469,7 @@ export default function Efj() {
               <p>
                 2027年3月29日（月）〜4月4日（日）
                 <br />
-                祝島 → こびとのおうちえん → 神山町
+                祝島 → 神山町（おうちえん訪問は調整中）
               </p>
             </div>
             <div className="efjs-ticket" data-journey-reveal>
@@ -560,7 +550,7 @@ export default function Efj() {
                 </summary>
                 <div>
                   <p>
-                    3月29日から祝島を前半に訪ね、おうちえんを経て、4月4日に神山町で旅を終える予定です。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。
+                    3月29日から前半は祝島、後半は神山町を訪ね、4月4日に旅を終える予定です。こびとのおうちえんへの訪問は調整中で、訪問できない場合もあります。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。
                   </p>
                   <p>
                     移動は基本的に各自のお車でお願いしています。難しい方は事前にご相談ください。宿泊・交通の手配は各自で行うかたちですが、おすすめの宿や移動方法をご相談いただけます。途中合流・途中お別れの参加費も、同行する区間に合わせて個別にご案内します。
@@ -623,9 +613,12 @@ export default function Efj() {
             <br />
             そんな話からで大丈夫。気軽に声をかけてください。
           </p>
-          <LineLink>
-            {departed ? "次の旅をLINEで相談する" : "LINEで参加希望・相談を送る"}
-          </LineLink>
+          {!departed && <>
+            <p>下のフォームで参加希望を受け付けます。送信後、人数・参加区間・費用などを確認してご連絡します。送信時点では参加確定・決済は完了しません。</p>
+            <iframe className="efjs-application-frame" src="https://earthguide.tabigaku.party/forms/efj-spring-2027" title="地球家族ジャーニー2027春 申し込みフォーム" loading="lazy" referrerPolicy="no-referrer" />
+            <a className="efjs-button efjs-button--dark" href="https://earthguide.tabigaku.party/forms/efj-spring-2027" target="_blank" rel="noopener noreferrer">申し込みフォームを別画面で開く</a>
+          </>}
+          <LineLink>{departed ? "次の旅をLINEで相談する" : "申し込み前にLINEで相談する"}</LineLink>
           <p className="efjs-apply-message">
             「2027年春の地球家族ジャーニー参加希望」とお送りください。
           </p>
@@ -671,7 +664,7 @@ export default function Efj() {
         </div>
         <ShareButtons
           url="https://www.tabigaku.party/efj"
-          text="地球家族ジャーニー2027春｜3/29〜4/4、祝島→こびとのおうちえん→神山町。いのちがよろこぶ7日間。参加費88,000円、2/28までの早割80,000円（宿泊・食事・交通等の実費別途）。"
+          text="地球家族ジャーニー2027春｜3/29〜4/4、祝島→神山町（おうちえん訪問は調整中）。いのちがよろこぶ7日間。参加費88,000円、2/28までの早割80,000円（宿泊・食事・交通等の実費別途）。"
           title="この旅を、大切な人に。"
         />
       </footer>

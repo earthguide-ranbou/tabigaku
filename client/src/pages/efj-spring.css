@@ -2012,3 +2012,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+.efjs-gallery { padding-block: 64px; }
+.efjs-gallery > p { margin-block: 20px; line-height: 1.9; }
+.efjs-gallery-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 18px; margin-block: 28px; }
+.efjs-gallery-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
+.efjs-gallery-grid figcaption { padding-block: 12px; line-height: 1.7; }
+.efjs-gallery-grid a { display: block; font-size: 13px; text-decoration: underline; }
+.efjs-gallery details { padding: 20px; margin-top: 24px; background: #eaf0e5; border-radius: 12px; }
+.efjs-gallery details p { padding-top: 16px; line-height: 1.9; }
+.efjs-application-frame { display: block; width: 100%; height: 1750px; border: 0; border-radius: 16px; margin-block: 28px; background: #f2f6f3; }
+.efjs-route { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 700px) { .efjs-gallery-grid { grid-template-columns: 1fr; } .efjs-gallery-grid img { height: 260px; } .efjs-application-frame { height: 2000px; } }
