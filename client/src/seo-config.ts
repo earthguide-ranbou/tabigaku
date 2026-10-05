@@ -45,9 +45,9 @@ export const pages: Record<string, PageSEO> = {
     "image": "/manus-storage/thai_img_00_2e972116.jpg"
   },
   "/thai-2027": {
-    "label": "タイの旅・ひとり参加歓迎",
-    "title": "2027年1月・チェンマイから｜ひとり参加歓迎のタイ旅｜詳細近日公開",
-    "description": "2027年1月、チェンマイから始まるEarthfamilyJourney。おひとり・友人同士・親子歓迎。サージャイとの出逢いを写真と動画で紹介。日程・料金・参加方法は近日公開。",
+    "label": "タイの旅・地球家族ジャーニー",
+    "title": "2027年1月・タイ｜旅で出会えば、地球家族。EarthfamilyJourney",
+    "description": "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月チェンマイスタート予定。日程・料金は近日公開。",
     "image": "/images/saijai-lake.jpg"
   },
   "/saijai": {

@@ -14,8 +14,8 @@ export default function Thai2027() {
   const [momentIndex, setMomentIndex] = useState(0);
   const moment = lakeMoments[momentIndex];
   useSEO({
-    title: "2027年1月・チェンマイから｜EarthfamilyJourney タイ編｜詳細近日公開",
-    description: "2027年1月、チェンマイから始まるEarthfamilyJourney。おひとり・友人同士・親子歓迎。湖上のサージャイとの出逢いを写真と動画で紹介。日程・料金・参加方法は近日公開。",
+    title: "2027年1月・タイ｜旅で出会えば、地球家族。EarthfamilyJourney",
+    description: "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月チェンマイスタート予定。日程・料金は近日公開。",
     keywords: "ひとり参加, 大人の旅, チェンマイ, 家族旅, タイ 旅, EarthfamilyJourney, 旅育, 子連れ 海外旅行, あーすガイド, らんぼう, 神山町, 徳島, 先住民 体験, バリ島, 家族 海外体験, 子ども 海外",
     ogImage: "https://www.tabigaku.party/images/saijai-lake.jpg",
     ogUrl: "/thai-2027",
@@ -66,7 +66,7 @@ export default function Thai2027() {
   }, []);
 
   return (
-    <div className="thai-page">
+    <div className="thai-page thai-2027-page">
 
       <header className="brandbar">
         <div className="logo">
@@ -79,17 +79,24 @@ export default function Thai2027() {
         <div className="thai-next-hero-copy">
           <p className="thai-next-kicker">EARTH FAMILY JOURNEY · THAILAND</p>
           <p className="thai-next-badge">2027年1月・チェンマイスタート予定</p>
-          <h1>ひとりの「行きたい」から、<br />旅は、はじまる。</h1>
-          <p>ひとりでも、友人とでも、家族でも。<br />チェンマイから、まだ知らない景色と人に会いに。</p><p className="thai-solo-badge">おひとり・友人同士・親子、どなたも歓迎</p>
-          <a href="#solo-welcome">ひとり参加の入口へ ↓</a>
+          <h1>旅で出会えば、<br /><span className="thai-earthfamily-title">地球家族。</span></h1>
+          <p>ひとりでも、友人同士でも、家族でも。<br />いろんな仲間が集まるから、旅はもっと面白い。</p>
+          <p className="thai-hero-invitation">同じ食卓を囲み、湖に浮かぶ村で過ごす。<br />チェンマイから、景色と人に会いにいこう。</p>
+          <p className="thai-solo-badge">あなたの「行ってみたい」から、EarthfamilyJourneyへ</p>
+          <a href="#solo-welcome">地球家族の旅をのぞいてみる</a>
           <small>日程・料金・参加方法は近日公開</small>
         </div>
       </section>
-      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#solo-welcome">ひとり参加も歓迎</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">1月の旅について</a><a href="#family-story">家族旅のストーリー</a></nav>
+      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#solo-welcome">地球家族の旅って？</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">1月の旅について</a><a href="#family-story">旅の原点とストーリー</a></nav>
 
       <section className="thai-next-wrap thai-solo-welcome" id="solo-welcome" aria-labelledby="solo-title">
-        <div data-journey-reveal><p className="thai-next-kicker">COME AS YOU ARE</p><h2 id="solo-title">「一緒に行く人がいない」も、<br />旅のはじまりになる。</h2></div>
-        <div className="thai-next-prose" data-journey-reveal><p>誰かと予定が合うのを待つ前に、自分の「行ってみたい」を大切に。大人おひとりでの参加も、歓迎しています。</p><p>旅先で誰かと話す時間も、景色を眺める時間も。あなたがどんな旅をしてみたいか、まずは聞かせてください。</p><a className="thai-solo-text-link" href="#solo-questions">ひとり参加の気がかりを見てみる ↓</a></div>
+        <div data-journey-reveal><p className="thai-next-kicker">COME AS YOU ARE / 地球家族</p><h2 id="solo-title">違う毎日を生きる仲間と、<br />同じ旅をする面白さ。</h2></div>
+        <div className="thai-next-prose" data-journey-reveal><p>子どもが見つけた小さな生きものに、大人も夢中になる。初めて会った人の話から、新しい「やってみたい」が生まれる。年齢も、暮らしも、ものの見方も違う仲間と旅すると、同じ景色にもいろんな発見がある。</p><p>ごはんを分け合い、現地の人と出会い、一緒に笑う。そんな時間を重ねながら、「はじめまして」が家族のようなつながりになっていく。</p><p><strong>EarthfamilyJourneyは、旅を通して「地球家族」のつながりを育む旅。</strong>ひとりの参加も、大切な人との参加も、その輪のはじまりです。</p><a className="thai-solo-text-link" href="#solo-questions">参加について気になることを見る</a></div>
+        <div className="thai-journey-ways" aria-label="いろいろな旅の参加スタイル">
+          <article><span>01 / SOLO</span><h3>ひとりで、新しい出会いへ。</h3><p>自分の「行きたい」をきっかけに。旅先で出会う仲間と、まだ知らない世界をひらく。</p></article>
+          <article><span>02 / FRIENDS</span><h3>友人と、思い出のその先へ。</h3><p>いつもの仲間と、いつもと違う暮らしへ。新しい出会いが、帰ってからの楽しみも広げてくれる。</p></article>
+          <article><span>03 / FAMILY</span><h3>家族で、みんなで育つ旅。</h3><p>子どもの発見に、大人も心が動く。ほかの旅仲間や現地の人と過ごす時間が、家族の世界を広げる。</p></article>
+        </div>
       </section>
       <section className="thai-moments" id="lake-moments" aria-labelledby="moments-title"><div className="thai-next-wrap">
         <div className="thai-moments-heading"><div><p className="thai-next-kicker">FIND YOUR OWN MOMENT</p><h2 id="moments-title">いま、心が向くのは<br />どんな時間？</h2></div><p>気になる言葉を選んで、<br />湖のほとりの時間をのぞいてみてください。</p></div>
@@ -113,15 +120,16 @@ export default function Thai2027() {
       </div></section>
       <section className="thai-next-wrap thai-next-announcement" id="next-journey">
         <p className="thai-next-kicker">NEXT JOURNEY / COMING SOON</p><h2>2027年1月。<br />チェンマイから、はじまる。</h2><p className="thai-next-lead">知らない場所が、なつかしい場所になる。<br />そんな出逢いを重ねる旅を、準備しています。</p>
-        <dl><div><dt>スタート</dt><dd>タイ・チェンマイ</dd></div><div><dt>時期</dt><dd>2027年1月予定</dd></div><div><dt>参加</dt><dd>おひとり・友人同士・親子歓迎</dd></div><div><dt>詳細</dt><dd>日程・行程・料金・参加方法は近日公開</dd></div></dl>
+        <dl><div><dt>スタート</dt><dd>タイ・チェンマイ</dd></div><div><dt>時期</dt><dd>2027年1月予定</dd></div><div><dt>参加</dt><dd>ひとりでも、友人同士でも、家族でも歓迎</dd></div><div><dt>詳細</dt><dd>日程・行程・料金・参加方法は近日公開</dd></div></dl>
         <p>サージャイとの出逢いから広がった、次の旅。訪問先や滞在日数など、詳しい内容はこのページでお知らせします。</p>
-        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">1月のタイ旅についてLINEで相談する ↗</a><small>「ひとり参加を考えています」など、気になることを送ってください。</small>
+        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">「行ってみたい」をLINEで伝える</a><small>「ひとりで」「友人と」「子どもと」など、思い描いている旅を聞かせてください。詳細公開前のご相談も歓迎です。</small>
       </section>
       <section className="thai-next-wrap thai-solo-faq" id="solo-questions" aria-labelledby="solo-faq-title"><p className="thai-next-kicker">BEFORE YOUR FIRST STEP</p><h2 id="solo-faq-title">気がかりも、一緒に持ってきて。</h2>
-        <details><summary>ひとりでも参加できますか？</summary><p>はい。大人おひとりでの参加も歓迎です。友人同士や親子での参加も含め、それぞれの「行ってみたい」を入口にする旅です。日程や旅のスタイルなど、公開前からLINEで相談できます。</p></details>
+        <details><summary>ひとりでも参加できますか？</summary><p>はい。ひとりでも、友人同士でも、家族でも歓迎です。それぞれの暮らしや経験を持つ仲間が出会うことも、この旅の楽しみ。どんな旅をしてみたいか、公開前からLINEで聞かせてください。</p></details>
+        <details><summary>友人同士や、子ども連れで参加したいです。</summary><p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。日程や滞在先、部屋のタイプなど、詳しい条件は募集案内とあわせてお知らせします。</p></details>
         <details><summary>海外が初めて。言葉や移動が心配です。</summary><p>航空券、現地での移動、言葉のこと。気になっていることを、まずはらんぼうに聞かせてください。集合場所の詳細や旅の進め方は、日程・参加方法とあわせてご案内します。</p></details>
         <details><summary>部屋や、ひとり参加の場合の料金は？</summary><p>部屋のタイプや費用は、詳しい募集案内でお知らせします。個室の希望など、相談したいことがあればLINEでお伝えください。</p></details>
-        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">ひとり参加について、LINEで相談する ↗</a>
+        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">あなたの旅について、LINEで相談する</a>
       </section>
       <details className="thai-next-details" id="family-story"><summary>家族で世界を旅する理由。これまでの写真とストーリーを読む <span>＋</span></summary>
       <section className="story">
@@ -508,28 +516,27 @@ export default function Thai2027() {
 
       <section className="final-push">
         <p className="fp-big reveal">
-          ワクワクとドキドキが来たら<br />
-          <span className="s-marker">GOサイン</span>
+          次に出会う旅仲間は、<br />
+          <span className="s-marker">あなたかもしれない。</span>
         </p>
-        <p className="fp-sub reveal">2027年1月、チェンマイから。詳しい旅の案内は近日公開。</p>
+        <p className="fp-sub reveal">ひとりでも、友人同士でも、家族でも。<br />2027年1月、チェンマイから、地球家族の輪を広げよう。<br />詳しい旅の案内は近日公開。</p>
         <a className="fp-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
-          ひとりでも、仲間とでも。タイの旅を相談する
+          地球家族の旅を、LINEで相談する
         </a>
       </section>
 
       <ShareButtons
         url="https://www.tabigaku.party/thai-2027"
-        text="2027年1月、チェンマイから始まるEarthfamilyJourney。おひとり・友人同士・親子歓迎。サージャイとの出逢い、その先の旅へ。詳細近日公開。"
+        text="旅で出会えば、地球家族。ひとりでも、友人同士でも、家族でも。多様な仲間と出会うEarthfamilyJourney、2027年1月チェンマイスタート予定。詳細近日公開。"
         title="＼ タイ旅をシェア ／"
       />
 
       {/* 固定CTA */}
       <div className="cta-fixed">
         <a className="cta-btn" href="https://lin.ee/p3CvLfQ">
-          ひとり参加も、LINEで相談する。
+          地球家族の旅を、LINEで相談する
         </a>
       </div>
     </div>
   );
 }
-
