@@ -390,10 +390,11 @@ export default function Henro() {
               <p>
                 <strong>2026年10月10日（土）16:00</strong>
                 <br />
-                オートキャンプ場とまろっと
+                JR土讃線 伊野駅（いの）改札前
                 <br />
-                （高知県四万十市）
+                （高知県吾川郡いの町）
               </p>
+              <a href="#meeting">駅の地図・集合案内を見る →</a>
             </div>
             <div className="henro-route-card reveal">
               <span className="henro-route-day">最終日解散</span>
@@ -406,6 +407,21 @@ export default function Henro() {
               </p>
             </div>
           </div>
+          <div className="henro-route-card" style={{ marginTop: "1.5rem" }}>
+            <span className="henro-route-day">10月11日（日）水切り大会に出場！</span>
+            <h3>仁淀川で、子どもも大人も本気の挑戦。</h3>
+            <p>
+              旅の2日目は、高知県いの町で開催される<strong>第23回仁淀川国際水切り大会</strong>に出場する予定です。
+              河原で石を選び、水面に向かって投げる。「何回跳ねた？」「もう一回！」と、仲間の挑戦を応援する一日へ。
+            </p>
+            <p>
+              会場：<strong>波川公園前・仁淀川橋下の河原</strong>（高知県吾川郡いの町）<br />
+              水切りの美しさ・飛距離・回数の総合評価で競う大会です。
+              スタッフのみなさんにも、子どもたちの出場サポートをお願いします。
+            </p>
+            <p>出場部門・参加費・当日の動きは事前にご案内します。荒天や増水による大会中止の場合は、旅の内容を調整します。</p>
+            <a href="https://niyodoriver.com/" target="_blank" rel="noopener noreferrer">水切り大会の公式案内を見る ↗</a>
+          </div>
         </div>
       </section>
 
@@ -414,6 +430,43 @@ export default function Henro() {
         <div className="henro-section-inner">
           <p className="henro-section-label reveal">INFORMATION</p>
           <h2 className="reveal">参加概要</h2>
+          <div id="meeting" className="henro-route-card" style={{ scrollMarginTop: "90px", marginBottom: "2rem" }}>
+            <p className="henro-section-label">MEETING POINT</p>
+            <h3>集合は、伊野駅の改札前へ</h3>
+            <p>
+              <strong>2026年10月10日（土）16:00</strong><br />
+              <strong>JR土讃線 伊野駅（いの）改札前</strong><br />
+              高知県吾川郡いの町
+            </p>
+            <p>
+              電車で来られる方も、車で送ってもらう方も、伊野駅の改札前にお集まりください。
+              高知駅方面からはJR土讃線をご利用ください。特急「あしずり」も停まる駅です。
+              利用する列車と到着予定時刻は、事前にらんぼうへお知らせください。
+            </p>
+            <iframe
+              title="集合場所：JR土讃線 伊野駅の地図"
+              src="https://www.google.com/maps?q=33.547356,133.4304028&z=16&output=embed"
+              width="100%"
+              height="300"
+              style={{ border: 0, borderRadius: "12px", display: "block" }}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", marginTop: "1rem" }}>
+              <a className="henro-cta-btn" href="https://www.google.com/maps/search/?api=1&query=伊野駅+JR土讃線" target="_blank" rel="noopener noreferrer">伊野駅の地図を開く ↗</a>
+              <a href="https://www.jr-shikoku.co.jp/01_trainbus/jikoku/pdf/ino.pdf" target="_blank" rel="noopener noreferrer">JR四国の駅時刻表を見る ↗</a>
+            </div>
+            <details style={{ marginTop: "1rem" }}>
+              <summary>現地の場所・駅からの移動について</summary>
+              <p>
+                まず伊野駅で合流します。日高村周辺の現地と、11日の水切り大会会場（波川公園前）へ移動するための集合場所です。
+                駅からの移動方法や車での直接合流は、事前にご相談ください。
+              </p>
+              <a href="https://maps.app.goo.gl/yFoS7VemFxXd8sN77?g_st=ifm" target="_blank" rel="noopener noreferrer">現地の場所をGoogleマップで確認する ↗</a>
+            </details>
+            <p style={{ marginTop: "1rem" }}>当日の連絡：<a href="tel:09075188816">090-7518-8816</a>（らんぼう）</p>
+          </div>
           <div className="henro-info-table reveal">
             <div className="henro-info-row">
               <span className="henro-info-key">ガイド料<br />（参加費）</span>
@@ -447,6 +500,31 @@ export default function Henro() {
             <br />
             ※ 実費（食費・宿泊費・交通費等）は現地で都度精算します。
           </p>
+        </div>
+      </section>
+
+      <section id="volunteer" className="henro-section henro-route" style={{ scrollMarginTop: "90px" }}>
+        <div className="henro-section-inner">
+          <p className="henro-section-label">VOLUNTEER STAFF</p>
+          <h2>子どもたちの「できた！」を、一緒に喜ぶ旅へ。</h2>
+          <p>
+            子どもたちと歩き、話を聞き、小さな挑戦を支える。
+            その一歩を一緒に喜んでくれるボランティアスタッフを募集しています。
+          </p>
+          <p>11日は仁淀川国際水切り大会にも出場予定！川辺での挑戦も、歩く旅も、チームで支え合って楽しみましょう。</p>
+          <p><strong>子どもたちのサポートと、サポートカーの運転を、交代で担ってくださる方がいてくれたら、とてもありがたいです。</strong></p>
+          <ul>
+            <li>子どもたちと歩きながら、安全を見守る</li>
+            <li>疲れたときや困ったときに、話を聞いて支える</li>
+            <li>サポートカーの運転を交代で担当する</li>
+            <li>食事づくりやキャンプの準備を一緒にする</li>
+          </ul>
+          <p>
+            活動日程は10月10日（土）〜15日（木）。集合案内は上の「伊野駅の改札前へ」をご覧ください。
+            参加できる日程と運転の可否を添えて、らんぼうまでご連絡ください。
+            スタッフの費用・持ち物・担当する役割・運転する車と必要な免許は、個別にご案内します。
+          </p>
+          <a className="henro-cta-btn" href="mailto:earthguide.jpn@gmail.com?subject=お遍路ボランティアスタッフ参加相談">スタッフについて相談する →</a>
         </div>
       </section>
 
@@ -589,4 +667,3 @@ export default function Henro() {
     </div>
   );
 }
-
