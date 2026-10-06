@@ -6,8 +6,8 @@ import { useSEO } from "@/hooks/useSEO";
 
 const lakeMoments = [
   { label: "自分に戻る", title: "何もしない、を味わう。", text: "湖を眺めて、深呼吸。いつもの役割を少しおいて、自分の心が動く方へ。", image: "/images/saijai-family.webp", alt: "サージャイから眺める夕焼けの湖", number: "01" },
-  { label: "人と出逢う", title: "「はじめまして」の、その先へ。", text: "どこから来たの？ どんな毎日を送っているの？ そんな会話から、知らなかった世界がひらいていく。", image: "/images/saijai-life.webp", alt: "サージャイの湖のそばの風景", number: "02" },
-  { label: "暮らしにふれる", title: "泊まる場所が、旅の目的になる。", text: "小舟でたどり着く水上の村。竹の壁、木の床、目の前の湖。いつもと違う暮らしを、少し想像してみる。", image: "/images/saijai-stay.jpg", alt: "竹と木に囲まれたサージャイの客室", number: "03" },
+  { label: "人と出逢う", title: "「はじめまして」の、その先へ。", text: "どこから来たの？ どんな毎日を送っているの？ そんな会話から、知らなかった世界がひらいていく。", image: "https://saaijai-village.com/assets/join-1000010170.webp", alt: "サージャイのデッキに集まり、笑顔を見せる仲間たち", number: "02" },
+  { label: "暮らしにふれる", title: "泊まる場所が、旅の目的になる。", text: "小舟でたどり着く水上の村。竹の壁、木の床、目の前の湖。いつもと違う暮らしを、少し想像してみる。", image: "https://saaijai-village.com/assets/sponsor-walkway.jpg", alt: "湖に浮かぶ竹の家と、水面を渡る木の通路", number: "03" },
 ] as const;
 
 export default function Thai2027() {
@@ -109,13 +109,13 @@ export default function Thai2027() {
         <div className="thai-next-prose"><p>2026年、家族でタイを旅する中で出逢ったのが、サージャイ・ヴィレッジ（SaaiJai Village）。チェンマイ郊外、山々に囲まれた湖の上にあるエコビレッジです。</p><p>小舟でたどり着いて、湖で遊び、ごはんを食べ、人と話す。特別な予定を詰め込まなくても、目の前の暮らしが、子どもにも大人にも新しい発見をくれる。</p><p>そこで過ごした数日間から、僕たちの旅に、もうひとつのつながりが生まれました。今は僕も、建物を直しながら、この場所のこれからを一緒につくる仲間として関わっています。</p><p className="thai-next-sign">また訪ねたい人がいる。<br />今度は、あなたにも会ってほしい。<br /><small>らんぼう / 旅する学校</small></p></div>
       </section>
       <section className="thai-next-gallery thai-next-wrap" aria-label="サージャイの暮らしの写真">
-        <figure><img src="/images/saijai-stay.jpg" alt="竹の壁と木の床に囲まれたサージャイの客室" loading="lazy" /><figcaption>目覚めたら、すぐそばに湖。</figcaption></figure>
-        <figure><img src="/images/saijai-life.webp" alt="サージャイの湖のそばで過ごす時間" loading="lazy" /><figcaption>ゆっくり過ごす時間も、旅の宝物。</figcaption></figure>
-        <figure><img src="/images/saijai-family.webp" alt="サージャイから眺める夕焼けの湖" loading="lazy" /><figcaption>一日の終わりを、同じ景色の中で。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/nature-sup.jpg" alt="山に囲まれた湖で、SUPの上に立って両手を広げる人" width="1536" height="1152" loading="lazy" decoding="async" /><figcaption>湖の上で、思いきり深呼吸。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/join-1000010170.webp" alt="サージャイのデッキに集まった、笑顔の旅仲間たち" width="1500" height="1125" loading="lazy" decoding="async" /><figcaption>出会った仲間と、一緒に笑う。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/village-1000010270.jpg" alt="木のテーブルに並ぶ、野菜たっぷりの料理とごはん" width="1536" height="1536" loading="lazy" decoding="async" /><figcaption>同じ食卓を囲む、しあわせ。</figcaption></figure>
       </section>
       <section className="thai-next-film" id="saijai-film"><div className="thai-next-wrap">
         <p className="thai-next-kicker">30 SECONDS BY THE LAKE</p><h2>まずは、30秒。<br />湖の上の暮らしへ。</h2><p>家族で訪れたサージャイの風景を、映像で。</p>
-        <video controls playsInline preload="none" poster="https://saaijai-village.com/assets/saijai-journey.webp" aria-label="家族で訪れたサージャイ・ヴィレッジの水上生活、30秒の動画"><source src="https://saaijai-village.com/assets/saijai-journey.mp4" type="video/mp4" /></video>
+        <video width="720" height="1280" controls playsInline preload="none" poster="https://saaijai-village.com/assets/saijai-journey.webp" aria-label="家族で訪れたサージャイ・ヴィレッジの水上生活、30秒の動画"><source src="https://saaijai-village.com/assets/saijai-journey.mp4" type="video/mp4" /></video>
         <div className="thai-next-links"><a href="https://saaijai-village.com/assets/saijai-journey.mp4" target="_blank" rel="noopener noreferrer">動画を別の画面で見る ↗</a><a href="/saijai">サージャイの紹介ページへ →</a><a href="https://saaijai-village.com/" target="_blank" rel="noopener noreferrer">SaaiJai Village 公式サイト ↗</a></div>
       </div></section>
       <section className="thai-next-wrap thai-next-announcement" id="next-journey">

@@ -1021,6 +1021,13 @@ html[data-tabigaku-motion="on"] .thai-page .thai-moment-panel>img{animation:thai
 .thai-2027-page .thai-journey-ways p{font-size:16px;line-height:2;margin:0;color:#35574f}
 .thai-2027-page .thai-next-announcement>small{max-width:640px;margin:0 auto;font-size:14px;line-height:1.9}
 .thai-2027-page .thai-next-hero-copy>small{font-size:14px;line-height:1.8}
+.thai-2027-page .thai-next-film video{width:min(100%,360px);height:auto;max-height:none;aspect-ratio:9/16;object-fit:contain;background:transparent;border-radius:16px;overflow:hidden}
+.thai-2027-page .thai-next-gallery img{aspect-ratio:4/3;border-radius:18px}
+.thai-2027-page .thai-next-gallery figure:last-child img{aspect-ratio:1/1}
+.thai-2027-page .thai-moment-panel{display:grid;grid-template-columns:1.15fr 1fr;align-items:stretch;min-height:0;border-radius:18px;background:#173f3d}
+.thai-2027-page .thai-moment-panel>img{position:static;z-index:auto;object-fit:cover;min-height:360px;height:100%;aspect-ratio:4/3}
+.thai-2027-page .thai-moment-panel:after{display:none}
+.thai-2027-page .thai-moment-copy{padding:36px;align-self:center}
 @media(max-width:700px){
  .thai-2027-page .thai-next-hero-copy{padding:50px 0}
  .thai-2027-page .thai-next-hero h1{font-size:clamp(28px,7.5vw,42px);line-height:1.55}
@@ -1029,4 +1036,7 @@ html[data-tabigaku-motion="on"] .thai-page .thai-moment-panel>img{animation:thai
  .thai-2027-page .thai-journey-ways article{padding-top:18px}
  .thai-2027-page .thai-next-hero-copy>a{font-size:15px;padding:16px 22px}
  .thai-2027-page .cta-btn{font-size:16px;line-height:1.6;padding:16px 12px}
+ .thai-2027-page .thai-moment-panel{grid-template-columns:1fr}
+ .thai-2027-page .thai-moment-panel>img{height:auto;min-height:0;aspect-ratio:4/3}
+ .thai-2027-page .thai-moment-copy{padding:26px}
 }
