@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>2027年1月・タイ旅｜チェンマイと湖の暮らしへ｜EarthfamilyJourney</title>
-<meta name="description" content="ひとりでも、友人同士でも、家族でも。2027年1月5日出発、チェンマイと湖に浮かぶ村サージャイへ。10/31までの早割は旅スキル講座が50,000円→30,000円（1家族）。現地サポート費は7日間110,000円／11日間188,000円、航空券などの実費は別途。">
+<meta name="description" content="2027年1月のタイ旅。Aプラン1/5〜1/11・110,000円、Bプラン1/12〜1/17・110,000円、SPECIALプラン1/5〜1/17・188,000円。湖のオフグリッドな暮らしと、少数民族の手仕事を学ぶ旅へ。旅スキル講座は10/31まで30,000円／1家族（通常50,000円）、実費別途。">
 <link rel="canonical" href="https://www.tabigaku.party/thai-2027">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="google-site-verification" content="-YiiV7BcSQbLcKQWgUuF_QU3EEcwlLEXr46yiT7vqAQ">
@@ -15,11 +15,11 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://www.tabigaku.party/thai-2027">
 <meta property="og:title" content="2027年1月・タイ旅｜チェンマイと湖の暮らしへ｜EarthfamilyJourney">
-<meta property="og:description" content="旅で出会えば、地球家族。2027年1月5日出発、7日間と11日間。10/31までの早割は旅スキル講座が50,000円→30,000円。">
+<meta property="og:description" content="旅で出会えば、地球家族。A：1/5〜1/11・11万円、B：1/12〜1/17・11万円、SPECIAL：1/5〜1/17・18万8千円。湖のオフグリッドな暮らしと、少数民族の手仕事へ。旅スキル講座・実費は別途。">
 <meta property="og:image" content="https://www.tabigaku.party/images/saijai-lake.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="2027年1月・タイ旅｜チェンマイと湖の暮らしへ｜EarthfamilyJourney">
-<meta name="twitter:description" content="旅で出会えば、地球家族。2027年1月5日出発、7日間と11日間。10/31までの早割は旅スキル講座が50,000円→30,000円。">
+<meta name="twitter:description" content="旅で出会えば、地球家族。A：1/5〜1/11・11万円、B：1/12〜1/17・11万円、SPECIAL：1/5〜1/17・18万8千円。湖のオフグリッドな暮らしと、少数民族の手仕事へ。旅スキル講座・実費は別途。">
 <meta name="twitter:image" content="https://www.tabigaku.party/images/saijai-lake.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,6 +151,10 @@ figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:7px;line-height:1.6
 .passes{display:grid;gap:30px}
 .pass{--accent:var(--teal);filter:drop-shadow(0 10px 18px rgba(10,47,49,.16))}
 .pass.b{--accent:var(--dusk)}
+.pass.special{--accent:#875022}
+.stay-note{margin:24px 0;padding:20px;border-radius:16px;background:rgba(255,255,255,.65);border:1px solid rgba(15,42,44,.16)}
+.stay-note h3{font-size:1.2rem;margin-bottom:10px}
+.stay-note p:last-child{margin-bottom:0}
 .pass-main,.pass-stub{background:var(--paper);position:relative}
 .pass-main{border-radius:18px 18px 0 0;padding-bottom:20px;
   -webkit-mask:radial-gradient(13px at 0 100%,#0000 97%,#000),radial-gradient(13px at 100% 100%,#0000 97%,#000);
@@ -394,6 +398,7 @@ details a{color:var(--amber)}
   .rooms h3,.rooms .fine{grid-column:1/-1}
   body{font-size:17px}
   .passes{grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+  .pass.special{grid-column:1/-1}
   .scroller{display:grid;grid-template-columns:repeat(12,1fr);width:min(100% - 40px,1040px);margin-inline:auto;padding-inline:0;overflow:visible}
   .scroller figure{flex:none;max-width:none;grid-column:span 3}
   .scroller figure:nth-child(n+5){grid-column:span 4}
@@ -406,6 +411,13 @@ details a{color:var(--amber)}
   .person{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
   .person img{margin:0}
   .s-dusk .wrap{width:min(100% - 40px,780px)}
+}
+@media (min-width:1100px){
+  .passes{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .pass.special{grid-column:auto}
+  .pass .route .d{font-size:2.25rem}
+  .pass-top{gap:8px}
+  .pass-top b{letter-spacing:.03em;font-size:1.1rem}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -423,16 +435,16 @@ details a{color:var(--amber)}
   <h1 class="hero-title"><span>旅で出会えば、</span><span>地球家族。</span></h1>
   <div class="hero-top" aria-hidden="true"></div>
   <div class="hero-info">
-    <p class="hero-date">2027年1月5日（火）出発・タイ<small>選べる7日間と11日間。チェンマイから、湖に浮かぶ村へ。</small></p>
+    <p class="hero-date">2027年1月、タイの暮らしを訪ねる旅<small>A：1/5〜1/11　B：1/12〜1/17　SPECIAL：1/5〜1/17</small></p>
     <p class="early-chip only-early"><b>早割</b><span>10/31（土）まで 旅スキル講座 <span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span></span><span class="count" data-count></span></p>
     <p class="hero-price">
       現地サポート費（大人1人）
-      <span class="pr"><i>7日間</i><b data-p="A.sup">110,000円</b></span><span class="pr"><i>11日間</i><b data-p="B.sup">188,000円</b></span>
+      <span class="pr"><i>Aプラン・7日間</i><b data-p="A.sup">110,000円</b></span><span class="pr"><i>Bプラン・6日間</i><b data-p="B.sup">110,000円</b></span><span class="pr"><i>SPECIALプラン・13日間</i><b data-p="SPECIAL.sup">188,000円</b></span>
       <small>＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span></span><span class="only-regular" data-p="feeReg">50,000円</span>／1家族　航空券・宿泊・食事などの実費は別途</small>
     </p>
     <div class="hero-cta"><a class="btn" href="#application">申し込みフォームへ</a>
       <a class="btn" data-line href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.5 1.4 4.7 3.7 6.2-.2.8-.7 2.4-.8 2.8 0 0-.1.3.1.4.2.1.4 0 .4 0 .6-.1 3.2-1.9 3.7-2.3.6.1 1.3.2 2 .2 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>LINEで相談する</a>
-      <a class="link-quiet" href="#courses">コースと費用を見る</a>
+      <a class="link-quiet" href="#courses">プランと費用を見る</a>
     </div>
   </div>
 </header>
@@ -465,6 +477,11 @@ details a{color:var(--amber)}
     <h2>旅先に、<br>帰りたい場所ができた。</h2>
     <p>2026年、家族でタイを旅する中で出逢ったのが、サージャイ・ヴィレッジ（SaaiJai Village）。チェンマイ郊外、山々に囲まれた湖の上にあるエコビレッジです。</p>
     <p>小舟でたどり着いて、湖で遊び、ごはんを食べ、人と話す。特別な予定を詰め込まなくても、目の前の暮らしが、子どもにも大人にも新しい発見をくれる。</p>
+    <div class="stay-note">
+      <h3>自然とともにある、<br>湖のオフグリッドな暮らし。</h3>
+      <p>湖のコテージは、オフグリッド。風や水の気配を感じながら過ごす、開放的な空間です。</p>
+      <p>電気も水も、使える量には限りがあります。あるものを大切に使い、自然の循環の中で暮らすことを、日々の生活から学びます。便利さに慣れた日常を少し離れて、暮らしに必要なものを、一緒に見つめてみませんか。</p>
+    </div>
     <p>そこで過ごした数日間から、僕たちの旅に、もうひとつのつながりが生まれました。今は僕も、建物を直しながら、この場所のこれからを一緒につくる仲間として関わっています。</p>
     <p class="sig">また訪ねたい人がいる。<br>今度は、あなたにも会ってほしい。<br>らんぼう／旅する学校</p>
     <div class="mosaic">
@@ -511,26 +528,26 @@ details a{color:var(--amber)}
 <section class="sec s-gold" id="courses">
   <div class="wrap wide">
     <div style="max-width:640px">
-      <h2>湖でほどける7日間。<br>暮らしの奥へ進む11日間。</h2>
-      <p class="sub">どちらも、チェンマイとサージャイから。あなたの「行ってみたい」に合う旅を選んでください。旅のあとも続けたい方には、オプションでEarthfamilyDAOも。</p>
+      <h2>湖で暮らす。手仕事を学ぶ。<br>ふたつをつなぐ、3つのプラン。</h2>
+      <p class="sub">Aはチェンマイと湖の暮らしへ。Bは少数民族の暮らしへ。SPECIALは、AとBを通して参加する13日間。あなたの「学んでみたい」に合う旅を選んでください。旅のあとも続けたい方には、オプションでEarthfamilyDAOも。</p>
     </div>
     <p class="early-note only-early" style="max-width:640px"><b>早割は10/31（土）まで。</b>この日までにフォームでお申し込みいただいた方は、旅スキル講座が<s data-p="feeReg">50,000円</s>から<span data-p="feeEarly">30,000円</span>になります（1家族で<span data-p="off">20,000円</span>おトク）。</p>
 
     <div class="passes">
       <article class="pass a">
         <div class="pass-main">
-          <div class="pass-top"><b>Aコース</b><span>EFJ 07</span></div>
+          <div class="pass-top"><b>Aプラン</b><span>EFJ 07</span></div>
           <div class="pass-body">
             <div class="route">
               <div><span class="d">1/5</span><small>火・チェンマイ集合</small></div>
               <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>7日間</div>
               <div class="r"><span class="d">1/11</span><small>月・解散</small></div>
             </div>
-            <h3>チェンマイと<br>湖の暮らしを楽しむコース</h3>
+            <h3>チェンマイと<br>湖の暮らしを楽しむ旅</h3>
             <p>チェンマイのまちを歩き、市場のごはんを味わう。そして、湖に浮かぶサージャイへ。水辺で遊び、同じ食卓を囲み、何もしない時間も楽しむ旅です。</p>
             <ul>
               <li>チェンマイのまち・市場・人との出会い</li>
-              <li>サージャイで過ごす、湖と自然のある毎日</li>
+              <li>サージャイで学ぶ、湖のオフグリッドな暮らし</li>
               <li>旅仲間と語り合い、それぞれのペースで過ごす時間</li>
             </ul>
             <p class="fit"><b>こんな方に</b>1週間で北タイのまちと自然を味わいたい方。初めての海外旅や子ども連れの方も。</p>
@@ -541,38 +558,74 @@ details a{color:var(--amber)}
           <p class="price"><span class="big" data-p="A.sup">110,000円</span></p>
           <p class="kid">5歳〜中学生 <span data-p="A.kid">55,000円</span>／4歳以下 無料</p>
           <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
-          <a class="btn full" data-apply data-course="A" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A">Aコースに申し込む</a>
+          <a class="btn full" data-apply data-course="A" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A">Aプランに申し込む</a>
         </div>
       </article>
 
       <article class="pass b">
         <div class="pass-main">
-          <div class="pass-top"><b>Bコース</b><span>EFJ 11</span></div>
+          <div class="pass-top"><b>Bプラン</b><span>EFJ 06</span></div>
           <div class="pass-body">
             <div class="route">
-              <div><span class="d">1/5</span><small>火・チェンマイ集合</small></div>
-              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>11日間</div>
-              <div class="r"><span class="d">1/15</span><small>金・解散</small></div>
+              <div><span class="d">1/12</span><small>火・集合</small></div>
+              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>6日間</div>
+              <div class="r"><span class="d">1/17</span><small>日・解散</small></div>
             </div>
-            <h3>湖の暮らしから、<br>民族の方々の暮らしへ</h3>
-            <p>チェンマイとサージャイでの時間に、もう一歩深い出会いを。村を訪ね、一緒にごはんを囲み、手仕事や日々の営みにふれる。「その土地で生きる」を、少し分けてもらう旅です。</p>
+            <h3>少数民族の暮らしへ。<br>手を動かして、学ぶ6日間。</h3>
+            <p>藍染め、織物、刺繍。その土地に受け継がれてきた手仕事を、日々の暮らしの中で学ぶ旅です。伝統的な暮らしと時代の変化の狭間にある村で、一緒に食べ、教わり、手を動かす時間を大切にします。</p>
             <ul>
-              <li>Aコースと共通の、チェンマイ・サージャイでの時間</li>
-              <li>さらに4日間、民族の方々の暮らしを訪ねる旅へ</li>
-              <li>食卓・手仕事・日々のお手伝いを通した交流を予定</li>
+              <li>少数民族の方々の、伝統的な暮らしを訪ねる</li>
+              <li>藍染め・織物・刺繍などの手仕事を学ぶ時間</li>
+              <li>食卓や日々のお手伝いを通して、暮らしを分かち合う</li>
             </ul>
-            <p class="pending">訪問先の村・民族は、現地の方々と調整中です。決まり次第、LINEでお知らせします。</p>
-            <p class="fit"><b>こんな方に</b>その土地の人とじっくり出会いたい方。文化や暮らしを、日常の中で感じてみたい方。</p>
+            <p class="pending">訪問先の村・少数民族、体験内容、集合・解散場所は調整中です。決まり次第、LINEでお知らせします。宿泊やトイレについては、下の「村での滞在について」をご確認ください。</p>
+            <p class="fit"><b>こんな方に</b>快適さよりも、その土地の暮らしを知りたい方。藍染め・織物・刺繍を「自分から学びたい」という意思を持っている方。</p>
           </div>
         </div>
         <div class="pass-stub">
           <p class="price-lab">現地サポート費／大人1人</p>
-          <p class="price"><span class="big" data-p="B.sup">188,000円</span></p>
-          <p class="kid">5歳〜中学生 <span data-p="B.kid">94,000円</span>／4歳以下 無料</p>
+          <p class="price"><span class="big" data-p="B.sup">110,000円</span></p>
+          <p class="kid">5歳〜中学生 <span data-p="B.kid">55,000円</span>／4歳以下 無料</p>
           <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
-          <a class="btn full" data-apply data-course="B" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=B">Bコースに申し込む</a>
+          <a class="btn full" data-apply data-course="B" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=B">Bプランに申し込む</a>
         </div>
       </article>
+      <article class="pass special">
+        <div class="pass-main">
+          <div class="pass-top"><b>SPECIALプラン</b><span>EFJ 13</span></div>
+          <div class="pass-body">
+            <div class="route">
+              <div><span class="d">1/5</span><small>火・チェンマイ集合</small></div>
+              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>13日間</div>
+              <div class="r"><span class="d">1/17</span><small>日・解散</small></div>
+            </div>
+            <h3>湖の暮らしから、<br>少数民族の暮らしへ。</h3>
+            <p>AとBを通して参加する、13日間の旅。チェンマイとサージャイで仲間と過ごし、その先へ。湖のオフグリッドな暮らしと、村に受け継がれてきた手仕事、どちらもじっくり学びます。</p>
+            <ul>
+              <li>1/5〜1/11：Aプランのチェンマイ・サージャイ</li>
+              <li>1/12〜1/17：Bプランの少数民族の暮らし</li>
+              <li>ふたつの暮らしをつなぎ、自分の暮らしを見つめる</li>
+            </ul>
+            <p class="pending">村での宿泊・トイレの環境はBプランと共通です。訪問先・体験内容・解散場所は、決まり次第ご案内します。</p>
+            <p class="fit"><b>こんな方に</b>自然の中で暮らすことも、伝統の手仕事も学びたい方。仲間と一緒に、自分から旅をつくりたい方。</p>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <p class="price-lab">現地サポート費／大人1人</p>
+          <p class="price"><span class="big" data-p="SPECIAL.sup">188,000円</span></p>
+          <p class="kid">5歳〜中学生 <span data-p="SPECIAL.kid">94,000円</span>／4歳以下 無料</p>
+          <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
+          <a class="btn full" data-apply data-course="SPECIAL" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=SPECIAL">SPECIALプランに申し込む</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="stay-note" id="village-stay">
+      <h3>村での滞在について<br><small>B・SPECIALプランに参加する方へ</small></h3>
+      <p>滞在先は、少数民族の方々が日々を営む場所です。藍染めや織物などの伝統的な暮らしと、時代の変化の狭間にある、いまの暮らしにおじゃまします。</p>
+      <p><strong>快適な設備が整った滞在先ではありません。</strong>部屋は、複数人で一緒に泊まる場合もあります。トイレでは、水と手でおしりを洗う技を、自分のものにできる場面も（笑）。ふだんと違う生活の仕方も、その土地で暮らす知恵として教わります。</p>
+      <p>藍染め・織物・刺繍や伝統的な暮らしを「学びたい」と、自分から関わる意思がある方に向いています。村の方々の生活や都合を尊重しながら、一緒に手を動かして学びましょう。</p>
+      <p class="fine">訪問先・宿泊条件・体験内容の詳細は調整中です。気になることは、お申し込み前にLINEでご相談ください。</p>
     </div>
 
     <p class="opt-sep" aria-hidden="true"><span>＋ オプション</span></p>
@@ -603,10 +656,11 @@ details a{color:var(--amber)}
 
     <div class="sim" id="fees" style="max-width:640px;margin-inline:auto">
       <h3>参加費をかんたん計算</h3>
-      <p class="sub">1家族分のコースと人数を選ぶと、費用の合計が出ます。ご友人同士は1世帯ずつお申し込みください。</p>
-      <div class="seg" role="radiogroup" aria-label="コース">
-        <button type="button" role="radio" aria-checked="true" data-course="A">Aコース 7日間</button>
-        <button type="button" role="radio" aria-checked="false" data-course="B">Bコース 11日間</button>
+      <p class="sub">1家族分のプランと人数を選ぶと、費用の合計が出ます。ご友人同士は1世帯ずつお申し込みください。</p>
+      <div class="seg three" role="radiogroup" aria-label="旅のプラン">
+        <button type="button" role="radio" aria-checked="true" data-course="A">Aプラン<small>1/5〜1/11・7日間</small></button>
+        <button type="button" role="radio" aria-checked="false" data-course="B">Bプラン<small>1/12〜1/17・6日間</small></button>
+        <button type="button" role="radio" aria-checked="false" data-course="SPECIAL">SPECIAL<small>1/5〜1/17・13日間</small></button>
       </div>
       <div class="row"><label id="l-adult">大人<small>現地サポート費が全額</small></label>
         <div class="step"><button type="button" data-k="adult" data-d="-1" aria-label="大人を1人減らす">−</button><output id="v-adult" aria-labelledby="l-adult">1</output><button type="button" data-k="adult" data-d="1" aria-label="大人を1人増やす">＋</button></div></div>
@@ -680,41 +734,43 @@ details a{color:var(--amber)}
     <p class="sub">観光地を巡るだけでは出会えない、その場所の人と、暮らしの時間を。</p>
     <ol class="tl">
       <li>
-        <div class="when">1/5（火）<span class="tag">はじまり</span></div>
+        <div class="when">1/5（火）<span class="tag">A・SPECIALのはじまり</span></div>
         <h3>チェンマイで「はじめまして」。</h3>
         <p>旅仲間と顔を合わせ、北タイのまちへ。市場を歩いてごはんを選び、これからの旅をみんなで話すところから始めます。</p>
         <img loading="lazy" src="/images/thai-2027/f35d1142ab78efd5.webp" style="aspect-ratio:4/5;object-position:50% 58%" alt="チェンマイの市場で、バナナの葉に盛られた料理を前に並ぶ人たちと、屋台の店主" decoding="async">
       </li>
       <li>
-        <div class="when">両コース共通</div>
+        <div class="when">1/5〜1/11<span class="tag">A・SPECIAL</span></div>
         <h3>チェンマイとサージャイで、暮らすように。</h3>
-        <p>まちのにぎわいから、山々に囲まれた湖へ。サージャイで水辺の時間を楽しみ、食卓を囲み、人と話す。予定を詰め込みすぎず、自分や仲間の「やってみたい」に耳を傾けます。</p>
+        <p>まちのにぎわいから、山々に囲まれた湖へ。限られた電気と水を大切に使うオフグリッドな空間で、自然の循環の中にある暮らしを学びます。水辺の時間や食卓を囲む時間も楽しみながら、自分や仲間の「やってみたい」に耳を傾けます。</p>
         <img loading="lazy" src="/images/thai-2027/067265d5859d51db.webp" style="aspect-ratio:4/5;object-position:50% 40%" alt="あたたかい光が差す、湖に面したソファのコーナーと、ソファの上の子猫" decoding="async">
       </li>
       <li>
-        <div class="when">1/11（月）<span class="tag">Aコース最終日</span></div>
+        <div class="when">1/11（月）<span class="tag">Aプラン最終日</span></div>
         <h3>7日間の出会いを、日常へ持ち帰る。</h3>
-        <p>Aコースはここで旅を振り返って解散。Bコースは、さらに4日間の旅へ進みます。</p>
+        <p>Aプランはここで旅を振り返って解散。SPECIALプランは、その先の村での暮らしへ進みます。</p>
       </li>
       <li class="b">
-        <div class="when">後半<span class="tag">Bコースのみ</span></div>
-        <h3>民族の方々の暮らしに、おじゃまする。</h3>
-        <p>村の方々と相談しながら、その土地の食事や手仕事、日々の営みにふれる時間をつくります。一緒に食べる、教わる、手伝う。暮らしを分かち合う出会いを大切にします。</p>
+        <div class="when">1/12（火）〜1/17（日）<span class="tag">B・SPECIAL</span></div>
+        <h3>少数民族の方々の暮らしに、おじゃまする。</h3>
+        <p>1/12からBプランの仲間も合流。伝統的な暮らしと時代の変化の狭間にある村で、藍染め・織物・刺繍などを学ぶ時間をつくります。一緒に食べる、教わる、手伝う。村の方々と相談しながら、自分から手を動かして学びます。</p>
+        <p>設備やトイレは、ふだんの暮らしとは違います。複数人で同じ部屋に泊まる場合もあります。<a href="#village-stay">村での滞在について</a>をご確認ください。</p>
         <div class="duo-b"><img loading="lazy" src="/images/thai-2027/936c34676eb85c63.webp" style="object-position:50% 40%" alt="村の道で、村の方々と並んで笑う家族" decoding="async"><img loading="lazy" src="/images/thai-2027/055ede74e05370ff.webp" style="object-position:50% 55%" alt="村の軒先で、青い布を縫う女性たちと子ども" decoding="async"></div>
         <p class="fine" style="margin-top:8px">写真はこれまでの旅での交流風景です。今回の訪問先は調整中です。</p>
       </li>
       <li class="b">
-        <div class="when">1/15（金）<span class="tag">Bコース最終日</span></div>
+        <div class="when">1/17（日）<span class="tag">B・SPECIAL最終日</span></div>
         <h3>「また会おう」のある旅に。</h3>
-        <p>11日間で心に残ったことを分かち合って解散。旅で生まれたつながりを、それぞれの暮らしへ持ち帰ります。</p>
+        <p>Bは6日間、SPECIALは13日間で心に残ったことを分かち合って解散。旅で生まれたつながりや学びを、それぞれの暮らしへ持ち帰ります。</p>
       </li>
     </ol>
     <dl class="facts">
-      <div><dt>集合</dt><dd>1月5日・タイのチェンマイ（場所・時刻は別途ご案内）</dd></div>
-      <div><dt>解散</dt><dd>A：1月11日／B：1月15日（場所・時刻は別途ご案内）</dd></div>
+      <div><dt>集合</dt><dd>A・SPECIAL：1月5日・タイのチェンマイ<br>B：1月12日（集合場所・時刻は別途ご案内）</dd></div>
+      <div><dt>解散</dt><dd>A：1月11日／B・SPECIAL：1月17日（場所・時刻は別途ご案内）</dd></div>
+      <div><dt>申込締切</dt><dd>A・SPECIAL：1月4日／B：1月11日（各日23:59・日本時間）</dd></div>
       <div><dt>参加</dt><dd>ひとりでも、友人同士でも、家族でも</dd></div>
     </dl>
-    <p class="fine">航空券は、集合・解散の詳細をご確認いただいてからお手配ください。上記は旅のイメージです。訪問する村・民族、滞在日数、体験内容は受け入れ先と調整し、決まり次第ご案内します。天候や現地の暮らし、参加者の状況に合わせて順序や内容が変わる場合があります。</p>
+    <p class="fine">航空券は、集合・解散の詳細をご確認いただいてからお手配ください。上記は旅のイメージです。訪問する村・少数民族、滞在日数、体験内容は受け入れ先と調整し、決まり次第ご案内します。天候や現地の暮らし、参加者の状況に合わせて順序や内容が変わる場合があります。</p>
   </div>
 </section>
 
@@ -800,19 +856,27 @@ details a{color:var(--amber)}
     </details>
     <details>
       <summary>部屋や、ひとり参加の場合の料金は？</summary>
-      <p>現地サポート費と旅スキル講座は、<a href="#fees">参加費の計算</a>で人数を入れると確認できます。宿泊費は部屋のタイプによって変わります。個室の希望などはLINEでご相談ください。</p>
+      <p>現地サポート費と旅スキル講座は、<a href="#fees">参加費の計算</a>で人数を入れると確認できます。宿泊費は部屋のタイプによって変わります。村では複数人で同じ部屋に泊まる場合もあります。個室の希望や宿泊環境のことは、事前にLINEでご相談ください。</p>
     </details>
     <details>
       <summary>EarthfamilyDAOは、旅に必要ですか？</summary>
       <p>必須ではありません。旅のあとも仲間とつながり、各地の拠点で暮らしのお手伝いをしながら滞在したい方のための、1年間の会員制コミュニティです。ライト・スタンダード・ロングステイの3プランがあり、年会費は旅の参加費とは別です。自動引き落としはありません。希望する方は<a href="#dao">こちら</a>から計算に入れて、申し込みフォームでお選びください。</p>
     </details>
     <details>
-      <summary>どの村・民族の方々を訪ねますか？</summary>
-      <p>Bコースの訪問先は、現地の方々の都合を伺いながら調整しています。村や民族の名前、宿泊・体験の詳細は、確定次第ご案内します。</p>
+      <summary>どの村・少数民族の方々を訪ねますか？</summary>
+      <p>B・SPECIALプランの訪問先は、現地の方々の都合を伺いながら調整しています。村や少数民族の名前、宿泊・体験の詳細は、確定次第ご案内します。</p>
+    </details>
+    <details>
+      <summary>湖のコテージは、どんな環境ですか？</summary>
+      <p>自然とともにある開放的な、オフグリッドの空間です。電気や水は使える量に限りがあります。あるものを大切に使いながら、循環型の暮らしを日々の生活から学びます。</p>
+    </details>
+    <details>
+      <summary>村の宿泊やトイレは？どんな人に向いていますか？</summary>
+      <p>快適な設備が整った場所ではなく、複数人で同じ部屋に泊まる場合もあります。トイレでは、水と手でおしりを洗う方法を教わる場面も。藍染め・織物・刺繍などの手仕事や、伝統的な暮らしを、自分から学びたい方に向いています。<a href="#village-stay">村での滞在について</a>もご確認ください。</p>
     </details>
     <details>
       <summary>キャンセルの条件は？</summary>
-      <p>出発日の14日前までのキャンセル料は50,000円、13日前以降は参加費の100%です。体調不良やご家庭の事情など、どうしてもの場合はまずLINEでご相談ください。<a href="#cancellation">キャンセルポリシーを見る</a></p>
+      <p>参加プランの出発日の14日前までのキャンセル料は50,000円、13日前以降は参加費の100%です。出発日はA・SPECIALが1月5日、Bが1月12日です。体調不良やご家庭の事情など、どうしてもの場合はまずLINEでご相談ください。<a href="#cancellation">キャンセルポリシーを見る</a></p>
     </details>
     <details>
       <summary>参加希望は、どこへ連絡すればいいですか？</summary>
@@ -821,8 +885,8 @@ details a{color:var(--amber)}
   </div>
 </section>
 
-<section class="sec s-night" id="cancellation"><div class="wrap"><h2>キャンセルポリシー</h2><p>旅の準備は、お申し込みいただいた瞬間から始まっています。みなさんの「行く！」に応えるために、一つひとつ動いています。</p><p>やむを得ずキャンセルされる場合は、以下のキャンセル料が発生することをご了承ください。</p><table class="plans"><caption class="vh">キャンセル時期とキャンセル料</caption><thead><tr><th scope="col">キャンセル時期</th><th scope="col">キャンセル料</th></tr></thead><tbody><tr><th scope="row">出発日の14日前まで</th><td>50,000円</td></tr><tr><th scope="row">出発日の13日前以降</th><td>参加費の100%</td></tr></tbody></table><p>体調不良やご家庭の事情など、どうしてもの場合はまず<a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">LINEでご相談ください</a>。一緒に最善の方法を考えます。</p></div></section>
-<section class="sec s-night" id="application"><div class="wrap"><h2>次の旅を、一緒につくろう。</h2><p>お申し込みは1世帯につき1件。ひとり参加・ご友人同士はそれぞれお申し込みください。</p><ol class="prep"><li><span class="n">01</span><div><h3>フォームから申し込む</h3><p>コース・人数・連絡先をご入力ください。LINEグループへご招待するため、ご本人のLINE URLも伺います。</p></div></li><li><span class="n">02</span><div><h3>3営業日以内にお振り込み</h3><p>申し込み後3営業日以内（土日祝を除く）に、旅スキル講座の費用をお振り込みください。早割は1家族30,000円、通常は50,000円です。現地サポート費・DAO年会費は別途ご案内します。</p></div></li><li><span class="n">03</span><div><h3>入金確認後、LINEグループへ</h3><p>主催者が入金を確認後、LINEグループへの招待をご案内します。事前の顔合わせや旅の準備を、一緒に始めましょう。</p></div></li></ol><a class="btn full" href="https://earthguide.tabigaku.party/forms/efj-thai-2027">申し込みフォームを開く</a><p class="fine" style="margin-top:16px">フォームで内容を確認してから送信できます。振込先は受付画面と受付メールでご案内します。申し込み前に<a href="#cancellation">キャンセルポリシー</a>をご確認ください。</p><a class="link-quiet" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">気になることはLINEで相談する</a></div></section>
+<section class="sec s-night" id="cancellation"><div class="wrap"><h2>キャンセルポリシー</h2><p>旅の準備は、お申し込みいただいた瞬間から始まっています。みなさんの「行く！」に応えるために、一つひとつ動いています。</p><p>やむを得ずキャンセルされる場合は、以下のキャンセル料が発生することをご了承ください。参加プランの出発日（A・SPECIAL：1月5日／B：1月12日）を基準とします。</p><table class="plans"><caption class="vh">キャンセル時期とキャンセル料</caption><thead><tr><th scope="col">キャンセル時期</th><th scope="col">キャンセル料</th></tr></thead><tbody><tr><th scope="row">出発日の14日前まで</th><td>50,000円</td></tr><tr><th scope="row">出発日の13日前以降</th><td>参加費の100%</td></tr></tbody></table><p>体調不良やご家庭の事情など、どうしてもの場合はまず<a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">LINEでご相談ください</a>。一緒に最善の方法を考えます。</p></div></section>
+<section class="sec s-night" id="application"><div class="wrap"><h2>次の旅を、一緒につくろう。</h2><p>お申し込みは1世帯につき1件。ひとり参加・ご友人同士はそれぞれお申し込みください。</p><ol class="prep"><li><span class="n">01</span><div><h3>フォームから申し込む</h3><p>プラン・人数・連絡先をご入力ください。LINEグループへご招待するため、ご本人のLINE URLも伺います。</p></div></li><li><span class="n">02</span><div><h3>3営業日以内にお振り込み</h3><p>申し込み後3営業日以内（土日祝を除く）に、旅スキル講座の費用をお振り込みください。早割は1家族30,000円、通常は50,000円です。現地サポート費・DAO年会費は別途ご案内します。</p></div></li><li><span class="n">03</span><div><h3>入金確認後、LINEグループへ</h3><p>主催者が入金を確認後、LINEグループへの招待をご案内します。事前の顔合わせや旅の準備を、一緒に始めましょう。</p></div></li></ol><a class="btn full" href="https://earthguide.tabigaku.party/forms/efj-thai-2027">申し込みフォームを開く</a><p class="fine" style="margin-top:16px">フォームで内容を確認してから送信できます。振込先は受付画面と受付メールでご案内します。申し込み前に<a href="#cancellation">キャンセルポリシー</a>をご確認ください。</p><a class="link-quiet" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">気になることはLINEで相談する</a></div></section>
 <section class="sec s-end" id="contact">
   <div class="moon" role="img" aria-label="月あかりに照らされた湖と、デッキの先のはしご" style="background-image:url(/images/thai-2027/00b9483ab1c2f4f1.webp)"></div>
   <div class="wrap">
@@ -845,7 +909,7 @@ details a{color:var(--amber)}
 </footer>
 
 <div class="bar" id="bar" aria-hidden="true">
-  <p><b class="only-early">早割 旅スキル講座 −<span data-p="off">20,000円</span></b><b class="only-regular">2027年1月5日出発</b><span class="only-early">10/31まで <span data-count></span></span><span class="only-regular">7日間／11日間から選べます</span></p>
+  <p><b class="only-early">早割 旅スキル講座 −<span data-p="off">20,000円</span></b><b class="only-regular">2027年1月・タイ旅</b><span class="only-early">10/31まで <span data-count></span></span><span class="only-regular">A・B・SPECIALから選べます</span></p>
   <a class="btn" href="#application" tabindex="-1">申し込む</a>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -857,8 +921,9 @@ details a{color:var(--amber)}
     deadline: '2026-10-31T23:59:59.999+09:00',   // 早割の締切（日本時間）
     deadlineYMD: [2026, 10, 31],             // 残り日数の計算用（年, 月, 日）
     fee: { reg: 50000, early: 30000 },       // 旅スキル講座（1家族 / ひとり参加は1人）。早割期間は early
-    A: { sup: 110000 },                      // Aコース 大人1人の現地サポート費（子ども半額）
-    B: { sup: 188000 },                      // Bコース 大人1人の現地サポート費（子ども半額）
+    A: { sup: 110000 },                      // Aプラン 大人1人の現地サポート費（子ども半額）
+    B: { sup: 110000 },                      // Bプラン 大人1人の現地サポート費（子ども半額）
+    SPECIAL: { sup: 188000 },                // SPECIALプラン 大人1人の現地サポート費（子ども半額）
     dao: {                                   // EarthfamilyDAO 年会費（1年・オプション・早割なし）
       lite: { name: 'ライト',       nights: 3,  solo: 11000, family: 22000 },
       std:  { name: 'スタンダード', nights: 10, solo: 33000, family: 55000 },
@@ -991,7 +1056,7 @@ details a{color:var(--amber)}
   function say(t) { toast.textContent = t; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 4500); }
   function message(a) {
     const course = a.dataset.course || (S.touched ? S.course : '');
-    let t = course ? `タイ旅・${course}コース希望` : 'タイ旅について相談したいです';
+    let t = course ? `タイ旅・${course}プラン希望` : 'タイ旅について相談したいです';
     if (S.touched || a.hasAttribute('data-from-sim')) t += `\n大人${S.adult}人・5歳〜中学生${S.kid}人・4歳以下${S.infant}人`;
     if (S.dao) t += `\n${daoLabel()}も希望`;
     return t;

@@ -125,7 +125,7 @@ export default function Home() {
                   <div className="school-trip__bottom">
                     <dl className="school-trip__costs">
                       <div>
-                        <dt>{journey.id === "thailand-2027" ? "事前会費＋現地サポート" : "ガイド料"}</dt>
+                        <dt>{journey.id === "thailand-2027" ? "現地サポート／大人1人" : "ガイド料"}</dt>
                         <dd>
                           <strong>{journey.fee}</strong> 円
                           <small>（税込 / 1名）</small>
