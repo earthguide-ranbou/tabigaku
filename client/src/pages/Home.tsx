@@ -120,7 +120,7 @@ export default function Home() {
                   </p>
                   <p className="school-trip__audience">
                     <Users size={15} aria-hidden="true" />
-                    {journey.age} <span>定員{journey.capacity}名</span>
+                    {journey.age} {journey.capacity != null && <span>定員{journey.capacity}名</span>}
                   </p>
                   <div className="school-trip__bottom">
                     <dl className="school-trip__costs">

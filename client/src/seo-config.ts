@@ -46,8 +46,8 @@ export const pages: Record<string, PageSEO> = {
   },
   "/thai-2027": {
     "label": "タイの旅・地球家族ジャーニー",
-    "title": "2027年1月・タイ｜旅で出会えば、地球家族。EarthfamilyJourney",
-    "description": "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月チェンマイスタート予定。日程・料金は近日公開。",
+    "title": "2027年1月・タイ旅｜7日間117,000円／11日間188,000円｜EarthfamilyJourney",
+    "description": "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月5〜11日117,000円／1月5〜15日188,000円（実費別途）。チェンマイ・サージャイを中心に、長いコースは民族の方々の暮らしへ。",
     "image": "/images/saijai-lake.jpg"
   },
   "/saijai": {

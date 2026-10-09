@@ -14,8 +14,8 @@ export default function Thai2027() {
   const [momentIndex, setMomentIndex] = useState(0);
   const moment = lakeMoments[momentIndex];
   useSEO({
-    title: "2027年1月・タイ｜旅で出会えば、地球家族。EarthfamilyJourney",
-    description: "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月チェンマイスタート予定。日程・料金は近日公開。",
+    title: "2027年1月・タイ旅｜7日間117,000円／11日間188,000円｜EarthfamilyJourney",
+    description: "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月5〜11日・7日間117,000円、1月5〜15日・11日間188,000円（実費別途）。チェンマイとサージャイを中心に、長いコースは民族の方々の暮らしへ。",
     keywords: "ひとり参加, 大人の旅, チェンマイ, 家族旅, タイ 旅, EarthfamilyJourney, 旅育, 子連れ 海外旅行, あーすガイド, らんぼう, 神山町, 徳島, 先住民 体験, バリ島, 家族 海外体験, 子ども 海外",
     ogImage: "https://www.tabigaku.party/images/saijai-lake.jpg",
     ogUrl: "/thai-2027",
@@ -78,17 +78,52 @@ export default function Thai2027() {
         <img src="/images/saijai-lake.jpg" alt="緑の山と湖に抱かれたサージャイ・ヴィレッジ" fetchPriority="high" />
         <div className="thai-next-hero-copy">
           <p className="thai-next-kicker">EARTH FAMILY JOURNEY · THAILAND</p>
-          <p className="thai-next-badge">2027年1月・チェンマイスタート予定</p>
+          <p className="thai-next-badge">2027年1月5日出発・選べる7日間と11日間</p>
           <h1>旅で出会えば、<br /><span className="thai-earthfamily-title">地球家族。</span></h1>
           <p>ひとりでも、友人同士でも、家族でも。<br />いろんな仲間が集まるから、旅はもっと面白い。</p>
           <p className="thai-hero-invitation">同じ食卓を囲み、湖に浮かぶ村で過ごす。<br />チェンマイから、景色と人に会いにいこう。</p>
           <p className="thai-solo-badge">あなたの「行ってみたい」から、EarthfamilyJourneyへ</p>
-          <a href="#solo-welcome">地球家族の旅をのぞいてみる</a>
-          <small>日程・料金・参加方法は近日公開</small>
+          <a href="#thai-courses">2つのコース・参加費を見る</a>
+          <small>1/5〜11：117,000円 ／ 1/5〜15：188,000円<br />大人1人・航空券や宿泊などの実費は別途</small>
         </div>
       </section>
-      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#solo-welcome">地球家族の旅って？</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">1月の旅について</a><a href="#family-story">旅の原点とストーリー</a></nav>
+      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#thai-courses">コース・料金</a><a href="#solo-welcome">地球家族の旅って？</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">旅の流れ</a><a href="#family-story">旅の原点とストーリー</a></nav>
 
+      <section className="thai-next-wrap thai-courses" id="thai-courses" aria-labelledby="thai-courses-title">
+        <p className="thai-next-kicker">TWO WAYS TO JOURNEY / 2027.01</p>
+        <h2 id="thai-courses-title">湖でほどける7日間。<br />暮らしの奥へ進む11日間。</h2>
+        <p className="thai-course-intro">どちらも、チェンマイとサージャイから。<br />あなたの「行ってみたい」に合う旅を選んでください。</p>
+        <div className="thai-course-grid">
+          <article className="thai-course-card" aria-labelledby="thai-course-a">
+            <p className="thai-course-label">A COURSE · 7 DAYS</p>
+            <h3 id="thai-course-a">チェンマイと<br />湖の暮らしを楽しむコース</h3>
+            <p className="thai-course-date">2027年1月5日（火）〜11日（月）<span>7日間</span></p>
+            <p className="thai-course-price">117,000<small>円／大人1人</small></p>
+            <p className="thai-course-extra">＋航空券・宿泊・食事・移動などの実費</p>
+            <p>チェンマイのまちを歩き、市場のごはんを味わう。そして、湖に浮かぶサージャイへ。水辺で遊び、同じ食卓を囲み、何もしない時間も楽しむ旅です。</p>
+            <ul><li>チェンマイのまち・市場・人との出会い</li><li>サージャイで過ごす、湖と自然のある毎日</li><li>旅仲間と語り合い、それぞれのペースで過ごす時間</li></ul>
+            <p className="thai-course-for">こんな方に：1週間で北タイのまちと自然を味わいたい方。初めての海外旅や子ども連れの方も。</p>
+            <a className="thai-course-button" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">AコースをLINEで相談・参加希望</a>
+          </article>
+          <article className="thai-course-card thai-course-long" aria-labelledby="thai-course-b">
+            <p className="thai-course-label">B COURSE · 11 DAYS</p>
+            <h3 id="thai-course-b">湖の暮らしから、<br />民族の方々の暮らしへ</h3>
+            <p className="thai-course-date">2027年1月5日（火）〜15日（金）<span>11日間</span></p>
+            <p className="thai-course-price">188,000<small>円／大人1人</small></p>
+            <p className="thai-course-extra">＋航空券・宿泊・食事・移動などの実費</p>
+            <p>チェンマイとサージャイでの時間に、もう一歩深い出会いを。村を訪ね、一緒にごはんを囲み、手仕事や日々の営みにふれる。「その土地で生きる」を、少し分けてもらう旅です。</p>
+            <ul><li>Aコースと共通の、チェンマイ・サージャイでの時間</li><li>さらに4日間、民族の方々の暮らしを訪ねる旅へ</li><li>食卓・手仕事・日々のお手伝いを通した交流を予定</li></ul>
+            <p className="thai-course-for">こんな方に：その土地の人とじっくり出会いたい方。文化や暮らしを、日常の中で感じてみたい方。</p>
+            <a className="thai-course-button" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">BコースをLINEで相談・参加希望</a>
+          </article>
+        </div>
+        <div className="thai-fee-note">
+          <h3>参加費と、旅の実費について</h3>
+          <p>参加費は、出発前の旅の準備・参加者コミュニティ・現地での相談や学びの伴走に対する費用です。航空券・宿泊費・飲食費・現地交通費・体験料などは含まれません。予約・お支払いは各自で行い、準備や現地での困りごとは一緒に相談していきます。</p>
+          <p><strong>子どもの参加費は、中学生以下は半額、4歳以下は無料。</strong><br />5歳〜中学生：Aコース58,500円／Bコース94,000円。お子さんも航空券・宿泊・食事などの実費は別途必要です。</p>
+          <p>ひとりでも、友人同士でも、家族でも歓迎。LINEで「タイ旅・Aコース希望」または「タイ旅・Bコース希望」と、人数・お子さんの年齢をお知らせください。</p>
+        </div>
+      </section>
       <section className="thai-next-wrap thai-solo-welcome" id="solo-welcome" aria-labelledby="solo-title">
         <div data-journey-reveal><p className="thai-next-kicker">COME AS YOU ARE / 地球家族</p><h2 id="solo-title">違う毎日を生きる仲間と、<br />同じ旅をする面白さ。</h2></div>
         <div className="thai-next-prose" data-journey-reveal><p>子どもが見つけた小さな生きものに、大人も夢中になる。初めて会った人の話から、新しい「やってみたい」が生まれる。年齢も、暮らしも、ものの見方も違う仲間と旅すると、同じ景色にもいろんな発見がある。</p><p>ごはんを分け合い、現地の人と出会い、一緒に笑う。そんな時間を重ねながら、「はじめまして」が家族のようなつながりになっていく。</p><p><strong>EarthfamilyJourneyは、旅を通して「地球家族」のつながりを育む旅。</strong>ひとりの参加も、大切な人との参加も、その輪のはじまりです。</p><a className="thai-solo-text-link" href="#solo-questions">参加について気になることを見る</a></div>
@@ -102,7 +137,7 @@ export default function Thai2027() {
         <div className="thai-moments-heading"><div><p className="thai-next-kicker">FIND YOUR OWN MOMENT</p><h2 id="moments-title">いま、心が向くのは<br />どんな時間？</h2></div><p>気になる言葉を選んで、<br />湖のほとりの時間をのぞいてみてください。</p></div>
         <div className="thai-moment-buttons" role="group" aria-label="過ごしてみたい時間を選ぶ">{lakeMoments.map((item, index) => <button key={item.label} type="button" aria-pressed={index === momentIndex} aria-controls="thai-moment-panel" onClick={() => setMomentIndex(index)}><small>{item.number}</small>{item.label}<span aria-hidden="true">↗</span></button>)}</div>
         <div className="thai-moment-panel" id="thai-moment-panel"><img key={moment.image} src={moment.image} alt={moment.alt} width="1000" height="700" loading="lazy" /><div className="thai-moment-copy" aria-live="polite" aria-atomic="true"><span>{moment.number} / SAAIJAI</span><h3>{moment.title}</h3><p>{moment.text}</p><a href="#saijai-film">湖の暮らしを動画で見る ↗</a></div></div>
-        <p className="thai-moments-caption">サージャイで出逢った風景から。1月の詳しい行程は近日公開。</p>
+        <p className="thai-moments-caption">サージャイで出逢った風景から。1月の両コースで、この湖の暮らしを訪ねます。</p>
       </div></section>
       <section className="thai-next-wrap thai-next-story" id="saijai-story">
         <div><p className="thai-next-kicker">OUR ENCOUNTER / SAAIJAI VILLAGE</p><h2>旅先に、<br />帰りたい場所ができた。</h2></div>
@@ -119,16 +154,27 @@ export default function Thai2027() {
         <div className="thai-next-links"><a href="https://saaijai-village.com/assets/saijai-journey.mp4" target="_blank" rel="noopener noreferrer">動画を別の画面で見る ↗</a><a href="/saijai">サージャイの紹介ページへ →</a><a href="https://saaijai-village.com/" target="_blank" rel="noopener noreferrer">SaaiJai Village 公式サイト ↗</a></div>
       </div></section>
       <section className="thai-next-wrap thai-next-announcement" id="next-journey">
-        <p className="thai-next-kicker">NEXT JOURNEY / COMING SOON</p><h2>2027年1月。<br />チェンマイから、はじまる。</h2><p className="thai-next-lead">知らない場所が、なつかしい場所になる。<br />そんな出逢いを重ねる旅を、準備しています。</p>
-        <dl><div><dt>スタート</dt><dd>タイ・チェンマイ</dd></div><div><dt>時期</dt><dd>2027年1月予定</dd></div><div><dt>参加</dt><dd>ひとりでも、友人同士でも、家族でも歓迎</dd></div><div><dt>詳細</dt><dd>日程・行程・料金・参加方法は近日公開</dd></div></dl>
-        <p>サージャイとの出逢いから広がった、次の旅。訪問先や滞在日数など、詳しい内容はこのページでお知らせします。</p>
-        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">「行ってみたい」をLINEで伝える</a><small>「ひとりで」「友人と」「子どもと」など、思い描いている旅を聞かせてください。詳細公開前のご相談も歓迎です。</small>
+        <p className="thai-next-kicker">THE JOURNEY / 旅の流れ</p><h2>まちから湖へ。<br />そして、誰かの日常へ。</h2>
+        <p className="thai-next-lead">観光地を巡るだけでは出会えない、<br />その場所の人と、暮らしの時間を。</p>
+        <ol className="thai-itinerary">
+          <li><span>1/5 · はじまり</span><div><h3>チェンマイで「はじめまして」。</h3><p>旅仲間と顔を合わせ、北タイのまちへ。市場を歩いてごはんを選び、これからの旅をみんなで話すところから始めます。</p></div></li>
+          <li><span>両コース共通</span><div><h3>チェンマイとサージャイで、暮らすように。</h3><p>まちのにぎわいから、山々に囲まれた湖へ。サージャイで水辺の時間を楽しみ、食卓を囲み、人と話す。予定を詰め込みすぎず、自分や仲間の「やってみたい」に耳を傾けます。</p></div></li>
+          <li><span>1/11 · Aコース最終日</span><div><h3>7日間の出会いを、日常へ持ち帰る。</h3><p>Aコースはここで旅を振り返って解散。Bコースは、さらに4日間の旅へ進みます。</p></div></li>
+          <li><span>後半 · Bコースのみ</span><div><h3>民族の方々の暮らしに、おじゃまする。</h3><p>村の方々と相談しながら、その土地の食事や手仕事、日々の営みにふれる時間をつくります。一緒に食べる、教わる、手伝う。暮らしを分かち合う出会いを大切にします。</p></div></li>
+          <li><span>1/15 · Bコース最終日</span><div><h3>「また会おう」のある旅に。</h3><p>11日間で心に残ったことを分かち合って解散。旅で生まれたつながりを、それぞれの暮らしへ持ち帰ります。</p></div></li>
+        </ol>
+        <p className="thai-itinerary-note">上記は旅のイメージです。訪問する村・民族、滞在日数、体験内容は受け入れ先と調整し、決まり次第ご案内します。天候や現地の暮らし、参加者の状況に合わせて順序や内容が変わる場合があります。</p>
+        <dl><div><dt>集合</dt><dd>1月5日・タイのチェンマイ（場所・時刻は別途ご案内）</dd></div><div><dt>解散</dt><dd>A：1月11日／B：1月15日（場所・時刻は別途ご案内）</dd></div><div><dt>参加スタイル</dt><dd>ひとりでも、友人同士でも、家族でも</dd></div></dl>
+        <p>航空券は、集合・解散の詳細をご確認いただいてからお手配ください。希望の過ごし方や、お子さんのペースについてもLINEでご相談いただけます。</p>
+        <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">日程・参加についてLINEで相談する</a>
       </section>
       <section className="thai-next-wrap thai-solo-faq" id="solo-questions" aria-labelledby="solo-faq-title"><p className="thai-next-kicker">BEFORE YOUR FIRST STEP</p><h2 id="solo-faq-title">気がかりも、一緒に持ってきて。</h2>
-        <details><summary>ひとりでも参加できますか？</summary><p>はい。ひとりでも、友人同士でも、家族でも歓迎です。それぞれの暮らしや経験を持つ仲間が出会うことも、この旅の楽しみ。どんな旅をしてみたいか、公開前からLINEで聞かせてください。</p></details>
-        <details><summary>友人同士や、子ども連れで参加したいです。</summary><p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。日程や滞在先、部屋のタイプなど、詳しい条件は募集案内とあわせてお知らせします。</p></details>
-        <details><summary>海外が初めて。言葉や移動が心配です。</summary><p>航空券、現地での移動、言葉のこと。気になっていることを、まずはらんぼうに聞かせてください。集合場所の詳細や旅の進め方は、日程・参加方法とあわせてご案内します。</p></details>
-        <details><summary>部屋や、ひとり参加の場合の料金は？</summary><p>部屋のタイプや費用は、詳しい募集案内でお知らせします。個室の希望など、相談したいことがあればLINEでお伝えください。</p></details>
+        <details><summary>ひとりでも参加できますか？</summary><p>はい。ひとりでも、友人同士でも、家族でも歓迎です。それぞれの暮らしや経験を持つ仲間が出会うことも、この旅の楽しみ。どんな旅をしてみたいか、LINEで聞かせてください。</p></details>
+        <details><summary>友人同士や、子ども連れで参加したいです。</summary><p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。子どもの参加費は中学生以下半額、4歳以下無料です。滞在先や部屋のタイプなど、詳しい条件は個別にご案内します。</p></details>
+        <details><summary>海外が初めて。言葉や移動が心配です。</summary><p>航空券、現地での移動、言葉のこと。気になっていることを、まずはらんぼうに聞かせてください。出発前から相談しながら準備を進め、現地でも旅づくりをサポートします。集合・解散の場所と時刻は別途ご案内します。</p></details>
+        <details><summary>部屋や、ひとり参加の場合の料金は？</summary><p>大人1人の参加費はAコース117,000円、Bコース188,000円です。宿泊などの実費は別途となり、部屋のタイプによって変わります。個室の希望などはLINEでご相談ください。</p></details>
+        <details><summary>どの村・民族の方々を訪ねますか？</summary><p>Bコースの訪問先は、現地の方々の都合を伺いながら調整しています。村や民族の名前、宿泊・体験の詳細は、確定次第ご案内します。</p></details>
+        <details><summary>参加希望は、どこへ連絡すればいいですか？</summary><p>公式LINEに「タイ旅・Aコース希望」または「タイ旅・Bコース希望」と、参加人数・お子さんの年齢をお送りください。詳しい条件・お支払い・キャンセルについて確認いただいたうえで、お申し込みをご案内します。</p></details>
         <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">あなたの旅について、LINEで相談する</a>
       </section>
       <details className="thai-next-details" id="family-story"><summary>家族で世界を旅する理由。これまでの写真とストーリーを読む <span>＋</span></summary>
@@ -519,7 +565,7 @@ export default function Thai2027() {
           次に出会う旅仲間は、<br />
           <span className="s-marker">あなたかもしれない。</span>
         </p>
-        <p className="fp-sub reveal">ひとりでも、友人同士でも、家族でも。<br />2027年1月、チェンマイから、地球家族の輪を広げよう。<br />詳しい旅の案内は近日公開。</p>
+        <p className="fp-sub reveal">ひとりでも、友人同士でも、家族でも。<br />2027年1月、チェンマイから、地球家族の輪を広げよう。<br />1/5〜11の7日間、または1/5〜15の11日間。</p>
         <a className="fp-btn" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener">
           地球家族の旅を、LINEで相談する
         </a>
@@ -527,14 +573,14 @@ export default function Thai2027() {
 
       <ShareButtons
         url="https://www.tabigaku.party/thai-2027"
-        text="旅で出会えば、地球家族。ひとりでも、友人同士でも、家族でも。多様な仲間と出会うEarthfamilyJourney、2027年1月チェンマイスタート予定。詳細近日公開。"
+        text="旅で出会えば、地球家族。ひとりでも、友人同士でも、家族でも。多様な仲間と出会うEarthfamilyJourney、2027年1月5〜11日117,000円／1月5〜15日188,000円（実費別途）。チェンマイ・サージャイ、長いコースは民族の方々の暮らしへ。"
         title="＼ タイ旅をシェア ／"
       />
 
       {/* 固定CTA */}
       <div className="cta-fixed">
-        <a className="cta-btn" href="https://lin.ee/p3CvLfQ">
-          地球家族の旅を、LINEで相談する
+        <a className="cta-btn" href="#thai-courses">
+          2つのコース・参加費を見る
         </a>
       </div>
     </div>

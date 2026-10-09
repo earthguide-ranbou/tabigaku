@@ -9,7 +9,7 @@ export type Journey = {
   dateLabel: string;
   duration: string;
   age: string;
-  capacity: number;
+  capacity?: number;
   fee: string;
   expenses: string;
   image: string;
@@ -59,6 +59,24 @@ export const journeys: Journey[] = [
     description: "古の身体技法にふれながら、心とからだで味わうお遍路旅。",
     audiences: ["family", "adults"],
     form: "https://1lejend.com/stepmail/kd.php?no=fkdlxy",
+    line: "https://lin.ee/p3CvLfQ",
+  },
+  {
+    id: "thailand-2027",
+    title: "EarthfamilyJourney in Thailand",
+    href: "/thai-2027",
+    start: "2027-01-05T00:00:00+07:00",
+    end: "2027-01-15T23:59:59+07:00",
+    dateLabel: "2027.1.5（火）— 1.11（月）／1.15（金）",
+    duration: "7日間・11日間",
+    age: "おひとり・友人・親子歓迎",
+    fee: "117,000〜",
+    expenses: "",
+    image: "/images/saijai-lake.jpg",
+    alt: "山々と湖に囲まれたサージャイ・ヴィレッジ",
+    place: "タイ・チェンマイとサージャイ",
+    description: "7日間117,000円／11日間188,000円。長いコースは民族の方々の暮らしへ。航空券・宿泊などの実費別途。",
+    audiences: ["family", "adults"],
     line: "https://lin.ee/p3CvLfQ",
   },
   {
