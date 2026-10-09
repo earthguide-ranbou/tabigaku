@@ -14,8 +14,8 @@ export default function Thai2027() {
   const [momentIndex, setMomentIndex] = useState(0);
   const moment = lakeMoments[momentIndex];
   useSEO({
-    title: "2027年1月・タイ旅｜7日間117,000円／11日間188,000円｜EarthfamilyJourney",
-    description: "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月5〜11日・7日間117,000円、1月5〜15日・11日間188,000円（実費別途）。チェンマイとサージャイを中心に、長いコースは民族の方々の暮らしへ。",
+    title: "2027年1月・タイ旅｜チェンマイと湖の暮らしへ｜EarthfamilyJourney",
+    description: "ひとりでも、友人同士でも、家族でも。多様な仲間と出会い、暮らしにふれ、地球家族のつながりを育むEarthfamilyJourney。2027年1月5〜11日・現地サポート117,000円、1月5〜15日・188,000円。事前会費30,000円／1家族、航空券などの実費は別途。チェンマイとサージャイを中心に、長いコースは民族の方々の暮らしへ。",
     keywords: "ひとり参加, 大人の旅, チェンマイ, 家族旅, タイ 旅, EarthfamilyJourney, 旅育, 子連れ 海外旅行, あーすガイド, らんぼう, 神山町, 徳島, 先住民 体験, バリ島, 家族 海外体験, 子ども 海外",
     ogImage: "https://www.tabigaku.party/images/saijai-lake.jpg",
     ogUrl: "/thai-2027",
@@ -84,45 +84,73 @@ export default function Thai2027() {
           <p className="thai-hero-invitation">同じ食卓を囲み、湖に浮かぶ村で過ごす。<br />チェンマイから、景色と人に会いにいこう。</p>
           <p className="thai-solo-badge">あなたの「行ってみたい」から、EarthfamilyJourneyへ</p>
           <a href="#thai-courses">2つのコース・参加費を見る</a>
-          <small>1/5〜11：117,000円 ／ 1/5〜15：188,000円<br />大人1人・航空券や宿泊などの実費は別途</small>
+          <small>現地サポート：7日間117,000円／11日間188,000円<br />＋事前の旅スキル講座・コミュニティ会費30,000円／1家族<br />航空券・宿泊・食事などの実費は別途</small>
         </div>
       </section>
-      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#thai-courses">コース・料金</a><a href="#solo-welcome">地球家族の旅って？</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">旅の流れ</a><a href="#family-story">旅の原点とストーリー</a></nav>
+      <nav className="thai-next-nav" aria-label="タイ旅ページ内の案内"><a href="#journey-scenes">旅のイメージ</a><a href="#thai-courses">2つのコース</a><a href="#thai-fees">費用・お支払い</a><a href="#solo-welcome">地球家族の旅って？</a><a href="#lake-moments">過ごしたい時間</a><a href="#saijai-story">サージャイとの出逢い</a><a href="#saijai-film">動画を見る</a><a href="#next-journey">旅の流れ</a><a href="#family-story">旅の原点とストーリー</a></nav>
 
+      <section className="thai-next-wrap thai-photo-story" id="journey-scenes" aria-labelledby="thai-scenes-title">
+        <div className="thai-photo-story-copy"><p className="thai-next-kicker">LET’S GO TO THAILAND</p><h2 id="thai-scenes-title">「おいしい！」も、<br />「はじめまして」も、<br /><em>旅の宝ものになる。</em></h2><p>市場で気になるごはんを選んでみる。<br />湖の上で、何もしない時間を楽しむ。<br />同じ食卓を囲んで、気づけば一緒に笑っている。</p><p>予定を埋めるより、心が動く方へ。<br />大人も子どもも、自分の「やってみたい」を<br />持ち寄ってつくる、地球家族の旅です。</p><a href="#next-journey">まちから湖、村へ。旅の流れを見る</a></div>
+        <div className="thai-photo-collage">
+          <figure className="thai-photo-wide"><img src="/images/saijai-family.webp" alt="サージャイの湖とカヤック、空いっぱいに広がる夕焼け" width="1000" height="667" loading="lazy" decoding="async" /><figcaption>空の色が変わるまで、湖のほとりで。</figcaption></figure>
+          <figure><img src="/manus-storage/thai_img_05_1f27ba11.jpg" alt="バナナの葉に盛られた、ライムと野菜を添えたパッタイ" width="500" height="500" loading="lazy" decoding="async" /><figcaption>「これ、食べてみたい！」</figcaption></figure>
+          <figure><img src="/manus-storage/thai_img_07_1ea2f736.jpg" alt="あかりの灯る屋外の食卓に集まった、大人と子どもの笑顔" width="500" height="500" loading="lazy" decoding="async" /><figcaption>ひとりで来ても、旅仲間がいる。</figcaption></figure>
+        </div>
+        <p className="thai-photo-note">サージャイの風景と、これまでの旅の写真から。</p>
+      </section>
       <section className="thai-next-wrap thai-courses" id="thai-courses" aria-labelledby="thai-courses-title">
         <p className="thai-next-kicker">TWO WAYS TO JOURNEY / 2027.01</p>
         <h2 id="thai-courses-title">湖でほどける7日間。<br />暮らしの奥へ進む11日間。</h2>
         <p className="thai-course-intro">どちらも、チェンマイとサージャイから。<br />あなたの「行ってみたい」に合う旅を選んでください。</p>
         <div className="thai-course-grid">
           <article className="thai-course-card" aria-labelledby="thai-course-a">
+            <figure className="thai-course-photo"><img src="/images/saijai-lake.jpg" alt="山に抱かれた湖の上に浮かぶサージャイの家々" width="1000" height="667" loading="lazy" decoding="async" /><figcaption>チェンマイから、湖に浮かぶ村へ。</figcaption></figure>
             <p className="thai-course-label">A COURSE · 7 DAYS</p>
             <h3 id="thai-course-a">チェンマイと<br />湖の暮らしを楽しむコース</h3>
             <p className="thai-course-date">2027年1月5日（火）〜11日（月）<span>7日間</span></p>
-            <p className="thai-course-price">117,000<small>円／大人1人</small></p>
-            <p className="thai-course-extra">＋航空券・宿泊・食事・移動などの実費</p>
+            <p className="thai-course-price-label">現地サポート費</p><p className="thai-course-price">117,000<small>円／大人1人</small></p>
+            <p className="thai-course-extra">＋事前会費30,000円／1家族<br />＋航空券・宿泊・食事・移動などの実費</p>
             <p>チェンマイのまちを歩き、市場のごはんを味わう。そして、湖に浮かぶサージャイへ。水辺で遊び、同じ食卓を囲み、何もしない時間も楽しむ旅です。</p>
             <ul><li>チェンマイのまち・市場・人との出会い</li><li>サージャイで過ごす、湖と自然のある毎日</li><li>旅仲間と語り合い、それぞれのペースで過ごす時間</li></ul>
             <p className="thai-course-for">こんな方に：1週間で北タイのまちと自然を味わいたい方。初めての海外旅や子ども連れの方も。</p>
             <a className="thai-course-button" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">AコースをLINEで相談・参加希望</a>
           </article>
           <article className="thai-course-card thai-course-long" aria-labelledby="thai-course-b">
+            <figure className="thai-course-photo"><img src="/images/saijai-life.webp" alt="水上の建物のデッキで過ごす、サージャイの滞在風景" width="1000" height="667" loading="lazy" decoding="async" /><figcaption>サージャイから、その先の出会いへ。</figcaption></figure>
             <p className="thai-course-label">B COURSE · 11 DAYS</p>
             <h3 id="thai-course-b">湖の暮らしから、<br />民族の方々の暮らしへ</h3>
             <p className="thai-course-date">2027年1月5日（火）〜15日（金）<span>11日間</span></p>
-            <p className="thai-course-price">188,000<small>円／大人1人</small></p>
-            <p className="thai-course-extra">＋航空券・宿泊・食事・移動などの実費</p>
+            <p className="thai-course-price-label">現地サポート費</p><p className="thai-course-price">188,000<small>円／大人1人</small></p>
+            <p className="thai-course-extra">＋事前会費30,000円／1家族<br />＋航空券・宿泊・食事・移動などの実費</p>
             <p>チェンマイとサージャイでの時間に、もう一歩深い出会いを。村を訪ね、一緒にごはんを囲み、手仕事や日々の営みにふれる。「その土地で生きる」を、少し分けてもらう旅です。</p>
             <ul><li>Aコースと共通の、チェンマイ・サージャイでの時間</li><li>さらに4日間、民族の方々の暮らしを訪ねる旅へ</li><li>食卓・手仕事・日々のお手伝いを通した交流を予定</li></ul>
             <p className="thai-course-for">こんな方に：その土地の人とじっくり出会いたい方。文化や暮らしを、日常の中で感じてみたい方。</p>
             <a className="thai-course-button" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">BコースをLINEで相談・参加希望</a>
           </article>
         </div>
-        <div className="thai-fee-note">
-          <h3>参加費と、旅の実費について</h3>
-          <p>参加費は、出発前の旅の準備・参加者コミュニティ・現地での相談や学びの伴走に対する費用です。航空券・宿泊費・飲食費・現地交通費・体験料などは含まれません。予約・お支払いは各自で行い、準備や現地での困りごとは一緒に相談していきます。</p>
-          <p><strong>子どもの参加費は、中学生以下は半額、4歳以下は無料。</strong><br />5歳〜中学生：Aコース58,500円／Bコース94,000円。お子さんも航空券・宿泊・食事などの実費は別途必要です。</p>
-          <p>ひとりでも、友人同士でも、家族でも歓迎。LINEで「タイ旅・Aコース希望」または「タイ旅・Bコース希望」と、人数・お子さんの年齢をお知らせください。</p>
+        <p className="thai-course-intro">旅の準備から、一緒に。<a className="thai-solo-text-link" href="#thai-fees">事前の3万円・現地サポート・実費の内訳を見る</a></p>
+      </section>
+      <section className="thai-next-wrap thai-fees" id="thai-fees" aria-labelledby="thai-fees-title">
+        <p className="thai-next-kicker">BEFORE DEPARTURE / 旅の準備は、ここから</p>
+        <h2 id="thai-fees-title">まずは事前に、3万円。<br />不安を、楽しみに変えていこう。</h2>
+        <p className="thai-course-intro">費用は「出発前の準備」「現地でのサポート」「旅の実費」の3つ。<br />何に、いくら必要なのかを分けてご案内します。</p>
+        <div className="thai-payment-step thai-payment-prep">
+          <div className="thai-payment-number">01<span>お申し込み時・事前のお支払い</span></div>
+          <div><h3>出発前 旅スキル講座<br />＋参加者限定コミュニティ会費</h3><p className="thai-prep-price">30,000<small>円／1家族につき</small></p><p>航空券はどう選ぶ？ 荷物は？ 子どものごはんは？<br />出発前から顔を合わせ、気になることを相談しながら、旅の準備を進めます。</p><ul><li>事前Zoomミーティング2回</li><li>旅の準備に役立つ記事</li><li>参加者限定LINEグループでの相談</li></ul><p className="thai-payment-note">ひとり参加は1人で30,000円。家族で参加する場合は、人数にかかわらず1家族で30,000円です。現地サポート費とは別の費用で、内金ではありません。</p></div>
         </div>
+        <div className="thai-payment-step">
+          <div className="thai-payment-number">02<span>コースと人数で決まる費用</span></div>
+          <div><h3>現地サポート費</h3><p>基本は仲間と一緒に行動しながら、食事も遊びも、出会いも楽しむ。自分で選んで動く時間も大切にしながら、現地での相談や学びをサポートします。</p>
+          <dl className="thai-fee-rows"><div><dt>Aコース · 1/5〜11</dt><dd>117,000円／大人1人</dd></div><div><dt>Bコース · 1/5〜15</dt><dd>188,000円／大人1人</dd></div></dl>
+          <p><strong>中学生以下は半額・4歳以下は無料</strong>（現地サポート費のみ）。<br />5歳〜中学生：Aコース58,500円／Bコース94,000円。</p><p className="thai-payment-note">現地サポート費のお支払い時期・方法は、お申し込み時にご案内します。</p></div>
+        </div>
+        <div className="thai-fee-totals"><h3>大人1人で参加する場合</h3><div><span>Aコース</span><p>事前30,000円 ＋ 現地サポート117,000円</p><strong>合計147,000円<small>＋実費</small></strong></div><div><span>Bコース</span><p>事前30,000円 ＋ 現地サポート188,000円</p><strong>合計218,000円<small>＋実費</small></strong></div></div>
+        <details className="thai-family-example"><summary>家族3人の料金例を見る（大人1人＋小学生1人＋3歳のお子さん）</summary><p>事前会費は1家族で30,000円。小学生の現地サポート費は半額、3歳のお子さんは無料です。</p><dl className="thai-fee-rows"><div><dt>Aコース</dt><dd>30,000 ＋ 117,000 ＋ 58,500 ＋ 0<br /><strong>合計205,500円＋実費</strong></dd></div><div><dt>Bコース</dt><dd>30,000 ＋ 188,000 ＋ 94,000 ＋ 0<br /><strong>合計312,000円＋実費</strong></dd></div></dl></details>
+        <div className="thai-payment-step">
+          <div className="thai-payment-number">03<span>各自で手配・お支払い</span></div>
+          <div><h3>航空券 ＋ 現地での旅費</h3><p>航空券・宿泊費・飲食費・現地交通費・体験料などは、上記の費用には含まれません。予約・お支払いは各自で行うスタイルです。</p><p>「航空券を取ったことがない」という方も、出発前からご相談ください。お子さんも、航空券・宿泊・食事などの実費は別途必要です。</p></div>
+        </div>
+        <div className="thai-fee-note"><h3>旅の一歩目は、LINEから。</h3><p>「タイ旅・Aコース希望」または「タイ旅・Bコース希望」と、参加人数・お子さんの年齢をお知らせください。詳しい条件とお支払いをご確認いただき、お申し込みへ進みます。</p><a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">旅の準備・参加についてLINEで相談する</a></div>
       </section>
       <section className="thai-next-wrap thai-solo-welcome" id="solo-welcome" aria-labelledby="solo-title">
         <div data-journey-reveal><p className="thai-next-kicker">COME AS YOU ARE / 地球家族</p><h2 id="solo-title">違う毎日を生きる仲間と、<br />同じ旅をする面白さ。</h2></div>
@@ -157,10 +185,10 @@ export default function Thai2027() {
         <p className="thai-next-kicker">THE JOURNEY / 旅の流れ</p><h2>まちから湖へ。<br />そして、誰かの日常へ。</h2>
         <p className="thai-next-lead">観光地を巡るだけでは出会えない、<br />その場所の人と、暮らしの時間を。</p>
         <ol className="thai-itinerary">
-          <li><span>1/5 · はじまり</span><div><h3>チェンマイで「はじめまして」。</h3><p>旅仲間と顔を合わせ、北タイのまちへ。市場を歩いてごはんを選び、これからの旅をみんなで話すところから始めます。</p></div></li>
-          <li><span>両コース共通</span><div><h3>チェンマイとサージャイで、暮らすように。</h3><p>まちのにぎわいから、山々に囲まれた湖へ。サージャイで水辺の時間を楽しみ、食卓を囲み、人と話す。予定を詰め込みすぎず、自分や仲間の「やってみたい」に耳を傾けます。</p></div></li>
+          <li><span>1/5 · はじまり</span><div><figure className="thai-route-photo"><img src="/manus-storage/thai_img_05_1f27ba11.jpg" alt="旅の楽しみのひとつ、タイのパッタイ" loading="lazy" decoding="async" width="600" height="400" /><figcaption>気になる味を、ひとくち。食のイメージ。</figcaption></figure><h3>チェンマイで「はじめまして」。</h3><p>旅仲間と顔を合わせ、北タイのまちへ。市場を歩いてごはんを選び、これからの旅をみんなで話すところから始めます。</p></div></li>
+          <li><span>両コース共通</span><div><figure className="thai-route-photo"><img src="/images/saijai-life.webp" alt="湖に開かれたサージャイのデッキと茅葺きの家" loading="lazy" decoding="async" width="900" height="600" /><figcaption>ここで起きて、食べて、遊んで。湖の暮らしへ。</figcaption></figure><h3>チェンマイとサージャイで、暮らすように。</h3><p>まちのにぎわいから、山々に囲まれた湖へ。サージャイで水辺の時間を楽しみ、食卓を囲み、人と話す。予定を詰め込みすぎず、自分や仲間の「やってみたい」に耳を傾けます。</p></div></li>
           <li><span>1/11 · Aコース最終日</span><div><h3>7日間の出会いを、日常へ持ち帰る。</h3><p>Aコースはここで旅を振り返って解散。Bコースは、さらに4日間の旅へ進みます。</p></div></li>
-          <li><span>後半 · Bコースのみ</span><div><h3>民族の方々の暮らしに、おじゃまする。</h3><p>村の方々と相談しながら、その土地の食事や手仕事、日々の営みにふれる時間をつくります。一緒に食べる、教わる、手伝う。暮らしを分かち合う出会いを大切にします。</p></div></li>
+          <li><span>後半 · Bコースのみ</span><div><figure className="thai-route-photo"><img src="/manus-storage/thai_img_07_1ea2f736.jpg" alt="これまでの旅で出会った大人と子どもたち" loading="lazy" decoding="async" width="600" height="400" /><figcaption>これまでの旅での交流風景。今回の訪問先は調整中です。</figcaption></figure><h3>民族の方々の暮らしに、おじゃまする。</h3><p>村の方々と相談しながら、その土地の食事や手仕事、日々の営みにふれる時間をつくります。一緒に食べる、教わる、手伝う。暮らしを分かち合う出会いを大切にします。</p></div></li>
           <li><span>1/15 · Bコース最終日</span><div><h3>「また会おう」のある旅に。</h3><p>11日間で心に残ったことを分かち合って解散。旅で生まれたつながりを、それぞれの暮らしへ持ち帰ります。</p></div></li>
         </ol>
         <p className="thai-itinerary-note">上記は旅のイメージです。訪問する村・民族、滞在日数、体験内容は受け入れ先と調整し、決まり次第ご案内します。天候や現地の暮らし、参加者の状況に合わせて順序や内容が変わる場合があります。</p>
@@ -170,9 +198,9 @@ export default function Thai2027() {
       </section>
       <section className="thai-next-wrap thai-solo-faq" id="solo-questions" aria-labelledby="solo-faq-title"><p className="thai-next-kicker">BEFORE YOUR FIRST STEP</p><h2 id="solo-faq-title">気がかりも、一緒に持ってきて。</h2>
         <details><summary>ひとりでも参加できますか？</summary><p>はい。ひとりでも、友人同士でも、家族でも歓迎です。それぞれの暮らしや経験を持つ仲間が出会うことも、この旅の楽しみ。どんな旅をしてみたいか、LINEで聞かせてください。</p></details>
-        <details><summary>友人同士や、子ども連れで参加したいです。</summary><p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。子どもの参加費は中学生以下半額、4歳以下無料です。滞在先や部屋のタイプなど、詳しい条件は個別にご案内します。</p></details>
+        <details><summary>友人同士や、子ども連れで参加したいです。</summary><p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。子どもの現地サポート費は中学生以下半額、4歳以下無料です。事前会費30,000円は1家族につき必要です。滞在先や部屋のタイプなど、詳しい条件は個別にご案内します。</p></details>
         <details><summary>海外が初めて。言葉や移動が心配です。</summary><p>航空券、現地での移動、言葉のこと。気になっていることを、まずはらんぼうに聞かせてください。出発前から相談しながら準備を進め、現地でも旅づくりをサポートします。集合・解散の場所と時刻は別途ご案内します。</p></details>
-        <details><summary>部屋や、ひとり参加の場合の料金は？</summary><p>大人1人の参加費はAコース117,000円、Bコース188,000円です。宿泊などの実費は別途となり、部屋のタイプによって変わります。個室の希望などはLINEでご相談ください。</p></details>
+        <details><summary>部屋や、ひとり参加の場合の料金は？</summary><p>現地サポート費はAコース117,000円、Bコース188,000円。別途、事前会費30,000円／1家族が必要です。大人1人なら合計A147,000円／B218,000円＋実費。宿泊費は部屋のタイプによって変わります。個室の希望などはLINEでご相談ください。</p></details>
         <details><summary>どの村・民族の方々を訪ねますか？</summary><p>Bコースの訪問先は、現地の方々の都合を伺いながら調整しています。村や民族の名前、宿泊・体験の詳細は、確定次第ご案内します。</p></details>
         <details><summary>参加希望は、どこへ連絡すればいいですか？</summary><p>公式LINEに「タイ旅・Aコース希望」または「タイ旅・Bコース希望」と、参加人数・お子さんの年齢をお送りください。詳しい条件・お支払い・キャンセルについて確認いただいたうえで、お申し込みをご案内します。</p></details>
         <a className="thai-next-line" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">あなたの旅について、LINEで相談する</a>
@@ -573,7 +601,7 @@ export default function Thai2027() {
 
       <ShareButtons
         url="https://www.tabigaku.party/thai-2027"
-        text="旅で出会えば、地球家族。ひとりでも、友人同士でも、家族でも。多様な仲間と出会うEarthfamilyJourney、2027年1月5〜11日117,000円／1月5〜15日188,000円（実費別途）。チェンマイ・サージャイ、長いコースは民族の方々の暮らしへ。"
+        text="旅で出会えば、地球家族。ひとりでも、友人同士でも、家族でも。多様な仲間と出会うEarthfamilyJourney、2027年1月5〜11日・現地サポート117,000円／1月5〜15日・188,000円。事前会費30,000円／1家族と実費が別途必要です。チェンマイ・サージャイ、長いコースは民族の方々の暮らしへ。"
         title="＼ タイ旅をシェア ／"
       />
 
