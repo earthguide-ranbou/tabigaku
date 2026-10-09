@@ -26,6 +26,12 @@ try {
   if (!/<div id="root"><\/div>/.test(template)) throw new Error('Expected the original empty app root before prerendering');
   await writeFile(path.join(output, 'app-shell.html'), template.replace('</head>', `${seoHead('/__app-shell')}\n</head>`));
   for (const route of Object.keys(pages)) {
+    if (route === '/thai-2027') {
+      const supplied = await readFile(path.join(root, 'client/public/thai-2027.html'), 'utf8');
+      const graph = seoHead(route).match(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/)?.[0] || '';
+      await writeFile(path.join(output, 'thai-2027.html'), supplied.replace('</head>', `${graph}\n</head>`));
+      continue;
+    }
     const html = await renderPage(route);
     if (!html.trim()) throw new Error(`Empty page: ${route}`);
     const rendered = template.replace('</head>', `${seoHead(route)}\n</head>`).replace('<div id="root"></div>', () => `<div id="root">${html}</div>`);
