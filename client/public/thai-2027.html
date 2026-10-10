@@ -556,7 +556,7 @@ details a{color:var(--amber)}
         <div class="pass-stub">
           <p class="price-lab">現地サポート費／大人1人</p>
           <p class="price"><span class="big" data-p="A.sup">110,000円</span></p>
-          <p class="kid">5歳〜中学生 <span data-p="A.kid">55,000円</span>／4歳以下 無料</p>
+          <p class="kid">5歳〜中学生 <span data-p="A.kid">55,000円</span><br>4歳以下は1家族につき1人目無料。2人目以降は1人<span data-p="A.infant">30,000円</span></p>
           <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
           <a class="btn full" data-apply data-course="A" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A">Aプランに申し込む</a>
         </div>
@@ -585,7 +585,7 @@ details a{color:var(--amber)}
         <div class="pass-stub">
           <p class="price-lab">現地サポート費／大人1人</p>
           <p class="price"><span class="big" data-p="B.sup">110,000円</span></p>
-          <p class="kid">5歳〜中学生 <span data-p="B.kid">55,000円</span>／4歳以下 無料</p>
+          <p class="kid">5歳〜中学生 <span data-p="B.kid">55,000円</span><br>4歳以下は1家族につき1人目無料。2人目以降は1人<span data-p="B.infant">30,000円</span></p>
           <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
           <a class="btn full" data-apply data-course="B" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=B">Bプランに申し込む</a>
         </div>
@@ -613,7 +613,7 @@ details a{color:var(--amber)}
         <div class="pass-stub">
           <p class="price-lab">現地サポート費／大人1人</p>
           <p class="price"><span class="big" data-p="SPECIAL.sup">188,000円</span></p>
-          <p class="kid">5歳〜中学生 <span data-p="SPECIAL.kid">94,000円</span>／4歳以下 無料</p>
+          <p class="kid">5歳〜中学生 <span data-p="SPECIAL.kid">94,000円</span><br>4歳以下は1家族につき1人目無料。2人目以降は1人<span data-p="SPECIAL.infant">55,000円</span></p>
           <p class="plus">＋旅スキル講座 <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span>／1家族<span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span>　＋航空券・宿泊・食事・移動などの実費</p>
           <a class="btn full" data-apply data-course="SPECIAL" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=SPECIAL">SPECIALプランに申し込む</a>
         </div>
@@ -666,7 +666,7 @@ details a{color:var(--amber)}
         <div class="step"><button type="button" data-k="adult" data-d="-1" aria-label="大人を1人減らす">−</button><output id="v-adult" aria-labelledby="l-adult">1</output><button type="button" data-k="adult" data-d="1" aria-label="大人を1人増やす">＋</button></div></div>
       <div class="row"><label id="l-kid">5歳〜中学生<small>現地サポート費が半額</small></label>
         <div class="step"><button type="button" data-k="kid" data-d="-1" aria-label="5歳〜中学生を1人減らす">−</button><output id="v-kid" aria-labelledby="l-kid">0</output><button type="button" data-k="kid" data-d="1" aria-label="5歳〜中学生を1人増やす">＋</button></div></div>
-      <div class="row"><label id="l-infant">4歳以下<small>現地サポート費は無料</small></label>
+      <div class="row"><label id="l-infant">4歳以下<small>1人目無料。2人目以降は1人<span id="infant-unit">30,000円</span></small></label>
         <div class="step"><button type="button" data-k="infant" data-d="-1" aria-label="4歳以下を1人減らす">−</button><output id="v-infant" aria-labelledby="l-infant">0</output><button type="button" data-k="infant" data-d="1" aria-label="4歳以下を1人増やす">＋</button></div></div>
       <div class="row"><label id="l-dao">EarthfamilyDAO<small>オプション・旅のあとも続く1年会員</small></label>
         <button type="button" class="sw" id="dao-sw" role="switch" aria-checked="false" aria-labelledby="l-dao"></button></div>
@@ -848,7 +848,7 @@ details a{color:var(--amber)}
     </details>
     <details>
       <summary>友人同士や、子ども連れで参加したいです。</summary>
-      <p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。お子さんの現地サポート費は、5歳〜中学生が半額、4歳以下は無料です。滞在先や部屋のタイプなど、詳しい条件は個別にご案内します。</p>
+      <p>ぜひご相談ください。参加を考えている人数やお子さんの年齢、気になっていることをLINEでお伝えください。お子さんの現地サポート費は、5歳〜中学生が半額です。4歳以下は1家族につき1人目無料、2人目以降は1人あたりA・Bプラン<span data-p="A.infant">30,000円</span>、SPECIALプラン<span data-p="SPECIAL.infant">55,000円</span>です。滞在先や部屋のタイプなど、詳しい条件は個別にご案内します。</p>
     </details>
     <details>
       <summary>海外が初めて。言葉や移動が心配です。</summary>
@@ -921,9 +921,9 @@ details a{color:var(--amber)}
     deadline: '2026-10-31T23:59:59.999+09:00',   // 早割の締切（日本時間）
     deadlineYMD: [2026, 10, 31],             // 残り日数の計算用（年, 月, 日）
     fee: { reg: 50000, early: 30000 },       // 旅スキル講座（1家族 / ひとり参加は1人）。早割期間は early
-    A: { sup: 110000 },                      // Aプラン 大人1人の現地サポート費（子ども半額）
-    B: { sup: 110000 },                      // Bプラン 大人1人の現地サポート費（子ども半額）
-    SPECIAL: { sup: 188000 },                // SPECIALプラン 大人1人の現地サポート費（子ども半額）
+    A: { sup: 110000, infant: 30000 },        // 5歳〜中学生は半額。4歳以下は1人目無料、infantは2人目以降の単価
+    B: { sup: 110000, infant: 30000 },
+    SPECIAL: { sup: 188000, infant: 55000 },
     dao: {                                   // EarthfamilyDAO 年会費（1年・オプション・早割なし）
       lite: { name: 'ライト',       nights: 3,  solo: 11000, family: 22000 },
       std:  { name: 'スタンダード', nights: 10, solo: 33000, family: 55000 },
@@ -942,7 +942,7 @@ details a{color:var(--amber)}
     if (key === 'off') return off;
     const [c, t, u] = key.split('.');       // 'A.sup'（大人）／'A.kid'（5歳〜中学生）／'dao.lite.solo'
     if (c === 'dao') return CFG.dao[t][u];
-    return t === 'kid' ? CFG[c].sup / 2 : CFG[c].sup;
+    return t === 'kid' ? CFG[c].sup / 2 : CFG[c][t];
   };
   document.querySelectorAll('[data-p]').forEach(el => { el.textContent = yen(val(el.dataset.p)); });
 
@@ -969,19 +969,24 @@ details a{color:var(--amber)}
   function calc(early) {
     const base = CFG[S.course].sup;
     const kidUnit = base / 2;
+    const infantUnit = CFG[S.course].infant;
+    const paidInfants = Math.max(0, S.infant - 1);
+    const infantFee = paidInfants * infantUnit;
     const fee = early ? CFG.fee.early : CFG.fee.reg;
     const dao = S.dao ? CFG.dao[S.daoPlan][daoType()] : 0;
-    return { base, kidUnit, fee, dao, total: fee + S.adult * base + S.kid * kidUnit + dao };
+    return { base, kidUnit, infantUnit, paidInfants, infantFee, fee, dao, total: fee + S.adult * base + S.kid * kidUnit + infantFee + dao };
   }
   function renderSim() {
     const early = isEarly();
     const cur = calc(early), reg = calc(false);
+    $('infant-unit').textContent = yen(cur.infantUnit);
     $('r-total').textContent = yen(cur.total);
     const saving = reg.total - cur.total;
     $('r-off').textContent = early && saving > 0 ? `早割で −${yen(saving)}` : '';
     const rows = [[`旅スキル講座（1家族）`, yen(cur.fee)], [`大人 × ${S.adult}`, yen(S.adult * cur.base)]];
     if (S.kid) rows.push([`5歳〜中学生 × ${S.kid}`, yen(S.kid * cur.kidUnit)]);
-    if (S.infant) rows.push([`4歳以下 × ${S.infant}`, '無料']);
+    if (S.infant) rows.push(['4歳以下・1人目', '無料']);
+    if (cur.paidInfants) rows.push([`4歳以下・2人目以降 × ${cur.paidInfants}`, yen(cur.infantFee)]);
     if (S.dao) rows.push([`${daoLabel()}・1年`, yen(cur.dao)]);
     $('r-rows').innerHTML = rows.map(r => `<div><dt>${r[0]}</dt><dd>${r[1]}</dd></div>`).join('');
     $('r-reg').textContent = early ? `通常価格なら ${yen(reg.total)}` : '';
