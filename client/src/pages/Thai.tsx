@@ -59,7 +59,7 @@ export default function Thai() {
 
   return (
     <div className="thai-page">
-      <aside className="booking-status"><strong>2026年8月の開催は終了しました。</strong><span>以下は当時の日程・料金・開催案内です。</span><a href="/thai-2027#courses">2027年1月：現地サポート110,000円〜＋旅スキル講座30,000円／1家族（10/31まで）・実費別途</a></aside>
+      <aside className="booking-status"><strong>2026年8月の開催は終了しました。</strong><span>以下は当時の日程・料金・開催案内です。</span><a href="/thai-2027#courses">2027年1月：現地サポート110,000円〜＋JOURNEY LAB30,000円／1家族（10/31まで）・実費別途</a></aside>
       <header className="brandbar">
         <div className="logo">
           Earthfamily<span>Journey</span>
