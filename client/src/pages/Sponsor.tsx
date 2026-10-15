@@ -51,7 +51,7 @@ export default function SponsorPage() {
       <div className="pt-36 pb-16 bg-muted/40 border-b border-border/50">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0.76, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             className="max-w-2xl"
@@ -75,7 +75,7 @@ export default function SponsorPage() {
           {/* Intro section */}
           <motion.div
             id="sponsor-content"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.76, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-16 md:mb-20"
@@ -106,7 +106,7 @@ export default function SponsorPage() {
             {plans.map((plan, i) => (
               <motion.div
                 key={plan.tier}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0.76, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.15 + i * 0.08 }}
                 className={`relative rounded-2xl border ${plan.borderColor} bg-gradient-to-br ${plan.color} p-7 flex flex-col gap-4 ${
@@ -138,13 +138,13 @@ export default function SponsorPage() {
 
           {/* CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.76, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center"
           >
             <a
-              href="https://share.google/6VQmg2ssLUc3mu2TS"
+              href="https://1lejend.com/stepmail/kd.php?no=fmefIRnMo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-base hover:bg-primary/90 transition-all duration-200 hover:scale-[1.03] shadow-lg shadow-primary/20"
@@ -153,7 +153,7 @@ export default function SponsorPage() {
               <ArrowRight className="w-4 h-4" />
             </a>
             <p className="text-sm text-muted-foreground mt-5">
-              まずはお気軽にメールにてお問い合わせください
+              フォームで希望コースと連絡先をご入力ください。ご相談はメールでも受け付けています。
             </p>
           </motion.div>
         </div>

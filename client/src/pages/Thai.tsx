@@ -68,7 +68,7 @@ export default function Thai() {
 
       <section className="hero">
         <h1 className="sr-only">
-          EarthfamilyJourney in Thailand ── 地球を家族と旅をする育成プログラム
+          EarthfamilyJourney in Thailand ── 家族と地球を旅する育成プログラム
         </h1>
         <div className="hero-visual">
           <img

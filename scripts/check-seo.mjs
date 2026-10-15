@@ -7,7 +7,7 @@ assert.ok(robots.includes(`Sitemap: ${audit.origin}/sitemap.xml`));
 assert.ok(!/Disallow:\s*\/$/m.test(robots));
 const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1]);
 assert.equal(new Set(urls).size, urls.length, 'Duplicate sitemap URLs');
-assert.equal(urls.length, audit.indexedRoutes.length);
+assert.equal(urls.length, audit.sitemapRoutes.length);
 const titles = new Set();
 for (const route of audit.generatedRoutes) {
   const file = route === '/' ? 'index.html' : route.slice(1) + '.html';
@@ -20,13 +20,14 @@ for (const route of audit.generatedRoutes) {
   assert.equal((head.match(/name="description"/g) ?? []).length, 1, `${route}: description count`);
   const canonical = [...head.matchAll(/rel="canonical" href="([^"]+)"/g)].map(m => m[1]);
   if (audit.indexedRoutes.includes(route)) {
-    assert.deepEqual(canonical, [audit.origin + route], `${route}: canonical must match the requested public page`);
-    assert.ok(urls.includes(audit.origin + route), `${route}: missing sitemap URL`);
+    assert.deepEqual(canonical, [audit.canonicalUrls[route]], `${route}: canonical must match the page manifest`);
+    if (audit.sitemapRoutes.includes(route)) assert.ok(urls.includes(audit.origin + route), `${route}: missing sitemap URL`);
+    else assert.ok(!urls.includes(audit.origin + route), `${route}: duplicate wrapper must stay out of sitemap`);
     assert.ok(!/name="robots" content="noindex/.test(head), `${route}: unexpected noindex`);
     const ld = [...head.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
     assert.equal(ld.length, 1, `${route}: one structured-data graph`);
     const graph = JSON.parse(ld[0][1])['@graph'];
-    assert.ok(graph.some(x => x['@type'] === 'WebPage' && x.url === audit.origin + route));
+    assert.ok(graph.some(x => x['@type'] === 'WebPage' && x.url === audit.canonicalUrls[route]));
   } else assert.match(head, /name="robots" content="noindex/);
   assert.ok(!html.includes('<div id="root"></div>'), `${route}: empty client-only shell`);
   if (route === '/') { assert.match(html, /<h1[\s>]/, 'Homepage needs a readable main heading'); assert.ok(html.length > 10000, 'Homepage must include its real content'); }

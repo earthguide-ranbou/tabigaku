@@ -28,8 +28,7 @@ try {
   for (const route of Object.keys(pages)) {
     if (route === '/thai-2027') {
       const supplied = await readFile(path.join(root, 'client/public/thai-2027.html'), 'utf8');
-      const graph = seoHead(route).match(/<script type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/)?.[0] || '';
-      await writeFile(path.join(output, 'thai-2027.html'), supplied.replace('</head>', `${graph}\n</head>`));
+      await writeFile(path.join(output, 'thai-2027.html'), stripHead(supplied).replace('</head>', `${seoHead(route)}\n</head>`));
       continue;
     }
     const html = await renderPage(route);
@@ -41,11 +40,13 @@ try {
   }
   const errorPage = template.replace('</head>', `${seoHead('/404')}\n</head>`).replace('<div id="root"></div>', '<div id="root"><main><h1>ページが見つかりません</h1><p>URLをご確認ください。</p><a href="/">ホームに戻る</a></main></div>');
   await writeFile(path.join(output, '404.html'), errorPage);
-  const urls = Object.keys(pages).filter(route => !seoForPath(route).noindex).map(route => seoForPath(route).url);
+  const indexedRoutes = Object.keys(pages).filter(route => !seoForPath(route).noindex);
+  const sitemapRoutes = indexedRoutes.filter(route => seoForPath(route).url === site.origin + route);
+  const urls = sitemapRoutes.map(route => seoForPath(route).url);
   const xmlEscape = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(url => `  <url><loc>${xmlEscape(url)}</loc></url>`).join('\n')}\n</urlset>\n`;
   const robots = `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${site.origin}/sitemap.xml\n`;
   for (const dir of [output, path.join(root, 'client/public')]) { await writeFile(path.join(dir, 'sitemap.xml'), sitemap); await writeFile(path.join(dir, 'robots.txt'), robots); }
-  await writeFile(path.join(root, 'dist/seo-audit.json'), JSON.stringify({ origin: site.origin, indexedRoutes: Object.keys(pages).filter(route => !pages[route].noindex), generatedRoutes: Object.keys(pages) }, null, 2));
+  await writeFile(path.join(root, 'dist/seo-audit.json'), JSON.stringify({ origin: site.origin, indexedRoutes, sitemapRoutes, canonicalUrls: Object.fromEntries(indexedRoutes.map(route => [route, seoForPath(route).url])), generatedRoutes: Object.keys(pages) }, null, 2));
   console.log(`SEO: ${Object.keys(pages).length} public HTML pages generated; ${urls.length} canonical URLs in sitemap.`);
 } finally { await rm(temporary, { recursive: true, force: true }); }

@@ -47,7 +47,7 @@ export const pages: Record<string, PageSEO> = {
   "/thai-2027": {
     "label": "タイの旅・地球家族ジャーニー",
     "title": "2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney",
-    "description": "2027年1月のEarthfamilyJourneyタイ旅。Aプラン1/5〜1/11・110,000円、Bプラン1/12〜1/17・110,000円、SPECIALプラン1/5〜1/17・188,000円。チェンマイ・サージャイのオフグリッドな湖の暮らしへ。B・SPECIALはパパイヤビレッジと、タイから国境を越えてラオスの少数民族の村で藍染め・織物・刺繍を学ぶ旅。JOURNEY LABは10/31まで30,000円／1家族（通常50,000円）、実費別途。申込後3営業日以内に振込、入金確認後LINEグループへ。",
+    "description": "2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費110,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。",
     "image": "/images/saijai-lake.jpg"
   },
   "/saijai": {
@@ -76,6 +76,7 @@ export const pages: Record<string, PageSEO> = {
   "/earth-family-journey": {
     "label": "Earth Family Journey",
     "title": "Earth Family Journey｜世界を旅する家族の記録",
+    "canonical": "https://dao.tabigaku.party/",
     "description": "家族6人で世界の暮らしを訪ねるEarth Family Journey。旅は最高の学校。最新の旅の記録と、参加・応援のご案内はこちら。"
   }
 };

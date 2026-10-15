@@ -12,7 +12,7 @@ export default function AwardPage() {
       <div className="pt-36 pb-16 bg-muted/40 border-b border-border/50">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0.76, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             className="max-w-2xl"
@@ -33,7 +33,7 @@ export default function AwardPage() {
       <div className="container mx-auto py-20 md:py-28">
         <div className="max-w-3xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.76, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative bg-card rounded-2xl overflow-hidden shadow-lg border border-border"

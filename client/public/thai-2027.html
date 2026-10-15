@@ -1006,6 +1006,7 @@ details a{color:var(--amber)}
     $('dao-opts').hidden = !S.dao;
     document.querySelectorAll('[data-dp]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.dp === S.daoPlan)));
     document.querySelectorAll('[data-dt]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.dt === daoType())));
+    updateApplicationLinks();
   }
   document.querySelectorAll('.step button').forEach(b => b.addEventListener('click', () => {
     const k = b.dataset.k; const [lo, hi] = LIM[k];
@@ -1024,7 +1025,9 @@ details a{color:var(--amber)}
   });
 
   // フォームには個人情報を含めず、コースと人数だけ引き継ぐ。
-  document.querySelectorAll('a[data-apply]').forEach(a => a.addEventListener('click', () => {
+  // Keep href current for normal clicks, opening a new tab and copying a link.
+  function updateApplicationLinks() {
+    document.querySelectorAll('a[data-apply]').forEach(a => {
     const u = new URL(a.href);
     u.searchParams.delete('daoPlan');
     u.searchParams.delete('daoType');
@@ -1038,8 +1041,9 @@ details a{color:var(--amber)}
         u.searchParams.set('daoType', daoType());
       }
     }
-    a.href = u.href;
-  }));
+      a.href = u.href;
+    });
+  }
   document.querySelectorAll('[role="radiogroup"]').forEach(group => group.addEventListener('keydown', e => {
     if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'].includes(e.key)) return;
     const buttons = [...group.querySelectorAll('[role="radio"]')];

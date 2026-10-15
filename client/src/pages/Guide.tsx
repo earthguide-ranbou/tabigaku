@@ -12,7 +12,7 @@ export default function GuidePage() {
       <div className="pt-36 pb-16 bg-muted/40 border-b border-border/50">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0.76, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65 }}
             className="max-w-2xl"
@@ -33,7 +33,7 @@ export default function GuidePage() {
       <div className="container mx-auto py-20 md:py-28">
         <div className="max-w-3xl mx-auto space-y-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0.76, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-card rounded-2xl p-8 md:p-12 shadow-lg border border-border"
@@ -80,7 +80,7 @@ export default function GuidePage() {
             href="https://kamiyamag.tabigaku.party"
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.76, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.25 }}
             className="group flex items-center justify-between bg-primary/8 hover:bg-primary/12 border border-primary/20 hover:border-primary/40 rounded-2xl p-7 transition-all duration-200 cursor-pointer"

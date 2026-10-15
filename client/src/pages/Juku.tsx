@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { trackPublicAction, type MetricEvent } from "@/lib/public-metrics";
 import { Check, Compass, Globe2, HeartHandshake, MessageCircle, Mic2, Mountain, Radio, Sparkles, Ticket, Users, Video } from "lucide-react";
 import { useSEO } from "@/hooks/useSEO";
@@ -40,6 +40,23 @@ const questions = [
 
 export default function Juku() {
   const motionRoot = useJukuScenes();
+  const [showSticky, setShowSticky] = useState(false);
+  useEffect(() => {
+    const hero = document.querySelector(".rj-hero");
+    const apply = document.getElementById("apply");
+    if (!hero || !("IntersectionObserver" in window)) return;
+    let heroVisible = true, applyVisible = false;
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === hero) heroVisible = entry.isIntersecting;
+        if (entry.target === apply) applyVisible = entry.isIntersecting;
+      }
+      setShowSticky(!heroVisible && !applyVisible);
+    });
+    observer.observe(hero);
+    if (apply) observer.observe(apply);
+    return () => observer.disconnect();
+  }, []);
   useEffect(() => {
     trackPublicAction("page_view", "juku");
     const root = document.getElementById("juku-top");
@@ -113,10 +130,10 @@ export default function Juku() {
       <section className="rj-apply" id="apply" aria-labelledby="apply-title" data-rj-scene>
         <img className="rj-apply-forest" src="/juku/forest-light-1152.webp" srcSet="/juku/forest-light-640.webp 640w, /juku/forest-light-1152.webp 1152w" sizes="100vw" width="1152" height="1536" loading="lazy" decoding="async" alt="" />
         <div className="rj-canopy-light" aria-hidden="true" /><div className="rj-motes" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
-        <div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>旅で出会い、AIで形に。<br />SNSで届け、DAOで仲間と育てる。<br />あなたの「やってみたい」から、始めよう。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾の申し込みへ進む</a><a className="rj-button rj-button-line" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">お名前・メールアドレス・LINEと確認事項を入力し、内容を確認して送信できます。お支払い方法は受付後に、参加方法とDAO招待リンクは入金確認後にご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div>
+        <div className="rj-wrap"><p className="rj-eyebrow">YOUR NEXT CHAPTER STARTS HERE.</p><h2 id="apply-title">次の景色を、<br /><em>一緒に見にいこう。</em></h2><p>旅で出会い、AIで形に。<br />SNSで届け、DAOで仲間と育てる。<br />あなたの「やってみたい」から、始めよう。</p><div className="rj-apply-offer"><span>いつでも入塾</span><strong>39,800<small>円（税込）</small></strong><span>EARTH FAMILY DAO参加券つき</span></div><div className="rj-actions"><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾の申し込みへ進む</a><a className="rj-button rj-button-line" href={LINE} data-eg-event="line_click" target="_blank" rel="noopener noreferrer"><MessageCircle size={20} aria-hidden="true" />まずはLINEで相談する</a></div><p className="rj-apply-note">お名前・メールアドレスと必須の確認事項を入力し、内容を確認して送信できます。電話番号やLINEの表示名・IDなどは任意です。お支払い方法は受付後に、参加方法とDAO招待リンクは入金確認後にご案内します。</p><ol className="rj-steps">{[["01", "申し込む", "フォームに必要事項を入力。"], ["02", "案内を受け取る", "お支払いと参加の流れを確認。"], ["03", "仲間と、はじめる", "交流グループとDAOへ。"]].map(([number, title, text]) => <li key={number}><span>{number}</span><div><strong>{title}</strong><p>{text}</p></div></li>)}</ol></div>
       </section>
     </main>
     <footer className="rj-footer"><div className="rj-wrap rj-footer-top"><a href="#juku-top" className="rj-brand"><Compass aria-hidden="true" /><span>らんぼう塾<small>RANBOU JUKU</small></span></a><p>いのちが喜ぶことを、カタチにする。</p><nav aria-label="関連ページ"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a><a href="/">旅する学校</a><a href={DAO} target="_blank" rel="noopener noreferrer">EARTH FAMILY DAO</a></nav></div><ShareButtons url="https://www.tabigaku.party/juku" text="旅 × AI × DAO × SNS。旅するように、人生をつくる。らんぼう塾は、やってみたいを仲間と実践するオンラインの学び場。いつでも入塾、39,800円（税込）。EARTH FAMILY DAO参加券つき。" title="この学びを、大切な人に。" /><p className="rj-copyright">閲覧・クリックなど、個人情報を含まない利用状況を集計しています。</p><p className="rj-copyright">© らんぼう塾 / あーすガイド・旅する学校</p></footer>
-    <div className="rj-sticky" aria-label="入塾のご案内"><div><span>いつでも入塾・DAO参加券つき</span><strong>39,800<small>円（税込）</small></strong></div><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾する</a></div>
+    <div className="rj-sticky" hidden={!showSticky} aria-label="入塾のご案内"><div><span>いつでも入塾・DAO参加券つき</span><strong>39,800<small>円（税込）</small></strong></div><a className="rj-button rj-button-lime" href={FORM} data-eg-event="service_click">入塾する</a></div>
   </div>;
 }

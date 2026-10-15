@@ -88,3 +88,6 @@
   .rj-sticky .rj-button{padding-inline:17px}
   .rj-sticky strong{font-size:25px}
 }
+
+/* Keep the fixed action away from the hero and the full application section. */
+.rj-sticky[hidden]{display:none}
