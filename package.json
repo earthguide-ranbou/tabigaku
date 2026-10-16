@@ -5,12 +5,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/build-seo.mjs && node scripts/check-seo.mjs && node scripts/check-journey-flows.mjs",
+    "build": "node scripts/check-public-secrets.mjs --source client/src --source shared --source client/index.html --public client/public && vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && node scripts/build-seo.mjs && node scripts/check-seo.mjs && node scripts/check-journey-flows.mjs && node scripts/check-public-secrets.mjs --public dist/public",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
-    "check:seo": "node scripts/check-seo.mjs"
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:public-source": "node scripts/check-public-secrets.mjs --source client/src --source shared --source client/index.html --public client/public",
+    "check:public-output": "node scripts/check-public-secrets.mjs --public dist/public",
+    "test:public-secrets": "node --test scripts/check-public-secrets.test.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
