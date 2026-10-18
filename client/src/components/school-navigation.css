@@ -49,9 +49,10 @@
 .school-nav__contact {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 8px;
+  min-height: 44px;
   border: 1px solid #8c9a8d;
-  padding: 10px 17px;
+  padding: 8px 13px;
   border-radius: 999px;
   font-weight: 700;
 }
@@ -85,8 +86,13 @@
 }
 .school-nav__mobile a.line-action {
   margin-top: 12px;
-  padding: 13px 18px;
+  width: fit-content;
+  min-height: 44px;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 13px;
   border-radius: 999px;
+  font-size: 13px;
   font-weight: 700;
 }
 .school-skip {

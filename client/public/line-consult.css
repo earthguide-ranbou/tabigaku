@@ -4,23 +4,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 48px;
+  gap: 6px;
+  min-height: 44px;
   max-width: 100%;
-  padding: 11px 18px;
-  border: 1px solid #087f3f;
+  padding: 8px 13px;
+  border: 1px solid #06C755;
   border-radius: 999px;
-  background: #087f3f;
-  color: #fff !important;
+  background: #06C755;
+  color: #073c1d !important;
   font:
-    700 14px/1.6 system-ui,
+    700 13px/1.5 system-ui,
     sans-serif;
   text-decoration: none !important;
   text-align: center;
 }
 .line-consult-link:hover {
-  background: #065d2e;
-  border-color: #065d2e;
+  background: #05b94f;
+  border-color: #05b94f;
 }
 .line-consult-link svg {
   flex: 0 0 auto;
@@ -56,9 +56,9 @@
   display: flex;
   align-items: center;
   max-width: calc(100vw - 24px);
-  border: 1px solid #087f3f;
+  border: 1px solid #06C755;
   border-radius: 999px;
-  background: #087f3f;
+  background: #06C755;
   box-shadow: 0 4px 18px #123b292b;
 }
 .line-consult-floating--raised {
@@ -78,7 +78,7 @@ body:has(
   visibility: hidden;
 }
 .line-consult-floating .line-consult-link {
-  padding: 10px 12px;
+  padding: 8px 12px;
   border: 0;
 }
 .line-consult-close {
@@ -87,17 +87,17 @@ body:has(
   justify-content: center;
   flex: 0 0 44px;
   width: 44px;
-  min-height: 48px;
+  min-height: 44px;
   padding: 0;
   border: 0;
-  border-left: 1px solid #ffffff60;
+  border-left: 1px solid #073c1d30;
   border-radius: 0 999px 999px 0;
   background: transparent;
-  color: white;
+  color: #073c1d;
   cursor: pointer;
 }
 .line-consult-close:hover {
-  background: #065d2e;
+  background: #05b94f;
 }
 .line-consult-clearance {
   height: calc(80px + env(safe-area-inset-bottom, 0px));

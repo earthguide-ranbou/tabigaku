@@ -40,10 +40,10 @@ const consultationRoutes: Record<
 
 export function LineConsultationLink({
   href = SCHOOL_LINE,
-  children = "LINEで相談する",
+  label,
 }: {
   href?: string;
-  children?: ReactNode;
+  label?: string;
 }) {
   return (
     <a
@@ -51,10 +51,11 @@ export function LineConsultationLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label ? `公式LINE：${label}（別のタブで開きます）` : undefined}
     >
-      <MessageCircle size={19} aria-hidden="true" />
-      <span>{children}</span>
-      <ArrowUpRight size={16} aria-hidden="true" />
+      <MessageCircle size={17} aria-hidden="true" />
+      <span>公式LINE</span>
+      <ArrowUpRight size={14} aria-hidden="true" />
       <span className="line-consult-sr">（別のタブで開きます）</span>
     </a>
   );
@@ -72,9 +73,7 @@ export function LineConsultationPrompt({
   return (
     <aside className="line-consult-prompt" aria-label="申し込み前のLINE相談">
       <p>{children}</p>
-      <LineConsultationLink href={href}>
-        {label || "申し込み前にLINEで相談する"}
-      </LineConsultationLink>
+      <LineConsultationLink href={href} label={label || "申し込み前の相談"} />
     </aside>
   );
 }
@@ -109,9 +108,7 @@ export default function FloatingLineConsultation() {
         aria-label={`${route.topic}の公式LINE相談`}
         hidden={dismissedPath === path || formVisible}
       >
-        <LineConsultationLink href={route.href}>
-          LINEで相談
-        </LineConsultationLink>
+        <LineConsultationLink href={route.href} />
         <button
           type="button"
           className="line-consult-close"

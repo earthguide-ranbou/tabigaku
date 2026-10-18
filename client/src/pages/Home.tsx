@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import JourneyHero from "@/components/JourneyHero";
+import GoldenPlanSpotlight from "@/components/GoldenPlanSpotlight";
 import { LineConsultationPrompt } from "@/components/LineConsultation";
 import {
   journeys,
@@ -197,32 +198,7 @@ export default function Home() {
             )}
           </div>
           {goldenJourney && (
-            <aside className="school-golden" aria-labelledby="golden-title">
-              <div>
-                <p className="school-eyebrow">海から、お遍路へ。</p>
-                <h3 id="golden-title">9日間のゴールデンプラン</h3>
-                <p>
-                  2027年4月27日（火）〜5月5日（水・祝）。海旅キャンプから歩きお遍路ジャーニーへ、続けて参加できます。
-                </p>
-              </div>
-              <div className="school-golden__booking">
-                <p>通常109,800円（税込・1名／実費別）</p>
-                {goldenEarlyBird && (
-                  <p className="school-golden__early-bird">
-                    <strong>早割99,800円</strong>（10,000円引き）
-                    <small>{goldenJourney.earlyBird!.deadlineLabel}</small>
-                  </p>
-                )}
-                <a
-                  className="school-text-link"
-                  href={`${goldenJourney.href}#price`}
-                  onClick={() => trackJourneyAction("view_journey", "golden-2027")}
-                >
-                  ゴールデンプランの詳細・お申し込み
-                  <ArrowRight size={17} aria-hidden="true" />
-                </a>
-              </div>
-            </aside>
+            <GoldenPlanSpotlight journey={goldenJourney} earlyBirdActive={Boolean(goldenEarlyBird)} />
           )}
           <p className="school-price-note">
             参加費・ガイド料などに含まれる内容と、別途必要な実費は旅によって異なります。実費は食費・宿泊費などの目安です。集合・解散地までの交通費や装備、割引の条件は、各旅の案内をご確認ください。
@@ -388,7 +364,7 @@ export default function Home() {
               rel="noopener noreferrer"
               onClick={() => trackJourneyAction("consult", "home")}
             >
-              LINEで相談する <ArrowUpRight size={17} />
+              公式LINE <ArrowUpRight size={14} aria-hidden="true" />
             </a>
             <a
               className="school-newsletter"

@@ -57,7 +57,7 @@ export default function Navigation() {
             rel="noopener noreferrer"
             onClick={() => trackJourneyAction("consult", "navigation")}
           >
-            LINEで相談 <ArrowUpRight size={14} aria-hidden="true" />
+            公式LINE <ArrowUpRight size={14} aria-hidden="true" />
           </a>
         </nav>
         <button
@@ -100,7 +100,7 @@ export default function Navigation() {
             trackJourneyAction("consult", "navigation");
           }}
         >
-          LINEで相談する <ArrowUpRight size={15} aria-hidden="true" />
+          公式LINE <ArrowUpRight size={14} aria-hidden="true" />
         </a>
       </nav>
       <span id="school-navigation-end" />

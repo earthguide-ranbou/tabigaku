@@ -536,57 +536,6 @@
 .school-trip__early-bird small {
   font-size: 10px;
 }
-.school-golden {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-  gap: 24px;
-  align-items: center;
-  margin-top: 30px;
-  padding: clamp(22px, 3vw, 32px);
-  border: 1px solid #ded6bb;
-  border-radius: 14px;
-  background: #f5eedb;
-}
-.school-golden .school-eyebrow {
-  margin-bottom: 8px;
-  color: #795b2e;
-}
-.school-golden h3 {
-  margin: 0 0 10px;
-  font-size: clamp(21px, 2.1vw, 27px);
-  line-height: 1.6;
-}
-.school-golden p:not(.school-eyebrow) {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.9;
-}
-.school-golden__booking {
-  min-width: 0;
-}
-.school-golden .school-golden__early-bird {
-  margin-top: 7px;
-  color: #704819;
-}
-.school-golden__early-bird strong {
-  font-size: 21px;
-  font-variant-numeric: tabular-nums;
-}
-.school-golden__early-bird small {
-  display: block;
-  font-size: 11px;
-}
-.school-golden .school-text-link {
-  margin-top: 14px;
-  min-height: 44px;
-  font-size: 12px;
-}
-@media (max-width: 700px) {
-  .school-golden {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 18px;
-  }
-}
 .school-trip__bottom > a {
   display: flex;
   justify-content: space-between;
@@ -827,6 +776,13 @@
   flex-direction: column;
   align-items: center;
   gap: 17px;
+}
+.school-contact .school-button.line-action {
+  width: fit-content;
+  min-height: 44px;
+  gap: 8px;
+  padding: 9px 15px;
+  font-size: 13px;
 }
 .school-newsletter {
   font-size: 11px;
