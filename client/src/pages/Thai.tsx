@@ -710,7 +710,7 @@ export default function Thai() {
           <p className="lc-title">不安なことは、なんでも聞いてください</p>
           <p className="lc-sub">「うちの子でも大丈夫？」「仕事の調整が…」そんな相談からでOK。</p>
           <img src="/manus-storage/thai_img_24_bd029101.png" alt="LINE友だち追加QRコード" />
-          <a className="lc-btn" href="https://lin.ee/p3CvLfQ">📱 LINEで相談する（友だち追加）</a>
+          <a className="lc-btn line-consult-link" href="https://lin.ee/p3CvLfQ" aria-label="公式LINE：友だち追加・旅の相談"><span>公式LINE</span></a>
           <p className="lc-note">スマホの方はボタンをタップ／パソコンの方はQRコードを読み取ってください</p>
         </div>
       </main>

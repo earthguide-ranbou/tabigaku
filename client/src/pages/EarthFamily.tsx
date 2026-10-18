@@ -44,7 +44,7 @@ export default function EarthFamily() {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <a data-line-button href={FORM} target="_blank" rel="noopener" className="inline-block px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg" style={{ background: "#d65a3a" }}>次回の旅を相談する</a>
+          <a data-line-button href={FORM} target="_blank" rel="noopener" className="inline-block px-10 py-4 rounded-full text-white font-bold text-lg shadow-lg line-consult-link" style={{ background: "#d65a3a" }} aria-label="公式LINE：次回の旅を相談する（別のタブで開きます）"><span>公式LINE</span></a>
           <a href="#places" className="inline-block px-10 py-4 rounded-full font-bold text-lg border-2" style={{ borderColor: "#1d5c4d", color: "#1d5c4d" }}>旅先を見る</a>
         </div>
       </section>
@@ -131,7 +131,7 @@ export default function EarthFamily() {
                   <p><b>待ち合わせ｜</b>{p.meet}</p>
                   <p><b>お別れ｜</b>{p.bye}</p>
                 </div>
-                <a data-line-button href={FORM} target="_blank" rel="noopener" className="block text-center mt-5 px-4 py-3 rounded-full text-white font-bold text-sm" style={{ background: "#1d5c4d" }}>次回の参加を相談する</a>
+                <a data-line-button href={FORM} target="_blank" rel="noopener" className="block text-center mt-5 px-4 py-3 rounded-full text-white font-bold text-sm line-consult-link" style={{ background: "#1d5c4d" }} aria-label="公式LINE：次回の参加を相談する（別のタブで開きます）"><span>公式LINE</span></a>
               </div>
             ))}
           </div>
@@ -207,7 +207,7 @@ export default function EarthFamily() {
       <section className="py-16 text-center px-5">
         <h2 style={serif} className="text-2xl md:text-3xl font-bold leading-relaxed">心が喜ぶ方へ、<br />身体ごと飛び込んでみませんか？</h2>
         <p className="mt-4 text-sm leading-loose">家族と共に。大切な友人と一緒に。もちろんおひとりでも、ウェルカムです。<br />お会いできるのを、心から楽しみにしています。</p>
-        <a data-line-button href={FORM} target="_blank" rel="noopener" className="inline-block mt-8 px-14 py-5 rounded-full text-white font-bold text-xl shadow-xl" style={{ background: "#d65a3a" }}>次回の旅を相談する</a>
+        <a data-line-button href={FORM} target="_blank" rel="noopener" className="inline-block mt-8 px-14 py-5 rounded-full text-white font-bold text-xl shadow-xl line-consult-link" style={{ background: "#d65a3a" }} aria-label="公式LINE：次回の旅を相談する（別のタブで開きます）"><span>公式LINE</span></a>
         <p className="mt-5 text-sm">📞 <a href={TEL} className="underline font-bold">電話で相談する（090-7518-8816）</a></p>
         <p className="mt-3 text-xs text-neutral-500">少人数制（10名ほど・先着順）｜2026年8月5日集合予定</p>
         <p className="mt-6 text-xs text-neutral-500">お問い合わせ｜メール <a href="mailto:earthguide.jpn@gmail.com" className="underline">earthguide.jpn@gmail.com</a>（件名は「地球家族ジャーニー」としてお送りください）</p>
@@ -260,7 +260,7 @@ export default function EarthFamily() {
               <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
                 神山の学校や、旅する学校の活動を、金銭的に応援するかたち。子どもたちが自然の中で学び、大人たちが共に育つ場を、あなたの力で支えてください。毎月の支援や、一回きりのご支援が可能です。
               </p>
-              <a data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}}>相談する（LINE）</a>
+              <a className="line-consult-link" data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#d65a3a", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}} aria-label="公式LINE：相談する（LINE）（別のタブで開きます）"><span>公式LINE</span></a>
             </div>
 
             {/* ④ パートナーシップ */}
@@ -273,7 +273,7 @@ export default function EarthFamily() {
               <p style={{fontSize: "clamp(13px,3.1vw,15px)", lineHeight: 1.8, color: "#555", margin: 0}}>
                 年間100万円〜200万円規模で、Earth Family Journey のビジョンを共に実現するパートナー。定期的な対話の場への参加、活動レポートの共有、戦略的な協働を通じて、一緒に未来をつくります。
               </p>
-              <a data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}}>詳細を相談する（LINE）</a>
+              <a className="line-consult-link" data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", marginTop: 16, fontSize: 13, fontWeight: 800, color: "#fff", background: "#1d5c4d", padding: "10px 24px", borderRadius: 999, textDecoration: "none"}} aria-label="公式LINE：詳細を相談する（LINE）（別のタブで開きます）"><span>公式LINE</span></a>
             </div>
           </div>
         </div>
@@ -293,7 +293,7 @@ export default function EarthFamily() {
           </p>
           <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 12}}>
             <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", padding: "14px 32px", borderRadius: 999, background: "#d65a3a", color: "#fff", fontWeight: 800, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 16px rgba(0,0,0,.2)"}}>旅に参加する</a>
-            <a data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", padding: "14px 32px", borderRadius: 999, border: "2px solid #f5f0e8", color: "#f5f0e8", fontWeight: 800, fontSize: 15, textDecoration: "none"}}>まず話を聞いてみる（LINE）</a>
+            <a className="line-consult-link" data-line-button href="https://lin.ee/odygMT3" target="_blank" rel="noopener noreferrer" style={{display: "inline-block", padding: "14px 32px", borderRadius: 999, border: "2px solid #f5f0e8", color: "#f5f0e8", fontWeight: 800, fontSize: 15, textDecoration: "none"}} aria-label="公式LINE：まず話を聞いてみる（LINE）（別のタブで開きます）"><span>公式LINE</span></a>
           </div>
         </div>
       </section>

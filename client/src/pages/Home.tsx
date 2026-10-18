@@ -186,12 +186,13 @@ export default function Home() {
               <div className="school-empty">
                 <p>この対象の次の旅は、準備中です。</p>
                 <a
-                  className="school-text-link"
+                  className="school-text-link line-consult-link"
                   href={SCHOOL_LINE}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="公式LINE：次回の案内を受け取る（別のタブで開きます）"
                 >
-                  LINEで次回の案内を受け取る <ArrowUpRight size={16} />
+                  <span>公式LINE</span>
                 </a>
               </div>
             )}
@@ -382,13 +383,13 @@ export default function Home() {
           </div>
           <div className="school-contact__links">
             <a
-              className="school-button line-action"
+              className="school-button line-action line-consult-link"
               href={SCHOOL_LINE}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackJourneyAction("consult", "home")}
             >
-              公式LINE <ArrowUpRight size={14} aria-hidden="true" />
+              <span>公式LINE</span>
             </a>
             <a
               className="school-newsletter"

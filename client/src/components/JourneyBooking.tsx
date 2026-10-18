@@ -165,13 +165,14 @@ export function ApplicationPanel({ id }: { id: string }) {
                 申し込みフォームへ <ArrowUpRight size={17} aria-hidden="true" />
               </a>
               <a
-                className="booking-secondary line-action"
+                className="booking-secondary line-action line-consult-link"
                 href={journey.line}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackJourneyAction("consult", id)}
+                aria-label="公式LINE：申し込み前の相談（別のタブで開きます）"
               >
-                まずLINEで相談する <ArrowUpRight size={16} aria-hidden="true" />
+                <span>公式LINE</span>
               </a>
             </div>
             <p className="booking-note">
@@ -189,12 +190,13 @@ export function ApplicationPanel({ id }: { id: string }) {
                 次の旅を見る <ArrowRight size={17} />
               </a>
               <a
-                className="booking-secondary line-action"
+                className="booking-secondary line-action line-consult-link"
                 href={SCHOOL_LINE}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="公式LINE：次回の案内の相談（別のタブで開きます）"
               >
-                次回の案内を相談する <ArrowUpRight size={17} />
+                <span>公式LINE</span>
               </a>
             </div>
           </>

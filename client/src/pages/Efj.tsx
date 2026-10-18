@@ -5,7 +5,6 @@ import {
   Compass,
   Leaf,
   MapPin,
-  MessageCircle,
   Plus,
   Waves,
 } from "lucide-react";
@@ -90,14 +89,14 @@ function LineLink({
 }) {
   return (
     <a
-      className={`efjs-button efjs-button--line ${className}`}
+      className={`efjs-button efjs-button--line line-consult-link ${className}`}
       href={LINE}
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackJourneyAction("consult", "earth-family")}
+      aria-label={typeof children === "string" ? `公式LINE：${children}（別のタブで開きます）` : undefined}
     >
-      <MessageCircle size={19} aria-hidden="true" />
-      {children}
+      <span>公式LINE</span>
     </a>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowUpRight, MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useLocation } from "wouter";
 import { SCHOOL_LINE, journeys } from "@/data/journeys";
 
@@ -53,9 +53,7 @@ export function LineConsultationLink({
       rel="noopener noreferrer"
       aria-label={label ? `公式LINE：${label}（別のタブで開きます）` : undefined}
     >
-      <MessageCircle size={17} aria-hidden="true" />
       <span>公式LINE</span>
-      <ArrowUpRight size={14} aria-hidden="true" />
       <span className="line-consult-sr">（別のタブで開きます）</span>
     </a>
   );
@@ -115,7 +113,7 @@ export default function FloatingLineConsultation() {
           aria-label="固定のLINE相談ボタンを閉じる"
           onClick={() => setDismissedPath(path)}
         >
-          <X size={16} aria-hidden="true" />
+          <X size={14} aria-hidden="true" />
         </button>
       </aside>
     </>

@@ -51,13 +51,13 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            className="school-nav__contact line-action"
+            className="school-nav__contact line-action line-consult-link"
             href={SCHOOL_LINE}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackJourneyAction("consult", "navigation")}
           >
-            公式LINE <ArrowUpRight size={14} aria-hidden="true" />
+            <span>公式LINE</span>
           </a>
         </nav>
         <button
@@ -91,7 +91,7 @@ export default function Navigation() {
           </a>
         ))}
         <a
-          className="line-action"
+          className="line-action line-consult-link"
           href={SCHOOL_LINE}
           target="_blank"
           rel="noopener noreferrer"
@@ -100,7 +100,7 @@ export default function Navigation() {
             trackJourneyAction("consult", "navigation");
           }}
         >
-          公式LINE <ArrowUpRight size={14} aria-hidden="true" />
+          <span>公式LINE</span>
         </a>
       </nav>
       <span id="school-navigation-end" />

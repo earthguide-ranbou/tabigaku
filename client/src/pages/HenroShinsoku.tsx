@@ -109,7 +109,7 @@ export default function HenroShinsoku() {
     </dl>
     <div className="hero-btns">
       <a className="btn btn-shu" href="#apply">参加申し込みはこちら</a>
-      <a className="btn btn-ink" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{padding: "17px 40px", fontSize: "14.5px"}}>まずLINEで相談</a>
+      <a className="btn btn-ink line-consult-link" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" aria-label="公式LINE：申し込み前の相談（別のタブで開きます）"><span>公式LINE</span></a>
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
