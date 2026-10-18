@@ -11,6 +11,13 @@ export type Journey = {
   age: string;
   capacity?: number;
   fee: string;
+  feeLabel?: string;
+  earlyBird?: {
+    fee: string;
+    discount: string;
+    deadline: string;
+    deadlineLabel: string;
+  };
   expenses: string;
   image: string;
   alt: string;
@@ -97,6 +104,58 @@ export const journeys: Journey[] = [
     description: "いのちがよろこぶ、春の7日間。2/28までの早割80,000円。",
     line: "https://lin.ee/N9eyIcP",
     audiences: ["family", "adults"],
+  },
+  {
+    id: "umitabi-2027",
+    title: "海旅キャンプ",
+    href: "https://earthguide.tabigaku.party/umitabi-2027",
+    start: "2027-04-27T16:00:00+09:00",
+    end: "2027-04-30T23:59:59+09:00",
+    dateLabel: "2027.4.27（火）— 4.30（金）",
+    duration: "3泊4日",
+    age: "参加時に小学3年生〜中学3年生",
+    capacity: 10,
+    fee: "39,800",
+    feeLabel: "参加費",
+    earlyBird: {
+      fee: "33,800",
+      discount: "6,000",
+      deadline: "2027-02-27T23:59:59.999+09:00",
+      deadlineLabel: "2027.2.27（土）まで",
+    },
+    expenses: "20,000",
+    image: "/manus-storage/04c0f8f6-e273-48d3-862b-c02e41546226-1_all_2087_16d1a6ff.jpg",
+    alt: "青い海の中を群れで泳ぐ魚たち",
+    place: "高知・柏島近海",
+    description: "柏島近海の海で、釣りや海あそび、生き物さがし。子どもたちと相談しながら過ごし、夜はキャンプ。",
+    audiences: ["children"],
+    line: SCHOOL_LINE,
+  },
+  {
+    id: "henro-2027",
+    title: "歩きお遍路ジャーニー",
+    href: "https://earthguide.tabigaku.party/henro-2027",
+    start: "2027-04-30T16:00:00+09:00",
+    end: "2027-05-05T23:59:59+09:00",
+    dateLabel: "2027.4.30（金）— 5.5（水・祝）",
+    duration: "6日間",
+    age: "参加時に小学3年生〜中学3年生",
+    capacity: 10,
+    fee: "78,000",
+    feeLabel: "参加費",
+    earlyBird: {
+      fee: "70,000",
+      discount: "8,000",
+      deadline: "2027-02-27T23:59:59.999+09:00",
+      deadlineLabel: "2027.2.27（土）まで",
+    },
+    expenses: "20,000〜30,000",
+    image: "/manus-storage/img4_yamashiro_2bd8a3b4.jpg",
+    alt: "木々に囲まれた山道を、杖を持って歩く子どもたち",
+    place: "四国のお遍路道",
+    description: "毎朝みんなで行き先を相談。キャンプや自炊をしながら歩き、自然や文化、その土地の暮らしに触れる6日間。",
+    audiences: ["children"],
+    line: SCHOOL_LINE,
   },
   {
     id: "thailand",

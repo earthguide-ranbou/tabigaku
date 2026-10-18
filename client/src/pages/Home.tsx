@@ -22,11 +22,16 @@ const audiences: { value: Audience | "all"; label: string }[] = [
 
 export default function Home() {
   const [audience, setAudience] = useState<Audience | "all">("all");
-  const current = journeys.filter(j => journeyStatus(j) !== "ended");
+  const now = Date.now();
+  const current = journeys.filter(j => journeyStatus(j, now) !== "ended");
   const visible = current.filter(
     j => audience === "all" || j.audiences.includes(audience)
   );
-  const past = journeys.filter(j => journeyStatus(j) === "ended");
+  const past = journeys.filter(j => journeyStatus(j, now) === "ended");
+  const goldenJourney = visible.find(j => j.id === "umitabi-2027");
+  const goldenEarlyBird =
+    goldenJourney?.earlyBird &&
+    now <= Date.parse(goldenJourney.earlyBird.deadline);
   return (
     <div className="school-home">
       <Navigation />
@@ -94,13 +99,13 @@ export default function Home() {
                     decoding="async"
                   />
                   <span className="school-trip__status">
-                    {journeyStatus(journey) === "upcoming"
+                    {journeyStatus(journey, now) === "upcoming"
                       ? "募集中"
                       : "開催中"}
                   </span>
                   <span className="school-trip__place">
                     <small>
-                      {journey.id === "kochi"
+                      {journey.audiences.includes("children")
                         ? "子どもたちの冒険"
                         : "親子・大人の旅"}
                     </small>
@@ -126,7 +131,13 @@ export default function Home() {
                   <div className="school-trip__bottom">
                     <dl className="school-trip__costs">
                       <div>
-                        <dt>{journey.id === "thailand-2027" ? "現地サポート／大人1人" : "ガイド料"}</dt>
+                        <dt>
+                          {journey.feeLabel ??
+                            (journey.id === "thailand-2027"
+                              ? "現地サポート／大人1人"
+                              : "ガイド料")}
+                          {journey.earlyBird && "〈通常〉"}
+                        </dt>
                         <dd>
                           <strong>{journey.fee}</strong> 円
                           <small>（税込 / 1名）</small>
@@ -147,6 +158,16 @@ export default function Home() {
                         </dd>
                       </div>
                     </dl>
+                    {journey.earlyBird &&
+                      now <= Date.parse(journey.earlyBird.deadline) && (
+                        <p className="school-trip__early-bird">
+                          <span>
+                            早割 <strong>{journey.earlyBird.fee}円</strong>
+                            <small>（{journey.earlyBird.discount}円引き）</small>
+                          </span>
+                          <span>{journey.earlyBird.deadlineLabel}</span>
+                        </p>
+                      )}
                     <a
                       href={journey.href}
                       aria-label={`${journey.title}の日程・費用を見る`}
@@ -175,8 +196,36 @@ export default function Home() {
               </div>
             )}
           </div>
+          {goldenJourney && (
+            <aside className="school-golden" aria-labelledby="golden-title">
+              <div>
+                <p className="school-eyebrow">海から、お遍路へ。</p>
+                <h3 id="golden-title">9日間のゴールデンプラン</h3>
+                <p>
+                  2027年4月27日（火）〜5月5日（水・祝）。海旅キャンプから歩きお遍路ジャーニーへ、続けて参加できます。
+                </p>
+              </div>
+              <div className="school-golden__booking">
+                <p>通常109,800円（税込・1名／実費別）</p>
+                {goldenEarlyBird && (
+                  <p className="school-golden__early-bird">
+                    <strong>早割99,800円</strong>（10,000円引き）
+                    <small>{goldenJourney.earlyBird!.deadlineLabel}</small>
+                  </p>
+                )}
+                <a
+                  className="school-text-link"
+                  href={`${goldenJourney.href}#price`}
+                  onClick={() => trackJourneyAction("view_journey", "golden-2027")}
+                >
+                  ゴールデンプランの詳細・お申し込み
+                  <ArrowRight size={17} aria-hidden="true" />
+                </a>
+              </div>
+            </aside>
+          )}
           <p className="school-price-note">
-            ガイド料は通常の参加費です。実費は食費・宿泊費など、旅の中で必要な費用の目安。集合・解散地までの交通費や装備などは、各旅の案内をご確認ください。
+            参加費・ガイド料などに含まれる内容と、別途必要な実費は旅によって異なります。実費は食費・宿泊費などの目安です。集合・解散地までの交通費や装備、割引の条件は、各旅の案内をご確認ください。
           </p>
           <LineConsultationPrompt label="自分に合う旅をLINEで相談する">
             どの旅が合うか迷ったら、参加したい時期や気になっていることを聞かせてください。
@@ -298,7 +347,7 @@ export default function Home() {
             <details>
               <summary>子どもだけでも、初参加でも大丈夫？</summary>
               <p>
-                子ども向けの高知編は小学3年生〜中学3年生が対象。神足歩行術の旅は2026年度に満10歳〜65歳が対象です。体力や旅の経験について不安があれば、事前に案内人へご相談ください。
+                海旅キャンプと歩きお遍路ジャーニーは、参加時に小学3年生〜中学3年生の子どもたちが対象で、初参加も歓迎しています。神足歩行術の旅は2026年度に満10歳〜65歳が対象です。体力や旅の経験について不安があれば、事前に案内人へご相談ください。
               </p>
             </details>
             <details>
@@ -308,9 +357,9 @@ export default function Home() {
               </p>
             </details>
             <details>
-              <summary>ガイド料以外に、いくら必要ですか？</summary>
+              <summary>参加費のほかに、いくら必要ですか？</summary>
               <p>
-                ガイド料（参加費）と実費を分けて掲載しています。募集中のお遍路旅では、実費は1名あたり2〜3万円前後が目安です。食費・宿泊費などで変動します。集合・解散地までの交通費や装備、家族割引の適用は、各旅の詳細でご確認ください。
+                参加費（ガイド料など）のほかに、食費・宿泊費などの実費がかかります。実費の目安や含まれる内容は旅によって異なります。集合・解散地までの交通費や装備、早割・家族割引などの条件も、各旅の詳細でご確認ください。
               </p>
             </details>
             <details>
