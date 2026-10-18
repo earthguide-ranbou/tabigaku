@@ -1,4 +1,5 @@
 import JourneyMotion from "./components/JourneyMotion";
+import FloatingLineConsultation from "./components/LineConsultation";
 import SiteSEO from "./components/SiteSEO";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/sonner";
@@ -61,6 +62,7 @@ function Router() {
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
+    <FloatingLineConsultation />
     </>
   );
 }

@@ -425,6 +425,7 @@ details a{color:var(--amber)}
   .bar,.toast,summary::after{transition:none}
 }
 </style>
+<link rel="stylesheet" href="/line-consult.css">
 </head>
 <body>
 
@@ -886,7 +887,7 @@ details a{color:var(--amber)}
     </details>
     <details>
       <summary>参加希望は、どこへ連絡すればいいですか？</summary>
-      <p>お申し込みは<a href="#application">申し込みフォーム</a>からどうぞ。入金確認後にLINEグループへご招待するため、ご本人のLINE URLもご入力ください。気になることのご相談は公式LINEで受け付けています。</p>
+      <p>お申し込みは<a href="#application">申し込みフォーム</a>からどうぞ。入金確認後にLINEグループへご招待するため、ご本人のLINE URLもご入力ください。気になることは、<a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer">公式LINEで相談できます（別のタブで開きます）</a>。</p>
     </details>
   </div>
 </section>
@@ -919,6 +920,25 @@ details a{color:var(--amber)}
   <a class="btn" href="#application" tabindex="-1">申し込む</a>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<aside class="line-consult-floating line-consult-floating--raised" id="line-consult-floating" aria-label="2027年タイ旅の公式LINE相談">
+  <a class="line-consult-link" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener noreferrer"><span>LINEで相談</span><span aria-hidden="true">↗</span><span class="line-consult-sr">（別のタブで開きます）</span></a>
+  <button type="button" class="line-consult-close" id="line-consult-close" aria-label="固定のLINE相談ボタンを閉じる"><span aria-hidden="true">×</span></button>
+</aside>
+<script>
+(() => {
+  const floating = document.getElementById('line-consult-floating');
+  let dismissed = false;
+  document.getElementById('line-consult-close').addEventListener('click', () => { dismissed = true; floating.hidden = true; });
+  if ('IntersectionObserver' in window) {
+    const visible = new Set();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target));
+      floating.hidden = dismissed || visible.size > 0;
+    });
+    document.querySelectorAll('iframe[src*="/forms/"]').forEach(frame => observer.observe(frame));
+  }
+})();
+</script>
 
 <script>
 (() => {

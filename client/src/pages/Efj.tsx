@@ -12,6 +12,7 @@ import {
 import { useJourneyMotion } from "@/components/JourneyMotion";
 import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import ShareButtons from "@/components/ShareButtons";
+import { LineConsultationPrompt } from "@/components/LineConsultation";
 import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./efj-spring.css";
 
@@ -535,6 +536,9 @@ export default function Efj() {
                 </a>
               </div>
             </div>
+            <LineConsultationPrompt href={LINE} label="参加のかたちをLINEで相談する">
+              ご家族での参加費や途中合流、移動・宿泊のこと。申し込み前の気になることを、ここから相談できます。
+            </LineConsultationPrompt>
             <div className="efjs-practical" aria-label="参加前に確認したいこと">
               <details>
                 <summary>

@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import JourneyHero from "@/components/JourneyHero";
+import { LineConsultationPrompt } from "@/components/LineConsultation";
 import {
   journeys,
   journeyStatus,
@@ -177,6 +178,9 @@ export default function Home() {
           <p className="school-price-note">
             ガイド料は通常の参加費です。実費は食費・宿泊費など、旅の中で必要な費用の目安。集合・解散地までの交通費や装備などは、各旅の案内をご確認ください。
           </p>
+          <LineConsultationPrompt label="自分に合う旅をLINEで相談する">
+            どの旅が合うか迷ったら、参加したい時期や気になっていることを聞かせてください。
+          </LineConsultationPrompt>
           {past.length > 0 && (
             <details className="school-archive">
               <summary>
@@ -286,6 +290,9 @@ export default function Home() {
               <br />
               申し込む前に聞いてください。
             </p>
+            <LineConsultationPrompt label="初参加の不安をLINEで相談する">
+              体力や旅の経験、親子での参加についても、ここから相談できます。
+            </LineConsultationPrompt>
           </div>
           <div className="school-faq">
             <details>
