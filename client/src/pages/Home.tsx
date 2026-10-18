@@ -266,6 +266,11 @@ export default function Home() {
               <br className="school-desktop" />
               仲間と学び合う、旅の学び場です。
             </p>
+            <p>
+              徳島・神山を拠点に、歩きお遍路や海・川の自然体験へ。
+              自分で考え、仲間と相談し、その土地の文化や暮らしに触れる。
+              実際に出会い、やってみる時間を大切にする「旅育」です。
+            </p>
             <div className="school-guide" id="guide">
               <img
                 src="/manus-storage/guide_torii_3a17f72b.jpg"
@@ -330,6 +335,16 @@ export default function Home() {
           </div>
           <div className="school-faq">
             <details>
+              <summary>学校の外での学びに関心があります</summary>
+              <p>
+                フリースクールやオルタナティブスクール、旅を通じて学ぶワールドスクールなど、
+                多様な学びに関心のあるご家庭にも、旅の選択肢をご紹介しています。
+                対象年齢や過ごし方は企画によって異なります。
+                日程・参加条件をご確認のうえ、不安な点は事前にご相談ください。
+              </p>
+              <p><a className="school-text-link" href="#journeys">自然体験と旅育の企画・参加条件を見る</a></p>
+            </details>
+            <details>
               <summary>子どもだけでも、初参加でも大丈夫？</summary>
               <p>
                 海旅キャンプと歩きお遍路ジャーニーは、参加時に小学3年生〜中学3年生の子どもたちが対象で、初参加も歓迎しています。神足歩行術の旅は2026年度に満10歳〜65歳が対象です。体力や旅の経験について不安があれば、事前に案内人へご相談ください。
@@ -382,3 +397,4 @@ export default function Home() {
     </div>
   );
 }
+
