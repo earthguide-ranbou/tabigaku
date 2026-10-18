@@ -1,32 +1,3 @@
-.journey-motion-control {
-  position: fixed;
-  right: 18px;
-  bottom: calc(88px + env(safe-area-inset-bottom, 0px));
-  z-index: 45;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 38px;
-  padding: 8px 12px;
-  border: 1px solid #bac8ba;
-  border-radius: 99px;
-  color: #204738;
-  background: #fffffff2;
-  box-shadow: 0 3px 16px #163d2610;
-  font:
-    500 10px/1.3 "Zen Kaku Gothic New",
-    sans-serif;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-}
-.journey-motion-control:focus-visible {
-  outline: 3px solid #bd7b3f;
-  outline-offset: 3px;
-}
-.journey-motion-control:disabled {
-  cursor: default;
-  color: #607366;
-}
 .school-hero {
   isolation: isolate;
 }
@@ -293,10 +264,6 @@ html[data-tabigaku-motion="off"] .school-hero .school-hero__image {
   .school-hero h1 span:last-child::after {
     width: 100%;
     bottom: -2px;
-  }
-  .journey-motion-control {
-    right: 12px;
-    padding: 8px 10px;
   }
 }
 @media (max-width: 380px) {

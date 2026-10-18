@@ -6,7 +6,6 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { Pause, Play, Sparkles } from "lucide-react";
 import { useLocation } from "wouter";
 import { MotionConfig } from "framer-motion";
 import "./journey-motion.css";
@@ -18,11 +17,10 @@ export const useJourneyMotion = () => useContext(MotionContext);
 /** Content is visible before effects run. Motion never controls access to content. */
 export default function JourneyMotion({ children }: { children: ReactNode }) {
   const [location] = useLocation();
-  const [paused, setPaused] = useState(false);
   const [allowed, setAllowed] = useState(false);
   const [visible, setVisible] = useState(true);
   const animations = useRef(new Set<Animation>());
-  const enabled = allowed && visible && !paused;
+  const enabled = allowed && visible;
 
   useEffect(() => {
     const preference = matchMedia("(prefers-reduced-motion: reduce)");
@@ -31,11 +29,6 @@ export default function JourneyMotion({ children }: { children: ReactNode }) {
     const update = () =>
       setAllowed(!preference.matches && !connection?.saveData);
     const visibility = () => setVisible(document.visibilityState === "visible");
-    try {
-      setPaused(localStorage.getItem("tabigaku-motion-paused") === "1");
-    } catch {
-      /* optional preference */
-    }
     update();
     visibility();
     preference.addEventListener("change", update);
@@ -107,45 +100,10 @@ export default function JourneyMotion({ children }: { children: ReactNode }) {
     };
   }, [enabled, location]);
 
-  const toggle = () => {
-    const next = !paused;
-    setPaused(next);
-    try {
-      localStorage.setItem("tabigaku-motion-paused", next ? "1" : "0");
-    } catch {
-      /* optional preference */
-    }
-  };
-
   return (
     <MotionContext.Provider value={{ enabled }}>
       <MotionConfig reducedMotion={enabled ? "user" : "always"}>
         {children}
-        <button
-          className="journey-motion-control"
-          type="button"
-          onClick={toggle}
-          disabled={!allowed}
-          aria-pressed={!paused && allowed}
-          aria-label={
-            !allowed
-              ? "端末設定に合わせてアニメーションを停止しています"
-              : paused
-                ? "ページのアニメーションを再開する"
-                : "ページのアニメーションを停止する"
-          }
-        >
-          {!allowed ? (
-            <Sparkles size={13} aria-hidden="true" />
-          ) : paused ? (
-            <Play size={13} aria-hidden="true" />
-          ) : (
-            <Pause size={13} aria-hidden="true" />
-          )}
-          <span>
-            {!allowed ? "静かな表示" : paused ? "動きを再生" : "動きを止める"}
-          </span>
-        </button>
       </MotionConfig>
     </MotionContext.Provider>
   );
