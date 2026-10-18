@@ -1,5 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import { SCHOOL_LINE, journeys } from "@/data/journeys";
 
@@ -40,10 +39,8 @@ const consultationRoutes: Record<
 
 export function LineConsultationLink({
   href = SCHOOL_LINE,
-  label,
 }: {
   href?: string;
-  label?: string;
 }) {
   return (
     <a
@@ -51,34 +48,15 @@ export function LineConsultationLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label ? `公式LINE：${label}（別のタブで開きます）` : undefined}
+      aria-label="公式LINE（新しいタブで開きます）"
     >
-      <span>公式LINE</span>
-      <span className="line-consult-sr">（別のタブで開きます）</span>
+      <img src="/images/line-brand-icon.png" width="40" height="40" alt="" aria-hidden="true" />
     </a>
-  );
-}
-
-export function LineConsultationPrompt({
-  href = SCHOOL_LINE,
-  children,
-  label,
-}: {
-  href?: string;
-  children: ReactNode;
-  label?: string;
-}) {
-  return (
-    <aside className="line-consult-prompt" aria-label="申し込み前のLINE相談">
-      <p>{children}</p>
-      <LineConsultationLink href={href} label={label || "申し込み前の相談"} />
-    </aside>
   );
 }
 
 export default function FloatingLineConsultation() {
   const [path] = useLocation();
-  const [dismissedPath, setDismissedPath] = useState<string | null>(null);
   const [formVisible, setFormVisible] = useState(false);
   useEffect(() => {
     setFormVisible(false);
@@ -104,17 +82,9 @@ export default function FloatingLineConsultation() {
       <aside
         className={`line-consult-floating${route.raised ? " line-consult-floating--raised" : ""}`}
         aria-label={`${route.topic}の公式LINE相談`}
-        hidden={dismissedPath === path || formVisible}
+        hidden={formVisible}
       >
         <LineConsultationLink href={route.href} />
-        <button
-          type="button"
-          className="line-consult-close"
-          aria-label="固定のLINE相談ボタンを閉じる"
-          onClick={() => setDismissedPath(path)}
-        >
-          <X size={14} aria-hidden="true" />
-        </button>
       </aside>
     </>
   );

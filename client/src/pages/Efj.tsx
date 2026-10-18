@@ -11,11 +11,9 @@ import {
 import { useJourneyMotion } from "@/components/JourneyMotion";
 import { JourneyStatusNotice } from "@/components/JourneyBooking";
 import ShareButtons from "@/components/ShareButtons";
-import { LineConsultationPrompt } from "@/components/LineConsultation";
 import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./efj-spring.css";
 
-const LINE = "https://lin.ee/N9eyIcP";
 const EARLY_DEADLINE = "2027-02-28T23:59:59+09:00";
 const DEPARTURE = "2027-03-29T00:00:00+09:00";
 const STOPS = [
@@ -78,27 +76,6 @@ function useTravelSeason() {
     early: now === null || now <= Date.parse(EARLY_DEADLINE),
     departed: now !== null && now >= Date.parse(DEPARTURE),
   };
-}
-
-function LineLink({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <a
-      className={`efjs-button efjs-button--line line-consult-link ${className}`}
-      href={LINE}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={() => trackJourneyAction("consult", "earth-family")}
-      aria-label={typeof children === "string" ? `公式LINE：${children}（別のタブで開きます）` : undefined}
-    >
-      <span>公式LINE</span>
-    </a>
-  );
 }
 
 export default function Efj() {
@@ -535,9 +512,6 @@ export default function Efj() {
                 </a>
               </div>
             </div>
-            <LineConsultationPrompt href={LINE} label="参加のかたちをLINEで相談する">
-              ご家族での参加費や途中合流、移動・宿泊のこと。申し込み前の気になることを、ここから相談できます。
-            </LineConsultationPrompt>
             <div className="efjs-practical" aria-label="参加前に確認したいこと">
               <details>
                 <summary>
@@ -628,7 +602,6 @@ export default function Efj() {
             <iframe className="efjs-application-frame" src="https://earthguide.tabigaku.party/forms/efj-spring-2027" title="地球家族ジャーニー2027春 申し込みフォーム" loading="lazy" referrerPolicy="no-referrer" />
             <a className="efjs-button efjs-button--dark" href="https://earthguide.tabigaku.party/forms/efj-spring-2027" target="_blank" rel="noopener noreferrer">申し込みフォームを別画面で開く</a>
           </>}
-          <LineLink>{departed ? "次の旅をLINEで相談する" : "申し込み前にLINEで相談する"}</LineLink>
           <p className="efjs-apply-message">
             「2027年春の地球家族ジャーニー参加希望」とお送りください。
           </p>

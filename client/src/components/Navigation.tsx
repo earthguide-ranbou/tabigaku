@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { SCHOOL_LINE } from "@/data/journeys";
-import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./school-navigation.css";
 
 const links = [
@@ -50,15 +48,7 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
-          <a
-            className="school-nav__contact line-action line-consult-link"
-            href={SCHOOL_LINE}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackJourneyAction("consult", "navigation")}
-          >
-            <span>公式LINE</span>
-          </a>
+
         </nav>
         <button
           ref={toggle}
@@ -90,18 +80,7 @@ export default function Navigation() {
             <ArrowUpRight size={15} aria-hidden="true" />
           </a>
         ))}
-        <a
-          className="line-action line-consult-link"
-          href={SCHOOL_LINE}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => {
-            setOpen(false);
-            trackJourneyAction("consult", "navigation");
-          }}
-        >
-          <span>公式LINE</span>
-        </a>
+
       </nav>
       <span id="school-navigation-end" />
     </header>

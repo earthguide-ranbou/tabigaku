@@ -109,7 +109,7 @@ export default function HenroShinsoku() {
     </dl>
     <div className="hero-btns">
       <a className="btn btn-shu" href="#apply">参加申し込みはこちら</a>
-      <a className="btn btn-ink line-consult-link" href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" aria-label="公式LINE：申し込み前の相談（別のタブで開きます）"><span>公式LINE</span></a>
+
       <a className="btn btn-ink" href="#concept" style={{padding: "17px 40px", fontSize: "14.5px"}}>旅の物語を読む</a>
     </div>
   </div>
@@ -335,7 +335,7 @@ export default function HenroShinsoku() {
     <h2 className="h2">この秋、<em className="nb">10人だけ</em><span className="nb">の特別な旅。</span></h2>
     <p className="lead-p" style={{marginInline: "auto"}}>ガイド料（参加費）は100,000円（税込）。別途、実費20,000〜30,000円前後が目安です。気になることは、お気軽にご相談ください。</p>
     <a className="btn btn-shu" href="#apply">申し込む</a>
-    <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>迷っている方はこちら → <a href="https://lin.ee/p3CvLfQ" target="_blank" rel="noopener" style={{color: "inherit", textDecoration: "underline"}}>LINEで相談</a> ／ <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
+    <p style={{marginTop: "16px", fontSize: "13px", opacity: .85}}>ご相談は右下のLINEアイコン、または <a href="tel:09075188816" style={{color: "inherit", textDecoration: "underline"}}>電話</a> ／ <a href="mailto:earthguide.jpn@gmail.com" style={{color: "inherit", textDecoration: "underline"}}>メール</a></p>
   </div>
 </section>
 

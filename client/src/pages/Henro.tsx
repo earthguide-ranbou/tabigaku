@@ -1,5 +1,4 @@
 import { ApplicationPanel, JourneyQuickInfo, JourneyStatusNotice } from "@/components/JourneyBooking";
-import { LineConsultationPrompt } from "@/components/LineConsultation";
 import { useEffect } from "react";
 import "./henro.css";
 import ShareButtons from "@/components/ShareButtons";
@@ -100,9 +99,6 @@ export default function Henro() {
 
 
       <JourneyQuickInfo id="kochi" />
-      <LineConsultationPrompt label="次回のお遍路をLINEで相談する">
-        この日程の開催は終了しました。次回の旅や、お子さまの初参加について気になることを聞かせてください。
-      </LineConsultationPrompt>
       {/* ===== STAGE ===== */}
       <section className="henro-section henro-stage">
         <div className="henro-section-inner henro-stage-grid">

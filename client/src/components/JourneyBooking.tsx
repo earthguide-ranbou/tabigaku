@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { journeys, journeyStatus, SCHOOL_LINE } from "@/data/journeys";
+import { journeys, journeyStatus } from "@/data/journeys";
 import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./journey-booking.css";
 
@@ -164,16 +164,7 @@ export function ApplicationPanel({ id }: { id: string }) {
               >
                 申し込みフォームへ <ArrowUpRight size={17} aria-hidden="true" />
               </a>
-              <a
-                className="booking-secondary line-action line-consult-link"
-                href={journey.line}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackJourneyAction("consult", id)}
-                aria-label="公式LINE：申し込み前の相談（別のタブで開きます）"
-              >
-                <span>公式LINE</span>
-              </a>
+
             </div>
             <p className="booking-note">
               フォームは別のタブで開きます。このボタンだけでは申し込みは送信されません。
@@ -189,15 +180,7 @@ export function ApplicationPanel({ id }: { id: string }) {
               <a className="booking-primary" href="/#journeys">
                 次の旅を見る <ArrowRight size={17} />
               </a>
-              <a
-                className="booking-secondary line-action line-consult-link"
-                href={SCHOOL_LINE}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="公式LINE：次回の案内の相談（別のタブで開きます）"
-              >
-                <span>公式LINE</span>
-              </a>
+
             </div>
           </>
         )}

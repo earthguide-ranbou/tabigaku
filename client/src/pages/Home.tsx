@@ -3,11 +3,9 @@ import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import JourneyHero from "@/components/JourneyHero";
-import { LineConsultationPrompt } from "@/components/LineConsultation";
 import {
   journeys,
   journeyStatus,
-  SCHOOL_LINE,
   type Audience,
 } from "@/data/journeys";
 import { trackJourneyAction } from "@/lib/journey-analytics";
@@ -185,15 +183,7 @@ export default function Home() {
             {visible.length === 0 && (
               <div className="school-empty">
                 <p>この対象の次の旅は、準備中です。</p>
-                <a
-                  className="school-text-link line-consult-link"
-                  href={SCHOOL_LINE}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="公式LINE：次回の案内を受け取る（別のタブで開きます）"
-                >
-                  <span>公式LINE</span>
-                </a>
+
               </div>
             )}
           </div>
@@ -228,9 +218,6 @@ export default function Home() {
           <p className="school-price-note">
             参加費・ガイド料などに含まれる内容と、別途必要な実費は旅によって異なります。実費は食費・宿泊費などの目安です。集合・解散地までの交通費や装備、割引の条件は、各旅の案内をご確認ください。
           </p>
-          <LineConsultationPrompt label="自分に合う旅をLINEで相談する">
-            どの旅が合うか迷ったら、参加したい時期や気になっていることを聞かせてください。
-          </LineConsultationPrompt>
           {past.length > 0 && (
             <details className="school-archive">
               <summary>
@@ -340,9 +327,6 @@ export default function Home() {
               <br />
               申し込む前に聞いてください。
             </p>
-            <LineConsultationPrompt label="初参加の不安をLINEで相談する">
-              体力や旅の経験、親子での参加についても、ここから相談できます。
-            </LineConsultationPrompt>
           </div>
           <div className="school-faq">
             <details>
@@ -382,15 +366,7 @@ export default function Home() {
             <p>日程、体力、家族での参加。まずは気軽にお話ししましょう。</p>
           </div>
           <div className="school-contact__links">
-            <a
-              className="school-button line-action line-consult-link"
-              href={SCHOOL_LINE}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackJourneyAction("consult", "home")}
-            >
-              <span>公式LINE</span>
-            </a>
+
             <a
               className="school-newsletter"
               href="https://ranbou.substack.com/"
