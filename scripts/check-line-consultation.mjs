@@ -29,6 +29,16 @@ const brandImages = html => [
 for (const [route, account] of Object.entries(destinations)) {
   const file = route === "/" ? "index" : route.slice(1);
   const html = await readFile(`dist/public/${file}.html`, "utf8");
+  if (route === "/juku") {
+    // The supplied page has its own sticky CTA and an inline payment-help link.
+    const links = accountLinks(html);
+    assert.equal(links.length, 2, `${route}: supplied inline and sticky consultation links`);
+    for (const [link] of links) assert.ok(link.includes(`href="https://lin.ee/${account}"`), `${route}: preserved account`);
+    assert.equal(links.filter(([link]) => /class="gobar__line"/.test(link)).length, 1, `${route}: one sticky consultation link`);
+    assert.match(html, /<p class="wrap note price__note">[\s\S]*?<a href="https:\/\/lin\.ee\/p3CvLfQ">公式LINE<\/a>/);
+    assert.doesNotMatch(html, /class="line-consult-floating/, `${route}: no additional shared overlay`);
+    continue;
+  }
   const floaters = [
     ...html.matchAll(
       /<aside\b[^>]*class="line-consult-floating[^>]*>([\s\S]*?)<\/aside>/g
@@ -61,5 +71,5 @@ assert.match(spring, /src="https:\/\/earthguide.tabigaku.party\/forms\/efj-sprin
 assert.ok((await readFile("dist/public/images/line-brand-icon.png")).length > 0);
 
 console.log(
-  "LINE consultation checks passed: one accessible official icon per 12 pages, preserved accounts, no repeated CTA/label/close controls, and iframe/404 exclusions."
+  "LINE consultation checks passed: shared icons on 11 pages, supplied Juku inline/sticky links, preserved accounts, and iframe/404 exclusions."
 );

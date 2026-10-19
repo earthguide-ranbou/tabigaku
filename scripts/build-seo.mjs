@@ -26,6 +26,16 @@ try {
   if (!/<div id="root"><\/div>/.test(template)) throw new Error('Expected the original empty app root before prerendering');
   await writeFile(path.join(output, 'app-shell.html'), template.replace('</head>', `${seoHead('/__app-shell')}\n</head>`));
   for (const route of Object.keys(pages)) {
+    if (route === '/juku') {
+      // Publish the supplied standalone page; retain its design, scripts and metadata.
+      const supplied = await readFile(path.join(root, 'client/public/juku.html'), 'utf8');
+      const jsonLd = JSON.stringify(seoForPath(route).jsonLd).replace(/</g, '\\u003c');
+      const structuredData = `<script type="application/ld+json" data-site-seo="true">${jsonLd}</script>`;
+      const analytics = (original.match(/<script\b[^>]*>[\s\S]*?<\/script>/g) ?? [])
+        .filter(tag => tag.includes('window.va =') || /src="\/_vercel\/insights\/script\.js"/.test(tag)).join('\n');
+      await writeFile(path.join(output, 'juku.html'), supplied.replace('</head>', `${structuredData}\n${analytics}\n</head>`));
+      continue;
+    }
     if (route === '/thai-2027') {
       const supplied = await readFile(path.join(root, 'client/public/thai-2027.html'), 'utf8');
       await writeFile(path.join(output, 'thai-2027.html'), stripHead(supplied).replace('</head>', `${seoHead(route)}\n</head>`));
