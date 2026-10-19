@@ -9,7 +9,7 @@ const ASSET = "/henro-assets/";
 export default function HenroShinsoku() {
   useSEO({
     title: "歩きお遍路ジャーニー ―神足歩行術で行く、発心の道場5日間の巻―（秋編）",
-    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。2026年度に満10歳〜65歳対象。参加費と実費の目安、参加までの流れをご案内。",
+    description: "2026年10月27日〜31日、徳島・発心の道場を江戸の身体技法「神足歩行術（しんそくほこうじゅつ）」で歩く5日間。大場克則×らんぼうが案内する定員10名の特別なお遍路旅。小学3年生以上・65歳まで対象。参加費と実費の目安、参加までの流れをご案内。",
     keywords: "歩きお遍路, 神足歩行術, 江戸走り, お遍路ジャーニー, 旅育, 旅する学校, 大場克則, らんぼう, 徳島 お遍路, 発心の道場, 四国遍路体験, 神山町, 太龍寺",
     ogImage: "https://assets.st-note.com/production/uploads/images/276486916/rectangle_large_type_2_57d46f085f55edf6af7f54bb01360974.png",
     ogUrl: "/henro-shinsoku",
@@ -101,7 +101,7 @@ export default function HenroShinsoku() {
     <p className="hero-sub">歩きお遍路ジャーニー<br className="br-sp" />―神足歩行術（しんそくほこうじゅつ）で行く、発心の道場 5日間の巻―</p>
     <div className="hero-meta">
       <div className="hero-date">2026.10.27 <b>TUE</b> ― 10.31 <b>SAT</b></div>
-      <div className="hero-cap">定員10名 ｜ 2026年度に満10歳〜65歳</div>
+      <div className="hero-cap">定員10名 ｜ 小学3年生以上・65歳まで</div>
     </div>
     <dl className="booking-hero-costs">
       <div><dt>ガイド料（参加費）</dt><dd>100,000円<small>（税込 / 1名）</small></dd></div>
@@ -408,7 +408,7 @@ export default function HenroShinsoku() {
       </details>
       <details>
         <summary>子どもの参加・親子での参加はできますか？</summary>
-        <div className="inner"><p>2026年度に満10歳になる方から65歳まで参加できます。親子やご家族での参加には「家族割引」があり、2人目以降は1人につき66,000円以上のドネーション制（ご家庭の事情に合わせて金額を決めていただく仕組み）です。</p></div>
+        <div className="inner"><p>小学3年生以上で、65歳までの方が参加できます。親子やご家族での参加には「家族割引」があり、2人目以降は1人につき66,000円以上のドネーション制（ご家庭の事情に合わせて金額を決めていただく仕組み）です。</p></div>
       </details>
       <details>
         <summary>キャンセルした場合は？</summary>
@@ -439,7 +439,7 @@ export default function HenroShinsoku() {
           <dt>解散</dt><dd>10/31（土）15:00頃（必要な方は徳島駅まで送迎）</dd>
           <dt>行程</dt><dd>神山町 → 13番札所・大日寺 → 21番札所・太龍寺 約70km</dd>
           <dt>定員</dt><dd>10名（先着順）</dd>
-          <dt>参加資格</dt><dd>2026年度に満10歳〜65歳の男女。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
+          <dt>参加資格</dt><dd>小学3年生以上・65歳までの方。やる気があること。あきらめないこと。仲間と助けあえること。</dd>
           <dt>保険</dt><dd>メンバー全員、傷害保険に加入します</dd>
         </dl>
         <details>
@@ -479,7 +479,7 @@ export default function HenroShinsoku() {
         <p style={{fontSize: "12.5px", color: "var(--sumi2)", marginTop: "6px"}}>実費〈別途〉20,000〜30,000円前後<br />（ケータリング・温泉・キャンプ場・行動食・宿・御朱印など）</p>
         <div className="disc">
           <b>早期割引（終了）</b>｜2026年9月10日で受付終了<br />
-          <b>家族割引</b>｜2人目以降（2026年度に満10歳以上の方）は、1人につき66,000円以上のドネーション制<br />
+          <b>家族割引</b>｜2人目以降（小学3年生以上・65歳までの方）は、1人につき66,000円以上のドネーション制<br />
           <b>オプション</b>｜ツアー前後に「神山ガイド」も案内可能
         </div>
         <h3 style={{marginTop: "30px"}}>お申し込みの流れ</h3>
@@ -516,7 +516,7 @@ export default function HenroShinsoku() {
 
 <ShareButtons
   url="https://www.tabigaku.party/henro-shinsoku"
-  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。心とからだで聖地を味わう旅。2026/10/27-31・2026年度に満10歳〜65歳対象。"
+  text="古の身体技法「神足歩行術」で巡る、発心の道場5日間。心とからだで聖地を味わう旅。2026/10/27-31・小学3年生以上・65歳まで対象。"
   title="＼ 神足・お遍路をシェア ／"
 />
 

@@ -56,7 +56,7 @@ export const journeys: Journey[] = [
     end: "2026-10-31T23:59:59+09:00",
     dateLabel: "2026.10.27（火）— 10.31（土）",
     duration: "5日間",
-    age: "2026年度に満10歳〜65歳",
+    age: "小学3年生以上・65歳まで",
     capacity: 10,
     fee: "100,000",
     expenses: "20,000〜30,000",

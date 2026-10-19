@@ -23,6 +23,31 @@ for (const route of audit.generatedRoutes) {
   }
 }
 
+// Keep the confirmed grade-based autumn Henro eligibility consistent everywhere.
+const shinsoku = await readFile('client/src/pages/HenroShinsoku.tsx', 'utf8');
+const journeys = await readFile('client/src/data/journeys.ts', 'utf8');
+const home = await readFile('client/src/pages/Home.tsx', 'utf8');
+const seoConfig = await readFile('client/src/seo-config.ts', 'utf8');
+for (const [label, source] of [['detail', shinsoku], ['journeys', journeys], ['home', home], ['seo', seoConfig]]) {
+  assert.ok(!/満[1１][0０]歳/.test(source), `${label}: no stale age-10 rule`);
+  assert.match(source, /小学3年生以上・65歳まで/, `${label}: grade3 minimum and age65 maximum`);
+}
+assert.match(shinsoku, /小学3年生以上で、65歳までの方が参加できます/);
+assert.match(shinsoku, /家族割引<\/b>｜2人目以降（小学3年生以上・65歳までの方）/);
+const shinsokuHtml = await readFile(path.join(root, 'henro-shinsoku.html'), 'utf8');
+const homeHtml = await readFile(path.join(root, 'index.html'), 'utf8');
+for (const [label, html] of [['detail output', shinsokuHtml], ['home output', homeHtml]]) {
+  assert.ok(!/満[1１][0０]歳/.test(html), `${label}: no stale eligibility`);
+  assert.match(html, /小学3年生以上・65歳まで/);
+}
+assert.match(shinsokuHtml, /<meta name="description" content="[^"]*小学3年生以上・65歳まで/);
+assert.match(shinsokuHtml, /<meta property="og:description" content="[^"]*小学3年生以上・65歳まで/);
+assert.match(shinsokuHtml, /66,000円以上/);
+assert.match(shinsokuHtml, /100,000円/);
+assert.match(shinsokuHtml, /2026\.10\.27/);
+assert.match(shinsokuHtml, /10\.31/);
+assert.match(shinsokuHtml, /https:\/\/1lejend\.com\/stepmail\/kd\.php\?no=fkdlxy/);
+
 // Exercise the exact standalone-page calculator without DOM, network, or mail.
 const thai = await readFile('client/public/thai-2027.html', 'utf8');
 const cfgStart = thai.indexOf('  const CFG = {');
