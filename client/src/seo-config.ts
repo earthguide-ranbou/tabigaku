@@ -1,3 +1,5 @@
+import homeCopy from "./data/home-copy.json";
+
 export interface PageSEO { label: string; title: string; description: string; image?: string; noindex?: boolean; canonical?: string }
 export const site = {
   "name": "旅する学校",
@@ -8,13 +10,13 @@ export const site = {
 export const pages: Record<string, PageSEO> = {
   "/": {
     "label": "ホーム",
-    "title": "旅する学校｜子どもの自然体験・旅育・歩きお遍路",
-    "description": "徳島・神山を拠点に、子どもも大人も旅を通じて学ぶ「旅する学校」。歩きお遍路、海旅キャンプ、川旅などの自然体験と旅育をご紹介。自分で考え、仲間と相談し、地域の文化や暮らしに触れる旅の、日程・対象年齢・参加方法をご案内します。"
+    "title": homeCopy.seo.title,
+    "description": homeCopy.seo.description
   },
   "/henro": {
-    "label": "子どもの歩きお遍路",
-    "title": "子どもの歩きお遍路ジャーニー｜旅する学校",
-    "description": "2026年10月10〜15日、小学3年生〜中学3年生対象の高知・歩きお遍路ジャーニー。日程、参加費と実費の目安、持ち物、参加方法をご案内します。",
+    "label": "子どもの歩きお遍路・2026年開催案内",
+    "title": "2026年10月・子どもの歩きお遍路【開催終了】｜旅する学校",
+    "description": "2026年10月10〜15日に開催した、小学3年生〜中学3年生対象の高知・歩きお遍路ジャーニーの案内です。当時の日程、費用、持ち物を掲載。現在参加できる自然体験・お遍路の旅は、トップの旅一覧からご確認ください。",
     "image": "/ogp-henro.jpg"
   },
   "/henro-shinsoku": {

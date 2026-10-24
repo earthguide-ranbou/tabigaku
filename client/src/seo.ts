@@ -10,7 +10,12 @@ export function seoForPath(path: string) {
   const noindex = !page || !!page.noindex;
   const graph: Record<string, unknown>[] = noindex ? [] : [
     { '@type': 'Organization', '@id': 'https://earthguide.tabigaku.party/#organization', name: 'あーすガイド', url: 'https://earthguide.tabigaku.party/' },
-    { '@type': 'WebSite', '@id': `${site.origin}/#website`, name: site.name, alternateName: site.alternateName, url: `${site.origin}/`, inLanguage: 'ja', publisher: { '@id': 'https://earthguide.tabigaku.party/#organization' } },
+    { '@type': 'Organization', '@id': `${site.origin}/#organization`, name: site.name,
+      alternateName: 'TABIGAKU', url: `${site.origin}/`, description: pages['/'].description,
+      parentOrganization: { '@id': 'https://earthguide.tabigaku.party/#organization' },
+      email: 'earthguide.jpn@gmail.com', telephone: '+81-90-7518-8816',
+      address: { '@type': 'PostalAddress', addressRegion: '徳島県', addressLocality: '神山町', addressCountry: 'JP' } },
+    { '@type': 'WebSite', '@id': `${site.origin}/#website`, name: site.name, alternateName: site.alternateName, url: `${site.origin}/`, inLanguage: 'ja', publisher: { '@id': `${site.origin}/#organization` } },
     { '@type': 'WebPage', '@id': `${url}#webpage`, name: title, description, url, inLanguage: 'ja', isPartOf: { '@id': `${site.origin}/#website` }, primaryImageOfPage: { '@type': 'ImageObject', url: image } },
   ];
   if (!noindex && pathname !== '/') graph.push({

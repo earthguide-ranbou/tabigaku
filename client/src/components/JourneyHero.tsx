@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowUpRight, Pause, Play } from "lucide-react";
 
 import { JourneyLandscape, JourneyCompass, useJourneyMotion } from "./JourneyMotion";
+
+import homeCopy from "@/data/home-copy.json";
 
 const scenes = [
   {
@@ -64,16 +66,12 @@ export default function JourneyHero() {
     >
       <div className="school-hero__copy">
         <JourneyLandscape />
-        <p className="school-eyebrow">自然と、人と、自分に出会う。</p>
+        <p className="school-eyebrow">{homeCopy.hero.eyebrow}</p>
         <h1 id="home-title">
-          <span>旅は、</span>
-          <span>最高の</span>
-          <span>学校だ。</span>
+          {homeCopy.hero.titleLines.map((line, index) => <span key={index}>{line}</span>)}
         </h1>
         <p className="school-hero__lead">
-          山を歩く。川で笑う。仲間と暮らす。
-          <br />
-          子どもも大人も、心が動く冒険へ。
+          {homeCopy.hero.leadLines.map((line, index) => <Fragment key={index}>{index > 0 && <br />}{line}</Fragment>)}
         </p>
         <div className="school-hero__actions">
           <a

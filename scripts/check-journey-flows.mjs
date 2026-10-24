@@ -26,7 +26,7 @@ for (const route of audit.generatedRoutes) {
 // Keep the confirmed grade-based autumn Henro eligibility consistent everywhere.
 const shinsoku = await readFile('client/src/pages/HenroShinsoku.tsx', 'utf8');
 const journeys = await readFile('client/src/data/journeys.ts', 'utf8');
-const home = await readFile('client/src/pages/Home.tsx', 'utf8');
+const home = await readFile('client/src/data/home-copy.json', 'utf8');
 const seoConfig = await readFile('client/src/seo-config.ts', 'utf8');
 for (const [label, source] of [['detail', shinsoku], ['journeys', journeys], ['home', home], ['seo', seoConfig]]) {
   assert.ok(!/満[1１][0０]歳/.test(source), `${label}: no stale age-10 rule`);

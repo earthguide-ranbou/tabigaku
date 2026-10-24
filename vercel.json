@@ -70,5 +70,72 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/henro.html",
+      "destination": "/henro",
+      "permanent": true
+    },
+    {
+      "source": "/henro-shinsoku.html",
+      "destination": "/henro-shinsoku",
+      "permanent": true
+    },
+    {
+      "source": "/guide.html",
+      "destination": "/guide",
+      "permanent": true
+    },
+    {
+      "source": "/award.html",
+      "destination": "/award",
+      "permanent": true
+    },
+    {
+      "source": "/sponsor.html",
+      "destination": "/sponsor",
+      "permanent": true
+    },
+    {
+      "source": "/thai.html",
+      "destination": "/thai",
+      "permanent": true
+    },
+    {
+      "source": "/thai-2027.html",
+      "destination": "/thai-2027",
+      "permanent": true
+    },
+    {
+      "source": "/saijai.html",
+      "destination": "/saijai",
+      "permanent": true
+    },
+    {
+      "source": "/juku.html",
+      "destination": "/juku",
+      "permanent": true
+    },
+    {
+      "source": "/efj.html",
+      "destination": "/efj",
+      "permanent": true
+    },
+    {
+      "source": "/earth-family.html",
+      "destination": "/earth-family",
+      "permanent": true
+    },
+    {
+      "source": "/earth-family-journey.html",
+      "destination": "/earth-family-journey",
+      "permanent": true
+    }
   ]
 }

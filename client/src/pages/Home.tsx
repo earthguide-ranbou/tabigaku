@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -10,6 +10,7 @@ import {
 } from "@/data/journeys";
 import { trackJourneyAction } from "@/lib/journey-analytics";
 import "./home.css";
+import homeCopy from "@/data/home-copy.json";
 
 const audiences: { value: Audience | "all"; label: string }[] = [
   { value: "all", label: "すべて" },
@@ -59,8 +60,8 @@ export default function Home() {
         >
           <div className="school-heading">
             <div>
-              <p className="school-eyebrow">NEXT JOURNEY</p>
-              <h2 id="journeys-title">次は、どんな冒険へ。</h2>
+              <p className="school-eyebrow">{homeCopy.journeys.label}</p>
+              <h2 id="journeys-title">{homeCopy.journeys.heading}</h2>
             </div>
             <div
               className="school-filters"
@@ -253,24 +254,11 @@ export default function Home() {
             </span>
           </div>
           <div className="school-about__copy">
-            <p className="school-eyebrow">ABOUT TABIGAKU</p>
+            <p className="school-eyebrow">{homeCopy.about.label}</p>
             <h2 id="about-title">
-              「やってみたい」が、
-              <br />
-              生きる力になる。
+              {homeCopy.about.titleLines.map((line, index) => <Fragment key={index}>{index > 0 && <br />}{line}</Fragment>)}
             </h2>
-            <p>
-              決められた正解より、自分で選ぶ一歩を。
-              <br />
-              旅する学校は、自然の中で遊び、人と出会い、
-              <br className="school-desktop" />
-              仲間と学び合う、旅の学び場です。
-            </p>
-            <p>
-              徳島・神山を拠点に、歩きお遍路や海・川の自然体験へ。
-              自分で考え、仲間と相談し、その土地の文化や暮らしに触れる。
-              実際に出会い、やってみる時間を大切にする「旅育」です。
-            </p>
+            {homeCopy.about.paragraphs.map((text, index) => <p key={index}>{text}</p>)}
             <div className="school-guide" id="guide">
               <img
                 src="/manus-storage/guide_torii_3a17f72b.jpg"
@@ -323,62 +311,35 @@ export default function Home() {
           <div>
             <p className="school-eyebrow">BEFORE YOU GO</p>
             <h2 id="first-title">
-              はじめての一歩を、
-              <br />
-              一緒に。
+              {homeCopy.first.titleLines.map((line, index) => <Fragment key={index}>{index > 0 && <br />}{line}</Fragment>)}
             </h2>
-            <p>
-              気になることは、
-              <br />
-              申し込む前に聞いてください。
-            </p>
+            <p>{homeCopy.first.introLines.map((line, index) => <Fragment key={index}>{index > 0 && <br />}{line}</Fragment>)}</p>
           </div>
           <div className="school-faq">
             <details>
-              <summary>学校の外での学びに関心があります</summary>
-              <p>
-                フリースクールやオルタナティブスクール、旅を通じて学ぶワールドスクールなど、
-                多様な学びに関心のあるご家庭にも、旅の選択肢をご紹介しています。
-                対象年齢や過ごし方は企画によって異なります。
-                日程・参加条件をご確認のうえ、不安な点は事前にご相談ください。
-              </p>
-              <p><a className="school-text-link" href="#journeys">自然体験と旅育の企画・参加条件を見る</a></p>
+              <summary>{homeCopy.tabiikuFaq.question}</summary>
+              <p>{homeCopy.tabiikuFaq.answer}</p>
             </details>
             <details>
-              <summary>子どもだけでも、初参加でも大丈夫？</summary>
-              <p>
-                海旅キャンプと歩きお遍路ジャーニーは、参加時に小学3年生〜中学3年生の子どもたちが対象で、初参加も歓迎しています。神足歩行術の旅は小学3年生以上・65歳までが対象です。体力や旅の経験について不安があれば、事前に案内人へご相談ください。
-              </p>
+              <summary>{homeCopy.learningFaq.question}</summary>
+              <p>{homeCopy.learningFaq.answer}</p>
+              <p><a className="school-text-link" href="#journeys">{homeCopy.learningFaq.linkLabel}</a></p>
             </details>
-            <details>
-              <summary>宿泊・食事・安全面はどうなっていますか？</summary>
-              <p>
-                旅ごとにキャンプや宿泊、自炊などの過ごし方が異なります。お遍路の旅では保険に加入し、天候により行程を変更する場合があります。アレルギー、持病、服薬、写真掲載についてのご希望は、参加前にご相談ください。
-              </p>
-            </details>
-            <details>
-              <summary>参加費のほかに、いくら必要ですか？</summary>
-              <p>
-                参加費（ガイド料など）のほかに、食費・宿泊費などの実費がかかります。実費の目安や含まれる内容は旅によって異なります。集合・解散地までの交通費や装備、早割・家族割引などの条件も、各旅の詳細でご確認ください。
-              </p>
-            </details>
-            <details>
-              <summary>申し込みは、どう進めればいいですか？</summary>
-              <p>
-                旅の詳細で日程・費用・注意事項を確認し、申し込み案内からフォームへ進んでください。子どもの参加では参加者本人の情報と保護者の連絡先をご準備ください。迷ったらLINE・電話・メールでも相談できます。
-              </p>
-            </details>
+            {homeCopy.faqs.map((faq, index) => (
+              <details key={index}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
           </div>
         </section>
         <section className="school-contact" id="contact">
           <div>
             <p className="school-eyebrow">LET’S TAKE THE FIRST STEP</p>
             <h2>
-              少し気になったら、
-              <br className="school-mobile" />
-              そこが旅のはじまり。
+              {homeCopy.contact.titleLines.map((line, index) => <Fragment key={index}>{index > 0 && <br className="school-mobile" />}{line}</Fragment>)}
             </h2>
-            <p>日程、体力、家族での参加。まずは気軽にお話ししましょう。</p>
+            <p>{homeCopy.contact.intro}</p>
           </div>
           <div className="school-contact__links">
 
