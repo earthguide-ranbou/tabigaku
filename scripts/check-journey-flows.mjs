@@ -62,7 +62,7 @@ for (const course of ['A', 'B', 'SPECIAL']) {
   S.course = course; S.adult = 1; S.kid = 0; S.infant = 0; S.dao = false;
   assert.equal(calc(true).total, CFG[course].sup + 30000);
   assert.equal(calc(false).total - calc(true).total, 20000);
-  S.kid = 1; assert.equal(calc(true).total, 30000 + CFG[course].sup * 1.5);
+  S.kid = 1; assert.equal(calc(true).total, 30000 + CFG[course].sup + CFG[course].kid);
   S.infant = 1; assert.equal(calc(true).infantFee, 0);
   S.infant = 2; assert.equal(calc(true).infantFee, CFG[course].infant);
   S.dao = true; S.daoPlan = 'lite'; S.daoType = null; assert.equal(calc(true).dao, 22000);

@@ -49,7 +49,7 @@ export const pages: Record<string, PageSEO> = {
   "/thai-2027": {
     "label": "タイの旅・地球家族ジャーニー",
     "title": "2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney",
-    "description": "2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費110,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。",
+    "description": "2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費99,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。",
     "image": "/images/saijai-lake.jpg"
   },
   "/saijai": {
