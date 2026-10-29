@@ -46,7 +46,15 @@ assert.match(shinsokuHtml, /66,000円以上/);
 assert.match(shinsokuHtml, /100,000円/);
 assert.match(shinsokuHtml, /2026\.10\.27/);
 assert.match(shinsokuHtml, /10\.31/);
-assert.match(shinsokuHtml, /https:\/\/1lejend\.com\/stepmail\/kd\.php\?no=fkdlxy/);
+// The application link intentionally closes when the journey begins.
+const shinsokuStart = journeys.match(/id: "shinsoku",[\s\S]*?start: "([^"]+)"/)?.[1];
+assert.ok(shinsokuStart, 'Shinsoku start date is defined');
+if (Date.now() < Date.parse(shinsokuStart)) {
+  assert.match(shinsokuHtml, /https:\/\/1lejend\.com\/stepmail\/kd\.php\?no=fkdlxy/);
+} else {
+  assert.doesNotMatch(shinsokuHtml, /https:\/\/1lejend\.com\/stepmail\/kd\.php\?no=fkdlxy/);
+  assert.match(shinsokuHtml, /次の旅で、お会いしましょう。/);
+}
 
 // Exercise the exact standalone-page calculator without DOM, network, or mail.
 const thai = await readFile('client/public/thai-2027.html', 'utf8');
