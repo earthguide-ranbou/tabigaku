@@ -38,7 +38,11 @@ try {
     }
     if (route === '/thai-2027') {
       const supplied = await readFile(path.join(root, 'client/public/thai-2027.html'), 'utf8');
-      await writeFile(path.join(output, 'thai-2027.html'), stripHead(supplied).replace('</head>', `${seoHead(route)}\n</head>`));
+      // The supplied standalone page owns its metadata and CFG-driven prices.
+      // Keep analytics without rebuilding its head from the older React copy.
+      const analytics = (original.match(/<script\b[^>]*>[\s\S]*?<\/script>/g) ?? [])
+        .filter(tag => (tag.includes('window.va =') || /src="\/_vercel\/insights\/script\.js"/.test(tag)) && !supplied.includes(tag)).join('\n');
+      await writeFile(path.join(output, 'thai-2027.html'), supplied.replace('</head>', `${analytics}\n</head>`));
       continue;
     }
     const html = await renderPage(route);

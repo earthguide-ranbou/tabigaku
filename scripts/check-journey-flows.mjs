@@ -8,17 +8,20 @@ const audit = JSON.parse(await readFile('dist/seo-audit.json', 'utf8'));
 let references = 0;
 for (const route of audit.generatedRoutes) {
   const html = await readFile(path.join(root, route === '/' ? 'index.html' : route.slice(1) + '.html'), 'utf8');
-  assert.match(html, /<h1[\s>]/, `${route}: readable page heading`);
+  // Inline scripts may contain HTML templates, whose expressions are not literal anchors.
+  // Retain script opening tags so external script asset checks still run.
+  const markup = html.replace(/(<script\b[^>]*>)[\s\S]*?<\/script>/gi, '$1</script>');
+  assert.match(markup, /<h1[\s>]/, `${route}: readable page heading`);
   assert.ok(!/%VITE_[A-Z_]+%/.test(html), `${route}: unresolved environment placeholder`);
-  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
-  for (const [tag] of html.matchAll(/<(?:img|script|source|video|link)\b[^>]*>/g)) {
+  const ids = new Set([...markup.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
+  for (const [tag] of markup.matchAll(/<(?:img|script|source|video|link)\b[^>]*>/g)) {
     if (tag.startsWith('<img')) assert.match(tag, /\balt="[^"]*"/, `${route}: image alt text`);
     const url = tag.match(/\bsrc="([^"]+)"/)?.[1] ?? (tag.startsWith('<link') && /rel="(?:stylesheet|preload|modulepreload)"/.test(tag) ? tag.match(/\bhref="([^"]+)"/)?.[1] : null);
     if (!url?.startsWith('/') || url.startsWith('//') || url.startsWith('/_vercel/')) continue;
     references++;
     await access(path.join(root, url.split(/[?#]/)[0])).catch(() => { throw Error(`${route}: missing asset ${url}`); });
   }
-  for (const match of html.matchAll(/<a\b[^>]*href="#([^"]+)"/g)) {
+  for (const match of markup.matchAll(/<a\b[^>]*href="#([^"]+)"/g)) {
     assert.ok(ids.has(match[1]), `${route}: missing anchor #${match[1]}`);
   }
 }
@@ -64,8 +67,13 @@ const stateStart = thai.indexOf("  const S = { course: 'A'");
 const calcEnd = thai.indexOf('  function renderSim()', stateStart);
 assert.ok(cfgStart >= 0 && cfgEnd > cfgStart && stateStart > cfgEnd && calcEnd > stateStart, 'calculator extraction bounds');
 const context = vm.createContext({});
-vm.runInContext(`${thai.slice(cfgStart, cfgEnd)}\n${thai.slice(stateStart, calcEnd)}\nglobalThis.qa = {CFG,S,calc};`, context);
-const { CFG, S, calc } = context.qa;
+vm.runInContext(`${thai.slice(cfgStart, cfgEnd)}\n${thai.slice(stateStart, calcEnd)}\nglobalThis.qa = {CFG,S,calc,PLAN};`, context);
+const { CFG, S, calc, PLAN } = context.qa;
+const thaiMarkup = thai.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+const thaiIds = new Set([...thaiMarkup.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
+for (const [course, plan] of Object.entries(PLAN)) {
+  assert.ok(thaiIds.has(plan.id), `Thai plan finder ${course}: target #${plan.id} exists`);
+}
 for (const course of ['A', 'B', 'SPECIAL']) {
   S.course = course; S.adult = 1; S.kid = 0; S.infant = 0; S.dao = false;
   assert.equal(calc(true).total, CFG[course].sup + 30000);
