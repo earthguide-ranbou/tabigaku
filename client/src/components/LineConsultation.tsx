@@ -25,7 +25,7 @@ const consultationRoutes: Record<
   },
   ...Object.fromEntries(
     journeys
-      .filter(journey => journey.line && journey.href !== "/thai-2027")
+      .filter(journey => journey.line && !["/thai-2027", "/efj"].includes(journey.href))
       .map(journey => [
         journey.href,
         {

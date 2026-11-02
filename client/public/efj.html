@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="ja" data-phase="early">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-site-verification" content="-YiiV7BcSQbLcKQWgUuF_QU3EEcwlLEXr46yiT7vqAQ" />
+<meta name="theme-color" content="#0B3448">
+<meta name="author" content="旅する学校（あーすガイド）" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp" fetchpriority="high">
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="https://www.tabigaku.party/_vercel/insights/script.js"></script>
+<style>
+/* =========================================================
+   地球家族ジャーニー2027春（祝島 → 神山町）
+   コンセプト「海から森へ」：スクロールするほど、瀬戸内の青から神山の緑へ
+   ========================================================= */
+:root{
+  --ink:#12302F; --ink-soft:#435C5A;
+  --sea-deep:#0B3448; --sea:#1D5E82; --sea-mist:#E4EEF2;
+  --forest-deep:#132C1D; --forest:#2E5B3B; --moss:#ECF2E7;
+  --kinari:#FBF7EF; --paper:#FFFDF8;
+  --kimidori:#CFEA9C; --kimidori-deep:#4C7A1A; --kimidori-mist:#EEF6DD;
+  --sun:#F5D78C;
+  --line:#007B36;
+  --on-dark:#F1F5EF; --on-dark-soft:rgba(241,245,239,.86);
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+  --latin:"Fraunces","Shippori Mincho",Georgia,serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:62px}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.9;color:var(--ink);background:var(--forest-deep);padding-bottom:calc(80px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto;background:#C9D9D2}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.5;margin:0;letter-spacing:.03em;font-feature-settings:"palt"}
+h1,h2,h3,.sub,.lead{word-break:auto-phrase}
+p{margin:0 0 1.1em;text-wrap:pretty}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--kimidori-deep);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,.dark :focus-visible,.night :focus-visible,.bar :focus-visible,.foot :focus-visible{outline-color:var(--kimidori)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nb{white-space:nowrap}
+br.pc{display:none}
+.ib{display:inline-block}
+.skip{position:absolute;left:12px;top:-80px;z-index:60;padding:10px 16px;border-radius:12px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.js-only{display:none}
+.js .js-only{display:block}
+[data-phase="regular"] .only-early{display:none!important}
+[data-phase="early"] .only-regular{display:none!important}
+.num{font-variant-numeric:lining-nums}
+
+/* ---------- 共通 ---------- */
+.sec{position:relative;padding:clamp(72px,14vw,128px) 0}
+.wrap{width:min(100% - 40px,680px);margin-inline:auto}
+.wrap.wide{width:min(100% - 40px,1080px)}
+.kicker{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-family:var(--latin);font-weight:700;font-size:.74rem;line-height:1.2;letter-spacing:.22em;text-transform:uppercase;color:var(--k,var(--sea))}
+.kicker::after{content:"";width:40px;height:1px;background:currentColor;opacity:.55}
+.sec h2{font-weight:800;font-size:clamp(1.7rem,7.3vw,2.7rem);line-height:1.5;letter-spacing:.03em;margin:0 0 .7em;text-wrap:balance}
+.sub{color:var(--soft,var(--ink-soft))}
+.lead{font-size:1.04rem;line-height:2}
+.fine{font-size:.84rem;line-height:1.85;color:var(--soft,var(--ink-soft));margin-top:16px}
+figcaption{font-size:.84rem;line-height:1.7;color:var(--soft,var(--ink-soft));margin-top:8px}
+.dark{color:var(--on-dark);--soft:var(--on-dark-soft);--k:var(--sun)}
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+/* 背景：海から森へ */
+.s-sea{background:linear-gradient(180deg,#E1ECF1 0%,#EEF3F1 100%)}
+.s-shore{background:linear-gradient(180deg,#EEF3F1 0%,#F3F5EE 100%)}
+.s-moss{background:linear-gradient(180deg,#F3F5EE 0%,var(--moss) 100%)}
+.s-kinari{background:var(--kinari)}
+.s-leaf{background:linear-gradient(180deg,var(--kinari) 0%,#E8EFE2 100%)}
+.s-forest{background:linear-gradient(180deg,#1F4732 0%,var(--forest-deep) 100%)}
+.s-grove{background:linear-gradient(180deg,var(--moss) 0%,var(--kinari) 100%)}
+.s-night{background:linear-gradient(180deg,var(--forest-deep) 0%,#0C1F14 100%)}
+
+/* ---------- ボタン ---------- */
+.btn{--bg:var(--kimidori);--fg:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:56px;padding:14px 28px;border:0;border-radius:999px;background:var(--bg);color:var(--fg);font:700 1.02rem/1.35 var(--sans);letter-spacing:.02em;text-decoration:none;text-align:center;cursor:pointer;box-shadow:0 12px 26px -12px rgba(40,80,12,.5),inset 0 -3px 0 rgba(40,70,10,.16),inset 0 0 0 1px rgba(40,80,10,.1);transition:transform .15s ease,box-shadow .15s ease}
+.btn:active{transform:translateY(2px);box-shadow:0 4px 12px -8px rgba(40,80,12,.5),inset 0 -1px 0 rgba(40,70,10,.16)}
+.btn.full{display:flex;width:100%}
+.btn.ghost{--bg:transparent;--fg:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.ghost:active{box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.line{--bg:var(--line);--fg:#fff;box-shadow:0 12px 26px -14px rgba(0,90,40,.8),inset 0 -3px 0 rgba(0,0,0,.14)}
+.btn.line img{width:26px;height:26px;background:none;border-radius:6px}
+.btn.dark{--bg:var(--ink);--fg:#fff;box-shadow:0 12px 26px -14px rgba(0,0,0,.6)}
+.text-link{display:inline-block;padding:8px 0;font-weight:700;text-underline-offset:5px}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;min-height:max(700px,100svh);display:flex;flex-direction:column;color:#fff;overflow:hidden;background:var(--sea-deep);isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 34%;background:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,26,38,.66) 0%,rgba(5,26,38,.16) 22%,rgba(5,26,38,.14) 38%,rgba(5,26,38,.78) 62%,rgba(5,26,38,.96) 100%)}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:calc(14px + env(safe-area-inset-top)) 18px 0}
+.brand{display:flex;align-items:center;gap:8px;color:inherit;text-decoration:none;font-family:var(--serif);font-weight:700;font-size:1.04rem;line-height:1.25}
+.brand svg{width:26px;height:26px;flex:none}
+.brand small{display:block;font-family:var(--latin);font-weight:700;font-size:.54rem;letter-spacing:.22em}
+.hero-join{flex:none;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);color:#fff;font-weight:700;font-size:.82rem;line-height:1.3;text-decoration:none}
+.hero-sea-cap{position:absolute;left:18px;top:calc(76px + env(safe-area-inset-top));margin:0;font-family:var(--serif);font-weight:700;font-size:.86rem;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero-sea-cap b,.hero-forest figcaption b{font-family:var(--latin);font-size:.78rem;margin-right:6px;color:var(--kimidori)}
+.hero-forest{position:absolute;right:18px;top:calc(68px + env(safe-area-inset-top));width:min(27vw,210px);margin:0}
+.hero-forest img{width:100%;aspect-ratio:3/4;height:auto;max-height:min(36vw,20svh);object-fit:cover;border-radius:999px 999px 18px 18px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6);outline:3px solid rgba(255,255,255,.85);outline-offset:-3px}
+.hero-forest figcaption{margin-top:8px;color:#fff;font-family:var(--serif);font-weight:700;font-size:.86rem;text-align:center;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.seal{position:absolute;left:-32px;top:-16px;display:grid;place-items:center;align-content:center;width:72px;height:72px;border-radius:50%;background:var(--kimidori);color:var(--ink);transform:rotate(-10deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.6);text-align:center;line-height:1.1}
+.seal span{font-family:var(--serif);font-weight:800;font-size:.44rem;letter-spacing:0}
+.seal b{font-family:var(--latin);font-size:1.45rem;line-height:1}
+.seal small{font-family:var(--latin);font-weight:700;font-size:.38rem;letter-spacing:.1em}
+.hero-vert{position:absolute;left:-16px;top:66px;writing-mode:vertical-rl;font-family:var(--latin);font-weight:700;font-size:.5rem;letter-spacing:.26em;white-space:nowrap;color:rgba(255,255,255,.88);text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero-space{flex:1 0 auto;min-height:calc(min(36vw,20svh) + 52px)}
+.hero-copy{position:relative;width:min(100% - 36px,680px);margin:0 auto;padding:0 0 26px}
+.hero-copy p{margin:0}
+.eyebrow{font-family:var(--latin);font-weight:700;font-size:.66rem;letter-spacing:.24em;color:var(--sun);text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.hero-name{margin-top:6px!important;font-family:var(--serif);font-weight:700;font-size:.98rem;letter-spacing:.12em;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero h1{margin:4px 0 10px;font-weight:800;font-size:clamp(2.05rem,9.4vw,3.6rem);line-height:1.34;letter-spacing:.04em;text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.hero h1 span{display:block}
+.hero h1 span:nth-child(-n+2){display:inline}
+.hero h1 em{font-style:normal;color:var(--kimidori)}
+.hero-lead{font-size:.86rem;line-height:1.8;color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero-date{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin-top:14px!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.3)}
+.hero-date .y{font-family:var(--latin);font-weight:500;font-size:.85rem;letter-spacing:.1em;opacity:.85}
+.hero-date strong{font-family:var(--latin);font-weight:700;font-size:clamp(1.6rem,7.4vw,2.2rem);line-height:1.1;letter-spacing:.01em}
+.hero-date strong small{font-family:var(--serif);font-size:.5em;margin:0 .25em 0 .1em}
+.hero-date strong i{font-style:normal;font-weight:500;opacity:.75;margin:0 .1em}
+.hero-date .n{font-family:var(--serif);font-weight:700;font-size:.88rem}
+.hero-date .dot{margin:0 .1em}
+.hero-facts{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;padding:0}
+.hero-facts li{padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);font-size:.78rem;font-weight:700;line-height:1.4}
+.hero-facts li.early{background:var(--sun);color:var(--ink);box-shadow:none}
+.hero-facts .count{margin-left:6px;padding:0 7px;border-radius:999px;background:var(--ink);color:#fff;font-size:.72rem}
+.hero-facts .count:empty{display:none}
+.hero-cta{display:grid;gap:8px;margin-top:14px}
+.hero-cta .btn{min-height:54px;padding-inline:20px}
+.hero-cta .btn.ghost{--fg:#fff;min-height:48px}
+.hero-note{margin-top:10px!important;font-size:.76rem;line-height:1.7;color:rgba(255,255,255,.85)}
+@media (prefers-reduced-motion:no-preference){
+  .hero-bg{animation:kenburns 24s var(--ease) both}
+  .hero-forest,.hero-sea-cap,.hero-copy>*{animation:rise 1.1s var(--ease) both}
+  .hero-forest{animation-delay:.35s}
+  .hero-copy>*:nth-child(2){animation-delay:.1s}
+  .hero-copy>*:nth-child(3){animation-delay:.2s}
+  .hero-copy>*:nth-child(4){animation-delay:.35s}
+  .hero-copy>*:nth-child(5){animation-delay:.5s}
+  .hero-copy>*:nth-child(6){animation-delay:.6s}
+  .hero-copy>*:nth-child(7){animation-delay:.7s}
+  .hero-copy>*:nth-child(8){animation-delay:.8s}
+}
+@keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- 目次 ---------- */
+.toc{position:sticky;top:0;z-index:15;background:rgba(251,247,239,.97);border-bottom:1px solid rgba(18,48,47,.1);padding-top:env(safe-area-inset-top)}
+.toc-in{display:flex;gap:2px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.toc-in::-webkit-scrollbar{display:none}
+.toc a{flex:none;padding:7px 13px;border-radius:999px;font-size:.86rem;font-weight:700;line-height:1.4;text-decoration:none;color:var(--ink-soft);transition:background .2s,color .2s}
+.toc a[aria-current="location"]{background:var(--sea);color:#fff}
+.toc a.go{margin-left:auto;background:var(--kimidori);color:var(--ink)}
+
+/* ---------- 旅の舞台（地図と7日間） ---------- */
+.intro p{font-size:clamp(.94rem,4.1vw,1rem);line-height:2;margin:0}
+.map{margin:30px 0 0}
+.map svg{display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 24px 50px -36px rgba(11,52,72,.5)}
+.map text{font-family:var(--sans);fill:var(--ink)}
+.map .pl{font-family:var(--serif);font-weight:800;font-size:16px;paint-order:stroke;stroke:#E4EEF2;stroke-width:4px;stroke-linejoin:round}
+.map .en{font-family:var(--latin);font-weight:700;font-size:8.5px;letter-spacing:2px;fill:#4F6462;paint-order:stroke;stroke:#E4EEF2;stroke-width:3px;stroke-linejoin:round}
+.map .en.tight{font-size:8px;letter-spacing:1.2px}
+.map .tag{font-family:var(--sans);font-weight:700;font-size:10.5px;fill:#fff}
+.map .area{font-family:var(--serif);font-weight:700;font-size:11px;letter-spacing:7px;fill:#6E7E72}
+.map .sea-jp{font-family:var(--serif);font-weight:700;font-size:11.5px;letter-spacing:3px;fill:#4F7A8C}
+.map .pref{font-family:var(--serif);font-weight:700;font-size:10.5px;fill:#5F6F68;paint-order:stroke;stroke:#F4EFE2;stroke-width:3px;stroke-linejoin:round}
+.map .pl.land,.map .en.land,.map .pref.shik{stroke:#E6EEDC}
+.map .north{font-family:var(--latin);font-weight:700;font-size:9px;fill:#46605E}
+.map .route-under{fill:none;stroke:rgba(255,255,255,.8);stroke-width:7;stroke-linecap:round}
+.map .route{fill:none;stroke:var(--kimidori-deep);stroke-width:3.2;stroke-linecap:round;stroke-dasharray:.1 7.4}
+.map .pin circle{stroke:#fff;stroke-width:2.5}
+.map .pin.sea circle{fill:var(--sea)}
+.map .pin.forest circle{fill:var(--forest)}
+.map .pin .halo{stroke:none;opacity:.2}
+.js .map .reveal{stroke-dasharray:100 100;stroke-dashoffset:100;transition:stroke-dashoffset 2.4s cubic-bezier(.45,.05,.2,1) .2s}
+.js .map.in .reveal{stroke-dashoffset:0}
+.map-cap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;margin-top:12px;font-size:.86rem;line-height:1.6;color:var(--ink-soft)}
+.map-cap .lg{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--ink)}
+.map-cap svg{width:18px;height:18px;flex:none;color:var(--sea)}
+.map-cap .lg+.lg svg{color:var(--forest)}
+.map-cap .map-note{flex-basis:100%;font-size:.8rem}
+.days{margin:30px 0 0;padding:20px 16px 16px;border-radius:22px;background:var(--paper);box-shadow:0 24px 50px -36px rgba(11,52,72,.55)}
+.days-ends{display:flex;justify-content:space-between;margin:0 0 12px!important;font-family:var(--serif);font-weight:800;font-size:.95rem}
+.days-ends span:first-child{color:var(--sea)}
+.days-ends span:last-child{color:var(--forest)}
+.days ol{list-style:none;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin:0;padding:0;position:relative}
+.days ol::before{content:"";position:absolute;left:7%;right:7%;top:21px;height:2px;background:linear-gradient(90deg,var(--sea),var(--forest));opacity:.35}
+.days li{position:relative;display:grid;justify-items:center;gap:4px;text-align:center}
+.days li b{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--latin);font-weight:700;font-size:.82rem;line-height:1;box-shadow:0 0 0 3px var(--paper)}
+.days li small{font-size:.74rem;font-weight:700;color:var(--ink-soft)}
+.days li:first-child b,.days li:last-child b{width:46px;height:46px;margin-top:-2px;box-shadow:0 0 0 3px var(--paper),0 0 0 5px var(--c)}
+.days-note{margin:14px 0 0!important;font-size:.86rem;line-height:1.8;color:var(--ink-soft)}
+.route-cards{display:grid;gap:10px;margin-top:16px}
+.route-card{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:center;padding:14px 16px;border-radius:18px;background:var(--paper);text-decoration:none;box-shadow:0 14px 30px -26px rgba(11,52,72,.6)}
+.route-card .no{grid-row:span 2;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--c);color:#fff;font-family:var(--latin);font-weight:700}
+.route-card strong{font-family:var(--serif);font-size:1.18rem;line-height:1.4}
+.route-card strong i{font-style:normal;font-family:var(--latin);font-size:.66rem;letter-spacing:.2em;color:var(--ink-soft);margin-left:8px}
+.route-card span{font-size:.84rem;color:var(--ink-soft);line-height:1.6}
+
+/* ---------- 祝島・神山 ---------- */
+.stop-photo{position:relative;margin:0 0 26px}
+.stop-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;box-shadow:0 30px 60px -34px rgba(11,52,72,.6)}
+.stop-photo .idx{position:absolute;left:14px;top:10px;font-family:var(--latin);font-weight:700;font-size:3.4rem;line-height:1;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.stop-photo figcaption{text-align:right}
+.stop .kicker svg{width:18px;height:18px}
+.place{display:flex;align-items:center;gap:6px;margin:-8px 0 14px!important;font-size:.88rem;font-weight:700;color:var(--ink-soft)}
+.place svg{width:15px;height:15px;flex:none}
+.stop .body p{font-size:1rem;line-height:2.05}
+.stop .kicker{gap:8px}
+.stop .kicker::after{display:none}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 10px;padding:0}
+.tags li{padding:5px 12px;border-radius:999px;background:var(--paper);box-shadow:inset 0 0 0 1px rgba(18,48,47,.14);font-size:.84rem;font-weight:700}
+.stop.k .kicker{--k:var(--forest)}
+
+/* ---------- ギャラリー ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;margin-top:26px}
+.gallery figure:first-child{grid-column:1/-1}
+.gallery figure{margin:0}
+.gallery img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:20px}
+.gallery figure:not(:first-child) img{aspect-ratio:4/5;border-radius:16px}
+.gallery figure:not(:first-child) figcaption{font-size:.84rem;line-height:1.6}
+.gallery figcaption{font-family:var(--serif);font-weight:700;font-size:.95rem;color:var(--ink)}
+.gallery figcaption a{display:inline-block;margin-left:8px;font-family:var(--sans);font-weight:700;font-size:.84rem;color:var(--sea);text-underline-offset:4px}
+
+/* ---------- おみやげ ---------- */
+.moments{display:grid;gap:12px;margin-top:26px}
+.moment{padding:22px 20px;border-radius:22px;background:var(--paper);box-shadow:0 20px 40px -32px rgba(19,44,29,.55)}
+.moment span{display:block;font-family:var(--latin);font-weight:700;font-size:.74rem;letter-spacing:.2em;color:var(--forest)}
+.moment h3{font-size:1.24rem;margin:6px 0 6px}
+.moment p{margin:0;font-size:.95rem;line-height:1.85}
+.more{margin-top:18px}
+
+/* ---------- 夜 ---------- */
+.night{position:relative;min-height:min(120vw,640px);display:flex;align-items:flex-end;color:#fff;isolation:isolate;overflow:hidden;background:var(--forest-deep)}
+.night img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;background:none}
+.night::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,28,18,.15) 0%,rgba(10,28,18,.55) 45%,rgba(10,28,18,.94) 100%)}
+.night .wrap{padding:120px 0 44px}
+.night .kicker{--k:var(--sun)}
+.night h2{font-weight:800;font-size:clamp(1.7rem,7.3vw,2.7rem);line-height:1.5;margin:0 0 .6em;text-shadow:0 2px 18px rgba(0,0,0,.5)}
+.night p{line-height:2;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.night-cap{position:absolute;right:16px;top:14px;font-size:.78rem;color:rgba(255,255,255,.85);text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+/* ---------- 案内人 ---------- */
+.guide{display:grid;gap:22px}
+.portrait{position:relative;width:min(70%,300px)}
+.portrait img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:50%;box-shadow:0 24px 50px -28px rgba(19,44,29,.7)}
+.portrait span{position:absolute;right:-10px;bottom:12px;padding:6px 12px;border-radius:999px;background:var(--forest);color:#fff;font-family:var(--latin);font-weight:700;font-size:.66rem;letter-spacing:.18em}
+.guide .body-text{font-size:1rem;line-height:2}
+.guide-role{font-size:.88rem;line-height:1.8;color:var(--ink-soft)}
+
+/* ---------- 参加費 ---------- */
+.fit{display:grid;gap:12px;margin:26px 0 0}
+.fit-box{padding:18px 18px 8px;border-radius:20px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.fit-box h3{font-size:1.08rem;margin-bottom:8px;color:var(--sun)}
+.fit-box ul{margin:0;padding:0 0 0 1.1em}
+.fit-box li{margin-bottom:.5em;font-size:.93rem;line-height:1.75}
+.ticket{position:relative;margin:30px 0 0;color:var(--ink);filter:drop-shadow(0 22px 34px rgba(0,0,0,.35))}
+.t-main,.t-stub{background:var(--paper);position:relative}
+.t-main{border-radius:22px 22px 0 0;padding:0 0 22px;
+  -webkit-mask:radial-gradient(14px at 0 100%,#0000 97%,#000),radial-gradient(14px at 100% 100%,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(14px at 0 100%,#0000 97%,#000),radial-gradient(14px at 100% 100%,#0000 97%,#000);mask-composite:intersect}
+.t-stub{border-radius:0 0 22px 22px;padding:22px 20px 22px;
+  -webkit-mask:radial-gradient(14px at 0 0,#0000 97%,#000),radial-gradient(14px at 100% 0,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(14px at 0 0,#0000 97%,#000),radial-gradient(14px at 100% 0,#0000 97%,#000);mask-composite:intersect}
+.t-stub::before{content:"";position:absolute;left:24px;right:24px;top:0;border-top:2px dashed rgba(18,48,47,.28)}
+.t-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 20px;border-radius:22px 22px 0 0;background:linear-gradient(90deg,var(--sea),var(--forest));color:#fff}
+.t-head b{font-family:var(--serif);font-size:1.02rem;letter-spacing:.06em}
+.t-head span{font-family:var(--latin);font-weight:700;font-size:.72rem;letter-spacing:.22em;white-space:nowrap}
+.t-body{padding:18px 20px 0}
+.t-route{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:end;margin-bottom:16px}
+.t-route .d{display:block;font-family:var(--latin);font-weight:700;font-size:2.35rem;line-height:1}
+.t-route .d.s{color:var(--sea)}
+.t-route .d.f{color:var(--forest)}
+.t-route small{display:block;margin-top:4px;font-size:.8rem;color:var(--ink-soft);line-height:1.4}
+.t-route .r{text-align:right}
+.t-mid{position:relative;align-self:center;padding-top:26px;text-align:center;font-size:.8rem;font-weight:700;color:var(--ink-soft)}
+.t-mid::before{content:"";position:absolute;left:0;right:0;top:12px;border-top:2px dotted rgba(18,48,47,.32)}
+.t-mid svg{position:absolute;left:50%;top:0;width:34px;height:24px;padding:0 5px;transform:translateX(-50%);background:var(--paper);color:var(--kimidori-deep)}
+.t-body h3{font-size:1.32rem;margin:0 0 4px}
+.t-body .what{font-size:.86rem;color:var(--ink-soft);margin:0 0 14px}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 0 6px;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(18,48,47,.12)}
+.prices div{padding:12px 12px 10px}
+.prices div+div{background:var(--kimidori-mist)}
+.prices div>span{display:block;font-size:.76rem;font-weight:700;color:var(--ink-soft);line-height:1.5}
+.prices strong{display:block;font-family:var(--serif);font-weight:800;font-size:1.9rem;line-height:1.25}
+.prices strong .num{font-family:var(--latin);font-weight:700}
+.prices strong small{font-size:.5em;margin-left:.1em}
+.prices .early strong{color:var(--kimidori-deep)}
+[data-phase="regular"] .prices{grid-template-columns:1fr}
+.deadline{display:flex;align-items:center;gap:8px;margin:10px 0 0!important;font-size:.88rem;font-weight:700}
+.deadline svg{width:17px;height:17px;flex:none;color:var(--forest)}
+.deadline .count{padding:1px 9px;border-radius:999px;background:var(--ink);color:#fff;font-size:.76rem}
+.deadline .count:empty{display:none}
+.cost-note{margin:12px 0 0!important;padding:12px 14px;border-radius:14px;background:var(--moss);font-size:.86rem;line-height:1.75}
+.cost-note b{display:block;font-family:var(--serif)}
+.t-feats{list-style:none;display:grid;gap:6px;margin:0 0 16px;padding:0}
+.t-feats li{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:700}
+.t-feats svg{width:18px;height:18px;flex:none;color:var(--forest)}
+.cal{display:flex;flex-wrap:wrap;align-items:center;gap:2px 16px;margin:12px 0 0!important;font-size:.86rem}
+.cal span{flex-basis:100%;font-weight:700}
+.cal a{display:inline-flex;align-items:center;gap:6px;padding:6px 0;font-weight:700;text-underline-offset:4px}
+.cal a::before{content:"";width:14px;height:14px;border:1.6px solid currentColor;border-radius:3px;box-shadow:inset 0 3px 0 currentColor}
+
+/* 計算 */
+.calc{margin-top:34px;padding:24px 20px;border-radius:24px;background:var(--paper);color:var(--ink);box-shadow:0 30px 60px -40px rgba(0,0,0,.7);scroll-margin-top:70px}
+.calc h3{font-size:1.34rem;margin-bottom:4px}
+.calc>.sub{font-size:.9rem;margin-bottom:12px;color:var(--ink-soft)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(18,48,47,.12)}
+.row label{font-weight:700;line-height:1.5}
+.row label small{display:block;font-weight:400;font-size:.8rem;color:var(--ink-soft);word-break:auto-phrase}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--forest);background:#fff;color:var(--forest);font:400 1.4rem/1 var(--sans);cursor:pointer}
+.step button:disabled{opacity:.32;cursor:default}
+.step output{min-width:2.2em;text-align:center;font-family:var(--latin);font-weight:700;font-size:1.4rem}
+.sw{position:relative;flex:none;width:64px;height:46px;border:0;background:none;cursor:pointer;padding:0}
+.sw::before{content:"";position:absolute;left:4px;right:4px;top:8px;bottom:8px;border-radius:999px;background:rgba(18,48,47,.26);transition:background .2s}
+.sw::after{content:"";position:absolute;top:10px;left:7px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:transform .2s}
+.sw[aria-checked="true"]::before{background:var(--forest)}
+.sw[aria-checked="true"]::after{transform:translateX(24px)}
+.result{margin-top:18px;padding:20px 18px 16px;border-radius:18px;background:var(--forest-deep);color:var(--on-dark)}
+.result .lab{font-size:.84rem;color:var(--on-dark-soft);margin:0}
+.result .total{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 10px}
+.result .total b{font-family:var(--serif);font-weight:800;font-size:2.25rem;line-height:1.3}
+.result .total b .num{font-family:var(--latin);font-weight:700}
+.result .total .tag{padding:2px 10px;border-radius:999px;background:var(--sun);color:var(--ink);font-weight:700;font-size:.8rem}
+.result dl{margin:0;font-size:.9rem}
+.result dl div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-top:1px solid rgba(255,255,255,.16)}
+.result dt,.result dd{margin:0}
+.result dd{white-space:nowrap;text-align:right}
+.result .note{margin:10px 0 0;font-size:.8rem;line-height:1.75;color:var(--on-dark-soft)}
+.calc-act{display:grid;gap:10px;margin-top:16px}
+.calc-act .btn.ghost{--fg:var(--forest);min-height:50px}
+
+/* 詳しい条件（開閉） */
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 2px;font-weight:700;line-height:1.6;min-height:58px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;border:1px solid currentColor;font-family:var(--latin);font-size:1.15rem;line-height:1;opacity:.75;transition:transform .25s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details .d-body{padding:0 2px 18px}
+details .d-body p{font-size:.95rem;line-height:1.85}
+details .d-body p:last-child{margin-bottom:0}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  details::details-content{block-size:0;overflow:hidden;transition:block-size .35s var(--ease),content-visibility .35s allow-discrete}
+  details[open]::details-content{block-size:auto}
+}
+.dark details .d-body p{color:var(--on-dark-soft)}
+.dark details a{color:var(--sun)}
+
+/* 持ち物チェック */
+.pack{list-style:none;display:grid;gap:6px;margin:4px 0 12px;padding:0}
+.pack label{display:flex;align-items:center;gap:12px;min-height:46px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.07);cursor:pointer;font-size:.94rem;line-height:1.5}
+.pack input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;margin:0;border-radius:7px;border:2px solid var(--on-dark-soft);display:grid;place-items:center;cursor:pointer}
+.pack input:checked{background:var(--sun);border-color:var(--sun)}
+.pack input:checked::after{content:"";width:6px;height:11px;border:solid var(--ink);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.pack input:checked+span{text-decoration:line-through;opacity:.7}
+.pack-progress{display:flex;align-items:center;gap:10px;margin:0 0 10px!important;font-weight:700;font-size:.9rem}
+.pack-progress i{flex:1;height:6px;border-radius:999px;background:rgba(255,255,255,.18);overflow:hidden}
+.pack-progress i b{display:block;height:100%;width:0;background:var(--sun);transition:width .3s var(--ease)}
+
+/* ---------- 申し込みから出発まで ---------- */
+.road{list-style:none;margin:28px 0 26px;padding:0;position:relative}
+.road::before{content:"";position:absolute;left:21px;top:22px;bottom:30px;border-left:2px dashed rgba(46,91,59,.35)}
+.road li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:0 0 20px}
+.road .rn{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--forest);color:var(--forest);font-family:var(--latin);font-weight:700;font-size:1.05rem}
+.road li.goal .rn{background:var(--kimidori);box-shadow:none;color:var(--ink)}
+.road li.goal .rn svg{width:20px;height:20px}
+.road h3{font-size:1.08rem;line-height:1.55;margin:8px 0 4px}
+.road p{margin:0;font-size:.93rem;line-height:1.8;color:var(--ink-soft)}
+.apply-frame{display:block;width:100%;height:2000px;border:0;border-radius:16px;margin:26px 0 16px;background:#F2F6F3;scroll-margin-top:70px}
+.contact-box{margin-top:30px;padding:22px 20px;border-radius:22px;background:var(--paper);box-shadow:0 20px 44px -34px rgba(19,44,29,.6)}
+.apply-msg{font-size:.95rem;font-weight:700;margin:0 0 14px!important;line-height:1.7}
+.contact{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 22px;margin-top:10px}
+.contact a{padding:8px 0;font-weight:700;text-underline-offset:4px}
+.apply-act{display:grid;gap:10px}
+
+/* ---------- よくある質問 ---------- */
+.faq-group{margin-top:30px}
+.faq-cat{margin:0 0 4px;font-family:var(--sans);font-weight:700;font-size:.86rem;letter-spacing:.12em;color:var(--sun)}
+#faq details{border-top:1px solid rgba(255,255,255,.18)}
+#faq details:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+#faq summary{font-size:1rem}
+#faq .d-body p{color:var(--on-dark-soft)}
+#faq a{color:var(--sun)}
+
+/* ---------- フッター ---------- */
+.foot{padding:40px 0 30px;background:#0B1A12;color:var(--on-dark-soft);text-align:center;font-size:.84rem;line-height:1.9}
+.foot .brand{justify-content:center;color:var(--on-dark);margin-bottom:8px}
+.foot-links{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;margin:8px 0 20px}
+.foot-links a{padding:6px 0;text-underline-offset:4px}
+.share-title{margin:0 0 12px!important;font-weight:700;letter-spacing:.08em;color:var(--on-dark)}
+.share{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.share a,.share button{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;color:#fff;text-decoration:none;border:0;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.share svg{width:18px;height:18px}
+.share .x{background:#111}
+.share .fb{background:#1877F2}
+.share .ln{background:var(--line)}
+.share .th{background:#333;font-weight:800;font-size:17px;line-height:1}
+.share button{width:auto;padding:0 16px;gap:6px;border-radius:999px;background:#fff;color:#444;font:700 .82rem var(--sans)}
+
+/* ---------- 下の固定バー ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom)) 16px;background:var(--forest-deep);color:var(--on-dark);box-shadow:0 -10px 30px -14px rgba(0,0,0,.5);transform:translateY(110%);transition:transform .3s var(--ease)}
+.bar.on{transform:none}
+.bar-txt{flex:1;min-width:0;margin:0;font-size:.78rem;line-height:1.45}
+.bar-txt b{display:block;font-family:var(--serif);font-size:.95rem;white-space:nowrap}
+.bar-txt>span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--on-dark-soft)}
+.bar-line{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--line);color:#fff;text-decoration:none;font-size:.62rem;font-weight:700;line-height:1}
+.bar-line img{width:24px;height:24px;background:none;margin-bottom:2px}
+.bar .btn{flex:none;min-height:52px;padding:8px 20px;font-size:.98rem;box-shadow:none}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:30;max-width:min(92vw,420px);padding:12px 18px;border-radius:14px;background:#fff;color:var(--ink);font-size:.88rem;line-height:1.6;box-shadow:0 12px 34px rgba(0,0,0,.3);transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- 大きな画面 ---------- */
+@media (max-width:559px){
+  .hero .eyebrow{display:none}
+}
+@media (max-width:370px){
+  .hero-facts li{font-size:.72rem;padding:4px 9px}
+}
+@media (min-width:560px){
+  .hero-cta{grid-template-columns:auto auto;justify-content:start}
+  .route-cards{grid-template-columns:1fr 1fr}
+  .moments{grid-template-columns:repeat(3,1fr)}
+  .fit{grid-template-columns:1fr 1fr}
+}
+@media (min-width:701px){
+  .apply-frame{height:1750px}
+}
+@media (min-width:900px){
+  body{font-size:17px}
+  br.pc{display:inline}
+  .hero h1 span:nth-child(-n+2){display:block}
+  .hero-top{padding-inline:max(40px,calc(50% - 520px))}
+  .hero-sea-cap{left:max(40px,calc(50% - 520px))}
+  .hero-forest{right:max(40px,calc(50% - 520px));top:96px;width:300px}
+  .hero-forest img{max-height:none}
+  .hero-space{min-height:120px}
+  .hero-copy{width:min(100% - 80px,1040px)}
+  .hero-copy>*{max-width:600px}
+  .toc-in{justify-content:center}
+  .toc a.go{margin-left:12px}
+  .stop{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+  .stop.k .stop-photo{order:2}
+  .stop-photo{margin:0}
+  .gallery{gap:20px 18px}
+  .gallery figure:first-child img{aspect-ratio:1200/628}
+  .gallery figure:not(:first-child) img{aspect-ratio:4/3;border-radius:20px}
+  .gallery figure:not(:first-child) figcaption{font-size:.95rem}
+  .guide{grid-template-columns:300px 1fr;align-items:center;gap:48px}
+  .portrait{width:100%}
+  .price-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:start}
+  .price-grid .calc{margin-top:0;position:sticky;top:76px}
+  .night{min-height:560px}
+  .bar{justify-content:center;gap:18px}
+  .bar-txt{flex:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  .js .map .reveal{stroke-dashoffset:0;transition:none}
+  .bar,.toast,summary::after{transition:none}
+}
+</style>
+<title>地球家族ジャーニー2027春｜3/29〜4/4 祝島・神山｜旅する学校</title>
+<meta name="description" content="2027年3月29日〜4月4日、祝島から神山町へ。らんぼうと訪ねる、いのちがよろこぶ7日間。参加費88,000円、2月28日までの早期割引80,000円。宿泊・食事・交通等の実費別途。おひとり・友人・親子歓迎。">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.tabigaku.party/efj">
+<meta property="og:title" content="地球家族ジャーニー2027春｜3/29〜4/4 祝島・神山｜旅する学校">
+<meta property="og:description" content="2027年3月29日〜4月4日、祝島から神山町へ。らんぼうと訪ねる、いのちがよろこぶ7日間。参加費88,000円、2月28日までの早期割引80,000円。宿泊・食事・交通等の実費別途。おひとり・友人・親子歓迎。">
+<meta property="og:url" content="https://www.tabigaku.party/efj">
+<meta property="og:image" content="https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="旅する学校">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="地球家族ジャーニー2027春｜3/29〜4/4 祝島・神山｜旅する学校">
+<meta name="twitter:description" content="2027年3月29日〜4月4日、祝島から神山町へ。らんぼうと訪ねる、いのちがよろこぶ7日間。参加費88,000円、2月28日までの早期割引80,000円。宿泊・食事・交通等の実費別途。おひとり・友人・親子歓迎。">
+<meta name="twitter:image" content="https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp">
+<script type="application/ld+json" data-site-seo="true">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://earthguide.tabigaku.party/#organization","name":"あーすガイド","url":"https://earthguide.tabigaku.party/"},{"@type":"Organization","@id":"https://www.tabigaku.party/#organization","name":"旅する学校","alternateName":"TABIGAKU","url":"https://www.tabigaku.party/","description":"徳島・神山を拠点に、子どもも大人も旅を通じて学ぶ「旅する学校」。歩きお遍路、海旅キャンプ、川旅などの自然体験と旅育をご紹介。自分で考え、仲間と相談し、地域の文化や暮らしに触れる旅の、日程・対象年齢・参加方法をご案内します。","parentOrganization":{"@id":"https://earthguide.tabigaku.party/#organization"},"email":"earthguide.jpn@gmail.com","telephone":"+81-90-7518-8816","address":{"@type":"PostalAddress","addressRegion":"徳島県","addressLocality":"神山町","addressCountry":"JP"}},{"@type":"WebSite","@id":"https://www.tabigaku.party/#website","name":"旅する学校","alternateName":"旅する学校（あーすガイド）","url":"https://www.tabigaku.party/","inLanguage":"ja","publisher":{"@id":"https://www.tabigaku.party/#organization"}},{"@type":"WebPage","@id":"https://www.tabigaku.party/efj#webpage","name":"地球家族ジャーニー2027春｜3/29〜4/4 祝島・神山｜旅する学校","description":"2027年3月29日〜4月4日、祝島から神山町へ。らんぼうと訪ねる、いのちがよろこぶ7日間。参加費88,000円、2月28日までの早期割引80,000円。宿泊・食事・交通等の実費別途。おひとり・友人・親子歓迎。","url":"https://www.tabigaku.party/efj","inLanguage":"ja","isPartOf":{"@id":"https://www.tabigaku.party/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp"}},{"@type":"BreadcrumbList","@id":"https://www.tabigaku.party/efj#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"旅する学校","item":"https://www.tabigaku.party/"},{"@type":"ListItem","position":2,"name":"地球家族ジャーニー2027春","item":"https://www.tabigaku.party/efj"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">本文へ</a>
+
+<!-- ========== ヒーロー ========== -->
+<header class="hero" id="top">
+  <img class="hero-bg" src="https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp" alt="祝島の青い海と、島の祭りで漕ぎ出す舟（過去の風景）" width="860" height="1144" fetchpriority="high" decoding="async">
+  <div class="hero-top">
+    <a class="brand" href="https://www.tabigaku.party/" aria-label="旅する学校のホームへ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/><circle cx="12" cy="12" r="10"/></svg><span>旅する学校<small>EARTH FAMILY JOURNEY</small></span></a>
+    <a class="hero-join" href="#apply">申し込みへ</a>
+  </div>
+  <p class="hero-sea-cap"><b>01</b>祝島の海へ</p>
+  <figure class="hero-forest">
+    <img src="https://www.tabigaku.party/efj/waterfall-DgiO-S5j.webp" alt="神山の森を流れる清らかな滝" width="620" height="825" fetchpriority="high" decoding="async">
+    <figcaption><b>02</b>神山の森へ</figcaption>
+    <span class="hero-vert" aria-hidden="true">FOLLOW YOUR WONDER</span>
+    <div class="seal" aria-hidden="true"><span>旅は、最高の学校。</span><b>7</b><small>DAYS OF WONDER</small></div>
+  </figure>
+  <div class="hero-space" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">EARTH FAMILY JOURNEY · SPRING 2027</p>
+    <p class="hero-name">地球家族ジャーニー</p>
+    <h1><span>この春、</span><span>いのちが</span><span><em>よろこぶ</em>旅へ。</span></h1>
+    <p class="hero-lead">瀬戸内の小さな島から、四国の山あいへ。<br>会いに行こう。暮らしを楽しむ人たちに。<br>大切なものを、からだで思い出す7日間。</p>
+    <p class="hero-date"><span class="y">2027</span><strong><span class="num">3.29</span><small>月</small><i>—</i><span class="num">4.4</span><small>日</small></strong><span class="n">6泊7日</span></p>
+    <ul class="hero-facts">
+      <li class="early only-early">早割 <span data-p="early">80,000円</span>・2/28まで<span class="count" data-count></span></li>
+      <li class="only-regular">参加費 <span data-p="reg">88,000円</span></li>
+      <li>途中参加も相談OK</li>
+      <li>10名ほどの少人数</li>
+    </ul>
+    <div class="hero-cta">
+      <a class="btn" href="#apply">この旅に申し込む</a>
+      <a class="btn ghost" href="#price">旅の流れと参加費を見る</a>
+    </div>
+    <p class="hero-note">おひとりでも、家族でも。少人数で、深く出会う旅。<span class="ib">宿泊・食事・移動などの実費は別途です。</span></p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="このページの目次"><div class="toc-in">
+  <a href="#route">旅の舞台</a><a href="#iwaishima">祝島</a><a href="#kamiyama">神山</a><a href="#guide">案内人</a><a href="#price">参加費</a><a href="#faq">Q&amp;A</a><a href="#pack">持ち物</a><a class="go" href="#apply">申し込む</a>
+</div></nav>
+
+<main id="main">
+
+<!-- ========== 旅の舞台 ========== -->
+<section class="sec s-sea" id="route" aria-labelledby="route-title">
+  <div class="wrap">
+    <div class="intro" data-reveal>
+      <p class="kicker">THE JOURNEY</p>
+      <h2 id="route-title"><span class="ib">知らない景色が、</span><span class="ib">これからの自分になる。</span></h2>
+      <p>ただ通り過ぎるだけでは出会えない、<br>土地の暮らしと、そこに生きる人たち。<br>らんぼうが大好きな場所を、一緒に訪ねます。<br>心が動く方へ、少しだけ日常を飛び出して。</p>
+    </div>
+    <figure class="map" data-map>
+      <svg viewBox="0 0 360 250" role="img" aria-labelledby="map-t map-d">
+        <title id="map-t">祝島から神山町へ（イメージ図）</title>
+        <desc id="map-d">前半は山口県・瀬戸内海に浮かぶ祝島へ。後半は瀬戸内海をこえて、四国・徳島県の山あいの町、神山町へ。</desc>
+        <defs>
+          <clipPath id="map-clip"><rect width="360" height="250" rx="22"/></clipPath>
+          <mask id="map-reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="250">
+            <path class="reveal" d="M75.9 120.9Q186 18 306.5 98.6" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" pathLength="100"/>
+          </mask>
+        </defs>
+        <g clip-path="url(#map-clip)">
+          <rect width="360" height="250" fill="#E4EEF2"/>
+          <g fill="none" stroke="#CDDFE7" stroke-width="1.1" stroke-linecap="round">
+            <path d="M228 214c8-4 16 4 24 0s16 4 24 0s16 4 24 0"/><path d="M262 232c8-4 16 4 24 0s16 4 24 0"/>
+            <path d="M318 160c7-3.5 14 3.5 21 0"/><path d="M92 214c6-3 12 3 18 0"/>
+          </g>
+          <g fill="#F4EFE2" stroke="#D6CBB2" stroke-width=".8" stroke-linejoin="round">
+            <path d="M-9.7 -11.7C-50.7 -0.1 -11.3 85.5 -9.7 97.4C-8.2 109.3 2.4 100.0 4.9 99.8C7.4 99.5 11.5 96.1 13.6 95.1C15.7 94.1 21.9 90.9 24.3 90.4C26.7 89.9 32.4 90.5 36.0 90.4C39.6 90.2 55.3 88.8 58.4 89.2C61.5 89.6 63.7 92.8 65.2 93.9C66.6 95.0 70.3 98.8 72.0 99.8C73.7 100.8 79.6 102.3 80.8 103.3C81.9 104.3 82.1 107.6 82.7 109.2C83.3 110.7 85.7 117.1 86.6 117.4C87.5 117.6 91.1 113.0 91.5 111.5C91.8 110.0 89.6 104.9 89.5 103.3C89.4 101.7 89.9 97.9 90.5 96.2C91.1 94.6 94.4 90.3 95.4 88.0C96.3 85.8 98.7 77.5 99.2 75.1C99.8 72.7 99.1 67.9 100.2 65.7C101.4 63.6 107.7 56.8 109.9 55.2C112.2 53.5 119.5 50.5 121.6 50.5C123.7 50.5 128.2 53.4 129.4 55.2C130.7 56.9 131.9 65.4 133.3 66.9C134.6 68.4 139.5 70.2 142.1 69.2C144.6 68.2 154.8 59.0 157.6 57.5C160.4 56.0 165.6 56.2 168.3 55.2C171.0 54.2 180.0 49.1 182.9 48.1C185.8 47.1 192.5 46.5 195.6 45.8C198.7 45.0 209.1 42.2 212.1 41.1C215.1 40.0 220.9 36.1 223.8 35.2C226.7 34.3 236.3 32.5 239.4 32.9C242.4 33.2 250.2 37.6 252.0 38.7C253.8 39.9 254.4 43.4 255.9 43.4C257.3 43.4 263.6 40.5 265.6 38.7C267.6 37.0 272.0 28.9 274.4 27.0C276.8 25.1 285.3 23.0 288.0 21.1C290.7 19.2 297.2 11.0 299.7 9.4C302.2 7.8 308.5 6.6 311.4 5.9C314.2 5.1 322.8 2.8 325.9 2.3C329.1 1.8 337.5 0.7 340.5 1.2C343.6 1.7 351.0 5.4 354.2 7.0C357.3 8.7 367.6 18.4 369.7 16.4C371.9 14.4 415.1 -8.7 374.6 -11.7C334.1 -14.7 31.3 -23.4 -9.7 -11.7Z"/>
+            <path d="M-9.7 138.5C-7.1 126.3 10.8 143.9 14.6 144.4C18.4 144.9 23.7 144.7 26.3 143.2C28.9 141.7 36.2 130.2 38.9 130.3C41.6 130.4 50.1 141.7 51.6 144.4C53.0 147.0 53.3 153.0 52.5 154.9C51.8 156.8 46.7 160.6 44.8 162.0C42.8 163.3 35.7 166.1 34.1 167.8C32.4 169.6 28.5 176.8 29.2 178.4C29.9 180.0 38.0 182.7 40.9 183.1C43.8 183.5 53.4 182.3 56.4 181.9C59.4 181.5 68.5 178.8 69.1 179.6C69.7 180.3 63.4 187.1 62.3 189.0C61.1 190.8 58.0 195.7 58.4 197.2C58.8 198.7 64.5 201.8 66.2 203.0C67.8 204.3 71.9 207.3 73.9 208.9C76.0 210.5 85.9 215.5 85.6 218.3C85.3 221.1 73.3 230.5 71.0 234.7C68.7 239.0 72.8 255.7 64.2 258.2C55.6 260.7 -1.8 271.0 -9.7 258.2C-17.6 245.4 -12.3 150.6 -9.7 138.5Z"/>
+            <path d="M93.4 102.1C93.7 101.1 99.4 97.8 101.2 97.4C103.0 97.0 108.2 98.1 109.9 98.6C111.7 99.1 117.8 101.1 117.7 102.1C117.6 103.1 111.0 107.5 109.0 108.0C106.9 108.5 99.9 107.4 98.3 106.8C96.6 106.2 93.1 103.1 93.4 102.1Z"/>
+            <path d="M285.1 36.4C285.6 35.1 291.8 29.8 293.8 29.3C295.9 28.8 303.1 30.7 304.5 31.7C306.0 32.7 308.2 37.6 307.5 38.7C306.7 39.9 299.7 42.0 297.7 42.3C295.8 42.5 290.3 41.7 289.0 41.1C287.6 40.5 284.6 37.6 285.1 36.4Z"/>
+            <path d="M343.5 63.4C344.1 65.4 349.9 70.2 352.2 70.4C354.5 70.7 362.8 68.0 364.9 65.7C366.9 63.5 370.6 53.3 371.7 49.3C372.7 45.3 374.8 31.3 374.6 28.2C374.4 25.0 371.2 20.0 369.7 20.0C368.3 20.0 362.7 26.0 361.0 28.2C359.2 30.3 354.7 37.4 353.2 39.9C351.6 42.4 347.4 49.1 346.4 51.6C345.3 54.1 342.8 61.4 343.5 63.4Z"/>
+          </g>
+          <path d="M78.8 171.4C79.1 170.9 89.4 165.7 92.4 164.3C95.4 162.9 104.2 159.4 107.0 158.4C109.8 157.4 116.8 156.9 118.7 154.9C120.6 152.9 122.7 142.4 124.5 139.7C126.4 136.9 133.9 131.1 136.2 129.1C138.5 127.1 144.9 122.8 145.9 120.9C147.0 119.0 145.2 114.1 145.9 111.5C146.7 108.9 150.1 99.5 152.8 96.2C155.5 93.0 168.8 82.0 171.2 81.0C173.7 80.0 173.8 84.5 176.1 86.9C178.4 89.2 189.8 102.2 192.6 103.3C195.5 104.4 199.9 98.2 202.4 97.4C204.9 96.7 213.2 96.9 216.0 96.2C218.8 95.6 226.3 93.3 228.6 91.5C231.0 89.8 237.5 82.7 238.4 79.8C239.2 76.9 235.4 66.6 236.4 64.6C237.5 62.5 245.7 61.9 248.1 61.0C250.5 60.2 255.7 57.2 258.8 56.3C261.9 55.5 274.8 53.4 277.3 52.8C279.8 52.2 280.9 50.2 282.2 50.5C283.4 50.7 287.4 54.2 289.0 55.2C290.5 56.2 294.4 58.6 296.8 59.9C299.1 61.1 307.5 65.8 311.4 66.9C315.2 68.0 330.7 68.4 332.8 70.4C334.8 72.4 330.9 83.2 330.8 85.7C330.7 88.2 331.0 92.0 331.8 93.9C332.6 95.8 337.3 101.5 338.6 103.3C339.8 105.0 344.3 108.4 343.5 110.3C342.6 112.2 333.9 118.5 330.8 120.9C327.7 123.3 317.1 129.9 314.3 132.6C311.5 135.4 307.2 141.5 304.5 146.7C301.8 152.0 291.9 180.7 289.0 181.9C286.1 183.2 280.1 161.6 277.3 158.4C274.5 155.3 267.7 153.2 262.7 152.6C257.7 152.0 235.5 151.8 230.6 152.6C225.7 153.3 220.0 158.1 217.0 159.6C214.0 161.1 205.3 163.9 202.4 166.7C199.5 169.4 192.1 181.3 189.7 185.4C187.3 189.6 181.9 202.0 180.0 205.4C178.1 208.8 172.5 213.0 172.2 217.1C171.9 221.3 178.2 242.0 177.1 244.1C175.9 246.3 164.6 239.6 161.5 237.1C158.4 234.6 151.1 223.0 147.9 220.7C144.7 218.3 133.1 218.5 131.4 214.8C129.6 211.0 131.6 189.2 131.4 185.4C131.1 181.7 130.8 182.5 129.4 179.6C128.1 176.7 120.4 160.4 118.7 158.4C117.0 156.4 115.6 160.0 113.8 160.8C112.1 161.5 104.8 164.6 102.2 165.5C99.6 166.4 92.0 168.4 89.5 169.0C87.0 169.6 78.5 171.9 78.8 171.4Z" fill="#E6EEDC" stroke="#C5D0B7" stroke-width=".8" stroke-linejoin="round"/>
+          <g fill="none" stroke="#9AAF93" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M228 126l8-10 8 10"/><path d="M238 126l10-13 10 13"/><path d="M254 128l7-9 7 9"/>
+            <path d="M146 150l7-9 7 9"/><path d="M156 150l9-12 9 12"/>
+          </g>
+          <g fill="none" stroke="#9DBDCB" stroke-width="1.1" stroke-linecap="round" aria-hidden="true">
+            <path d="M85.9 135.9c4-2.5 8 2.5 12 0s8 2.5 12 0"/>
+            <path d="M95.9 142.9c4-2.5 8 2.5 12 0s8 2.5 12 0"/>
+          </g>
+          <text class="area" x="214" y="21">本州</text>
+          <text class="area" x="186" y="138">四国</text>
+          <text class="area" x="14" y="214">九州</text>
+          <text class="pref" x="24" y="72">山口県</text>
+          <text class="pref shik" x="272.5" y="149.6" text-anchor="end">徳島県</text>
+          <text class="sea-jp" x="182" y="88">瀬戸内海</text>
+          <path class="route-under" d="M75.9 120.9Q186 18 306.5 98.6" mask="url(#map-reveal)"/>
+          <path class="route" d="M75.9 120.9Q186 18 306.5 98.6" mask="url(#map-reveal)"/>
+          <g class="pin sea" transform="translate(75.9 120.9)"><circle class="halo" r="13"/><circle r="6.5"/></g>
+          <g class="pin forest" transform="translate(306.5 98.6)"><circle class="halo" r="13"/><circle r="6.5"/></g>
+          <text class="pl" x="62.9" y="121.9" text-anchor="end">祝島</text>
+          <text class="en tight" x="62.9" y="132.9" text-anchor="end">IWAISHIMA</text>
+          <g transform="translate(62.9 138.9)"><rect x="-54" width="54" height="18" rx="9" fill="#1D5E82"/><text class="tag" x="-27" y="12.6" text-anchor="middle">前半・海</text></g>
+          <text class="pl land" x="306.5" y="83.6" text-anchor="middle">神山町</text>
+          <text class="en land" x="306.5" y="121.6" text-anchor="middle">KAMIYAMA</text>
+          <g transform="translate(306.5 127.6)"><rect x="-27" width="54" height="18" rx="9" fill="#2E5B3B"/><text class="tag" x="0" y="12.6" text-anchor="middle">後半・森</text></g>
+          <g transform="translate(338 228)" aria-hidden="true"><path d="M0-13l4.5 10.5h-9z" fill="#46605E"/><text class="north" y="9" text-anchor="middle">N</text></g>
+        </g>
+        <rect x=".5" y=".5" width="359" height="249" rx="21.5" fill="none" stroke="rgba(18,48,47,.12)"/>
+      </svg>
+      <figcaption class="map-cap"><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"/><path d="M21 14 10 2 3 14h18Z"/><path d="M10 2v16"/></svg>祝島へは船で渡ります</span><span class="lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>移動は基本、各自のお車で</span><span class="map-note">イメージ図です（位置・距離は目安です）</span></figcaption>
+    </figure>
+    <div class="days" data-reveal>
+      <p class="days-ends"><span>祝島から</span><span>神山町まで</span></p>
+      <ol aria-label="旅の7日間（3月29日から4月4日）">
+        <li style="--c:#1D5E82"><b>3/29</b><small>月</small></li>
+        <li style="--c:#205E76"><b>3/30</b><small>火</small></li>
+        <li style="--c:#235D6A"><b>3/31</b><small>水</small></li>
+        <li style="--c:#265C5E"><b>4/1</b><small>木</small></li>
+        <li style="--c:#285C53"><b>4/2</b><small>金</small></li>
+        <li style="--c:#2B5C47"><b>4/3</b><small>土</small></li>
+        <li style="--c:#2E5B3B"><b>4/4</b><small>日</small></li>
+      </ol>
+      <p class="days-note">前半は祝島、後半は神山町へ。各地の滞在日・集合場所と時刻は、決まり次第ご案内します。</p>
+    </div>
+    <div class="route-cards">
+      <a class="route-card" href="#iwaishima" style="--c:var(--sea)"><span class="no">01</span><strong>祝島<i>IWAISHIMA</i></strong><span>前半 · 山口県・瀬戸内海</span></a>
+      <a class="route-card" href="#kamiyama" style="--c:var(--forest)"><span class="no">02</span><strong>神山町<i>KAMIYAMA</i></strong><span>後半 · 徳島県・山あいの町</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 祝島 ========== -->
+<section class="sec s-shore" id="iwaishima" aria-labelledby="iwai-title">
+  <div class="wrap wide">
+    <article class="stop">
+      <figure class="stop-photo" data-reveal>
+        <img src="https://www.tabigaku.party/efj/iwaishima-BUClfDH1.webp" alt="祝島で受け継がれてきた祭りの舟と、瀬戸内海の青" width="860" height="1144" loading="lazy" decoding="async">
+        <span class="idx" aria-hidden="true">01</span>
+        <figcaption>島に受け継がれる風景（過去の祭りの様子）</figcaption>
+      </figure>
+      <div class="stop-copy" data-reveal>
+        <p class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></svg>IWAISHIMA · 前半</p>
+        <p class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>山口県・瀬戸内海 · 祝島</p>
+        <h2 id="iwai-title"><span class="ib">海と生きる。</span><span class="ib">その豊かさに、ふれる。</span></h2>
+        <div class="body">
+          <p>船を降りたら、時計を気にするのを少しやめてみる。潮の香りがする路地、海を見下ろす石垣の道。島の人の話に耳をすますうちに、旅の速度がゆっくり変わっていきます。</p>
+          <p>食べること、つくること、分かち合うこと。山と海の恵みをいただきながら暮らす知恵に、これからの毎日のヒントがある。</p>
+          <p>映画『祝福の海』で心が動いた方も、初めて祝島を知った方も。らんぼうが何度も通ってきた島で、その風景の中に身を置いてみませんか。</p>
+        </div>
+        <ul class="tags"><li>島の暮らし</li><li>海とともに生きる知恵</li><li>いのちの循環</li></ul>
+        <a class="text-link" href="https://note.com/shiftdaigaku/n/na0c2592111c5" target="_blank" rel="noopener noreferrer">らんぼうの祝島への想いを読む</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== 神山 ========== -->
+<section class="sec s-moss" id="kamiyama" aria-labelledby="kami-title">
+  <div class="wrap wide">
+    <article class="stop k">
+      <figure class="stop-photo" data-reveal>
+        <img src="https://www.tabigaku.party/efj/waterfall-DgiO-S5j.webp" alt="神山町の緑深い森を流れる滝" width="620" height="825" loading="lazy" decoding="async">
+        <span class="idx" aria-hidden="true">02</span>
+        <figcaption>森の深呼吸が聞こえてくる、神山の風景</figcaption>
+      </figure>
+      <div class="stop-copy" data-reveal>
+        <p class="kicker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10v.2A3 3 0 0 1 8.9 16H5a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0Z"/><path d="M7 16v6"/><path d="M13 19v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></svg>KAMIYAMA · 後半</p>
+        <p class="place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>徳島県・山あいの町 · 神山町</p>
+        <h2 id="kami-title"><span class="ib">森の中で、</span><span class="ib">自分の声を聴く。</span></h2>
+        <div class="body">
+          <p>山あいの道を進むと、聞こえてくるのは川の音。森で深呼吸して、ふと肩の力が抜ける。神山には、そんな時間が流れています。</p>
+          <p>そして、面白いのは景色だけじゃない。ここに根を張り、自分らしい仕事や暮らし、子どもたちの学びをつくる人がいる。「やったらええんちゃうん？」という空気が、小さな一歩を応援してくれる。</p>
+          <p>この町で11年暮らすらんぼうと、観光の先にある日常へ。子育てのこと、働き方のこと、これからのこと。帰るころ、自分の毎日もちょっと楽しみになるような出会いを。</p>
+        </div>
+        <ul class="tags"><li>森と川</li><li>地域の暮らし</li><li>これからの自分</li></ul>
+        <a class="text-link" href="https://kamiyamag.tabigaku.party/" target="_blank" rel="noopener noreferrer">神山の魅力をもっと知る</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== 風景 ========== -->
+<section class="sec s-grove" id="scenes" aria-labelledby="gallery-title">
+  <div class="wrap wide">
+    <p class="kicker">SEA · FOREST · PEOPLE</p>
+    <h2 id="gallery-title"><span class="ib">この景色の中へ、</span><span class="ib">会いに行こう。</span></h2>
+    <p class="sub">海を渡る時間、森で息をつく時間、火を囲んで話す時間。祝島と神山の、忘れられない風景。</p>
+    <div class="gallery">
+      <figure data-reveal>
+        <img src="https://www.tabigaku.party/efj/iwaishima-life.jpg" alt="瀬戸内海から望む祝島の山並みと集落" loading="lazy" decoding="async" width="1200" height="628">
+        <figcaption>祝島｜海の向こうに、暮らしがある。<a href="https://note.com/shiftdaigaku/n/na0c2592111c5" target="_blank" rel="noopener noreferrer">らんぼうの島の記録 →</a></figcaption>
+      </figure>
+      <figure data-reveal>
+        <img src="https://www.tabigaku.party/efj/waterfall-DgiO-S5j.webp" alt="神山の森と滝" loading="lazy" decoding="async" width="620" height="825">
+        <figcaption>神山｜<span class="ib">水の音に、</span><span class="ib">心がほどける。</span></figcaption>
+      </figure>
+      <figure data-reveal>
+        <img src="https://www.tabigaku.party/efj/kamiyama_fire-DUPc2W-8.webp" alt="神山で焚き火を囲む旅の仲間" loading="lazy" decoding="async" width="1100" height="618">
+        <figcaption>神山｜<span class="ib">火を囲めば、</span><span class="ib">話したくなる。</span></figcaption>
+      </figure>
+    </div>
+    <p class="fine">写真は過去の旅の風景です。訪問先や体験は、季節・天候・受け入れ状況に合わせてご案内します。</p>
+  </div>
+</section>
+
+<!-- ========== おみやげ ========== -->
+<section class="sec s-kinari" id="moments" aria-labelledby="moments-title">
+  <div class="wrap wide">
+    <p class="kicker">TAKE SOMETHING HOME</p>
+    <h2 id="moments-title"><span class="ib">おみやげは、</span><span class="ib">新しい景色と、</span><span class="ib">生き方のヒント。</span></h2>
+    <div class="moments">
+      <article class="moment" data-reveal><span>01 / SLOW DOWN</span><h3>急がない時間に、戻る。</h3><p>潮風を感じる。水の音を聴く。いつも予定で埋まる時間に、少し余白をつくってみる。</p></article>
+      <article class="moment" data-reveal><span>02 / MEET PEOPLE</span><h3>その人の暮らしに、出会う。</h3><p>どうしてここに暮らしているんだろう。何を大切にしているんだろう。顔の見える出会いから、旅が深まっていく。</p></article>
+      <article class="moment" data-reveal><span>03 / FIND YOUR NEXT</span><h3>「やってみたい」を持ち帰る。</h3><p>家族で話したいこと。自分の暮らしで試したいこと。小さな気づきが、帰ってからの日々につながる。</p></article>
+    </div>
+    <a class="text-link more" href="#price">7日間の日程・参加費を見る →</a>
+  </div>
+</section>
+
+<!-- ========== 夜 ========== -->
+<section class="night" id="night" aria-labelledby="night-title">
+  <img src="https://www.tabigaku.party/efj/kamiyama_fire-DUPc2W-8.webp" alt="神山の夜、焚き火を囲んで語り合う仲間たち" width="1100" height="618" loading="lazy" decoding="async">
+  <div class="wrap" data-reveal>
+    <p class="kicker">MORE THAN A TRIP</p>
+    <h2 id="night-title"><span class="ib">帰るころには、</span><span class="ib">誰かの「ただいま」が</span><span class="ib">待つ場所になる。</span></h2>
+    <p>大人も、子どもも。初めましての人も。<br>同じ景色を見て、話して、笑って。<br>旅の思い出に、人のぬくもりが残っていく。</p>
+  </div>
+  <span class="night-cap">過去の神山でのひととき</span>
+</section>
+
+<!-- ========== 案内人 ========== -->
+<section class="sec s-leaf" id="guide" aria-labelledby="guide-title">
+  <div class="wrap wide guide" data-reveal>
+    <div class="portrait"><img src="https://www.tabigaku.party/efj/profile_ranbow-bO9RdlJ2.webp" alt="旅の案内人、らんぼう（上田直樹）" width="400" height="400" loading="lazy" decoding="async"><span>YOUR NAVIGATOR</span></div>
+    <div>
+      <p class="kicker">この旅の案内人</p>
+      <h2 id="guide-title">どうも、らんぼうです。</h2>
+      <p class="body-text">僕が心を動かされた人と場所に、みんなを案内したい。そんな想いから生まれた旅です。地球一周、10年の旅暮らしを経て、今は神山町で4人の子どもの父として暮らしています。自然の中で、いつもと違う毎日を一緒に楽しみましょう。</p>
+      <p class="guide-role">上田直樹｜あーすガイド代表・旅する学校主宰<br>「森の学校みっけ」共同創設／全国で500本以上の講演・上映会</p>
+      <a class="text-link" href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">らんぼうの詳しいプロフィール</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 日程・参加費 ========== -->
+<section class="sec s-forest dark" id="price" aria-labelledby="price-title">
+  <div class="wrap wide">
+    <div class="price-head">
+      <p class="kicker">YOUR NEXT JOURNEY</p>
+      <h2 id="price-title"><span class="ib">この春の7日間を、</span><span class="ib">一生ものの出会いに。</span></h2>
+      <p class="sub">2027年3月29日（月）〜4月4日（日）<br>祝島 → 神山町</p>
+    </div>
+    <div class="price-grid">
+      <div class="ticket" data-reveal>
+        <div class="t-main">
+          <div class="t-head"><b>地球家族ジャーニー</b><span>SPRING 2027</span></div>
+          <div class="t-body">
+            <div class="t-route">
+              <div><span class="d s">3.29</span><small>月 · 祝島から</small></div>
+              <div class="t-mid"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/><circle cx="12" cy="12" r="10"/></svg>6泊7日</div>
+              <div class="r"><span class="d f">4.4</span><small>日 · 神山町まで</small></div>
+            </div>
+            <h3>春の、まるごと7日間。</h3>
+            <p class="what">ガイド料・コーディネート料（税込／1名）</p>
+            <div class="prices">
+              <div class="reg"><span>通常参加費</span><strong><span class="num" data-n="reg">88,000</span><small>円</small></strong></div>
+              <div class="early only-early"><span>1か月前までの早期割引</span><strong><span class="num" data-n="early">80,000</span><small>円</small></strong></div>
+            </div>
+            <p class="deadline only-early"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>早割は2027年2月28日（日）までのお申し込み<span class="count" data-count></span></p>
+            <p class="deadline only-regular"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>早期割引の受付は2027年2月28日（日）で終了しました</p>
+            <p class="cost-note"><b>実費は別途</b>宿泊・食事・移動（船賃など）・施設利用等の費用は、各自でのお支払いです。参加費には含まれません。</p>
+            <p class="cal only-early"><span>早割の締切を、カレンダーに入れておく</span><a data-cal="google" href="https://calendar.google.com/calendar/render?action=TEMPLATE" target="_blank" rel="noopener noreferrer">Googleカレンダー</a><a data-cal="ics" href="#" download="efj-2027-hayawari.ics">iPhone・その他</a></p>
+          </div>
+        </div>
+        <div class="t-stub">
+          <ul class="t-feats">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>10名ほどの少人数</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>おひとり・友人・親子歓迎</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>途中合流も相談できます</li>
+          </ul>
+          <a class="btn full" href="#apply">この旅に申し込む</a>
+        </div>
+      </div>
+
+      <div class="calc js-only" id="calc" role="group" aria-labelledby="calc-title">
+        <h3 id="calc-title">家族の参加費を、かんたん計算</h3>
+        <p class="sub">人数を選ぶと、家族割・らんぼう塾割を入れた目安が出ます。</p>
+        <div class="row">
+          <label for="v-adult">大人<small>2人目からは家族割</small></label>
+          <div class="step"><button type="button" data-k="adult" data-d="-1" aria-label="大人を1人減らす">−</button><output id="v-adult">1</output><button type="button" data-k="adult" data-d="1" aria-label="大人を1人増やす">＋</button></div>
+        </div>
+        <div class="row">
+          <label for="v-kid">小学生以上の子ども<small>家族割（半額以上のドネーション）</small></label>
+          <div class="step"><button type="button" data-k="kid" data-d="-1" aria-label="小学生以上の子どもを1人減らす">−</button><output id="v-kid">0</output><button type="button" data-k="kid" data-d="1" aria-label="小学生以上の子どもを1人増やす">＋</button></div>
+        </div>
+        <div class="row">
+          <label for="v-small">小学生未満の子ども<small>ドネーション制</small></label>
+          <div class="step"><button type="button" data-k="small" data-d="-1" aria-label="小学生未満の子どもを1人減らす">−</button><output id="v-small">0</output><button type="button" data-k="small" data-d="1" aria-label="小学生未満の子どもを1人増やす">＋</button></div>
+        </div>
+        <div class="row">
+          <label for="juku-sw" id="l-juku">らんぼう塾に入っている<small>10,000円割引（お一人様、または一家族全体で）</small></label>
+          <button type="button" class="sw" id="juku-sw" role="switch" aria-checked="false" aria-labelledby="l-juku"></button>
+        </div>
+        <div class="result">
+          <p class="lab" id="r-lab">参加費の目安<span class="ib">（ガイド料・コーディネート料）</span></p>
+          <p class="total" aria-live="polite" aria-describedby="r-lab"><b id="r-total"><span class="num">80,000</span>円</b><span class="tag only-early">早割で計算</span></p>
+          <dl id="r-rows"></dl>
+          <p class="note" id="r-note">ご家族全体の参加費や、早割との組み合わせは、お申し込み時にご案内します。宿泊・食事・移動（船賃など）・施設利用等の実費は別途です。</p>
+        </div>
+        <div class="calc-act">
+          <a class="btn full" href="#apply">この人数で申し込む</a>
+          <a class="btn ghost full" id="calc-send" href="https://line.me/R/share?text=" target="_blank" rel="noopener noreferrer">家族に送って相談する</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fit">
+      <div class="fit-box" data-reveal>
+        <h3>こんな人に、来てほしい</h3>
+        <ul>
+          <li>観光地をめぐるより、土地の暮らしや、そこに生きる人に出会いたい</li>
+          <li>自然の中で、いつもと違う毎日を、家族や仲間と楽しみたい</li>
+          <li>子育てや働き方、これからの暮らしのヒントを探している</li>
+          <li>おひとりでの参加も、もちろん歓迎です</li>
+        </ul>
+      </div>
+      <div class="fit-box" data-reveal>
+        <h3>先に知っておいてほしいこと</h3>
+        <ul>
+          <li>宿泊・食事・移動（船賃など）・施設利用等の実費は、参加費とは別に各自でお支払いいただきます</li>
+          <li>移動は基本的に各自のお車です。難しい方は事前にご相談ください</li>
+          <li>宿・交通の手配は各自で。おすすめの宿や移動方法は相談できます</li>
+          <li>各地の滞在日・集合場所と時刻は、決まり次第ご案内します。天候や受け入れ先の都合で、行程・体験内容が変わることがあります</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== よくある質問 ========== -->
+<section class="sec s-night dark" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <p class="kicker">Q &amp; A</p>
+    <h2 id="faq-title"><span class="ib">参加する前に、</span><span class="ib">よく聞かれること。</span></h2>
+
+    <div class="faq-group">
+      <h3 class="faq-cat">参加のしかた</h3>
+      <details><summary>ひとりで参加しても大丈夫？</summary><div class="d-body">
+        <p>おひとりでも、家族でも。おひとり・友人・親子での参加を歓迎しています。10名ほどの少人数で、深く出会う旅です。</p>
+      </div></details>
+      <details id="family"><summary>家族で参加するときの参加費は？</summary><div class="d-body">
+        <p>小学生未満のお子さまはドネーション制。ご家族で参加する場合、小学生以上の2人目以降のご家族は、参加費の半額以上のドネーション制です。</p>
+        <p>らんぼう塾の方は10,000円割引（お一人様、または一家族全体で）。家族割とらんぼう塾割は併用できます。早割との組み合わせや、ご家族全体の参加費はお申し込み時にご案内します。宿泊・食事・交通などの実費は、それぞれ別途必要です。</p>
+        <p><a href="#calc">家族の参加費をかんたん計算する</a></p>
+      </div></details>
+      <details><summary>途中から合流したり、途中で帰ったりできる？</summary><div class="d-body">
+        <p>途中合流も相談できます。途中合流・途中お別れの参加費も、同行する区間に合わせて個別にご案内します。</p>
+      </div></details>
+    </div>
+
+    <div class="faq-group">
+      <h3 class="faq-cat">日程・移動・宿泊</h3>
+      <details><summary>日ごとの行程や、集合場所は？</summary><div class="d-body">
+        <p>3月29日から前半は祝島、後半は神山町を訪ね、4月4日に旅を終える予定です。各地の滞在日、集合・解散の具体的な場所や時刻は、決まり次第ご案内します。</p>
+        <p>天候や受け入れ先の都合により、行程・体験内容を変更する場合があります。</p>
+      </div></details>
+      <details><summary>車がなくても参加できる？</summary><div class="d-body">
+        <p>移動は基本的に各自のお車でお願いしています。難しい方は事前にご相談ください。</p>
+      </div></details>
+      <details><summary>宿や交通は、自分で手配するの？</summary><div class="d-body">
+        <p>宿泊・交通の手配は各自で行うかたちですが、おすすめの宿や移動方法をご相談いただけます。</p>
+      </div></details>
+    </div>
+
+    <div class="faq-group">
+      <h3 class="faq-cat">費用・申し込み</h3>
+      <details><summary>参加費のほかに、かかる費用は？</summary><div class="d-body">
+        <p>宿泊・食事・移動（船賃など）・施設利用等の費用は、各自でのお支払いです。参加費には含まれません。</p>
+      </div></details>
+      <details><summary>申し込みから参加確定までの流れは？</summary><div class="d-body">
+        <p>下の申し込みフォームから、参加希望をお送りください。参加人数・お子さまの年齢・参加希望区間などを伺い、費用と参加方法をご案内します。お振り込みの確認をもって参加確定となります。</p>
+        <p>お振込先：PAYPAY銀行 かわせみ支店（007）／普通 4304359／ウエダ ナオキ。金額のご案内後にお手続きください。</p>
+      </div></details>
+      <details><summary>キャンセルするときは？</summary><div class="d-body">
+        <p>キャンセル料：開催7日前まで20,000円／6日前以降〜当日は参加費の全額。現地との調整・準備があるため、あらかじめご了承ください。</p>
+      </div></details>
+      <details><summary>アレルギーや体調のことが心配です</summary><div class="d-body">
+        <p>アレルギーや体調面で気になることは、事前にご相談ください。</p>
+      </div></details>
+    </div>
+
+    <div class="faq-group">
+      <h3 class="faq-cat">持ち物</h3>
+      <details id="pack"><summary>春の旅の持ち物チェックリスト</summary><div class="d-body">
+        <p class="pack-progress js-only"><span><span id="pack-n">0</span> / <span id="pack-all">11</span> 準備OK</span><i aria-hidden="true"><b id="pack-bar"></b></i></p>
+        <ul class="pack">
+          <li><label><input type="checkbox" data-pack="clothes"><span>動きやすい服</span></label></li>
+          <li><label><input type="checkbox" data-pack="long"><span>長袖・長ズボン</span></label></li>
+          <li><label><input type="checkbox" data-pack="warm"><span>防寒着</span></label></li>
+          <li><label><input type="checkbox" data-pack="rain"><span>雨具</span></label></li>
+          <li><label><input type="checkbox" data-pack="shoes"><span>歩きやすく汚れてもよい靴</span></label></li>
+          <li><label><input type="checkbox" data-pack="hat"><span>帽子</span></label></li>
+          <li><label><input type="checkbox" data-pack="towel"><span>タオル</span></label></li>
+          <li><label><input type="checkbox" data-pack="bottle"><span>水筒</span></label></li>
+          <li><label><input type="checkbox" data-pack="wash"><span>洗面用具</span></label></li>
+          <li><label><input type="checkbox" data-pack="medicine"><span>常備薬</span></label></li>
+          <li><label><input type="checkbox" data-pack="insurance"><span>健康保険の資格確認ができるもの</span></label></li>
+        </ul>
+        <p>春でも海辺や山あいの朝晩は冷えるので、重ね着できる準備を。</p>
+        <p>寝袋・マットなど、宿泊方法に応じて必要なものは、行程のご案内とあわせてお知らせします。アレルギーや体調面で気になることは、事前にご相談ください。</p>
+        <p class="fine js-only">チェックは、この端末のブラウザにだけ保存されます。</p>
+      </div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 申し込み ========== -->
+<section class="sec s-kinari" id="apply" aria-labelledby="apply-title">
+  <div class="wrap">
+    <p class="kicker">LET’S GO TOGETHER</p>
+    <h2 id="apply-title"><span class="ib">心が動いたら、</span><span class="ib">それが、旅のはじまり。</span></h2>
+    <p class="lead"><span class="ib">「家族で行ける？」</span><span class="ib">「途中からでも大丈夫？」</span><br>そんな話からで大丈夫。<span class="ib">気軽に声をかけてください。</span></p>
+    <ol class="road" aria-label="申し込みから旅のはじまりまで">
+      <li><span class="rn">1</span><div><h3>フォームで参加希望を送る</h3><p>参加人数・お子さまの年齢・参加希望区間などを伺います。</p></div></li>
+      <li><span class="rn">2</span><div><h3>費用と参加方法のご連絡</h3><p>人数・参加区間・費用などを確認してご連絡します。送信時点では、参加確定・決済は完了しません。</p></div></li>
+      <li><span class="rn">3</span><div><h3>お振り込みで参加確定</h3><p>金額のご案内後にお手続きください。お振り込みの確認をもって参加確定となります。</p></div></li>
+      <li><span class="rn">4</span><div><h3>行程・集合場所のご案内</h3><p>各地の滞在日・集合場所と時刻は、決まり次第ご案内します。</p></div></li>
+      <li class="goal"><span class="rn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></span><div><h3>3月29日（月）、旅のはじまり</h3><p>前半は祝島、後半は神山町へ。</p></div></li>
+    </ol>
+    <p>下のフォームで参加希望を受け付けます。送信後、人数・参加区間・費用などを確認してご連絡します。送信時点では参加確定・決済は完了しません。</p>
+    <iframe class="apply-frame" id="form" src="https://earthguide.tabigaku.party/forms/efj-spring-2027" title="地球家族ジャーニー2027春 申し込みフォーム" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    <div class="apply-act">
+      <a class="btn dark full" href="https://earthguide.tabigaku.party/forms/efj-spring-2027" target="_blank" rel="noopener noreferrer">申し込みフォームを別画面で開く</a>
+    </div>
+    <div class="contact-box" id="contact">
+      <p class="apply-msg">「2027年春の地球家族ジャーニー参加希望」とお送りください。</p>
+      <a class="btn line full" href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line="apply"><img src="https://www.tabigaku.party/images/line-brand-icon.png" width="26" height="26" alt="">旅する学校のLINEで送る</a>
+      <div class="contact">
+        <a href="tel:09075188816">電話 090-7518-8816</a>
+        <a href="mailto:earthguide.jpn@gmail.com?subject=2027年春の地球家族ジャーニー">メールで問い合わせる</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <a class="brand" href="https://www.tabigaku.party/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z"/><circle cx="12" cy="12" r="10"/></svg><span>旅する学校<small>EARTH FAMILY JOURNEY</small></span></a>
+  <p>企画・運営｜あーすガイド（らんぼう）／旅する学校</p>
+  <div class="foot-links">
+    <a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener noreferrer">あーすガイド</a>
+    <a href="https://www.instagram.com/earthguide.ranbow" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://note.com/shiftdaigaku" target="_blank" rel="noopener noreferrer">note</a>
+  </div>
+  <p class="share-title">この旅を、大切な人に。</p>
+  <div class="share">
+    <a class="x" href="https://twitter.com/intent/tweet?text=%E5%9C%B0%E7%90%83%E5%AE%B6%E6%97%8F%E3%82%B8%E3%83%A3%E3%83%BC%E3%83%8B%E3%83%BC2027%E6%98%A5%EF%BD%9C3%2F29%E3%80%9C4%2F4%E3%80%81%E7%A5%9D%E5%B3%B6%E2%86%92%E7%A5%9E%E5%B1%B1%E7%94%BA%E3%80%82%E3%81%84%E3%81%AE%E3%81%A1%E3%81%8C%E3%82%88%E3%82%8D%E3%81%93%E3%81%B67%E6%97%A5%E9%96%93%E3%80%82%E5%8F%82%E5%8A%A0%E8%B2%BB88%2C000%E5%86%86%E3%80%812%2F28%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A9%E5%89%B280%2C000%E5%86%86%EF%BC%88%E5%AE%BF%E6%B3%8A%E3%83%BB%E9%A3%9F%E4%BA%8B%E3%83%BB%E4%BA%A4%E9%80%9A%E7%AD%89%E3%81%AE%E5%AE%9F%E8%B2%BB%E5%88%A5%E9%80%94%EF%BC%89%E3%80%82&amp;url=https%3A%2F%2Fwww.tabigaku.party%2Fefj" target="_blank" rel="noopener noreferrer" aria-label="Xでシェア" title="Xでシェア"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+    <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tabigaku.party%2Fefj&amp;quote=%E5%9C%B0%E7%90%83%E5%AE%B6%E6%97%8F%E3%82%B8%E3%83%A3%E3%83%BC%E3%83%8B%E3%83%BC2027%E6%98%A5%EF%BD%9C3%2F29%E3%80%9C4%2F4%E3%80%81%E7%A5%9D%E5%B3%B6%E2%86%92%E7%A5%9E%E5%B1%B1%E7%94%BA%E3%80%82%E3%81%84%E3%81%AE%E3%81%A1%E3%81%8C%E3%82%88%E3%82%8D%E3%81%93%E3%81%B67%E6%97%A5%E9%96%93%E3%80%82%E5%8F%82%E5%8A%A0%E8%B2%BB88%2C000%E5%86%86%E3%80%812%2F28%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A9%E5%89%B280%2C000%E5%86%86%EF%BC%88%E5%AE%BF%E6%B3%8A%E3%83%BB%E9%A3%9F%E4%BA%8B%E3%83%BB%E4%BA%A4%E9%80%9A%E7%AD%89%E3%81%AE%E5%AE%9F%E8%B2%BB%E5%88%A5%E9%80%94%EF%BC%89%E3%80%82" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア" title="Facebookでシェア"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+    <a class="ln" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwww.tabigaku.party%2Fefj&amp;text=%E5%9C%B0%E7%90%83%E5%AE%B6%E6%97%8F%E3%82%B8%E3%83%A3%E3%83%BC%E3%83%8B%E3%83%BC2027%E6%98%A5%EF%BD%9C3%2F29%E3%80%9C4%2F4%E3%80%81%E7%A5%9D%E5%B3%B6%E2%86%92%E7%A5%9E%E5%B1%B1%E7%94%BA%E3%80%82%E3%81%84%E3%81%AE%E3%81%A1%E3%81%8C%E3%82%88%E3%82%8D%E3%81%93%E3%81%B67%E6%97%A5%E9%96%93%E3%80%82%E5%8F%82%E5%8A%A0%E8%B2%BB88%2C000%E5%86%86%E3%80%812%2F28%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A9%E5%89%B280%2C000%E5%86%86%EF%BC%88%E5%AE%BF%E6%B3%8A%E3%83%BB%E9%A3%9F%E4%BA%8B%E3%83%BB%E4%BA%A4%E9%80%9A%E7%AD%89%E3%81%AE%E5%AE%9F%E8%B2%BB%E5%88%A5%E9%80%94%EF%BC%89%E3%80%82" target="_blank" rel="noopener noreferrer" aria-label="LINEでシェア" title="LINEでシェア"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.64 2 10.13c0 4.03 3.55 7.4 8.35 8.05.33.07.77.22.88.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1.01.88.55 1.08-.46 5.83-3.44 7.96-5.89 1.47-1.62 2.04-3.26 2.04-5-.01-4.48-4.48-8.12-10-8.12z"/></svg></a>
+    <a class="th" href="https://www.threads.net/intent/post?text=%E5%9C%B0%E7%90%83%E5%AE%B6%E6%97%8F%E3%82%B8%E3%83%A3%E3%83%BC%E3%83%8B%E3%83%BC2027%E6%98%A5%EF%BD%9C3%2F29%E3%80%9C4%2F4%E3%80%81%E7%A5%9D%E5%B3%B6%E2%86%92%E7%A5%9E%E5%B1%B1%E7%94%BA%E3%80%82%E3%81%84%E3%81%AE%E3%81%A1%E3%81%8C%E3%82%88%E3%82%8D%E3%81%93%E3%81%B67%E6%97%A5%E9%96%93%E3%80%82%E5%8F%82%E5%8A%A0%E8%B2%BB88%2C000%E5%86%86%E3%80%812%2F28%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A9%E5%89%B280%2C000%E5%86%86%EF%BC%88%E5%AE%BF%E6%B3%8A%E3%83%BB%E9%A3%9F%E4%BA%8B%E3%83%BB%E4%BA%A4%E9%80%9A%E7%AD%89%E3%81%AE%E5%AE%9F%E8%B2%BB%E5%88%A5%E9%80%94%EF%BC%89%E3%80%82%20https%3A%2F%2Fwww.tabigaku.party%2Fefj" target="_blank" rel="noopener noreferrer" aria-label="Threadsでシェア" title="Threadsでシェア"><span aria-hidden="true">@</span></a>
+    <button type="button" aria-label="リンクをコピー" title="リンクをコピー"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>リンク</button>
+  </div>
+</footer>
+
+<aside class="bar" id="bar" aria-label="参加費と申し込み" aria-hidden="true">
+  <p class="bar-txt"><b>3/29（月）〜4/4（日）</b><span><span class="only-early">早割 <span data-p="early">80,000円</span>・2/28まで</span><span class="only-regular">参加費 <span data-p="reg">88,000円</span></span>／実費別途</span></p>
+  <a class="bar-line" href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line="ask" aria-label="旅する学校の公式LINEで相談する（新しいタブで開きます）" tabindex="-1"><img src="https://www.tabigaku.party/images/line-brand-icon.png" width="24" height="24" alt="">相談</a>
+  <a class="btn" href="#apply" tabindex="-1">申し込む</a>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  // ===== 設定（金額・締切は、ここだけ直せばページ内の表示がすべて切り替わります）=====
+  const CFG = {
+    deadline: '2027-02-28T23:59:59.999+09:00',   // 早割の締切（日本時間）
+    deadlineYMD: [2027, 2, 28],                  // 残り日数・カレンダー用（年, 月, 日）
+    fee: { reg: 88000, early: 80000 },           // 参加費（ガイド料・コーディネート料／税込・1名）
+    juku: 10000,                                 // らんぼう塾割（お一人様、または一家族全体で）
+    countFrom: 30                                // 締切の何日前から「あと◯日」を表示するか
+  };
+  const PAGE_URL = 'https://www.tabigaku.party/efj';
+  // ================================================================================
+  const root = document.documentElement;
+  root.classList.add('js');
+  const $ = id => document.getElementById(id);
+  const reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const fmt = n => n.toLocaleString('ja-JP');
+  const yen = n => fmt(n) + '円';
+  const yenHTML = n => '<span class="num">' + fmt(n) + '</span>円';
+  const enc = encodeURIComponent;
+  const isEarly = () => Date.now() <= Date.parse(CFG.deadline);
+  const half = Math.ceil(CFG.fee.reg / 2);      // 家族割：2人目以降（小学生以上）は参加費の半額以上
+  const val = k => ({ reg: CFG.fee.reg, early: CFG.fee.early, half, juku: CFG.juku })[k];
+  document.querySelectorAll('[data-p]').forEach(el => { el.innerHTML = yenHTML(val(el.dataset.p)); });
+  document.querySelectorAll('[data-n]').forEach(el => { el.textContent = fmt(val(el.dataset.n)); });
+
+  // ===== 早割の期間（締切を過ぎると、通常価格の表示に自動で切り替わる）=====
+  function daysLeft() {
+    const j = new Date(Date.now() + 9 * 3600e3);
+    const today = Date.UTC(j.getUTCFullYear(), j.getUTCMonth(), j.getUTCDate());
+    const [y, m, d] = CFG.deadlineYMD;
+    return Math.round((Date.UTC(y, m - 1, d) - today) / 864e5);
+  }
+  function applyPhase() {
+    const early = isEarly();
+    root.dataset.phase = early ? 'early' : 'regular';
+    const n = daysLeft();
+    const txt = !early || n > CFG.countFrom ? '' : n > 1 ? `あと${n}日` : n === 1 ? 'あと1日' : '本日まで';
+    document.querySelectorAll('[data-count]').forEach(el => { el.textContent = txt; });
+  }
+
+  // ===== 家族の参加費をかんたん計算 =====
+  const S = { adult: 1, kid: 0, small: 0, juku: false, touched: false };
+  const LIM = { adult: [1, 6], kid: [0, 8], small: [0, 6] };
+  const hasCalc = !!$('calc');
+  function calc() {
+    const early = isEarly();
+    const first = early ? CFG.fee.early : CFG.fee.reg;
+    const others = (S.adult - 1) + S.kid;            // 2人目以降のご家族（小学生以上）
+    const juku = S.juku ? CFG.juku : 0;
+    return { early, first, others, juku, min: first + others * half - juku, donation: others > 0 || S.small > 0 };
+  }
+  const who = () => {
+    const a = [`大人${S.adult}人`];
+    if (S.kid) a.push(`小学生以上${S.kid}人`);
+    if (S.small) a.push(`小学生未満${S.small}人`);
+    return a.join('・');
+  };
+  function shareText(r) {
+    let t = `【地球家族ジャーニー2027春】\n3/29（月）〜4/4（日）祝島 → 神山町（6泊7日）\n${who()}${S.juku ? '（らんぼう塾割あり）' : ''}`;
+    t += `\n参加費の目安：${yen(r.min)}${r.donation ? '〜' : ''}`;
+    if (r.donation || (r.early && S.juku)) t += '\n（割引の組み合わせ・家族全体の金額は、申し込み時に案内あり）';
+    t += '\n宿泊・食事・移動などの実費は別途';
+    if (r.early) t += '\n早割は2/28（日）まで';
+    return t;
+  }
+  function renderCalc() {
+    if (!hasCalc) return;
+    const r = calc();
+    $('r-total').innerHTML = yenHTML(r.min) + (r.donation ? '〜' : '');
+    const solo = S.adult + S.kid + S.small === 1;
+    const rows = [[(solo ? '参加費' : '1人目') + (r.early ? '（早割）' : ''), yen(r.first)]];
+    if (S.adult > 1) rows.push([`2人目からの大人 × ${S.adult - 1}`, `${yen(half)}〜 × ${S.adult - 1}`]);
+    if (S.kid) rows.push([`小学生以上の子ども × ${S.kid}`, `${yen(half)}〜 × ${S.kid}`]);
+    if (S.small) rows.push([`小学生未満の子ども × ${S.small}`, 'ドネーション']);
+    if (S.juku) rows.push(['らんぼう塾割', `−${yen(CFG.juku)}`]);
+    $('r-rows').innerHTML = rows.map(x => `<div><dt>${x[0]}</dt><dd>${x[1]}</dd></div>`).join('');
+    const note = [];
+    if (r.others) note.push(`2人目からの金額は、通常参加費（${yen(CFG.fee.reg)}）の半額をもとにした目安です（半額以上のドネーション制）。`);
+    if (r.donation || (r.early && S.juku)) note.push('ご家族全体の参加費や、早割との組み合わせは、お申し込み時にご案内します。');
+    note.push('宿泊・食事・移動（船賃など）・施設利用等の実費は別途です。');
+    $('r-note').textContent = note.join('');
+    $('calc-send').href = 'https://line.me/R/share?text=' + enc(shareText(r) + '\n' + PAGE_URL);
+    Object.keys(LIM).forEach(k => {
+      $('v-' + k).textContent = S[k];
+      document.querySelector(`[data-k="${k}"][data-d="-1"]`).disabled = S[k] <= LIM[k][0];
+      document.querySelector(`[data-k="${k}"][data-d="1"]`).disabled = S[k] >= LIM[k][1];
+    });
+    $('juku-sw').setAttribute('aria-checked', String(S.juku));
+  }
+  if (hasCalc) {
+    document.querySelectorAll('.step button').forEach(b => b.addEventListener('click', () => {
+      const k = b.dataset.k, [lo, hi] = LIM[k];
+      S[k] = Math.min(hi, Math.max(lo, S[k] + Number(b.dataset.d)));
+      S.touched = true; renderCalc();
+    }));
+    $('juku-sw').addEventListener('click', () => { S.juku = !S.juku; S.touched = true; renderCalc(); });
+    // 家族に送る：スマホの共有メニューがあれば使い、なければLINEの送信画面へ
+    $('calc-send').addEventListener('click', e => {
+      if (!navigator.share) return;
+      e.preventDefault();
+      navigator.share({ title: '地球家族ジャーニー2027春', text: shareText(calc()), url: PAGE_URL }).catch(() => {});
+    });
+  }
+
+  // ===== LINEボタン：送る文面をコピーしてから、LINEを開く =====
+  const toast = $('toast'); let tt;
+  function say(t) { toast.textContent = t; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 4500); }
+  function lineMessage(kind) {
+    let t = kind === 'apply' ? '2027年春の地球家族ジャーニー参加希望' : '地球家族ジャーニー2027春について相談したいです';
+    if (S.touched) t += `\n${who()}${S.juku ? '（らんぼう塾）' : ''}`;
+    return t;
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-line]');
+    if (!a) return;
+    try {
+      navigator.clipboard.writeText(lineMessage(a.dataset.line)).then(
+        () => say('送る文面をコピーしました。LINEのトークに貼り付けて送ってください。'),
+        () => {}
+      );
+    } catch (_) {}
+  });
+
+  // ===== 早割の締切をカレンダーに =====
+  (() => {
+    const [y, m, d] = CFG.deadlineYMD;
+    const pad = n => String(n).padStart(2, '0');
+    const nx = new Date(Date.UTC(y, m - 1, d + 1));
+    const start = `${y}${pad(m)}${pad(d)}`, end = `${nx.getUTCFullYear()}${pad(nx.getUTCMonth() + 1)}${pad(nx.getUTCDate())}`;
+    const title = '地球家族ジャーニー2027春 早割の締切';
+    const details = `${m}/${d}までの申し込みで、参加費が${yen(CFG.fee.reg)}→${yen(CFG.fee.early)}（1名・税込）。宿泊・食事・移動などの実費は別途。旅は2027年3月29日〜4月4日、祝島→神山町。`;
+    const google = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${enc(title)}&dates=${start}/${end}&details=${enc(details + '\n' + PAGE_URL)}`;
+    const esc = s => s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//tabigaku//efj-2027//JA', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      `UID:efj-2027-hayawari-${start}@tabigaku.party`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '')}`,
+      `DTSTART;VALUE=DATE:${start}`, `DTEND;VALUE=DATE:${end}`, `SUMMARY:${esc(title)}`, `DESCRIPTION:${esc(details)}`, `URL:${PAGE_URL}`,
+      'BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${esc(title)}`, 'TRIGGER:-P1D', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    document.querySelectorAll('[data-cal="google"]').forEach(a => { a.href = google; });
+    document.querySelectorAll('[data-cal="ics"]').forEach(a => { a.href = 'data:text/calendar;charset=utf-8,' + enc(ics); });
+  })();
+
+  // ===== 持ち物チェック（この端末にだけ保存）=====
+  (() => {
+    const KEY = 'efj2027-pack';
+    const boxes = [...document.querySelectorAll('[data-pack]')];
+    if (!boxes.length) return;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (_) { saved = {}; }
+    boxes.forEach(b => { b.checked = !!saved[b.dataset.pack]; });
+    const upd = () => {
+      const n = boxes.filter(b => b.checked).length;
+      $('pack-n').textContent = n;
+      $('pack-all').textContent = boxes.length;
+      $('pack-bar').style.width = (n / boxes.length * 100) + '%';
+    };
+    boxes.forEach(b => b.addEventListener('change', () => {
+      saved[b.dataset.pack] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (_) {}
+      upd();
+    }));
+    upd();
+  })();
+
+  // ===== 目次やリンクの行き先が「開閉する質問」なら、開いて見せる =====
+  function openTarget(hash) {
+    if (!hash || hash.length < 2) return;
+    let el = null;
+    try { el = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (_) {}
+    if (el && el.tagName === 'DETAILS') el.open = true;
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) openTarget(a.getAttribute('href'));
+  });
+  openTarget(location.hash);
+  window.addEventListener('hashchange', () => openTarget(location.hash));
+
+  // ===== 固定バー（ヒーローと、申し込みフォームの上では隠す）=====
+  const bar = $('bar');
+  let inHero = true, onForm = false;
+  const upd = () => {
+    const on = !inHero && !onForm;
+    bar.classList.toggle('on', on);
+    bar.setAttribute('aria-hidden', String(!on));
+    bar.querySelectorAll('a').forEach(a => { a.tabIndex = on ? 0 : -1; });
+  };
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(e => { inHero = e[0].isIntersecting; upd(); }, { threshold: 0.3 }).observe(document.querySelector('.hero'));
+    new IntersectionObserver(e => { onForm = e[0].isIntersecting; upd(); }, { rootMargin: '-30% 0px -30% 0px' }).observe($('form'));
+  } else { inHero = false; upd(); }
+
+  // ===== 目次：いま読んでいる場所に印 =====
+  if ('IntersectionObserver' in window) {
+    const tocLinks = [...document.querySelectorAll('.toc a')];
+    const tocBox = document.querySelector('.toc-in');
+    const byId = new Map(tocLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    // どのブロックを読んでいるときに、どの目次に印をつけるか（null は印なし）
+    const OF = { route: 'route', iwaishima: 'iwaishima', kamiyama: 'kamiyama', scenes: 'kamiyama', moments: null, night: null,
+      guide: 'guide', price: 'price', faq: 'faq', pack: 'pack', apply: null };
+    const targets = Object.keys(OF).map(id => $(id)).filter(Boolean);
+    const seen = new Set();
+    let last = null;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) seen.add(en.target); else seen.delete(en.target); });
+      let cur = null;
+      targets.forEach(t => { if (seen.has(t)) cur = t; });          // いちばん奥（後ろ）のブロックを優先
+      const link = cur && OF[cur.id] ? byId.get(OF[cur.id]) : null;
+      tocLinks.forEach(a => { if (a === link) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
+      if (link && link !== last) {
+        const left = link.offsetLeft - (tocBox.clientWidth - link.offsetWidth) / 2;
+        tocBox.scrollTo({ left: Math.max(0, left), behavior: reduce ? 'auto' : 'smooth' });
+      }
+      last = link;
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach(t => io.observe(t));
+  }
+
+  // ===== ふわっと表示・地図の線 =====
+  const items = document.querySelectorAll('[data-reveal]');
+  const maps = document.querySelectorAll('[data-map]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const ro = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(el => ro.observe(el));
+    const mo = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); mo.unobserve(en.target); }
+    }), { threshold: 0.35 });
+    maps.forEach(el => mo.observe(el));
+  } else {
+    items.forEach(el => el.classList.add('in'));
+    maps.forEach(el => el.classList.add('in'));
+  }
+
+  applyPhase(); renderCalc();
+  setInterval(() => { applyPhase(); renderCalc(); }, 60000);
+})();
+</script>
+  <script>
+(function () {
+  var button = document.querySelector('button[aria-label="リンクをコピー"]');
+  if (!button) return;
+  button.addEventListener('click', async function () {
+    var url = 'https://www.tabigaku.party/efj';
+    try {
+      if (!navigator.clipboard || !window.isSecureContext) throw new Error('fallback');
+      await navigator.clipboard.writeText(url);
+    } catch (_) {
+      var field = document.createElement('textarea');
+      field.value = url;
+      field.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(field);
+      field.select();
+      var copied = document.execCommand('copy');
+      field.remove();
+      if (!copied) { window.prompt('このURLをコピーしてください', url); return; }
+    }
+    var original = button.innerHTML;
+    button.textContent = 'コピーしました';
+    setTimeout(function () { button.innerHTML = original; }, 2000);
+  });
+})();
+</script>
+</body>
+</html>

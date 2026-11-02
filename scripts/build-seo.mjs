@@ -26,6 +26,11 @@ try {
   if (!/<div id="root"><\/div>/.test(template)) throw new Error('Expected the original empty app root before prerendering');
   await writeFile(path.join(output, 'app-shell.html'), template.replace('</head>', `${seoHead('/__app-shell')}\n</head>`));
   for (const route of Object.keys(pages)) {
+    if (route === '/efj') {
+      // Serve the supplied complete document byte-for-byte, including its metadata and scripts.
+      await writeFile(path.join(output, 'efj.html'), await readFile(path.join(root, 'client/public/efj.html')));
+      continue;
+    }
     if (route === '/juku') {
       // Publish the supplied standalone page; retain its design, scripts and metadata.
       const supplied = await readFile(path.join(root, 'client/public/juku.html'), 'utf8');
