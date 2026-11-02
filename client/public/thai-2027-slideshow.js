@@ -6,7 +6,7 @@
 
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const loaded = new Map();
-  const INTERVAL = 6000;
+  const INTERVAL = 4000;
   let current = 0, timer, fading, busy = false, visible = true;
   let pageActive = true;
   const canPlay = () => !motion.matches && !document.hidden && visible && pageActive;
