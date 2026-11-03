@@ -61,7 +61,7 @@ export const pages: Record<string, PageSEO> = {
   "/juku": {
     "label": "らんぼう塾",
     "title": "らんぼう塾｜旅 × AI × DAO × SNSで、人生をつくる",
-    "description": "旅 × AI × DAO × SNS。旅で世界を広げ、AIで形にし、SNSで届け、DAOで仲間と育てる。やってみたいを実践するオンラインの学び場、らんぼう塾。いつでも入塾、39,800円（税込）。EARTH FAMILY DAO参加券つき。"
+    "description": "旅 × AI × DAO × SNSを実践するオンラインの学び場、らんぼう塾。通常39,800円、対象DAO会員・本人用割引コードは29,800円（税込・入塾時1回）。DAO初参加の方に1年間の個人ライト特典つき。"
   },
   "/efj": {
     "label": "地球家族ジャーニー2027春",
