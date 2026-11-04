@@ -85,6 +85,17 @@ for (const course of ['A', 'B', 'SPECIAL']) {
   S.adult = 1; S.kid = 0; S.infant = 0; assert.equal(calc(true).dao, 11000);
 }
 
+// DAO annual fees stay the same in the table and calculator, in both price phases.
+S.course = 'A'; S.adult = 1; S.kid = 0; S.infant = 0; S.dao = true;
+for (const [plan, type, fee] of [['std', 'family', 66000], ['long', 'solo', 99000], ['long', 'family', 188000]]) {
+  S.daoPlan = plan; S.daoType = type;
+  for (const early of [true, false]) {
+    assert.equal(calc(early).dao, fee, `DAO ${plan}/${type}: revised annual fee`);
+    assert.equal(calc(early).total, 99000 + (early ? 30000 : 50000) + fee);
+  }
+  assert.ok(thaiMarkup.includes(`data-p="dao.${plan}.${type}">${fee.toLocaleString('en-US')}円`));
+}
+
 // A copied or new-tab application URL must carry the current simulator state.
 const links = [
   { href: 'https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A', dataset: {}, hasAttribute: key => key === 'data-from-sim' },

@@ -12,7 +12,7 @@ const destinations = {
   "/henro-shinsoku": "p3CvLfQ",
   "/juku": "p3CvLfQ",
   "/thai": "p3CvLfQ",
-  "/thai-2027": "p3CvLfQ",
+  "/thai-2027": "vZo2nlJ",
   "/efj": "vZo2nlJ",
 };
 
