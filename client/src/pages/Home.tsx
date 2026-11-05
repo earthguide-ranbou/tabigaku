@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, CalendarDays, Users } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import JourneyHero from "@/components/JourneyHero";
+import EventCalendar from "@/components/EventCalendar";
 import {
   journeys,
   journeyStatus,
@@ -39,6 +40,9 @@ export default function Home() {
         <nav className="school-tags" aria-label="見たい項目へ移動">
           <a href="#journeys">
             <span>#</span> 旅を選ぶ
+          </a>
+          <a href="#event-calendar">
+            <span>#</span> 予定を見る
           </a>
           <a href="#about">
             <span>#</span> 旅する学校
@@ -236,6 +240,7 @@ export default function Home() {
             </details>
           )}
         </section>
+        <EventCalendar />
         <section
           className="school-about"
           id="about"
@@ -358,4 +363,3 @@ export default function Home() {
     </div>
   );
 }
-

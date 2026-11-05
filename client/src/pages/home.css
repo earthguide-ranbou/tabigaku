@@ -44,6 +44,54 @@
   padding: 68px 32px;
   scroll-margin-top: 90px;
 }
+.school-section.school-event-calendar {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+.school-heading.school-calendar-heading {
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.school-heading.school-calendar-heading > p {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--school-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+.school-calendar-frame {
+  display: block;
+  width: 100%;
+  height: 740px;
+  border: 0;
+  overflow: auto;
+  background: var(--school-paper);
+}
+.school-calendar-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #d7dbd2;
+  color: var(--school-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.school-calendar-footer a {
+  min-height: 44px;
+  color: var(--school-ink);
+}
+@media (max-width: 720px) {
+  .school-section.school-event-calendar { padding-top: 24px; padding-bottom: 48px; }
+  .school-heading.school-calendar-heading { display: block; margin-bottom: 24px; }
+  .school-heading.school-calendar-heading > p { margin-top: 18px; font-size: 13px; }
+  .school-calendar-frame { height: 900px; }
+  .school-calendar-footer { margin-top: 18px; }
+}
 .school-hero {
   position: relative;
   max-width: 1600px;
@@ -333,7 +381,7 @@
 .school-tags a:focus-visible span {
   color: #d2dec9;
 }
-.school-home :is(#journeys, #about, #guide, #first, #contact) {
+.school-home :is(#journeys, #event-calendar, #about, #guide, #first, #contact) {
   scroll-margin-top: 166px;
 }
 .school-heading {
@@ -1291,6 +1339,7 @@
 }
 
 .school-home:has(#journeys:target) .school-tags a[href="#journeys"],
+.school-home:has(#event-calendar:target) .school-tags a[href="#event-calendar"],
 .school-home:has(#about:target) .school-tags a[href="#about"],
 .school-home:has(#guide:target) .school-tags a[href="#guide"],
 .school-home:has(#first:target) .school-tags a[href="#first"],
