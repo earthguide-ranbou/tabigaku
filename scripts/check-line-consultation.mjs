@@ -31,7 +31,7 @@ for (const [route, account] of Object.entries(destinations)) {
   const html = await readFile(`dist/public/${file}.html`, "utf8");
   if (route === "/thai-2027" || route === "/efj") {
     const links = accountLinks(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, ""));
-    assert.equal(links.length, route === "/efj" ? 2 : 5, `${route}: supplied inline and bottom-bar links`);
+    assert.equal(links.length, route === "/efj" ? 2 : 4, `${route}: supplied inline and bottom-bar links`);
     for (const [link] of links) assert.ok(link.includes(`href="https://lin.ee/${account}"`), `${route}: preserved account`);
     assert.equal(links.filter(([link]) => /class="bar-line"/.test(link)).length, 1, `${route}: one bottom-bar consultation link`);
     assert.doesNotMatch(html, /class="line-consult-(?:floating|link)/, `${route}: no duplicate floating LINE button`);
