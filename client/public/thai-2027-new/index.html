@@ -1,0 +1,1985 @@
+<!doctype html>
+<html lang="ja" data-phase="early">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="google-site-verification" content="-YiiV7BcSQbLcKQWgUuF_QU3EEcwlLEXr46yiT7vqAQ">
+<meta name="theme-color" content="#0A2F31">
+<meta name="author" content="旅する学校（あーすガイド）">
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   EarthfamilyJourney タイ旅 2027（v2：写真と短い言葉で）
+   コンセプト「湖の一日」：夜明けの湖 → 昼 → 夕焼け → 星空へ、スクロールで1日が過ぎていく
+   くわしい条件は「くわしく」の中にたたんであります（消してはいません）
+   ========================================================= */
+:root{
+  --ink:#10292B; --ink-soft:#405457;
+  --lake:#0E5A5A; --lake-deep:#0A2F31; --lake-ink:#072326;
+  --mist:#E7F0ED; --kinari:#FBF6EC; --paper:#FFFDF8; --sand:#F6E8CA; --honey:#F3D9A6;
+  --amber:#F0A23B; --amber-ink:#8F4F0A;
+  --indigo:#2B3A80; --dusk:#35346E; --night:#0C1230;
+  --brass:#865719;
+  --line:#007B36;
+  --on-dark:#EEF4F1; --on-dark-soft:rgba(238,244,241,.84);
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif CJK JP",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans CJK JP",sans-serif;
+  --latin:"Fraunces","Shippori Mincho",Georgia,serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:62px;scroll-padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.9;color:var(--ink);background:var(--night);padding-bottom:calc(80px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+img{background:#C9DCD6}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.5;margin:0;letter-spacing:.03em;font-feature-settings:"palt"}
+h1,h2,h3,.sub,.lead,.verse,.triplet{word-break:auto-phrase}
+p{margin:0 0 1.1em;text-wrap:pretty}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus,var(--lake-deep));outline-offset:3px;border-radius:6px}
+.skip,.hero,.s-dusk,.s-dusk2,.s-night,.s-end,.bar,.f-card,.member,.labcard,.foot{--focus:var(--amber)}
+.cost-side .fold-in{--focus:var(--lake-deep)}
+[tabindex="-1"]:focus{outline:none}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nb{white-space:nowrap}
+.ib{display:inline-block}
+.skip{position:absolute;left:12px;top:-80px;z-index:60;padding:10px 16px;border-radius:12px;background:#fff;color:var(--ink);font-weight:700;text-decoration:none}
+.skip:focus{top:12px}
+.js-only{display:none}
+.js .js-only{display:block}
+
+/* 早割の期間／通常期間の切り替え */
+[data-phase="regular"] .only-early{display:none!important}
+[data-phase="early"] .only-regular{display:none!important}
+
+/* ---------- 共通 ---------- */
+.sec{position:relative;padding:clamp(56px,13vw,124px) 0}
+.wrap{width:min(100% - 40px,680px);margin-inline:auto}
+.wrap.wide{width:min(100% - 40px,1080px)}
+.kicker{display:flex;align-items:center;gap:12px;margin:0 0 18px;font-family:var(--latin);font-weight:700;font-size:.74rem;line-height:1;letter-spacing:.22em;text-transform:uppercase;color:var(--k,var(--lake))}
+.kicker b{font-size:.95rem;letter-spacing:.04em}
+.kicker::after{content:"";width:40px;height:1px;background:currentColor;opacity:.55}
+.sec h2{font-weight:800;font-size:clamp(1.72rem,7.4vw,2.75rem);line-height:1.46;letter-spacing:.03em;margin:0 0 .7em;text-wrap:balance}
+.sub{color:var(--soft,var(--ink-soft))}
+.lead{font-size:1.04rem;line-height:2}
+.fine{font-size:.84rem;line-height:1.85;color:var(--soft,var(--ink-soft));margin-top:16px}
+figcaption{font-size:.84rem;line-height:1.7;color:var(--soft,var(--ink-soft));margin-top:8px}
+.s-dusk,.s-dusk2,.s-night,.s-end{--soft:var(--on-dark-soft);--k:var(--amber)}
+.s-gold,.s-sunset{--soft:#30474A}
+.s-sunset{--k:#083E3E}
+.num{font-variant-numeric:lining-nums}
+
+/* 背景：湖の一日 */
+.s-dawn{background:linear-gradient(180deg,#E3EEEA 0%,#F3F1E8 100%)}
+.s-day{background:var(--kinari)}
+.s-gold{background:linear-gradient(180deg,#F9EFDB 0%,#F5E3BF 100%)}
+.s-sunset{background:linear-gradient(180deg,#F5E3BF 0%,#F2C27F 62%,#EDAE6B 100%)}
+.s-dusk{background:linear-gradient(180deg,#3A3872 0%,#2D3064 100%);color:var(--on-dark)}
+.s-dusk2{background:linear-gradient(180deg,#2D3064 0%,#181E47 100%);color:var(--on-dark)}
+.s-night{background:linear-gradient(180deg,#181E47 0%,#0C1230 100%);color:var(--on-dark)}
+.s-night.flat{background:#0C1230}
+
+/* ふわっと表示（動きを減らす設定では出さない） */
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js [data-reveal].in{opacity:1;transform:none}
+
+/* ---------- ボタン ---------- */
+.btn{--bg:var(--amber);--fg:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:.6em;min-height:56px;padding:14px 28px;border:0;border-radius:999px;background:var(--bg);color:var(--fg);font:700 1.02rem/1.35 var(--sans);letter-spacing:.02em;text-decoration:none;text-align:center;cursor:pointer;box-shadow:0 12px 26px -12px rgba(160,92,14,.75),inset 0 -3px 0 rgba(0,0,0,.13);transition:transform .15s ease,box-shadow .15s ease}
+.btn:active{transform:translateY(2px);box-shadow:0 4px 12px -8px rgba(160,92,14,.75),inset 0 -1px 0 rgba(0,0,0,.13)}
+.btn.full{display:flex;width:100%}
+.btn.ghost{--bg:transparent;--fg:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.ghost:active{box-shadow:inset 0 0 0 1.5px currentColor}
+.btn.line{--bg:var(--line);--fg:#fff;box-shadow:0 12px 26px -14px rgba(0,90,40,.8),inset 0 -3px 0 rgba(0,0,0,.14)}
+.btn.line img{width:26px;height:26px;background:none;border-radius:6px}
+.btn .play{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:currentColor}
+.btn .play svg{width:11px;height:11px;fill:var(--lake-deep);margin-left:2px}
+.link-quiet{display:inline-block;padding:10px 4px;font-weight:500;text-underline-offset:5px}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;min-height:max(680px,100vh);min-height:max(680px,100svh);display:flex;flex-direction:column;color:#fff;overflow:hidden;background:#0A2F31;isolation:isolate}
+.hero-img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:50% 40%;background:none}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,24,27,.6) 0%,rgba(4,24,27,.08) 26%,rgba(4,24,27,.12) 34%,rgba(4,24,27,.6) 44%,rgba(4,24,27,.8) 58%,rgba(4,24,27,.95) 100%)}
+.hero-head{padding:calc(20px + env(safe-area-inset-top)) 20px 0}
+.wordmark{margin:0;font-family:var(--latin);font-weight:700;font-size:.8rem;line-height:1.55;letter-spacing:.26em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.wordmark small{display:block;font-weight:500;font-size:.66rem;letter-spacing:.32em;opacity:.88}
+.hero-title{position:absolute;right:18px;top:calc(64px + env(safe-area-inset-top));margin:0;writing-mode:vertical-rl;font-weight:800;font-size:clamp(2rem,min(9.6vw,4.7vh),3.9rem);font-size:clamp(2rem,min(9.6vw,4.7svh),3.9rem);line-height:1.32;letter-spacing:.12em;font-feature-settings:"vpal";text-shadow:0 2px 20px rgba(0,0,0,.45)}
+.hero-title span{display:block}
+.hero-title span:nth-child(2){margin-top:2.2em}
+.hero-space{flex:1 0 auto;font-size:clamp(2rem,min(9.6vw,4.7vh),3.9rem);font-size:clamp(2rem,min(9.6vw,4.7svh),3.9rem);min-height:calc(64px + 8.3em)}
+.hero-info{position:relative;width:min(100% - 40px,680px);margin:0 auto;padding:0 0 24px}
+.hero-info p{margin:0}
+.hero-when{display:grid;gap:4px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+.hw-date{font-family:var(--latin);font-weight:700;font-size:clamp(1.6rem,7.6vw,2.3rem);line-height:1.1;letter-spacing:.02em}
+.hw-date i{font-style:normal;font-weight:500;margin:0 .22em;opacity:.8}
+.hw-txt{font-family:var(--serif);font-weight:700;font-size:.95rem;line-height:1.65}
+.hero-who{margin-top:2px!important;font-size:.84rem;line-height:1.6;color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.hero-facts{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr) minmax(0,1fr);border-top:1px solid rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.32)}
+.hero-facts li{padding:8px 6px 8px 0;line-height:1.45;font-size:.72rem;color:rgba(255,255,255,.9)}
+.hero-facts li+li{padding-left:10px;border-left:1px solid rgba(255,255,255,.24)}
+.hero-facts b{display:block;font-family:var(--serif);font-weight:800;font-size:1.02rem;color:#fff;letter-spacing:.02em;white-space:nowrap}
+.hero-facts .num{font-family:var(--latin);font-weight:700}
+.early-chip{display:grid;gap:1px;margin:12px 0 0!important;padding:8px 14px 9px;border-radius:14px;background:rgba(7,35,38,.62);color:#fff;font-weight:700;font-size:.9rem;line-height:1.5;box-shadow:inset 0 0 0 1px rgba(243,217,166,.55)}
+.ec-top{display:flex;align-items:center;gap:.6em}
+.ec-top b{font-family:var(--serif);font-size:1.02rem;color:var(--honey)}
+.ec-price{font-size:.86rem}
+.early-chip s{opacity:.66}
+.early-chip .count{margin-left:auto;padding:1px 10px;border-radius:999px;background:var(--honey);color:var(--ink);font-size:.8rem}
+.early-chip .count:empty{display:none}
+.hero-cta{display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}
+.hero-cta .btn{min-height:56px;padding-inline:20px}
+.hero-cta .btn.ghost{--fg:#fff;min-height:48px}
+.hero-note{margin-top:10px!important;font-size:.76rem;line-height:1.7;color:rgba(255,255,255,.82)}
+@media (prefers-reduced-motion:no-preference){
+  .hero-img{animation:kenburns 24s var(--ease) both}
+  .wordmark,.hero-title span,.hero-info>*{animation:rise 1.1s var(--ease) both}
+  .hero-title span:nth-child(1){animation-delay:.15s}
+  .hero-title span:nth-child(2){animation-delay:.5s}
+  .hero-info>*:nth-child(1){animation-delay:.75s}
+  .hero-info>*:nth-child(2){animation-delay:.85s}
+  .hero-info>*:nth-child(3){animation-delay:.95s}
+  .hero-info>*:nth-child(4){animation-delay:1.05s}
+  .hero-info>*:nth-child(5){animation-delay:1.15s}
+  .hero-info>*:nth-child(6){animation-delay:1.25s}
+}
+@keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- 目次（上に固定） ---------- */
+.toc{position:sticky;top:0;z-index:15;background:rgba(251,246,236,.97);border-bottom:1px solid rgba(16,41,43,.1);padding-top:env(safe-area-inset-top)}
+.toc-in{display:flex;gap:2px;overflow-x:auto;padding:8px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.toc-in::-webkit-scrollbar{display:none}
+.toc a{flex:none;padding:7px 13px;border-radius:999px;font-size:.86rem;font-weight:700;line-height:1.4;text-decoration:none;color:var(--ink-soft);transition:background .2s,color .2s}
+.toc a[aria-current="true"]{background:var(--lake);color:#fff}
+.toc a.go{margin-left:auto;background:var(--amber);color:var(--ink)}
+
+/* ---------- はじまりの物語（/thai と同じ、写真と短い言葉で） ---------- */
+.story{text-align:center;padding-bottom:clamp(64px,11vw,110px)}
+.story .wrap{width:min(100% - 40px,560px)}
+.story .pre{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 2em;font-family:var(--serif);font-weight:700;font-size:1rem;line-height:1.6;letter-spacing:.06em;color:var(--lake)}
+.story .pre::before,.story .pre::after{content:"";flex:0 1 34px;height:1px;background:currentColor;opacity:.5}
+.verse{font-family:var(--serif);font-weight:500;font-size:clamp(1.1rem,4.7vw,1.32rem);line-height:2.05;letter-spacing:.08em;font-feature-settings:"palt";margin:0 0 1.7em}
+.verse b{font-weight:800;color:var(--lake)}
+.bleed{margin:.4em auto 2.6em;max-width:760px}
+.bleed img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.bleed figcaption{padding:0 20px;text-align:center}
+.triplet{margin:.2em 0 1.5em;font-family:var(--serif);font-weight:700;font-size:clamp(1.42rem,6.2vw,2.05rem);line-height:1.72;letter-spacing:.06em;font-feature-settings:"palt"}
+.triplet span{display:block}
+.triplet span:nth-child(even){color:var(--lake);margin-bottom:.45em}
+.triplet span:last-child{margin-bottom:0}
+.kinds-h{margin:2.4em 0 0!important;font-family:var(--serif);font-weight:800;font-size:1.12rem;line-height:1.6;color:var(--ink)}
+.story .kinds{margin-top:14px;text-align:center}
+
+/* ---------- 映像 ---------- */
+.film-lead{margin:14px 0 0!important;font-size:.92rem;line-height:1.8;color:var(--ink-soft)}
+.film-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;max-width:440px;margin:22px 0 0;padding:5px;border-radius:16px;background:rgba(16,41,43,.07)}
+.film-tabs button{min-height:46px;border:0;border-radius:12px;background:transparent;font:700 .92rem/1.35 var(--sans);color:var(--ink);cursor:pointer}
+.film-tabs button[aria-pressed="true"]{background:var(--lake);color:#fff}
+.film-frame{margin:16px 0 14px;border-radius:24px;overflow:hidden;background:var(--lake-deep);box-shadow:0 34px 60px -34px rgba(10,47,49,.7)}
+.film{width:100%;aspect-ratio:auto 16/9;max-height:78svh;background:var(--lake-deep);object-fit:contain}
+.film[hidden]{display:none}
+.links{display:flex;flex-wrap:wrap;gap:2px 22px}
+.links a{padding:8px 0;font-weight:500;text-underline-offset:5px}
+
+/* ---------- サージャイ ---------- */
+.checks{list-style:none;margin:0 0 1.2em;padding:0;display:grid;gap:6px}
+.checks li{position:relative;padding:8px 12px 8px 36px;border-radius:12px;background:var(--cbg,var(--mist));font-size:.93rem;line-height:1.65}
+.checks li::before{content:"";position:absolute;left:14px;top:15px;width:11px;height:6px;border-left:2px solid var(--cc,var(--lake));border-bottom:2px solid var(--cc,var(--lake));transform:rotate(-45deg)}
+.sig{margin:1.6em 0 0;font-family:var(--serif);font-weight:700;font-size:1.06rem;line-height:1.9;font-feature-settings:"palt"}
+.sig small{display:block;margin-top:2px;font-family:var(--sans);font-weight:500;font-size:.82rem;color:var(--ink-soft)}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 8px}
+.mosaic figure{margin:0}
+.mosaic img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px}
+.mosaic figure:first-child{grid-column:1/-1}
+.mosaic figure:first-child img{aspect-ratio:16/10}
+.rooms{margin-top:34px}
+.rooms h3{font-size:1.15rem;margin:0 0 2px}
+.rooms .scroller{margin-top:12px}
+.rooms .scroller figure{flex-basis:62%;max-width:250px}
+.rooms .scroller img{aspect-ratio:4/3;border-radius:14px}
+.rooms figcaption{font-size:.8rem}
+.rooms .fine{margin:2px 0 0}
+.rooms .fine a{text-underline-offset:4px}
+
+/* ---------- 旅のシーン ---------- */
+.scroller{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:6px 20px 14px;margin-top:22px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.scroller::-webkit-scrollbar{display:none}
+.scroller figure{flex:0 0 76%;max-width:310px;scroll-snap-align:start;margin:0}
+.scroller img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px}
+.wrap .scroller{margin-inline:-20px}
+.swipe{display:flex;align-items:center;gap:8px;margin:0 0 2px;font-family:var(--latin);font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--soft,var(--ink-soft))}
+.swipe::after{content:"";width:46px;height:1px;background:currentColor;opacity:.5}
+.kinds{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:26px 0 0;padding:0}
+.kinds li{display:grid;justify-items:center;align-content:start;gap:2px;padding:14px 6px 12px;border-radius:18px;background:var(--paper);border:1px solid rgba(16,41,43,.08);text-align:center}
+.kinds svg{width:44px;height:44px;padding:9px;border-radius:50%;background:var(--mist);color:var(--lake);fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.kinds b{font-family:var(--serif);font-size:1.02rem;line-height:1.5}
+.kinds span{font-size:.76rem;line-height:1.55;color:var(--ink-soft);word-break:auto-phrase}
+
+/* ---------- たたむ（くわしく） ---------- */
+.fold{margin:16px 0 0;border-radius:18px;background:var(--fbg,rgba(255,253,248,.92));border:1px solid var(--fbd,rgba(16,41,43,.12));box-shadow:0 18px 36px -30px rgba(10,47,49,.55)}
+.fold>summary{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 18px;min-height:60px;cursor:pointer;list-style:none;border-radius:18px}
+.fold>summary::-webkit-details-marker{display:none}
+.fold-t{flex:1;min-width:0;line-height:1.5}
+.fold-t b{display:block;font-family:var(--serif);font-weight:800;font-size:1.04rem;letter-spacing:.04em;font-feature-settings:"palt";word-break:auto-phrase}
+.fold-t small{display:block;margin-top:2px;font-size:.78rem;font-weight:500;color:var(--soft,var(--ink-soft));word-break:auto-phrase}
+.fold-i{flex:none;position:relative;width:34px;height:34px;border-radius:50%;background:var(--fi,var(--lake));color:var(--fic,#fff)}
+.fold-i::before,.fold-i::after{content:"";position:absolute;left:50%;top:50%;width:13px;height:2px;border-radius:2px;background:currentColor;transform:translate(-50%,-50%)}
+.fold-i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s var(--ease)}
+.fold[open]>summary .fold-i::after{transform:translate(-50%,-50%) rotate(0deg)}
+.fold-in{padding:2px 18px 20px}
+.fold-in>:last-child{margin-bottom:0}
+/* 小さな「くわしく見る」 */
+.more{margin:2px 0 12px}
+.more>summary{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:4px 0;cursor:pointer;list-style:none;font-weight:700;font-size:.9rem;color:var(--accent,var(--lake));text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary::after{content:"";width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.more[open]>summary::after{transform:translateY(2px) rotate(225deg)}
+.more>summary .c{display:none}
+.more[open]>summary .o{display:none}
+.more[open]>summary .c{display:inline}
+.more-in{padding-top:4px}
+.more-in>:last-child{margin-bottom:0}
+
+/* ---------- 3つのプラン：1月5日〜17日の帯 ---------- */
+.plans-head{max-width:680px}
+.band{margin:4px 0 0;padding:18px 16px 14px;border-radius:22px;background:var(--paper);border:1px solid rgba(16,41,43,.1);box-shadow:0 24px 44px -34px rgba(10,47,49,.6);max-width:760px}
+.band-grid{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));column-gap:0;row-gap:4px;position:relative}
+.band-axis{grid-column:1/-1;display:grid;grid-template-columns:repeat(13,minmax(0,1fr));margin-bottom:4px}
+.band-axis span{grid-row:1;font-family:var(--latin);font-weight:700;font-size:.82rem;line-height:1.2;white-space:nowrap;color:var(--ink)}
+.band-axis span small{font-family:var(--sans);font-weight:500;font-size:.68rem;color:var(--ink-soft);margin-left:1px}
+.band-axis .s{grid-column:1/span 4;justify-self:start}
+.band-axis .e7{grid-column:4/span 4;justify-self:end;padding-right:7px}
+.band-axis .s8{grid-column:8/span 4;justify-self:start;padding-left:7px}
+.band-axis .e{grid-column:10/span 4;justify-self:end}
+.band-ticks{grid-column:1/-1;display:grid;grid-template-columns:repeat(13,minmax(0,1fr));height:8px;margin-bottom:6px}
+.band-ticks i{border-left:1px solid rgba(16,41,43,.22);height:100%}
+.band-ticks i:last-child{border-right:1px solid rgba(16,41,43,.22)}
+.band-ticks i:nth-child(8){border-left:2px solid var(--amber)}
+.bb{display:flex;align-items:center;gap:6px;min-height:40px;padding:6px 12px;border-radius:999px;color:#fff;text-decoration:none;font-weight:700;font-size:.86rem;line-height:1.2;white-space:nowrap;overflow:hidden;box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}
+.bb b{font-family:var(--latin);font-size:1.05rem;letter-spacing:.02em}
+.bb::after{content:"";margin-left:auto;flex:none;width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);opacity:.85}
+.bb.a{grid-column:1/8;background:var(--lake)}
+.bb.b{grid-column:8/14;background:var(--indigo);margin-left:3px}
+.bb.sp{grid-column:1/14;background:var(--brass)}
+.bl{margin:0 0 8px!important;font-size:.8rem;line-height:1.5;color:var(--ink-soft);word-break:auto-phrase}
+.bl.a{grid-column:1/8;padding-left:12px}
+.bl.b{grid-column:8/14;padding-left:15px}
+.bl.sp{grid-column:1/14;padding-left:12px;margin-bottom:0!important}
+.band figcaption{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(16,41,43,.2);font-size:.8rem}
+
+/* プラン診断（たたんだ中） */
+.finder-fold{max-width:760px}
+.fq{padding:4px 0 16px}
+.fq+.fq{padding-top:16px;border-top:1px dashed rgba(16,41,43,.2)}
+.fq-q{display:flex;align-items:baseline;gap:10px;margin:0 0 10px;font-family:var(--serif);font-weight:800;font-size:1.06rem;line-height:1.5}
+.fq-q span{font-family:var(--latin);font-weight:700;font-size:.9rem;color:var(--amber-ink);letter-spacing:.06em}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.choices.three{grid-template-columns:1fr}
+.choices button{display:flex;align-items:center;gap:10px;min-height:50px;padding:10px 14px;border-radius:14px;border:1.5px solid rgba(16,41,43,.2);background:#fff;font:700 .95rem/1.45 var(--sans);color:var(--ink);text-align:left;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.choices button::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;border:1.5px solid currentColor;transition:background .2s,border-color .2s}
+.choices button[aria-checked="true"]{background:var(--lake);border-color:var(--lake);color:#fff}
+.choices button[aria-checked="true"]::before{background:var(--amber);border-color:var(--amber)}
+.f-wait{margin:2px 0 0;font-size:.86rem;color:var(--ink-soft)}
+.f-card{--accent:var(--lake);margin-top:6px;padding:20px 18px;border-radius:20px;background:var(--lake-deep);color:var(--on-dark);position:relative;overflow:hidden}
+.f-card.B{--accent:#7F93E0;background:#1C2559}
+.f-card.SPECIAL{--accent:var(--honey);background:#3A2810}
+.f-card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(246,217,164,.3);border-radius:15px;pointer-events:none}
+.f-card>*{position:relative}
+.f-lab{margin:0 0 4px!important;font-family:var(--latin);font-weight:700;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--honey)}
+.f-card h3{font-size:1.5rem;line-height:1.35;margin:0 0 8px}
+.f-card h3 small{display:block;margin-top:2px;font-family:var(--sans);font-weight:500;font-size:.86rem;color:var(--on-dark-soft);letter-spacing:.02em}
+.f-why{font-size:.95rem;line-height:1.85}
+.f-price{font-size:.88rem;line-height:1.75;color:var(--on-dark-soft)}
+.f-price b{font-family:var(--serif);font-size:1.05rem;color:#fff}
+.f-price .num{font-family:var(--latin)}
+.f-notes{margin:0 0 14px;padding:12px 14px;list-style:none;border-radius:12px;background:rgba(255,255,255,.08);font-size:.86rem;line-height:1.75}
+.f-notes li+li{margin-top:6px}
+.f-notes li::before{content:"・"}
+.f-act{display:grid;gap:8px}
+.f-act .btn.ghost{--fg:#fff;min-height:50px}
+.f-line{display:block;padding:10px 4px 0;text-align:center;font-weight:700;color:#fff;text-underline-offset:5px}
+.f-alt{margin:12px 0 0!important;font-size:.88rem;color:var(--on-dark-soft)}
+.f-alt a{color:#fff;font-weight:700;text-underline-offset:4px}
+.f-again{display:block;margin:14px auto 0;padding:8px 12px;border:0;background:none;font:500 .86rem var(--sans);color:var(--ink-soft);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* ---------- プラン（搭乗券） ---------- */
+.passes{display:grid;gap:30px;margin-top:30px}
+.pass{--accent:var(--lake);position:relative;filter:drop-shadow(0 16px 26px rgba(10,47,49,.18));scroll-margin-top:70px}
+.pass.b{--accent:var(--indigo)}
+.pass.special{--accent:var(--brass)}
+.pass-main,.pass-stub{background:var(--paper);position:relative}
+.pass-main{border-radius:20px 20px 0 0;padding-bottom:12px;
+  -webkit-mask:radial-gradient(14px at 0 100%,#0000 97%,#000),radial-gradient(14px at 100% 100%,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(14px at 0 100%,#0000 97%,#000),radial-gradient(14px at 100% 100%,#0000 97%,#000);mask-composite:intersect}
+.pass-stub{border-radius:0 0 20px 20px;padding:22px 20px 20px;
+  -webkit-mask:radial-gradient(14px at 0 0,#0000 97%,#000),radial-gradient(14px at 100% 0,#0000 97%,#000);-webkit-mask-composite:source-in;
+  mask:radial-gradient(14px at 0 0,#0000 97%,#000),radial-gradient(14px at 100% 0,#0000 97%,#000);mask-composite:intersect}
+.pass-stub::before{content:"";position:absolute;left:24px;right:24px;top:0;border-top:2px dashed rgba(16,41,43,.28)}
+.pass-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-radius:20px 20px 0 0;background:var(--accent);color:#fff}
+.pass-top b{font-family:var(--serif);font-size:1.18rem;letter-spacing:.08em}
+.pass-top span{font-family:var(--latin);font-weight:700;font-size:.78rem;letter-spacing:.24em}
+.pass-body{padding:18px 20px 0}
+.route{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:end;margin-bottom:14px}
+.route .d{display:block;font-family:var(--latin);font-weight:700;font-size:2.5rem;line-height:1;color:var(--accent);letter-spacing:-.01em}
+.route small{display:block;margin-top:4px;font-size:.8rem;line-height:1.45;color:var(--ink-soft)}
+.route .r{text-align:right}
+.mid{position:relative;align-self:center;padding-top:26px;text-align:center;font-size:.8rem;font-weight:700;color:var(--ink-soft)}
+.mid::before{content:"";position:absolute;left:0;right:0;top:12px;border-top:2px dotted rgba(16,41,43,.32)}
+.mid svg{position:absolute;left:50%;top:0;width:34px;height:24px;padding:0 5px;transform:translateX(-50%);background:var(--paper);color:var(--accent)}
+.pass h3{font-size:1.28rem;line-height:1.5;margin:2px 0 10px}
+.pass-body p{font-size:.95rem;line-height:1.85}
+.pass ul{margin:0 0 6px;padding-left:1.2em;font-size:.94rem;line-height:1.7}
+.pass li{margin-bottom:.3em}
+.pass li::marker{color:var(--accent)}
+.pass .fit{padding:11px 14px;border-radius:12px;background:var(--mist);font-size:.9rem;margin:0}
+.pass .fit b{font-family:var(--serif);margin-right:.5em;color:var(--accent)}
+.pass .pending{margin:8px 0 2px;padding:9px 12px;border-radius:12px;background:#F4F1EA;font-size:.84rem;line-height:1.7;color:var(--ink-soft)}
+.pass .pending b{color:var(--ink);font-weight:700}
+.lanten{margin:0 0 14px;padding:13px 15px 3px;border-radius:12px;background:linear-gradient(135deg,#E8EBF7,#F4F1EA);border-left:4px solid var(--indigo)}
+.lanten .lanten-h{margin:0 0 4px;font-family:var(--serif);font-weight:700;font-size:1rem;line-height:1.5;color:var(--indigo)}
+.pass-body .lanten p{font-size:.9rem;line-height:1.8}
+.stamp{position:absolute;right:14px;top:16px;width:88px;height:88px;color:var(--accent);opacity:.78;transform:rotate(-12deg);pointer-events:none}
+.stamp text{font-family:var(--latin);font-weight:700;fill:currentColor}
+.price-lab{font-size:.84rem;color:var(--ink-soft);margin:0 0 2px}
+.price{margin:0;padding-right:94px}
+.price .big{font-family:var(--serif);font-weight:800;font-size:2.35rem;line-height:1.2}
+.price .big .num{font-family:var(--latin);font-weight:700;letter-spacing:-.01em}
+.kid{font-size:.88rem;line-height:1.7;margin:8px 0 4px;color:var(--ink)}
+.plus{font-size:.86rem;line-height:1.75;margin:6px 0 14px;color:var(--ink)}
+.plus b{font-family:var(--serif);font-size:1rem}
+.plus s{color:var(--ink-soft)}
+.pass .plus .only-early{display:inline-block}
+.pass .plus [data-cost]{white-space:nowrap}
+.pay-note{margin:8px 0 0;font-size:.78rem;line-height:1.6;color:var(--ink-soft);text-align:center}
+.off{display:inline-block;padding:1px 9px;border-radius:999px;background:var(--amber);color:var(--ink);font-weight:700;font-size:.76rem;line-height:1.6;margin-left:.4em}
+.barcode{height:16px;margin:14px 0 0;opacity:.3;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 13px)}
+
+/* 比較表（たたんだ中） */
+.cmp-fold{max-width:760px}
+.cmp-scroll{overflow-x:auto;margin:0 -4px;padding:0 4px 4px;-webkit-overflow-scrolling:touch}
+.cmp{width:100%;min-width:300px;table-layout:fixed;border-collapse:separate;border-spacing:0;font-size:.82rem;line-height:1.55;background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(16,41,43,.1)}
+.cmp th,.cmp td{padding:10px 6px;vertical-align:top;border-bottom:1px solid rgba(16,41,43,.09);text-align:left;word-break:auto-phrase}
+.cmp tbody tr:last-child>*{border-bottom:0}
+.cmp thead th{padding:12px 6px;color:#fff;font-family:var(--latin);font-weight:700;font-size:.95rem;letter-spacing:.02em;line-height:1.2}
+.cmp thead th small{display:block;margin-top:3px;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:0;opacity:.9}
+.cmp thead th:first-child{width:4.2em;background:var(--ink)}
+.cmp thead .a{background:var(--lake)}
+.cmp thead .b{background:var(--indigo)}
+.cmp thead .sp{background:var(--brass)}
+.cmp tbody th{font-weight:700;color:var(--ink-soft);font-size:.76rem}
+.cmp td.money{font-family:var(--serif);font-weight:800;font-size:.86rem;white-space:nowrap}
+.cmp td.money .num{font-family:var(--latin)}
+.cmp tr.est td{background:#FFF6E2}
+
+/* 村での滞在 */
+.stay-note{margin:30px 0 0;padding:20px 18px 16px;border-radius:20px;background:var(--paper);border:1px solid rgba(16,41,43,.1);box-shadow:0 20px 40px -32px rgba(10,47,49,.5);max-width:760px;scroll-margin-top:70px}
+.stay-note h3{font-size:1.18rem;margin-bottom:10px}
+.stay-note h3 small{display:block;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--amber-ink);letter-spacing:.04em}
+.stay-note .checks{--cbg:#EEF0F8;--cc:var(--indigo);margin-bottom:6px}
+.stay-note .more{--accent:var(--indigo);margin-bottom:4px}
+.stay-note .fine{margin:6px 0 0}
+.stay-note .fine a{color:var(--indigo);font-weight:700;text-underline-offset:4px}
+
+/* ---------- ルートマップと日程 ---------- */
+.route-map{margin:26px 0 8px}
+.route-map svg{width:100%;height:auto;display:block}
+.route-map .rt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.route-map .rt-a{stroke:var(--lake);stroke-width:4.5}
+.route-map .rt-b{stroke:var(--indigo);stroke-width:4.5}
+.route-map .rt-s{stroke:var(--brass);stroke-width:3;stroke-dasharray:1 8}
+.js .route-map .draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.6s var(--ease)}
+.js .route-map.in .draw{stroke-dashoffset:0}
+.js .route-map.in .draw.late{transition-delay:.9s}
+.route-map text{font-family:var(--sans);fill:var(--ink)}
+.route-map .pl,.route-map .lb{font-weight:700;font-size:13.5px;paint-order:stroke;stroke:#FFF9EE;stroke-width:4px;stroke-linejoin:round}
+.route-map .lb.sm{font-size:11px}
+.route-map .en{font-family:var(--latin);font-weight:700;font-size:8.5px;letter-spacing:2px;fill:#6B5A3A;paint-order:stroke;stroke:#FFF9EE;stroke-width:3px}
+.route-map .cty{font-family:var(--latin);font-weight:700;font-size:11px;letter-spacing:4px;fill:#7A5A28}
+.route-map .tag{font-family:var(--latin);font-weight:700;font-size:11px;fill:#fff}
+.route-map .lg{font-size:11.5px}
+.route-map figcaption{color:var(--soft)}
+.tl{list-style:none;margin:30px 0 0;padding:0}
+.tl>li{position:relative;padding:0 0 34px 36px}
+.tl>li::before{content:"";position:absolute;left:7px;top:12px;bottom:-4px;width:2px;background:rgba(16,41,43,.3)}
+.tl>li:last-child{padding-bottom:6px}
+.tl>li:last-child::before{display:none}
+.tl>li::after{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--lake);box-shadow:0 0 0 4px rgba(255,255,255,.62)}
+.tl>li.b::after{background:var(--indigo)}
+.when{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-bottom:4px;font-family:var(--serif);font-weight:800;font-size:1.05rem}
+.tag{padding:1px 10px;border-radius:999px;background:rgba(255,253,248,.78);font-family:var(--sans);font-weight:700;font-size:.78rem}
+.tl h3{font-size:1.2rem;margin-bottom:6px}
+.tl p{font-size:.95rem;line-height:1.85;margin-bottom:.6em}
+.tl img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px;margin-top:8px;max-height:min(72svh,540px)}
+.tl .duo-b{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.tl .duo-b img{aspect-ratio:3/4;margin:0;max-height:none}
+.crafts-lab{margin:6px 0 4px!important;font-size:.8rem!important;font-weight:700;color:var(--indigo);letter-spacing:.04em}
+.crafts{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px;padding:0}
+.crafts li{padding:4px 12px;border-radius:999px;background:rgba(255,253,248,.85);border:1px solid rgba(43,58,128,.25);color:var(--indigo);font-weight:700;font-size:.82rem;line-height:1.5}
+.tl .stay-link{font-size:.86rem;color:#2B3446}
+.tl .stay-link a{font-weight:700;color:var(--indigo);text-underline-offset:4px}
+.facts{margin:6px 0 0;padding:14px 18px;border-radius:16px;background:rgba(255,253,248,.78)}
+.facts .fh{margin:0 0 4px;font-family:var(--serif);font-weight:800;font-size:1.02rem}
+.facts dl{margin:0}
+.facts dl div{display:grid;grid-template-columns:5em 1fr;gap:10px;padding:7px 0;font-size:.9rem;line-height:1.7}
+.facts dl div+div{border-top:1px solid rgba(16,41,43,.1)}
+.facts dt{font-weight:700}
+.facts dd{margin:0}
+.facts dd b{font-family:var(--serif);font-weight:800}
+
+/* パパイヤビレッジ */
+.papaya-photo{margin:0;padding:30px 20px 34px;background:linear-gradient(180deg,#EDAE6B,#3A3872)}
+.papaya-photo img{width:100%;max-width:640px;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 28%;margin-inline:auto;border-radius:20px;box-shadow:0 20px 44px rgba(12,18,48,.25)}
+.papaya-photo figcaption{max-width:640px;margin:16px auto 0;color:var(--on-dark);font-size:.92rem;line-height:1.7;text-align:center}
+
+/* ---------- 費用（3つ） ---------- */
+.cost-head{max-width:680px}
+.tiers{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:12px;counter-reset:tier}
+.tier{position:relative;padding:18px 18px 12px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(246,217,164,.26)}
+.t-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 6px!important}
+.t-n{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--honey);color:var(--night);font-family:var(--latin);font-weight:700;font-size:.95rem}
+.t-chip{padding:2px 12px;border-radius:999px;border:1px solid rgba(246,217,164,.6);color:var(--honey);font-weight:700;font-size:.78rem;line-height:1.6}
+.tier h3{font-size:1.22rem;margin:0 0 6px}
+.ok{list-style:none;margin:0;padding:0}
+.ok li{position:relative;padding:8px 0 8px 26px;border-top:1px solid rgba(255,255,255,.12);font-size:.93rem;line-height:1.7}
+.ok li::before{content:"";position:absolute;left:3px;top:16px;width:11px;height:6px;border-left:2px solid var(--honey);border-bottom:2px solid var(--honey);transform:rotate(-45deg)}
+.ok b{font-family:var(--serif);font-weight:800;font-size:1.02rem}
+.ok s{opacity:.7}
+.ok small{display:block;font-size:.8rem;line-height:1.65;color:var(--on-dark-soft)}
+.pay{margin:10px 0 6px;padding:14px 16px;border-radius:14px;background:rgba(10,18,48,.38);border:1px dashed rgba(246,217,164,.45);scroll-margin-top:70px}
+.pay .ph{margin:0 0 6px;font-family:var(--serif);font-weight:800;font-size:1rem;color:var(--honey)}
+.pay p{margin:0 0 .4em;font-size:.86rem;line-height:1.75}
+.pay p:last-child{margin-bottom:0}
+.pay .big{font-size:.95rem;font-weight:700;color:#fff}
+.ex{margin:18px 0 0;padding:18px 18px 16px;border-radius:20px;background:var(--paper);color:var(--ink);box-shadow:0 24px 44px -28px rgba(0,0,0,.6)}
+.ex .ex-lab{margin:0 0 6px;font-weight:700;font-size:.86rem;color:var(--amber-ink)}
+.ex .eq{margin:0;font-size:.92rem;line-height:1.6}
+.ex .eq div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:8px 0;border-top:1px solid rgba(16,41,43,.12)}
+.ex .eq div:first-child{border-top:0}
+.ex .eq dt{font-weight:700}
+.ex .eq dt small{display:block;font-weight:400;font-size:.76rem;color:var(--ink-soft)}
+.ex .eq dd b{font-family:var(--serif);font-weight:800;font-size:1.45rem;line-height:1.3}
+.ex .eq dd b .num{font-family:var(--latin);font-weight:700}
+.ex .ex-note{margin:4px 0 0;font-size:.8rem;line-height:1.65;color:var(--ink-soft)}
+.ex .eq dt,.ex .eq dd{margin:0}
+.ex .eq dd{font-family:var(--serif);font-weight:800;text-align:right;white-space:nowrap}
+.ex .ex-plus{margin:8px 0 0;font-size:.84rem;line-height:1.7;color:var(--ink-soft)}
+.cost-side .fold{--fbg:var(--paper);--fbd:rgba(255,255,255,.2);--soft:var(--ink-soft);color:var(--ink)}
+.cost-side .fold>summary{color:var(--ink)}
+.sim{padding-top:2px;scroll-margin-top:70px}
+.sim>.sub{font-size:.88rem;margin-bottom:14px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:5px;border-radius:14px;background:rgba(16,41,43,.07);margin-bottom:8px}
+.seg button{min-height:46px;border:0;border-radius:10px;background:transparent;font:700 .95rem/1.35 var(--sans);color:var(--ink);cursor:pointer}
+.seg button[aria-checked="true"]{background:var(--lake);color:#fff}
+.seg button small{display:block;font-weight:400;font-size:.72rem;line-height:1.35;opacity:.88}
+.seg.three{grid-template-columns:repeat(3,1fr)}
+.seg.three button{font-size:.84rem;padding:6px 2px;line-height:1.35}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid rgba(16,41,43,.12)}
+.row label{font-weight:700;line-height:1.5}
+.row label small{display:block;font-weight:400;font-size:.8rem;color:var(--ink-soft)}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--lake);background:#fff;color:var(--lake);font:400 1.4rem/1 var(--sans);cursor:pointer}
+.step button:disabled{opacity:.32;cursor:default}
+.step output{min-width:2.2em;text-align:center;font-family:var(--latin);font-weight:700;font-size:1.4rem}
+.sw{position:relative;flex:none;width:64px;height:46px;border:0;background:none;cursor:pointer;padding:0}
+.sw::before{content:"";position:absolute;left:4px;right:4px;top:8px;bottom:8px;border-radius:999px;background:rgba(16,41,43,.55);transition:background .2s}
+.sw::after{content:"";position:absolute;top:10px;left:7px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.3);transition:transform .2s}
+.sw[aria-checked="true"]::before{background:var(--lake)}
+.sw[aria-checked="true"]::after{transform:translateX(24px)}
+.dao-opts{display:grid;gap:6px;padding:12px 0 6px;border-bottom:1px solid rgba(16,41,43,.12)}
+.dao-opts[hidden]{display:none}
+.dao-opts .seg{margin-bottom:0}
+.result{margin-top:18px;padding:18px 16px 14px;border-radius:18px;background:var(--lake-deep);color:var(--on-dark)}
+.result .lab{font-size:.84rem;color:var(--on-dark-soft);margin:0}
+.result .total{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin:0 0 10px}
+.result .total b{font-family:var(--serif);font-weight:800;font-size:2.2rem;line-height:1.3}
+.result .total b .num{font-family:var(--latin);font-weight:700}
+.result dl{margin:0;font-size:.9rem}
+.result dl div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-top:1px solid rgba(255,255,255,.16)}
+.result dt,.result dd{margin:0}
+.result dd{white-space:nowrap}
+.result .reg{margin:8px 0 0;font-size:.82rem;color:var(--on-dark-soft)}
+.estimate{margin-top:14px;padding:14px 14px 12px;border-radius:14px;background:rgba(255,255,255,.07);border:1px dashed rgba(246,217,164,.45)}
+.estimate p{margin:0}
+.estimate .e-lab{font-size:.8rem;color:var(--on-dark-soft)}
+.estimate .e-val{font-family:var(--serif);font-weight:800;font-size:1.25rem;line-height:1.5}
+.estimate .e-val .num{font-family:var(--latin);font-weight:700}
+.estimate .e-sum{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14)}
+.estimate .e-sum .e-val{font-size:1.45rem;color:var(--honey)}
+.estimate .e-note{margin-top:6px;font-size:.78rem;line-height:1.7;color:var(--on-dark-soft)}
+.sim-note{font-size:.82rem;color:var(--ink-soft);margin:14px 0 16px;line-height:1.75}
+.sim-act{display:grid;gap:10px}
+.sim-act .btn.ghost{--fg:var(--lake);min-height:50px}
+/* JOURNEY LAB */
+.labcard{margin:18px 0 0;padding:22px 18px 16px;border-radius:22px;background:rgba(255,255,255,.07);border:1px solid rgba(246,217,164,.26);scroll-margin-top:70px}
+.labcard .lab-k{margin:0 0 6px;font-family:var(--latin);font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--honey)}
+.labcard h3{font-size:clamp(1.25rem,5.4vw,1.5rem);line-height:1.5;margin:0 0 8px}
+.labcard>p{font-size:.93rem;line-height:1.8}
+.lab3{list-style:none;margin:12px 0 12px;padding:0;display:grid;gap:8px}
+.lab3 li{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:center;font-family:var(--serif);font-weight:700;font-size:1rem;line-height:1.5}
+.lab3 .n{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--honey);color:var(--night);font-family:var(--latin);font-size:.9rem}
+.lab-how{margin:0 0 10px!important;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);font-size:.86rem;line-height:1.7}
+.lab-fee{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 4px!important}
+.lab-fee b{font-family:var(--serif);font-weight:800;font-size:1.7rem;line-height:1.35}
+.lab-fee b .num{font-family:var(--latin);font-weight:700}
+.lab-fee s{color:var(--on-dark-soft);font-size:.92rem}
+.lab-fee small{flex-basis:100%;font-size:.82rem;color:var(--on-dark-soft)}
+.labcard .note{margin:0 0 4px;font-size:.84rem;line-height:1.75;color:var(--on-dark-soft)}
+.labcard .more{--accent:var(--honey)}
+.labcard .more-in h4{margin:10px 0 2px;font-family:var(--serif);font-size:1rem}
+.labcard .more-in p{margin:0 0 .6em;font-size:.9rem;line-height:1.8;color:var(--on-dark-soft)}
+/* DAO（オプション・たたんだ中） */
+.dao-fold{--fi:var(--lake);--fic:#fff}
+.opt-tag{display:inline-block;margin-right:.5em;padding:0 9px;border-radius:999px;background:var(--honey);color:var(--night);font-family:var(--latin);font-weight:700;font-size:.68rem;letter-spacing:.16em;vertical-align:.12em}
+.member{word-break:auto-phrase;position:relative;padding:24px 20px 20px;border-radius:18px;color:var(--on-dark);overflow:hidden;
+  background:radial-gradient(120% 70% at 100% 0%,rgba(246,217,164,.2),transparent 60%),linear-gradient(160deg,#35346E 0%,#1B2150 55%,#0C1230 100%)}
+.member::before{content:"";position:absolute;inset:7px;border:1px solid rgba(246,217,164,.38);border-radius:12px;pointer-events:none}
+.member>*{position:relative}
+.member .seal{position:absolute;right:18px;top:18px;width:64px;height:64px;border-radius:50%;border:1.5px solid var(--honey);display:grid;place-items:center;color:var(--honey);transform:rotate(-8deg)}
+.member .seal span{writing-mode:vertical-rl;white-space:nowrap;font-family:var(--serif);font-weight:700;font-size:.72rem;letter-spacing:.12em}
+.member h3{font-size:clamp(1.4rem,6.4vw,1.8rem);margin:0 0 10px;padding-right:76px;letter-spacing:.04em}
+.mem-lead{font-size:.95rem;line-height:1.85;padding-right:4px}
+.member ul{margin:0 0 6px;padding-left:1.15em;font-size:.92rem;line-height:1.75}
+.member li{margin-bottom:.4em}
+.member li small{display:block;font-size:.8rem;color:var(--on-dark-soft);line-height:1.6}
+.plans{width:100%;border-collapse:collapse;margin:14px 0 0;border-top:1px solid rgba(246,217,164,.4)}
+.plans th,.plans td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);text-align:right;vertical-align:baseline;font-weight:400}
+.plans thead th{padding:8px 0;font-size:.76rem;color:var(--on-dark-soft)}
+.plans th[scope="row"],.plans thead th:first-child{text-align:left}
+.plans th[scope="row"]{font-family:var(--serif);font-weight:700;font-size:1.02rem;line-height:1.4}
+.plans th small{display:block;font-family:var(--sans);font-weight:400;font-size:.76rem;color:var(--on-dark-soft)}
+.plans td{padding-left:8px;font-family:var(--serif);font-weight:800;font-size:1.02rem;white-space:nowrap}
+.member .plans th{word-break:normal}
+.mem-fine{margin:12px 0 16px!important;font-size:.8rem!important;line-height:1.75!important;color:var(--on-dark-soft)}
+.member .link-quiet{display:block;text-align:center;margin-top:6px}
+
+/* ---------- 上田家（物語のすぐ後。前回のページと同じ流れ） ---------- */
+.fam{background:linear-gradient(180deg,var(--kinari) 0%,#F9EFDB 100%)}
+.fam .sec-in{max-width:680px}
+.fam-photo{margin:0 0 4px}
+.fam-photo img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:18px}
+.fam .lead{margin:16px 0 26px;font-family:var(--serif);font-weight:700}
+.trips2{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:8px 20px 16px;margin:6px 0 0;scrollbar-width:none;-webkit-overflow-scrolling:touch;list-style:none}
+.trips2::-webkit-scrollbar{display:none}
+.trip{flex:0 0 74%;max-width:300px;scroll-snap-align:start;border-radius:20px;background:var(--paper);border:1px solid rgba(16,41,43,.1);overflow:hidden;box-shadow:0 18px 34px -28px rgba(10,47,49,.55)}
+.trip .ph{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.trip .ph img{width:100%;aspect-ratio:1/1;object-fit:cover}
+.trip .ph img:only-child{grid-column:1/-1;aspect-ratio:2/1}
+.trip h3{margin:12px 16px 2px;font-size:1.15rem;color:var(--lake)}
+.trip p{margin:0 16px 16px;font-size:.88rem;line-height:1.75}
+.person{margin-top:36px;scroll-margin-top:70px}
+.person img{width:100%;margin-bottom:14px;aspect-ratio:4/3;object-fit:cover;border-radius:16px}
+.person h3{font-size:1.5rem}
+.person h3 small{font-family:var(--sans);font-weight:400;font-size:.9rem;margin-left:.6em;color:var(--ink-soft)}
+.role{font-size:.86rem!important;color:var(--ink-soft);margin:2px 0 10px!important}
+.person ul{margin:0 0 12px;padding-left:1.1em;font-size:.93rem;line-height:1.75}
+.person li{margin-bottom:.3em}
+.person li::marker{color:var(--amber)}
+.person p{font-size:.94rem}
+.person .links a{color:var(--lake)}
+
+/* ---------- 申し込みから出発まで ---------- */
+.join-lead{font-family:var(--serif);font-weight:700;color:var(--honey)}
+.cap{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;margin:18px 0 18px;padding:14px 16px;border-radius:16px;background:rgba(246,217,164,.1);border:1px solid rgba(246,217,164,.4)}
+.cap b{grid-row:span 2;font-family:var(--serif);font-weight:800;font-size:1.6rem;line-height:1.1;color:var(--honey);white-space:nowrap}
+.cap b small{display:block;font-family:var(--sans);font-weight:700;font-size:.72rem;color:var(--on-dark-soft);letter-spacing:.08em}
+.cap span{font-size:.84rem;line-height:1.65;color:var(--on-dark-soft)}
+.road{list-style:none;margin:24px 0 22px;padding:0;position:relative}
+.road li:not(:last-child)::before{content:"";position:absolute;left:21px;top:44px;bottom:0;border-left:2px dashed rgba(246,217,164,.45)}
+.road li{position:relative;display:grid;grid-template-columns:44px 1fr;gap:14px;padding:0 0 18px}
+.road .rn{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#26306A;border:1.5px solid rgba(246,217,164,.6);color:var(--honey);font-family:var(--latin);font-weight:700;font-size:1.05rem}
+.road li.goal .rn{background:var(--amber);border-color:var(--amber);color:var(--ink)}
+.road li.goal .rn svg{width:20px;height:20px;fill:currentColor}
+.road h3{font-size:1.08rem;line-height:1.55;margin:8px 0 2px}
+.road p{margin:0;font-size:.9rem;line-height:1.75;color:var(--on-dark-soft)}
+.road p a{color:var(--honey);text-underline-offset:4px}
+.apply-act{display:grid;gap:12px;margin-top:18px}
+#application .apply-act+.fine{margin-bottom:26px}
+#application .fine a,#cancellation a{color:var(--honey)}
+
+/* ---------- よくある質問 ---------- */
+.faq details{border-top:1px solid rgba(255,255,255,.18)}
+.faq details:last-of-type{border-bottom:1px solid rgba(255,255,255,.18)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 2px;font-weight:700;line-height:1.6;min-height:58px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:linear-gradient(currentColor,currentColor) center/11px 1.5px no-repeat,linear-gradient(currentColor,currentColor) center/1.5px 11px no-repeat;transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 2px 18px;margin:0;font-size:.94rem;color:var(--on-dark-soft);line-height:1.85}
+.faq details a{color:var(--amber)}
+
+/* キャンセル表（暗い背景） */
+#cancellation .plans{margin-bottom:20px}
+
+/* ---------- 最後 ---------- */
+.s-end{position:relative;overflow:hidden;padding-top:0;background:var(--night);color:var(--on-dark);text-align:center}
+.s-end::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;
+  background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 78% 12%,#fff 50%,transparent 52%),radial-gradient(1.8px 1.8px at 44% 34%,#FFE9B8 50%,transparent 52%),radial-gradient(1.2px 1.2px at 90% 46%,#fff 50%,transparent 52%),radial-gradient(1.4px 1.4px at 22% 62%,#fff 50%,transparent 52%),radial-gradient(1.2px 1.2px at 64% 74%,#fff 50%,transparent 52%),radial-gradient(1.6px 1.6px at 6% 88%,#FFE9B8 50%,transparent 52%),radial-gradient(1.2px 1.2px at 84% 92%,#fff 50%,transparent 52%);
+  background-size:340px 340px}
+.s-end>*{position:relative}
+.moon{height:min(80vw,400px);background-size:cover;background-position:50% 34%;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 52%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 52%,transparent);margin-bottom:-36px}
+.s-end h2{font-size:clamp(1.4rem,6vw,2.35rem);line-height:1.7;margin-bottom:.6em}
+.s-end .sub{margin-bottom:1.4em}
+.end-early{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:4px 10px;margin:0 0 18px!important;padding:7px 18px;border-radius:999px;background:none;color:var(--honey);box-shadow:inset 0 0 0 1px rgba(243,217,166,.55);font-weight:700;font-size:.92rem}
+.end-cta{display:grid;gap:12px;max-width:420px;margin:0 auto}
+.cal{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 16px;margin:18px 0 0!important;font-size:.86rem}
+.cal span{flex-basis:100%;color:var(--on-dark-soft);font-weight:500}
+.cal a{display:inline-flex;align-items:center;gap:6px;padding:6px 0;font-weight:700;text-underline-offset:4px}
+.cal a::before{content:"";width:14px;height:14px;border:1.6px solid currentColor;border-radius:3px;box-shadow:inset 0 3px 0 currentColor}
+.how{margin:22px auto 0;max-width:30em;font-size:.86rem;color:var(--on-dark-soft);line-height:1.85}
+.share{display:flex;justify-content:center;flex-wrap:wrap;gap:4px 18px;margin-top:30px;font-size:.86rem}
+.share a{padding:8px 2px;color:var(--on-dark-soft);text-underline-offset:4px}
+.foot{padding:26px 0 40px;text-align:center;font-size:.8rem;color:var(--on-dark-soft);background:var(--night);line-height:1.9}
+.foot a{display:inline-block;margin:0 .6em;padding:4px 0}
+
+/* ---------- 下の固定バー ---------- */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom)) 16px;background:#0A2F31;color:var(--on-dark);box-shadow:0 -10px 30px -14px rgba(0,0,0,.5);transform:translateY(110%);transition:transform .3s var(--ease)}
+.bar.on{transform:none}
+.bar-txt{flex:1;min-width:0;margin:0;font-size:.78rem;line-height:1.45}
+.bar-txt b{display:block;font-family:var(--serif);font-size:.95rem;white-space:nowrap}
+.bar-txt>span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--on-dark-soft)}
+.bar-line{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--line);color:#fff;text-decoration:none;font-size:.68rem;font-weight:700;line-height:1}
+.bar-line img{width:24px;height:24px;background:none;margin-bottom:2px}
+.bar .btn{flex:none;min-height:52px;padding:8px 20px;font-size:.98rem;box-shadow:none}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));z-index:30;max-width:min(92vw,420px);padding:12px 18px;border-radius:14px;background:#fff;color:var(--ink);font-size:.88rem;line-height:1.6;box-shadow:0 12px 34px rgba(0,0,0,.3);transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:.25s}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- 画面の大きさ ---------- */
+@media (max-width:370px){
+  .hero-facts li{font-size:.68rem}
+  .bb{font-size:.8rem;padding-inline:10px}
+  .bb b{font-size:.98rem}
+  .band{padding-inline:12px}
+  .kinds span{font-size:.72rem}
+}
+@media (min-width:560px){
+  .choices.three{grid-template-columns:repeat(3,1fr)}
+  .hero-cta{grid-template-columns:auto auto;justify-content:start}
+  .bleed img{border-radius:20px;aspect-ratio:3/2}
+  .story .bleed{width:min(100% - 40px,760px)}
+  .route-map{max-width:460px;margin-inline:auto}
+  .apply-act{max-width:420px}
+}
+@media (min-width:900px){
+  body{font-size:17px}
+  .hero-title{right:max(40px,calc(50% - 520px))}
+  .hero-head{padding-left:max(40px,calc(50% - 520px))}
+  .hero-info{width:min(100% - 80px,1040px)}
+  .hero-info>*{max-width:640px}
+  .hero-space{min-height:0}
+  .wrap.wide,.scroller.scenes,#scenes .wrap{width:min(100% - 80px,1080px)}
+  .toc-in{justify-content:center}
+  .toc a.go{margin-left:12px}
+  .saijai-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+  .saijai-grid .mosaic{margin-top:6px;position:sticky;top:80px}
+  .rooms .scroller{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;margin-inline:0;padding-inline:0}
+  .rooms .scroller figure{max-width:none}
+  .scroller.scenes{display:grid;grid-template-columns:repeat(12,1fr);margin-inline:auto;padding-inline:0;overflow:visible}
+  .scroller.scenes figure{flex:none;max-width:none;grid-column:span 3}
+  .scroller.scenes figure:nth-child(n+5){grid-column:span 4}
+  .scroller.scenes figure:nth-child(n+5) img{aspect-ratio:1/1}
+  .swipe{display:none}
+  .band,.finder-fold,.cmp-fold,.stay-note{margin-inline:auto}
+  .plans-head{margin-inline:auto;max-width:760px}
+  .passes{grid-template-columns:1fr 1fr;align-items:stretch}
+  .pass{display:flex;flex-direction:column}
+  .pass-main{flex:1 0 auto}
+  .pass.special{grid-column:1/-1;justify-self:center;width:calc(50% - 15px)}
+  .flow-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+  .flow-grid .route-map{position:sticky;top:80px;margin-top:0;max-width:none}
+  .flow-grid .route-map svg{width:auto;max-width:100%;max-height:calc(100svh - 230px);margin-inline:auto}
+  .cost-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+  .cost-side{position:sticky;top:76px}
+  .cost-side .ex{margin-top:6px}
+  .trips2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(100% - 80px,960px);margin-inline:auto;padding-inline:0;overflow:visible}
+  .trip{max-width:none}
+  .fam .persons{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;width:min(100% - 80px,960px)}
+  .bar{justify-content:center;gap:18px}
+  .bar-txt{flex:none}
+}
+@media (min-width:1100px){
+  .passes{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  .pass.special{grid-column:auto;justify-self:stretch;width:auto}
+  .route .d{font-size:2.2rem}
+  .price .big{font-size:2.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js [data-reveal]{opacity:1;transform:none;transition:none}
+  .js .route-map .draw{stroke-dashoffset:0;transition:none}
+  .bar,.toast,.faq summary::after,.fold-i::after,.more>summary::after{transition:none}
+}
+
+/* ---------- スマホの細かい調整（320〜414px） ---------- */
+.member .seal{position:relative;float:right;top:auto;right:auto;margin:-10px -8px 4px 8px}
+.member h3{padding-right:0;font-size:clamp(1.15rem,5.9vw,1.8rem)}
+.hero-facts{grid-template-columns:minmax(0,.8fr) minmax(0,1.25fr) minmax(0,1.15fr)}
+.hero-facts li{word-break:keep-all;overflow-wrap:anywhere}
+.cap span{text-wrap:pretty}
+.toc-in{padding-block:3px}
+.toc a{display:flex;align-items:center;min-height:44px}
+.bb{min-height:44px;align-self:start}
+.more>summary{min-height:44px}
+.share a,.cal a{padding-block:9px}
+.foot a{padding-block:10px}
+.f-line{padding-block:12px 4px}
+.f-again{min-height:44px}
+.faq summary,.btn,figcaption{word-break:auto-phrase;text-wrap:balance}
+@supports not (word-break:auto-phrase){
+  h2,h3:not(#dao-h){word-break:keep-all;overflow-wrap:anywhere}
+}
+@media (max-width:389px){
+  .dao-fold .fold-in{padding-inline:8px}
+  .member{padding-inline:14px}
+  .plans th[scope="row"]{font-size:.9rem}
+  .plans td{font-size:.9rem;padding-left:6px}
+}
+@media (max-width:370px){
+  .pass-body,.pass-stub{padding-inline:16px}
+  .route .d{font-size:2.1rem}
+  .route small{font-size:.74rem}
+  .mid{white-space:nowrap}
+  .stamp{width:72px;height:72px;right:10px}
+  .price{padding-right:72px}
+  .price .big{font-size:2rem}
+  .pass .btn{padding-inline:16px}
+  .hero-facts b{font-size:.94rem}
+  .bl.b{grid-column:3/14;text-align:right;padding:0 4px 0 0}
+  .sim-fold .fold-in{padding-inline:12px}
+  .step{gap:2px}
+  .step button{width:44px;height:44px}
+  .step output{min-width:1.6em}
+  .seg.three button{font-size:.78rem;padding-inline:0}
+  .choices{grid-template-columns:1fr}
+}
+/* JavaScriptが動かないときは、動かない部品を出さない */
+html:not(.js) .needs-js{display:none!important}
+</style>
+<title>2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney</title>
+<meta name="description" content="2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費99,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.tabigaku.party/thai-2027">
+<meta property="og:title" content="2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney">
+<meta property="og:description" content="2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費99,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。">
+<meta property="og:url" content="https://www.tabigaku.party/thai-2027">
+<meta property="og:image" content="https://www.tabigaku.party/images/saijai-lake.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="旅する学校">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney">
+<meta name="twitter:description" content="2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費99,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。">
+<meta name="twitter:image" content="https://www.tabigaku.party/images/saijai-lake.jpg">
+<script type="application/ld+json" data-site-seo="true">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://earthguide.tabigaku.party/#organization","name":"あーすガイド","url":"https://earthguide.tabigaku.party/"},{"@type":"Organization","@id":"https://www.tabigaku.party/#organization","name":"旅する学校","alternateName":"TABIGAKU","url":"https://www.tabigaku.party/","description":"徳島・神山を拠点に、子どもも大人も旅を通じて学ぶ「旅する学校」。歩きお遍路、海旅キャンプ、川旅などの自然体験と旅育をご紹介。自分で考え、仲間と相談し、地域の文化や暮らしに触れる旅の、日程・対象年齢・参加方法をご案内します。","parentOrganization":{"@id":"https://earthguide.tabigaku.party/#organization"},"email":"earthguide.jpn@gmail.com","telephone":"+81-90-7518-8816","address":{"@type":"PostalAddress","addressRegion":"徳島県","addressLocality":"神山町","addressCountry":"JP"}},{"@type":"WebSite","@id":"https://www.tabigaku.party/#website","name":"旅する学校","alternateName":"旅する学校（あーすガイド）","url":"https://www.tabigaku.party/","inLanguage":"ja","publisher":{"@id":"https://www.tabigaku.party/#organization"}},{"@type":"WebPage","@id":"https://www.tabigaku.party/thai-2027#webpage","name":"2027年1月・タイ旅｜湖の暮らしからラオスの村へ｜EarthfamilyJourney","description":"2027年1月5〜17日のEarthfamilyJourneyタイ旅。A・B・SPECIALの3プランで、チェンマイや湖の暮らしへ。B・SPECIALはラオスの村も訪問予定。現地サポート費99,000円〜、JOURNEY LABと実費は別途。訪問先・体験内容は現地と調整してご案内します。","url":"https://www.tabigaku.party/thai-2027","inLanguage":"ja","isPartOf":{"@id":"https://www.tabigaku.party/#website"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://www.tabigaku.party/images/saijai-lake.jpg"}},{"@type":"BreadcrumbList","@id":"https://www.tabigaku.party/thai-2027#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"旅する学校","item":"https://www.tabigaku.party/"},{"@type":"ListItem","position":2,"name":"タイの旅・地球家族ジャーニー","item":"https://www.tabigaku.party/thai-2027"}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#courses">プランと費用へ移動</a>
+
+<!-- ========== ヒーロー ========== -->
+<header class="hero" id="top">
+  <img class="hero-img" src="/images/thai-2027/ee72e71cdd75c7e4.webp" alt="湖の上に太陽がのぼる。茅葺きの屋根と椰子の木、山々に囲まれたデッキ" fetchpriority="high" decoding="async">
+  <div class="hero-head"><p class="wordmark">Earthfamily Journey<small>Thailand &amp; Laos · 2027</small></p></div>
+  <h1 class="hero-title"><span>旅で出会えば、</span><span>地球家族。</span></h1>
+  <div class="hero-space" aria-hidden="true"></div>
+  <div class="hero-info">
+    <p class="hero-when"><span class="hw-date" aria-hidden="true"><span class="num">2027.1.5</span><i>—</i><span class="num">1.17</span></span><span class="vh">2027年1月5日から1月17日まで。</span><span class="hw-txt"><span class="ib">タイの暮らしへ。</span><span class="ib">B・SPECIALはラオスの村へも。</span></span></p>
+    <p class="hero-who">ひとりでも、友人同士でも、家族でも。</p>
+    <ul class="hero-facts">
+      <li><b>3プラン</b>7・6・13日間</li>
+      <li><b><span data-p="A.sup">99,000円</span>〜</b>大人の<wbr>現地サポート費</li>
+      <li><b>定員12名</b>全プラン<wbr>合わせて</li>
+    </ul>
+    <p class="early-chip only-early"><span class="ec-top"><b>早割</b>12/10（木）まで<span class="count" data-count></span></span><span class="ec-price">JOURNEY LAB <span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span><span class="nb">（1家族）</span></span></p>
+    <div class="hero-cta">
+      <a class="btn" href="#courses">日程と料金を見る</a>
+      <a class="btn ghost" href="#film" data-film-open><span class="play" aria-hidden="true"><svg viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z"/></svg></span>30秒の映像を見る</a>
+    </div>
+    <p class="hero-note">現地サポート費のほかに、JOURNEY LAB（1家族）と、航空券・宿泊・食事などの実費がかかります。</p>
+  </div>
+</header>
+
+<nav class="toc" aria-label="このページの目次"><div class="toc-in">
+  <a href="#film">映像</a><a href="#saijai">湖の村</a><a href="#family">上田家</a><a href="#courses">プラン</a><a href="#flow">日程</a><a href="#fees">費用</a><a href="#faq">Q&amp;A</a><a class="go" href="#application">申し込む</a>
+</div></nav>
+
+<main id="main">
+<!-- ========== はじまりの物語（前回のページと同じ言葉） ========== -->
+<section class="sec s-dawn story" id="story">
+  <div class="wrap">
+    <h2 class="pre">子連れ海外を、諦めてきたあなたへ</h2>
+    <p class="verse" data-reveal>飛行機、ごはん、体調、<br>言葉、学校、仕事。</p>
+    <p class="verse" data-reveal>考え出したら、<br>行かない理由は<br>いくらでも出てくる。</p>
+  </div>
+  <figure class="bleed" data-reveal>
+    <img src="https://www.tabigaku.party/manus-storage/thai_img_01_9a185c4b.jpg" alt="ペルー・アンデスの山を旅する" loading="lazy" decoding="async">
+    <figcaption>アンデスの山の上でも、赤ちゃんは背中ですくすく。</figcaption>
+  </figure>
+  <div class="wrap">
+    <p class="verse" data-reveal>でも、異国の地で<br>新しい命を迎えた旅の中で、<br>気づいたことがある。</p>
+    <p class="triplet" data-reveal><span>世界は、</span><span>思っていたより怖くない。</span><span>人は、思っていたより</span><span>あたたかい。</span><span>子どもは、思っているより</span><span>ずっとたくましい。</span></p>
+  </div>
+  <figure class="bleed" data-reveal>
+    <img src="https://www.tabigaku.party/manus-storage/thai_img_02_71e9e264.jpg" alt="バリ島で生まれた赤ちゃんを迎えるきょうだい" loading="lazy" decoding="async">
+    <figcaption>バリ島で、家族に新しい命を。はじめましての瞬間。</figcaption>
+  </figure>
+  <div class="wrap">
+    <p class="verse" data-reveal>旅に、ハプニングはつきもの。<br>予定通りにいかない日も、<br>泣く日も、迷う日もある。<br>だって、あたりまえ。</p>
+    <p class="verse" data-reveal><b>だったら、まるごと楽しんじゃおう。</b><br>その全部が、<br>家族だけの物語になっていく。</p>
+    <p class="verse" data-reveal>子どもが小さくて、<br>海外の旅を諦めてきたお母さん。<br>楽しさより大変さが勝って、<br>その機会を逃してきたあなた。</p>
+    <p class="verse" data-reveal>その「行きたい」という気持ちに、<br>この旅の仲間と一緒に、<br>チャレンジできる。</p>
+    <p class="verse" data-reveal>この10年、小さな子どもたちと<br>旅をしてきた上田家が、<br>そのチャレンジを共にできたら<br>光栄です。</p>
+    <p class="kinds-h">ひとりでも、友人同士でも、家族でも。</p>
+    <ul class="kinds">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5.5 20c.6-3.8 3.2-6 6.5-6s5.9 2.2 6.5 6"/></svg><b>ひとりで</b><span>旅先で出会う仲間と、まだ知らない世界へ。</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="2.8"/><circle cx="16" cy="8" r="2.8"/><path d="M3 19.5c.5-3.2 2.7-5.2 5.5-5.2s5 2 5.5 5.2M11.5 15c1-.9 2.6-1.4 4.5-1.4 2.8 0 5 2 5.5 5.2"/></svg><b>友人と</b><span>いつもの仲間と、いつもと違う暮らしへ。</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="6.5" r="2.8"/><circle cx="17" cy="10.5" r="2.1"/><path d="M2.8 20c.5-4 2.6-6.6 5.2-6.6s4.7 2.6 5.2 6.6M13.6 20c.4-2.7 1.8-4.6 3.4-4.6s3 1.9 3.4 4.6"/></svg><b>家族で</b><span>子どもの発見に、大人も心が動く。</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 01 映像 ========== -->
+<section class="sec s-day" id="film">
+  <div class="wrap">
+    <p class="kicker"><b>01</b>The film</p>
+    <h2>次の行き先は、タイ。</h2>
+    <p class="sub">B・SPECIALでは、国境を越えて、ラオスのレンテン族の村へ。</p>
+    <p class="film-lead">サージャイの風景と、EarthfamilyJourneyの旅。<br>見てから決めて大丈夫です。</p>
+    <div class="film-tabs needs-js" role="group" aria-label="動画を選ぶ">
+      <button type="button" aria-pressed="true" data-film="v-saijai" data-ext="https://saaijai-village.com/assets/saijai-journey.mp4">サージャイ 30秒</button>
+      <button type="button" aria-pressed="false" data-film="v-efj" data-ext="https://earth-family-journey-world.runbou.chatgpt.site/assets/earth-family-journey-main-20260926.mp4">旅のPV 約25秒</button>
+    </div>
+    <div class="film-frame">
+      <video class="film" id="v-saijai" aria-label="サージャイ・ヴィレッジの映像（30秒）" controls playsinline preload="none" poster="/images/thai-2027/0f03d9c9bfb64597.webp">
+        <source src="https://saaijai-village.com/assets/saijai-journey.mp4" type="video/mp4">
+      </video>
+      <video class="film" id="v-efj" aria-label="EarthfamilyJourneyの旅のPV（約25秒）" controls playsinline preload="none" hidden>
+        <source src="https://earth-family-journey-world.runbou.chatgpt.site/assets/earth-family-journey-main-20260926.mp4#t=0.1" type="video/mp4">
+      </video>
+    </div>
+    <div class="links">
+      <a id="film-ext" href="https://saaijai-village.com/assets/saijai-journey.mp4" target="_blank" rel="noopener">動画を別の画面で見る</a>
+      <a href="https://www.tabigaku.party/saijai">サージャイの紹介ページ</a>
+      <a href="https://saaijai-village.com/" target="_blank" rel="noopener">SaaiJai Village 公式サイト</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 02 サージャイ ========== -->
+<section class="sec s-day" id="saijai">
+  <div class="wrap wide saijai-grid">
+    <div>
+      <p class="kicker"><b>02</b>SaaiJai Village</p>
+      <h2>旅先に、<br>帰りたい場所ができた。</h2>
+      <p>2026年、家族でタイを旅する中で出逢ったのが、サージャイ・ヴィレッジ（SaaiJai Village）。チェンマイ郊外、山々に囲まれた湖の上にあるエコビレッジです。</p>
+      <p class="lead">小舟でたどり着いて、湖で遊び、<br>ごはんを食べ、人と話す。</p>
+      <ul class="checks">
+        <li>湖のコテージは、オフグリッド。</li>
+        <li>電気も水も、使える量には限りがあります。</li>
+      </ul>
+      <p>今は僕も、建物を直しながら、この場所のこれからを一緒につくる仲間として関わっています。</p>
+      <p class="sig">また訪ねたい人がいる。<br>今度は、あなたにも会ってほしい。<small>らんぼう／旅する学校</small></p>
+    </div>
+    <div class="mosaic" data-reveal>
+      <figure><img loading="lazy" src="/images/thai-2027/ebb2ab899e3fafdb.webp" alt="茅葺きの屋根の下に、ソファとテーブルが並ぶ湖の上の広いデッキ" decoding="async"><figcaption>茅葺きの屋根の下、湖の上のデッキで。</figcaption></figure>
+      <figure><img loading="lazy" src="/images/thai-2027/0fb95df14115daa0.webp" alt="湖を望むデッキに置かれた食卓と植物" decoding="async"><figcaption>同じ食卓を囲む、湖の上のデッキ。</figcaption></figure>
+      <figure><img loading="lazy" src="/images/thai-2027/c8c4c1ad5b291ba8.webp" alt="ハンモックが吊られた、湖に面したくつろぎの場所" decoding="async"><figcaption>ハンモックで、何もしない時間を。</figcaption></figure>
+    </div>
+  </div>
+  <div class="wrap wide">
+    <div class="rooms">
+      <h3>竹と木のぬくもりに包まれる、Basecampの部屋。</h3>
+      <div class="scroller" role="region" aria-label="Basecampの部屋の写真（横にスクロールできます）" tabindex="0">
+        <figure><img src="https://saaijai-village.com/assets/stay-3.jpg" alt="青い寝具と、木のぬくもりのあるベッドルーム" loading="lazy" decoding="async"><figcaption>青い寝具と、木のぬくもりの部屋。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/stay-2.jpg" alt="竹の壁と木の床に囲まれたツインルーム" loading="lazy" decoding="async"><figcaption>竹の壁と木の床の、ツインルーム。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/stay-5.jpg" alt="湖に面した、木と竹の共有スペース" loading="lazy" decoding="async"><figcaption>湖に面した、みんなの共有スペース。</figcaption></figure>
+        <figure><img src="https://saaijai-village.com/assets/stay-4.jpg" alt="高い屋根の下に広がる、木の廊下と吹き抜け" loading="lazy" decoding="async"><figcaption>高い屋根の下の、木の廊下。</figcaption></figure>
+      </div>
+      <p class="fine">写真は宿泊棟「Basecamp」です（<a href="https://saaijai-village.com/stay/" target="_blank" rel="noopener">宿泊ページ</a>）。宿泊先や部屋割りは、人数やご希望に合わせて個別にご案内します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 03 旅のシーン ========== -->
+<section class="sec s-day" id="scenes">
+  <div class="wrap">
+    <p class="kicker"><b>03</b>Scenes</p>
+    <h2>「おいしい！」も、<br>「はじめまして」も、<br>旅の宝ものになる。</h2>
+    <p class="lead">予定を埋めるより、心が動く方へ。</p>
+    <p class="swipe" aria-hidden="true">Swipe</p>
+  </div>
+  <div class="scroller scenes" role="region" aria-label="旅の写真（横にスクロールできます）" tabindex="0">
+    <figure><img loading="lazy" src="/images/thai-2027/af12b80d9d2b1e80.webp" style="object-position:50% 30%" alt="雨上がりの湖にかかる虹と、デッキの椰子の鉢植え" decoding="async"><figcaption>雨上がりの湖に、虹。</figcaption></figure>
+    <figure><img loading="lazy" src="/images/thai-2027/de90958e4951b92b.webp" style="object-position:50% 30%" alt="屋根の下で、ゾウたちに囲まれて笑う、赤ちゃんを抱いたらんぼうと娘" decoding="async"><figcaption>チェンマイで、ゾウに会った日。</figcaption></figure>
+    <figure><img src="https://www.tabigaku.party/manus-storage/thai_img_05_1f27ba11.jpg" alt="バナナの葉に盛られた、ライムと野菜を添えたパッタイ" loading="lazy" decoding="async"><figcaption>「これ、食べてみたい！」</figcaption></figure>
+    <figure><img src="https://www.tabigaku.party/manus-storage/thai_img_07_1ea2f736.jpg" alt="あかりの灯る屋外の食卓に集まった、大人と子どもの笑顔" loading="lazy" decoding="async"><figcaption>ひとりで来ても、旅仲間がいる。</figcaption></figure>
+    <figure><img loading="lazy" src="/images/thai-2027/7dc33b8cb01205e9.webp" style="object-position:50% 22%" alt="池のほとりで、大きな魚を抱えて笑う男の子" decoding="async"><figcaption>池のほとりで、大物がかかった！</figcaption></figure>
+    <figure><img loading="lazy" src="/images/thai-2027/bb760915a933adea.webp" style="object-position:72% 50%" alt="湖にのびる木の桟橋と、茅葺きの建物" decoding="async"><figcaption>桟橋をわたって、湖の上の暮らしへ。</figcaption></figure>
+    <figure><img src="https://www.tabigaku.party/manus-storage/thai_img_08_8c926dc5.jpg" alt="旅先で出会う家族たち" loading="lazy" decoding="async"><figcaption>旅先で出会う仲間たち。家族の旅が、みんなの旅になっていく。</figcaption></figure>
+  </div>
+  <div class="wrap">
+    <p class="fine" style="margin:0">写真は前回の旅での風景です。実際の行程は、現地の状況や参加者に合わせて決まります。</p>
+  </div>
+</section>
+
+<!-- ========== 04 上田家（前回のページと同じく、旅の景色のあと・料金の前に） ========== -->
+<section class="sec fam" id="family">
+  <div class="wrap">
+    <p class="kicker"><b>04</b>The family</p>
+    <h2>上田家が、<br>まるごと一緒に旅します。</h2>
+    <figure class="fam-photo"><img src="https://www.tabigaku.party/manus-storage/thai_img_09_610526a8.jpg" alt="上田家ファミリー" loading="lazy" decoding="async"><figcaption>4人の子どもと旅する、上田家です。</figcaption></figure>
+    <p class="swipe" aria-hidden="true">上田家、これまでの子連れ旅</p>
+  </div>
+  <ul class="trips2" aria-label="上田家、これまでの子連れ旅（横にスクロールできます）" tabindex="0">
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_11_988ce720.jpg" alt="夜空を焦がす火山の火" loading="lazy" decoding="async"></div><h3>ハワイ島</h3><p>ジャングルで暮らし、オフグリッドを学んだ「大地とともに生きる」の原点。</p></li>
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_12_065cce94.jpg" alt="ケニアの村の踊り手たちとらんぼう" loading="lazy" decoding="async"><img src="https://www.tabigaku.party/manus-storage/thai_img_13_81f4fd2a.jpg" alt="村でココナッツを飲むまいちゃん" loading="lazy" decoding="async"></div><h3>ケニア</h3><p>マサイ族やドゥルマ族の村でお世話になりながら、テントを張って旅した。</p></li>
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_14_f02750ce.jpg" alt="赤ちゃんをおんぶして自転車で旅するまいちゃん" loading="lazy" decoding="async"><img src="https://www.tabigaku.party/manus-storage/thai_img_15_5ac9215c.jpg" alt="赤ちゃんをおんぶして馬で旅する家族" loading="lazy" decoding="async"></div><h3>チリ</h3><p>標高3000mの町を拠点に子連れ旅。5000mの峠を越えてペルーの村へ。</p></li>
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_16_e7ef4731.jpg" alt="ペルーの村の家族と" loading="lazy" decoding="async"><img src="https://www.tabigaku.party/manus-storage/thai_img_17_750216f3.jpg" alt="レインボーマウンテンで子どもをおんぶして" loading="lazy" decoding="async"></div><h3>ペルー</h3><p>2日間のヒッチハイクで、標高5000m超のレインボーマウンテンへ。</p></li>
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_18_cf8f36b2.jpg" alt="バリ島の断崖の祠で祈るまいちゃんと子ども" loading="lazy" decoding="async"></div><h3>バリ島</h3><p>妊娠8ヶ月で悪路の離島を旅し、2度目は家族みんなで出産旅に。</p></li>
+    <li class="trip"><div class="ph"><img src="https://www.tabigaku.party/manus-storage/thai_img_20_150c1889.jpg" alt="モンゴルのゲルの前で家族写真" loading="lazy" decoding="async"><img src="https://www.tabigaku.party/manus-storage/thai_img_21_6cf83dd6.jpg" alt="モンゴルの草原で馬に乗る息子" loading="lazy" decoding="async"></div><h3>モンゴル</h3><p>砂漠を走り、遊牧民と暮らし、大自然のまんなかにテントを張った。</p></li>
+  </ul>
+  <div class="wrap persons">
+    <div class="person" id="ranbow" data-reveal>
+      <img src="https://www.tabigaku.party/manus-storage/thai_img_22_e27e35c8.jpg" alt="森の石段を仲間と歩くらんぼう" loading="lazy" decoding="async">
+      <div>
+        <h3>らんぼう<small>上田直樹</small></h3>
+        <p class="role">あーすガイド代表・旅する学校代表／1982年北海道札幌生まれ、徳島県神山町在住</p>
+        <ul>
+          <li>地球一周を皮切りに10年間の旅暮らし。先住民の土地を訪れ、自然とともにある生き方に感銘を受ける</li>
+          <li>2008年から、トークイベント・上映会など500本以上に出演</li>
+          <li>2016年、アタカマ砂漠マラソン250kmにど素人10人で挑戦し、全員完走＆チーム優勝（映画化）</li>
+          <li>2023年から「旅する学校」を主宰。歩きお遍路旅や川旅で「2023年度推奨モデル特別賞」を受賞</li>
+          <li>2025年、家族でバリ島出産旅。第4児が誕生</li>
+        </ul>
+        <div class="links"><a href="https://earthguide.tabigaku.party/" target="_blank" rel="noopener">あーすガイド公式ホームページ</a><a href="https://www.tabigaku.party" target="_blank" rel="noopener">旅する学校のサイト</a></div>
+      </div>
+    </div>
+    <div class="person" data-reveal>
+      <img src="https://www.tabigaku.party/manus-storage/thai_img_23_ec44cacc.jpg" alt="バリ島のヴィラで、生まれたての4人目と" loading="lazy" decoding="async">
+      <div>
+        <h3>まいちゃん<small>上田麻衣</small></h3>
+        <p class="role">ecomomai代表／4児の母／神山町在住</p>
+        <p>人生のテーマは「大地とともに生きること」。ハワイ島でオフグリッドな暮らしに触れ、帰国後は神山で、こどもたちと季節の手仕事をまんなかに暮らしています。</p>
+        <div class="links"><a href="https://www.instagram.com/loveandjoymai?igsh=MXA0MHFqOTdqZWJrNA==" target="_blank" rel="noopener">まいちゃんのInstagram</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 05 プラン ========== -->
+<section class="sec s-gold" id="courses">
+  <div class="wrap wide">
+    <div class="plans-head">
+      <p class="kicker"><b>05</b>The plans</p>
+      <h2><span class="ib">湖で暮らす。</span><span class="ib">手仕事に触れる。</span><br><span class="ib">3つのプラン。</span></h2>
+    </div>
+
+    <figure class="band" data-reveal>
+      <div class="band-grid">
+        <div class="band-axis" aria-hidden="true"><span class="s">1/5<small>火</small></span><span class="e7">1/11<small>月</small></span><span class="s8">1/12<small>火</small></span><span class="e">1/17<small>日</small></span></div>
+        <div class="band-ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <a class="bb a" href="#plan-a"><b>A</b>7日間<span class="vh">（1月5日〜11日）のプランを見る</span></a>
+        <p class="bl a">チェンマイと、湖のサージャイ</p>
+        <a class="bb b" href="#plan-b"><b>B</b>6日間<span class="vh">（1月12日〜17日）のプランを見る</span></a>
+        <p class="bl b">パパイヤビレッジと、ラオスの村</p>
+        <a class="bb sp" href="#plan-special"><b>SPECIAL</b>13日間<span class="vh">（1月5日〜17日）のプランを見る</span></a>
+        <p class="bl sp">AとBを通して、湖と村の両方へ</p>
+      </div>
+      <figcaption>2027年1月。定員は全プラン合わせて12名です。</figcaption>
+    </figure>
+
+    <details class="fold finder-fold" id="finder">
+      <summary><span class="fold-t"><b>迷ったら、3つの質問で選ぶ</b><small>答えはこの画面の中だけで使い、どこにも送られません</small></span><i class="fold-i" aria-hidden="true"></i></summary>
+      <div class="fold-in">
+        <div class="finder js-only">
+          <div class="fq">
+            <p class="fq-q" id="fq1"><span>Q1</span>旅に使える日数は？</p>
+            <div class="choices" role="radiogroup" aria-labelledby="fq1">
+              <button type="button" role="radio" aria-checked="false" data-q="days" data-v="week">1週間くらい</button>
+              <button type="button" role="radio" aria-checked="false" data-q="days" data-v="two">2週間ちかく</button>
+            </div>
+          </div>
+          <div class="fq">
+            <p class="fq-q" id="fq2"><span>Q2</span>いちばん心ひかれるのは？</p>
+            <div class="choices three" role="radiogroup" aria-labelledby="fq2">
+              <button type="button" role="radio" aria-checked="false" data-q="want" data-v="lake">湖で、暮らすように過ごす</button>
+              <button type="button" role="radio" aria-checked="false" data-q="want" data-v="craft">村の手仕事と、国境越え</button>
+              <button type="button" role="radio" aria-checked="false" data-q="want" data-v="both">どっちも味わいたい</button>
+            </div>
+          </div>
+          <div class="fq">
+            <p class="fq-q" id="fq3"><span>Q3</span>だれと行く？</p>
+            <div class="choices three" role="radiogroup" aria-labelledby="fq3">
+              <button type="button" role="radio" aria-checked="false" data-q="who" data-v="solo">ひとりで・友人と</button>
+              <button type="button" role="radio" aria-checked="false" data-q="who" data-v="kids">家族で（5歳以上）</button>
+              <button type="button" role="radio" aria-checked="false" data-q="who" data-v="little">家族で（4歳以下の子も）</button>
+            </div>
+          </div>
+          <p class="f-wait" id="f-wait">3つ選ぶと、ここにおすすめが出ます。</p>
+          <div class="f-result" id="f-result" aria-live="polite"></div>
+        </div>
+        <noscript><p>下の3つのプランから選んでください。</p></noscript>
+      </div>
+    </details>
+
+    <div class="passes">
+      <article class="pass a" id="plan-a" data-reveal>
+        <div class="pass-main">
+          <div class="pass-top"><b>Aプラン</b><span>EFJ 07</span></div>
+          <div class="pass-body">
+            <div class="route">
+              <div><span class="d">1/5</span><small>火・チェンマイ集合</small></div>
+              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>7日間</div>
+              <div class="r"><span class="d">1/11</span><small>月・解散</small></div>
+            </div>
+            <h3>チェンマイと<br>湖の暮らしを楽しむ旅</h3>
+            <ul>
+              <li>チェンマイのまち・市場・人との出会い</li>
+              <li>サージャイで学ぶ、湖のオフグリッドな暮らし</li>
+              <li>旅仲間と語り合い、それぞれのペースで過ごす時間</li>
+            </ul>
+            <details class="more">
+              <summary><span class="vh">Aプランを</span><span class="o">くわしく見る</span><span class="c">閉じる</span></summary>
+              <div class="more-in">
+                <p>チェンマイのまちを歩き、市場のごはんを味わう。そして、湖に浮かぶサージャイへ。水辺で遊び、同じ食卓を囲み、何もしない時間も楽しむ旅です。</p>
+                <p class="fit"><b>こんな方に</b>1週間で北タイのまちと自然を味わいたい方。初めての海外旅や子ども連れの方も。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="st-a" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/><text font-size="10.5" letter-spacing="1.6"><textPath href="#st-a">CHIANG MAI · SAAIJAI · LAKE LIFE ·</textPath></text><text x="60" y="70" text-anchor="middle" font-size="30">A</text></svg>
+          <p class="price-lab">現地サポート費／大人1人</p>
+          <p class="price"><span class="big" data-p="A.sup">99,000円</span></p>
+          <p class="kid">5歳〜中学生 <span data-p="A.kid">55,000円</span><br>4歳以下は1家族につき1人目無料（2人目から<span data-p="A.infant">30,000円</span>）</p>
+          <p class="plus">＋JOURNEY LAB <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span><span class="nb">／1家族</span><span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span><br>＋航空券<br>＋現地での実費（大人1人 <span data-cost="A">56,000〜84,000円</span>が目安）</p>
+          <a class="btn full" data-apply data-course="A" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A">Aプランに申し込む</a>
+          <p class="pay-note">お支払いは銀行振込（一括・2回・3回から選べます）</p>
+          <div class="barcode" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="pass b" id="plan-b" data-reveal>
+        <div class="pass-main">
+          <div class="pass-top"><b>Bプラン</b><span>EFJ 06</span></div>
+          <div class="pass-body">
+            <div class="route">
+              <div><span class="d">1/12</span><small>火・集合</small></div>
+              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>6日間</div>
+              <div class="r"><span class="d">1/17</span><small>日・解散</small></div>
+            </div>
+            <h3>パパイヤビレッジと、<br><span class="ib">ラオスの</span><span class="ib">レンテン族の村へ。</span></h3>
+            <ul>
+              <li>パパイヤビレッジでの出会いと暮らしの時間</li>
+              <li>タイから国境を越え、ラオス北部のレンテン族の村へ</li>
+              <li>そのときに出会う、暮らしの手仕事に触れる時間</li>
+            </ul>
+            <p class="pending"><b>調整中</b>　村での日数・体験内容・移動の順序・集合と解散の場所</p>
+            <details class="more">
+              <summary><span class="vh">Bプランを</span><span class="o">くわしく見る</span><span class="c">閉じる</span></summary>
+              <div class="more-in">
+                <p>パパイヤビレッジで人と自然の暮らしに触れ、タイから国境を越えてラオスへ。ラオス北部に暮らす少数民族、レンテン族の村で、日々の暮らしや手仕事に触れる6日間です。一緒に食べ、教わり、手を動かす時間を大切にします。</p>
+                <div class="lanten"><p class="lanten-h">レンテン族のこと</p><p>ラオスには、国が認める50の民族が暮らしています。レンテン族もそのひとつ。「レンテン」は、藍で染めた服の色にちなんだ「青い空」という意味だそうです。家族ごとに綿と藍を育て、糸を紡いで藍で染め、機を織って、自分たちの服を自分たちでつくる暮らしが受け継がれてきたといいます。</p></div>
+                <p>藍染めをしていたり、竹から紙をつくったり、糸を紡いで機織りをしたり、カエルを食べたり。そのときにどんな体験が待っているかは、そのときのお楽しみです。食卓や日々のお手伝いを通して、暮らしを分かち合います。</p>
+                <p>国境を越える準備や移動の詳細は、決まり次第LINEでご案内します。宿泊やトイレについては「<a href="#village-stay">村での滞在について</a>」をご確認ください。</p>
+                <p class="fit"><b>こんな方に</b>その土地の暮らしや手仕事に触れてみたい方。村の方々と一緒に、そのときならではの出会いや体験を楽しみたい方。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="st-b" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/><text font-size="10.5" letter-spacing="1.6"><textPath href="#st-b">PAPAYA VILLAGE · LAOS · CRAFT ·</textPath></text><text x="60" y="70" text-anchor="middle" font-size="30">B</text></svg>
+          <p class="price-lab">現地サポート費／大人1人</p>
+          <p class="price"><span class="big" data-p="B.sup">99,000円</span></p>
+          <p class="kid">5歳〜中学生 <span data-p="B.kid">55,000円</span><br>4歳以下は1家族につき1人目無料（2人目から<span data-p="B.infant">30,000円</span>）</p>
+          <p class="plus">＋JOURNEY LAB <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span><span class="nb">／1家族</span><span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span><br>＋航空券<br>＋現地での実費（大人1人 <span data-cost="B">48,000〜72,000円</span>が目安）</p>
+          <a class="btn full" data-apply data-course="B" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=B">Bプランに申し込む</a>
+          <p class="pay-note">お支払いは銀行振込（一括・2回・3回から選べます）</p>
+          <div class="barcode" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <article class="pass special" id="plan-special" data-reveal>
+        <div class="pass-main">
+          <div class="pass-top"><b>SPECIALプラン</b><span>EFJ 13</span></div>
+          <div class="pass-body">
+            <div class="route">
+              <div><span class="d">1/5</span><small>火・チェンマイ集合</small></div>
+              <div class="mid"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>13日間</div>
+              <div class="r"><span class="d">1/17</span><small>日・解散</small></div>
+            </div>
+            <h3>湖の暮らしから、<br><span class="ib">パパイヤビレッジ、</span><span class="ib">レンテン族の村へ。</span></h3>
+            <ul>
+              <li>1/5〜1/11：Aプランのチェンマイ・サージャイ</li>
+              <li>1/12〜1/17：Bプランのパパイヤビレッジとラオスのレンテン族の村（国境を越えて移動）</li>
+              <li>ふたつの暮らしをつなぎ、自分の暮らしを見つめる</li>
+            </ul>
+            <p class="pending"><b>調整中</b>　村での日数・体験内容・移動の順序・解散の場所</p>
+            <details class="more">
+              <summary><span class="vh">SPECIALプランを</span><span class="o">くわしく見る</span><span class="c">閉じる</span></summary>
+              <div class="more-in">
+                <p>AとBを通して参加する、13日間の旅。チェンマイとサージャイで仲間と過ごし、パパイヤビレッジへ。さらにタイから国境を越えて、ラオス北部に暮らすレンテン族の村を訪ねる予定です。湖のオフグリッドな暮らしと、村に受け継がれてきた手仕事、どちらにもじっくり触れていきます。</p>
+                <p>ラオスの村での宿泊・トイレの環境はBプランと共通です。国境を越える準備の詳細も、決まり次第ご案内します。</p>
+                <p class="fit"><b>こんな方に</b>自然の中の暮らしにも、受け継がれてきた手仕事にも触れてみたい方。仲間と一緒に、自分から旅をつくりたい方。</p>
+              </div>
+            </details>
+          </div>
+        </div>
+        <div class="pass-stub">
+          <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="st-s" d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"/></defs><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="60" cy="60" r="33" fill="none" stroke="currentColor" stroke-width="1.2"/><text font-size="10.5" letter-spacing="1.6"><textPath href="#st-s">13 DAYS · LAKE &amp; CRAFT · JOURNEY ·</textPath></text><text x="60" y="68" text-anchor="middle" font-size="17">SP</text></svg>
+          <p class="price-lab">現地サポート費／大人1人</p>
+          <p class="price"><span class="big" data-p="SPECIAL.sup">177,000円</span></p>
+          <p class="kid">5歳〜中学生 <span data-p="SPECIAL.kid">99,000円</span><br>4歳以下は1家族につき1人目無料（2人目から<span data-p="SPECIAL.infant">55,000円</span>）</p>
+          <p class="plus">＋JOURNEY LAB <span class="only-early"><span class="nb"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b></span><span class="nb">／1家族</span><span class="off">早割</span></span><span class="only-regular"><span data-p="feeReg">50,000円</span>／1家族</span><br>＋航空券<br>＋現地での実費（大人1人 <span data-cost="SPECIAL">104,000〜156,000円</span>が目安）</p>
+          <a class="btn full" data-apply data-course="SPECIAL" href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=SPECIAL">SPECIALプランに申し込む</a>
+          <p class="pay-note">お支払いは銀行振込（一括・2回・3回から選べます）</p>
+          <div class="barcode" aria-hidden="true"></div>
+        </div>
+      </article>
+    </div>
+
+    <details class="fold cmp-fold" id="compare">
+      <summary><span class="fold-t"><b>3つのプランを、表でくらべる</b><small>日程・行き先・設備・料金・申込締切</small></span><i class="fold-i" aria-hidden="true"></i></summary>
+      <div class="fold-in">
+        <div class="cmp-scroll" role="region" aria-label="3つのプランの比較表" tabindex="0">
+          <table class="cmp">
+            <thead><tr><th scope="col"><span class="vh">項目</span></th><th scope="col" class="a">A<small>7日間</small></th><th scope="col" class="b">B<small>6日間</small></th><th scope="col" class="sp">SPECIAL<small>13日間</small></th></tr></thead>
+            <tbody>
+              <tr><th scope="row">日程</th><td>1/5〜1/11</td><td>1/12〜1/17</td><td>1/5〜1/17</td></tr>
+              <tr><th scope="row">行き先</th><td>チェンマイ、湖のサージャイ</td><td>パパイヤビレッジ、ラオスのレンテン族の村</td><td>AとBの両方</td></tr>
+              <tr><th scope="row">国境越え</th><td>なし</td><td>あり</td><td>あり</td></tr>
+              <tr><th scope="row">過ごし方</th><td>湖のオフグリッドな暮らし</td><td>村の暮らしと手仕事</td><td>両方をじっくり</td></tr>
+              <tr><th scope="row">設備</th><td>電気と水に限りあり</td><td>簡素。相部屋の場合も</td><td>A・Bと同じ</td></tr>
+              <tr><th scope="row">こんな方に</th><td>初めての海外、子連れも</td><td>手仕事や村の暮らしに触れたい</td><td>自然も手仕事も</td></tr>
+              <tr><th scope="row">大人</th><td class="money" data-p="A.sup">99,000円</td><td class="money" data-p="B.sup">99,000円</td><td class="money" data-p="SPECIAL.sup">177,000円</td></tr>
+              <tr><th scope="row">5歳〜<br>中学生</th><td class="money" data-p="A.kid">55,000円</td><td class="money" data-p="B.kid">55,000円</td><td class="money" data-p="SPECIAL.kid">99,000円</td></tr>
+              <tr><th scope="row">4歳以下</th><td>1人目無料<br>2人目〜<span data-p="A.infant">30,000円</span></td><td>1人目無料<br>2人目〜<span data-p="B.infant">30,000円</span></td><td>1人目無料<br>2人目〜<span data-p="SPECIAL.infant">55,000円</span></td></tr>
+              <tr class="est"><th scope="row">実費の目安<br>大人1人</th><td data-cost="A">56,000〜84,000円</td><td data-cost="B">48,000〜72,000円</td><td data-cost="SPECIAL">104,000〜156,000円</td></tr>
+              <tr><th scope="row">申込締切</th><td>1/4</td><td>1/11</td><td>1/4</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fine">金額は現地サポート費（1人）。どのプランも、JOURNEY LAB（1家族）と航空券が別にかかります。実費の目安は、宿泊・食事・現地での移動などを<span data-cost-day>1日8,000〜12,000円</span>前後として大人1人分を出したもので、部屋のタイプや過ごし方で変わります（お子さんの分は含みません）。</p>
+      </div>
+    </details>
+
+    <div class="stay-note" id="village-stay" data-reveal>
+      <h3><small>B・SPECIALプランに参加する方へ</small>村での滞在について</h3>
+      <ul class="checks">
+        <li><strong>快適な設備が整った滞在先ではありません。</strong></li>
+        <li>部屋は、複数人で一緒に泊まる場合もあります。</li>
+        <li>トイレなどの設備や使い方も、日本とは異なる場合があります。</li>
+      </ul>
+      <details class="more">
+        <summary><span class="vh">村での滞在を</span><span class="o">くわしく見る</span><span class="c">閉じる</span></summary>
+        <div class="more-in">
+          <p>訪ねる予定のレンテン族の村はラオス北部にあり、タイから国境を越えて訪ねます。村は、レンテン族の方々が日々を営む場所です。受け継がれてきた手仕事と、時代とともに変わっていく、いまの暮らしにおじゃまします。</p>
+          <p>村の方々の生活や都合を尊重しながら、そのときの暮らしや手仕事に触れていきます。出会える手仕事や食べものは、訪ねる時期や村の日常によってさまざま。宿泊環境の詳細は、決まり次第ご案内します。</p>
+        </div>
+      </details>
+      <p class="fine">訪問先・宿泊条件・体験内容の詳細は調整中です。気になることは、お申し込み前に<a href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line>LINEでご相談</a>ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 06 ルートと日程 ========== -->
+<section class="sec s-sunset" id="flow">
+  <div class="wrap wide">
+    <div style="max-width:680px">
+      <p class="kicker"><b>06</b>The route</p>
+      <h2>まちから湖へ。<br><span class="ib">国境の向こうの、</span><span class="ib">暮らしへ。</span></h2>
+          </div>
+    <div class="flow-grid">
+      <figure class="route-map" data-reveal>
+        <svg viewBox="0 0 360 440" role="img" aria-labelledby="rm-t rm-d">
+  <title id="rm-t">旅のルートのイメージ図</title>
+  <desc id="rm-d">Aプランはチェンマイから、湖に浮かぶサージャイへ。Bプランはパパイヤビレッジから、国境を越えてラオスのレンテン族の村へ。SPECIALプランは、AとBを通して旅します。</desc>
+  <rect x="1" y="1" width="358" height="438" rx="24" fill="#FFF9EE" stroke="rgba(16,41,43,.14)"/>
+  <g fill="none" stroke="#EEDFBD" stroke-width="1.3">
+    <path d="M-6 112 C 60 92, 120 132, 198 110 S 318 80, 366 100"/>
+    <path d="M-6 318 C 40 306, 70 324, 96 316"/>
+    <path d="M150 272 C 190 258, 220 286, 250 272"/>
+    <path d="M-6 394 C 76 374, 150 408, 224 384 S 330 364, 366 378"/>
+  </g>
+  <g fill="none" stroke="#C2AC82" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M150 314 l11 -16 l11 16"/><path d="M164 306 l8 -11 l8 11"/>
+    <path d="M24 150 l12 -18 l12 18"/><path d="M40 142 l9 -13 l9 13"/>
+    <path d="M290 300 l12 -18 l12 18"/><path d="M306 292 l9 -12 l9 12"/>
+  </g>
+  <path d="M262 22 C 248 92, 278 150, 258 214 S 246 342, 268 420" fill="none" stroke="#A97B3D" stroke-width="2" stroke-dasharray="7 6"/>
+  <text class="cty" x="132" y="48" text-anchor="middle">THAILAND</text>
+  <text class="lb" x="132" y="66" text-anchor="middle">タイ</text>
+  <text class="cty" x="312" y="48" text-anchor="middle">LAOS</text>
+  <text class="lb" x="312" y="66" text-anchor="middle">ラオス</text>
+  <text class="lb sm" x="270" y="246" fill="#7A5A28">国境</text>
+
+  <path class="rt rt-a draw" pathLength="1" d="M124 356 C 104 344, 92 312, 96 282"/>
+  <path class="rt rt-s" d="M108 262 C 130 236, 150 198, 182 168"/>
+  <path class="rt rt-b draw late" pathLength="1" d="M198 156 C 224 136, 248 126, 262 128 S 292 134, 304 150"/>
+
+  <g transform="translate(86 268)">
+    <ellipse rx="44" ry="16" fill="#BEE0DA"/>
+    <path d="M-30 4 q6-4 12 0 t12 0 t12 0" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-24 -4 l8 -9 l8 9 z" fill="#B78B4C"/><rect x="-22" y="-4" width="12" height="7" fill="#D9B77A"/>
+    <circle cx="14" cy="-2" r="6.5" fill="#0E5A5A" stroke="#fff" stroke-width="2.5"/>
+  </g>
+  <text class="pl" x="20" y="210">サージャイ（湖）</text><text class="en" x="20" y="225">SAAIJAI VILLAGE</text>
+
+  <g transform="translate(130 362)">
+    <rect x="-4" y="-26" width="9" height="22" rx="1.5" fill="#E6D3AE"/><rect x="6" y="-34" width="10" height="30" rx="1.5" fill="#D9C193"/><rect x="17" y="-22" width="9" height="18" rx="1.5" fill="#E6D3AE"/>
+    <circle cx="0" cy="0" r="6.5" fill="#0E5A5A" stroke="#fff" stroke-width="2.5"/>
+  </g>
+  <text class="pl" x="148" y="366">チェンマイ</text><text class="en" x="148" y="380">CHIANG MAI</text>
+
+  <g transform="translate(190 162)">
+    <path d="M0 -26 c10 4 14 14 6 22 c-6-4-8-12-6-22z" fill="#6E9E4F"/><path d="M0 -26 c-10 4-14 14-6 22 c6-4 8-12 6-22z" fill="#86B562"/>
+    <circle cx="0" cy="0" r="6.5" fill="#865719" stroke="#fff" stroke-width="2.5"/>
+  </g>
+  <text class="en" x="172" y="128" text-anchor="end">PAPAYA VILLAGE</text><text class="pl" x="172" y="147" text-anchor="end">パパイヤ</text><text class="pl" x="172" y="164" text-anchor="end">ビレッジ</text>
+
+  <g transform="translate(310 156)">
+    <path d="M-16 -28 L0 -42 L16 -28 Z" fill="#9C6B36"/><rect x="-12" y="-28" width="24" height="12" fill="#D2A86A"/><path d="M-10 -16 v8 M10 -16 v8 M0 -16 v8" stroke="#9C6B36" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6.5" fill="#2B3A80" stroke="#fff" stroke-width="2.5"/>
+  </g>
+  <text class="pl" x="310" y="186" text-anchor="middle">ラオスの村</text><text class="lb sm" x="310" y="202" text-anchor="middle">レンテン族</text><text class="en" x="310" y="216" text-anchor="middle">LAO VILLAGE</text>
+
+  <g transform="translate(14 318)"><rect width="80" height="22" rx="11" fill="#0E5A5A"/><text class="tag" x="40" y="15" text-anchor="middle">A 1/5–1/11</text></g>
+  <g transform="translate(188 94)"><rect width="86" height="22" rx="11" fill="#2B3A80"/><text class="tag" x="43" y="15" text-anchor="middle">B 1/12–1/17</text></g>
+  <g transform="translate(154 212)"><rect width="62" height="20" rx="10" fill="#865719"/><text class="tag" x="31" y="14" text-anchor="middle" font-size="9.5">SPECIAL</text></g>
+
+  <g transform="translate(22 410)">
+    <path d="M0 6 h24" stroke="#0E5A5A" stroke-width="4.5" stroke-linecap="round"/><text class="lg" x="31" y="10">Aプラン</text>
+    <path d="M94 6 h24" stroke="#2B3A80" stroke-width="4.5" stroke-linecap="round"/><text class="lg" x="125" y="10">Bプラン</text>
+    <path d="M188 6 h24" stroke="#865719" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7"/><text class="lg" x="219" y="10">SPECIAL＝A＋B</text>
+  </g>
+</svg>
+        <figcaption>イメージ図です。実際の位置・距離・訪問の順序とは異なります。訪問先は、受け入れ先と調整中です。</figcaption>
+      </figure>
+
+      <div>
+        <ol class="tl">
+          <li data-reveal>
+            <div class="when">1/5（火）<span class="tag">A・SPECIALのはじまり</span></div>
+            <h3>チェンマイで「はじめまして」。</h3>
+            <p>旅仲間と顔を合わせ、北タイのまちへ。市場を歩いてごはんを選ぶところから始めます。</p>
+            <img loading="lazy" src="/images/thai-2027/f35d1142ab78efd5.webp" style="aspect-ratio:4/5;object-position:50% 58%" alt="チェンマイの市場で、バナナの葉に盛られた料理を前に並ぶ人たちと、屋台の店主" decoding="async">
+          </li>
+          <li data-reveal>
+            <div class="when">1/5〜1/11<span class="tag">A・SPECIAL</span></div>
+            <h3>チェンマイとサージャイで、暮らすように。</h3>
+            <p>まちのにぎわいから、山々に囲まれた湖へ。限られた電気と水を大切に使う、オフグリッドな暮らしを学びます。</p>
+            <img loading="lazy" src="/images/thai-2027/067265d5859d51db.webp" style="aspect-ratio:4/5;object-position:50% 40%" alt="あたたかい光が差す、湖に面したソファのコーナーと、ソファの上の子猫" decoding="async">
+          </li>
+          <li data-reveal>
+            <div class="when">1/11（月）<span class="tag">Aプラン最終日</span></div>
+            <h3>7日間の出会いを、日常へ持ち帰る。</h3>
+            <p>Aプランはここで旅を振り返って解散。SPECIALプランは、その先へ進みます。</p>
+          </li>
+          <li class="b" data-reveal>
+            <div class="when">1/12（火）〜1/17（日）<span class="tag">B・SPECIAL</span></div>
+            <h3><span class="ib">パパイヤビレッジから、</span><span class="ib">レンテン族の村へ。</span></h3>
+            <p>1/12からBプランの仲間も合流。村の方々と一緒に食べる、教わる、手伝う。何に出会えるかは、そのときのお楽しみです。</p>
+            <p class="crafts-lab">出会えるかもしれないこと</p>
+            <ul class="crafts">
+              <li>藍染め</li><li>竹からの紙づくり</li><li>糸紡ぎ・機織り</li><li>カエルを食べることも？</li>
+            </ul>
+            <p class="stay-link">設備やトイレは、ふだんの暮らしとは違います。<a href="#village-stay">村での滞在について</a></p>
+            <div class="duo-b"><img loading="lazy" src="/images/thai-2027/936c34676eb85c63.webp" style="object-position:50% 40%" alt="村の道で、村の方々と並んで笑う家族" decoding="async"><img loading="lazy" src="/images/thai-2027/055ede74e05370ff.webp" style="object-position:50% 55%" alt="村の軒先で、青い布を縫う女性たちと子ども" decoding="async"></div>
+            <p class="fine" style="margin-top:8px">写真はこれまでの旅での交流風景です。今回の滞在の詳細は調整中です。</p>
+          </li>
+          <li class="b" data-reveal>
+            <div class="when">1/17（日）<span class="tag">B・SPECIAL最終日</span></div>
+            <h3>「また会おう」のある旅に。</h3>
+            <p>Bは6日間、SPECIALは13日間で心に残ったことを分かち合って解散します。</p>
+          </li>
+        </ol>
+        <div class="facts">
+          <p class="fh">旅の基本</p>
+          <dl>
+          <div><dt>集合</dt><dd>A・SPECIAL：1月5日・タイのチェンマイ<br>B：1月12日（集合場所・時刻は別途ご案内）</dd></div>
+          <div><dt>解散</dt><dd>A：1月11日／B・SPECIAL：1月17日（場所・時刻は別途ご案内）</dd></div>
+          <div><dt>申込締切</dt><dd>A・SPECIAL：1月4日／B：1月11日（各日23:59・日本時間）</dd></div>
+          <div><dt>定員</dt><dd><b>全プラン合わせて12名</b>（大人・子ども・4歳以下を含み、通し参加も1人として数えます）</dd></div>
+          <div><dt>参加</dt><dd>ひとりでも、友人同士でも、家族でも</dd></div>
+          <div><dt>渡航</dt><dd>A：タイ／B・SPECIAL：タイとラオス（国境を越えて移動）</dd></div>
+          </dl>
+        </div>
+        <p class="fine">日程はイメージです。訪問の順序や内容は、受け入れ先との調整や天候、参加者の状況で変わる場合があります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<figure class="papaya-photo">
+  <img src="/images/thai-2027/papaya-village-640.webp" srcset="/images/thai-2027/papaya-village-640.webp 640w, /images/thai-2027/papaya-village-960.webp 960w" sizes="(min-width:680px) 640px, calc(100vw - 40px)" width="960" height="1279" loading="lazy" decoding="async" alt="パパイヤビレッジの緑に囲まれた入口で、笑顔で並ぶ人たち">
+  <figcaption>パパイヤビレッジでの出会い。B・SPECIALプランで、この場所へ。</figcaption>
+</figure>
+
+<!-- ========== 07 費用（前回のページと同じく、いつ・何を払うかの3つで） ========== -->
+<section class="sec s-dusk" id="fees" style="padding-top:56px">
+  <div class="wrap wide">
+    <div class="cost-head">
+      <p class="kicker"><b>07</b>The cost</p>
+      <h2>旅の費用は、<br>この3つ。</h2>
+    </div>
+    <div class="cost-grid">
+      <ol class="tiers">
+        <li class="tier">
+          <p class="t-top"><span class="t-n">1</span><span class="t-chip">申し込み後・銀行振込</span></p>
+          <h3>参加費・DAO年会費</h3>
+          <ul class="ok">
+            <li><b>現地サポート費</b>　大人 <span data-p="A.sup">99,000円</span>〜<small>仲間と一緒に行動しながら、現地での相談や学びをサポートします。5歳〜中学生 <span data-p="A.kid">55,000円</span>〜、4歳以下は1家族につき1人目無料。プランごとの金額は、上の各プランのとおりです。</small></li>
+            <li><b>JOURNEY LAB</b>　1家族 <span class="only-early"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b><span class="off">早割 12/10まで</span></span><span class="only-regular"><b data-p="feeReg">50,000円</b></span><small>出発前の講座と、参加者限定のLINEグループ。ひとり参加は1人分。</small></li>
+            <li><b>EarthfamilyDAO</b>　希望する方だけ　<span data-p="dao.lite.solo">11,000円</span>〜／年<small>入るかどうかは自由で、旅の参加費とは別の年会費です。旅のあとも続く、1年間の会員制コミュニティ（<a href="#dao" class="dao-link">くわしく</a>）</small></li>
+          </ul>
+          <div class="pay" id="pay">
+            <p class="ph">お支払い（銀行振込）</p>
+            <ul class="ok">
+              <li>JOURNEY LAB・現地サポート費・希望したDAO年会費を合算して、<b>一括・2回・3回</b>から選べます</li>
+              <li>分割の場合、2回目以降は毎月25日まで</li>
+              <li>初回の期限・お支払い月・各回の金額は、運営から別途ご案内します</li>
+              <li>カードの自動分割払いではありません</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tier">
+          <p class="t-top"><span class="t-n">2</span><span class="t-chip">各自で手配・出発までに</span></p>
+          <h3>航空券</h3>
+          <ul class="ok">
+            <li>集合・解散の詳細をご確認いただいてから、お手配ください。</li>
+            <li>「航空券を取ったことがない」方も、出発前からご相談ください。</li>
+          </ul>
+        </li>
+        <li class="tier">
+          <p class="t-top"><span class="t-n">3</span><span class="t-chip">各自で手配・お支払い</span></p>
+          <h3>宿泊・食事・移動・体験料などの実費</h3>
+          <ul class="ok">
+            <li>宿泊・食事・移動は、大人1人 <b data-cost-day>1日8,000〜12,000円</b>前後が目安</li>
+            <li>A（7日）<span data-cost="A">56,000〜84,000円</span>／B（6日）<span data-cost="B">48,000〜72,000円</span>／SPECIAL（13日）<span data-cost="SPECIAL">104,000〜156,000円</span><small>部屋のタイプや過ごし方で変わります。お子さんの分は含みません。</small></li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="cost-side">
+        <div class="ex">
+          <p class="ex-lab">例）Aプラン<span class="only-early">・早割</span>の場合</p>
+          <dl class="eq">
+            <div><dt>大人1人</dt><dd><b class="only-early" data-p="exA.early">129,000円</b><b class="only-regular" data-p="exA.reg">149,000円</b></dd></div>
+            <div><dt>親子3人<small>大人・6歳・2歳（2歳は無料）</small></dt><dd><b class="only-early" data-p="exF.early">184,000円</b><b class="only-regular" data-p="exF.reg">204,000円</b></dd></div>
+          </dl>
+          <p class="ex-note">現地サポート費と、JOURNEY LAB（1家族<span class="only-early">・早割</span>）の合計です。</p>
+          <p class="ex-plus">＋航空券<br>＋現地での実費（大人1人 <span data-cost="A">56,000〜84,000円</span>が目安）</p>
+        </div>
+
+        <details class="fold sim-fold needs-js" id="sim-fold">
+          <summary><span class="fold-t"><b>人数を入れて、合計を出す</b><small>結果は、LINEで家族や友人に送れます</small></span><i class="fold-i" aria-hidden="true"></i></summary>
+          <div class="fold-in">
+            <div class="sim" id="sim">
+              <p class="sub">1家族分のプランと人数を選ぶと、費用の合計が出ます。ご友人同士は1世帯ずつお申し込みください。</p>
+              <div class="seg three" role="radiogroup" aria-label="旅のプラン">
+                <button type="button" role="radio" aria-checked="true" data-course="A">Aプラン<small>1/5〜1/11</small><small>7日間</small></button>
+                <button type="button" role="radio" aria-checked="false" data-course="B">Bプラン<small>1/12〜1/17</small><small>6日間</small></button>
+                <button type="button" role="radio" aria-checked="false" data-course="SPECIAL">SPECIAL<small>1/5〜1/17</small><small>13日間</small></button>
+              </div>
+              <div class="row"><label id="l-adult">大人<small>現地サポート費が全額</small></label>
+                <div class="step"><button type="button" data-k="adult" data-d="-1" aria-label="大人を1人減らす">−</button><output id="v-adult" aria-labelledby="l-adult">1</output><button type="button" data-k="adult" data-d="1" aria-label="大人を1人増やす">＋</button></div></div>
+              <div class="row"><label id="l-kid">5歳〜中学生<small>A・B <span data-p="A.kid">55,000円</span>／SPECIAL <span data-p="SPECIAL.kid">99,000円</span></small></label>
+                <div class="step"><button type="button" data-k="kid" data-d="-1" aria-label="5歳〜中学生を1人減らす">−</button><output id="v-kid" aria-labelledby="l-kid">0</output><button type="button" data-k="kid" data-d="1" aria-label="5歳〜中学生を1人増やす">＋</button></div></div>
+              <div class="row"><label id="l-infant">4歳以下<small>1人目無料。2人目以降は1人<span id="infant-unit">30,000円</span></small></label>
+                <div class="step"><button type="button" data-k="infant" data-d="-1" aria-label="4歳以下を1人減らす">−</button><output id="v-infant" aria-labelledby="l-infant">0</output><button type="button" data-k="infant" data-d="1" aria-label="4歳以下を1人増やす">＋</button></div></div>
+              <div class="row"><label id="l-dao">EarthfamilyDAO<small>オプション・旅のあとも続く1年会員</small></label>
+                <button type="button" class="sw" id="dao-sw" role="switch" aria-checked="false" aria-labelledby="l-dao"></button></div>
+              <div class="dao-opts" id="dao-opts" hidden>
+                <div class="seg three" role="radiogroup" aria-label="DAOのプラン">
+                  <button type="button" role="radio" aria-checked="true" data-dp="lite">ライト<small>3泊／年</small></button>
+                  <button type="button" role="radio" aria-checked="false" data-dp="std">スタンダード<small>10泊／年</small></button>
+                  <button type="button" role="radio" aria-checked="false" data-dp="long">ロングステイ<small>30泊／年</small></button>
+                </div>
+                <div class="seg" role="radiogroup" aria-label="会員の種類">
+                  <button type="button" role="radio" aria-checked="true" data-dt="solo">ひとり</button>
+                  <button type="button" role="radio" aria-checked="false" data-dt="family">家族</button>
+                </div>
+              </div>
+              <div class="result">
+                <p class="lab">お振り込みの合計（航空券・現地での実費は別）</p>
+                <p class="total" aria-live="polite" aria-atomic="true"><b id="r-total">129,000円</b><span class="off only-early" id="r-off"></span></p>
+                <dl id="r-rows"></dl>
+                <p class="reg only-early" id="r-reg"></p>
+                <div class="estimate">
+                  <p class="e-lab" id="e-lab">現地での実費の目安（大人1人×7日・航空券を除く）</p>
+                  <p class="e-val" id="e-real">56,000〜84,000円</p>
+                  <div class="e-sum">
+                    <p class="e-lab">旅の費用の目安（参加費＋実費・航空券を除く）</p>
+                    <p class="e-val" id="e-total">185,000〜213,000円</p>
+                  </div>
+                  <p class="e-note">実費は、宿泊・食事・現地での移動などを大人1人<span data-cost-day>1日8,000〜12,000円</span>前後として計算した目安です。お子さんの分は含みません。部屋のタイプや過ごし方で変わります。</p>
+                </div>
+              </div>
+              <p class="sim-note">お振り込みは、一括・2回・3回から選べます（<a href="#pay">お支払い</a>）。EarthfamilyDAOは1年分の年会費で、早割の対象ではありません。JOURNEY LABは1家族（ひとり参加は1人）につき、<span class="only-early">早割<span data-p="feeEarly">30,000円</span>（通常<span data-p="feeReg">50,000円</span>）</span><span class="only-regular"><span data-p="feeReg">50,000円</span></span>です。友人同士でのご参加は、1世帯ずつ計算・お申し込みください。</p>
+              <div class="sim-act">
+                <a class="btn full" data-apply data-from-sim href="https://earthguide.tabigaku.party/forms/efj-thai-2027?course=A">この内容で申し込む</a>
+                <a class="btn ghost full" id="sim-send" href="https://line.me/R/share?text=" target="_blank" rel="noopener noreferrer">この見積もりを、家族に送る</a>
+              </div>
+              <p class="fine" style="text-align:center;margin-top:10px">LINEなどで、計算した内容とページのURLを送れます。</p>
+            </div>
+          </div>
+        </details>
+
+        <div class="labcard" id="prep">
+          <p class="lab-k">Journey Lab</p>
+          <h3>お客さんではなく、<br>旅をつくる仲間として。</h3>
+          <p>出発前の「意識づくり」の時間です。</p>
+          <ol class="lab3">
+            <li><span class="n" aria-hidden="true">01</span>前回の旅での出来事</li>
+            <li><span class="n" aria-hidden="true">02</span>旅の心構え</li>
+            <li><span class="n" aria-hidden="true">03</span>自分で、旅をつくる</li>
+          </ol>
+          <p class="lab-how">事前Zoomミーティング（全2回）・旅の準備に役立つ記事・参加者限定のLINEグループ</p>
+          <p class="lab-fee"><span class="only-early"><s data-p="feeReg">50,000円</s>→<b data-p="feeEarly">30,000円</b><span class="off">早割</span></span><span class="only-regular"><b data-p="feeReg">50,000円</b></span><small>／1家族（ひとり参加は1人）</small></p>
+          <p class="note">家族は人数に関わらず1家族分。現地サポート費とは別で、内金ではありません。<span class="only-early">早割は12/10（木）までにフォームでお申し込みの方が対象です。</span></p>
+          <details class="more">
+            <summary><span class="vh">JOURNEY LABを</span><span class="o">くわしく見る</span><span class="c">閉じる</span></summary>
+            <div class="more-in">
+              <p>ガイドが連れていって、お客さんがついていく。そんな旅ではありません。1人1人が、自分の旅を主体的につくっていく。そのための心の準備を、出発前から一緒にしていきます。</p>
+              <h4>01 前回の旅での出来事</h4>
+              <p>前回の旅で実際に起きたことを、お伝えします。どんな出会いがあり、どんな時間が流れたのか。旅の景色が、出発前から具体的になります。</p>
+              <h4>02 旅の心構え</h4>
+              <p>予定どおりにいかない日も、旅の一部。どう構えて、どう楽しむか。出発前に、心の準備をしておきます。</p>
+              <h4>03 自分で、旅をつくる</h4>
+              <p>「何をしたい？」「どんな出会いがほしい？」自分の「やってみたい」を持ち寄って、1人1人が旅の主役になる。その意識づくりが、この講座の中心です。</p>
+              <p>入金確認後に、参加者限定のLINEグループへご招待します。Zoomの日時など、くわしい進め方はLINEでご案内します。</p>
+            </div>
+          </details>
+        </div>
+
+        <details class="fold dao-fold" id="dao">
+          <summary><span class="fold-t"><b><span class="opt-tag">OPTION</span>EarthfamilyDAO</b><small>旅のあとも続く1年会員 <span data-p="dao.lite.solo">11,000円</span>〜／年（入るかどうかは自由です）</small></span><i class="fold-i" aria-hidden="true"></i></summary>
+          <div class="fold-in">
+            <article class="member" aria-labelledby="dao-h">
+              <div class="seal" aria-hidden="true"><span>ただいま</span></div>
+              <h3 id="dao-h">Earthfamily<wbr>DAO</h3>
+              <p class="mem-lead">旅先で出会った人と、帰ってからもつながる。「世界中に『ただいま』と言える場所を」育てていくコミュニティです。</p>
+              <ul>
+                <li>ひろばで写真を分かち合い、企画を提案して、みんなで投票</li>
+                <li>助け合いと、お仕事の紹介でつながる</li>
+                <li>各地の拠点で、1日2〜3時間の暮らしのお手伝いをしながら滞在<small>（拠点との事前相談と受け入れ承認が必要です）</small></li>
+              </ul>
+              <table class="plans">
+                <caption class="vh">EarthfamilyDAOの年会費</caption>
+                <thead><tr><th scope="col">プラン／年間の泊数</th><th scope="col">ひとり</th><th scope="col">家族</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">ライト<small>3泊／年</small></th><td data-p="dao.lite.solo">11,000円</td><td data-p="dao.lite.family">22,000円</td></tr>
+                  <tr><th scope="row">スタンダード<small>10泊／年</small></th><td data-p="dao.std.solo">33,000円</td><td data-p="dao.std.family">66,000円</td></tr>
+                  <tr><th scope="row">ロングステイ<small>30泊／年</small></th><td data-p="dao.long.solo">99,000円</td><td data-p="dao.long.family">188,000円</td></tr>
+                </tbody>
+              </table>
+              <p class="mem-fine">承認日から1年間有効。自動引き落としはありません。泊数は家族でも人数分にはならず、拠点すべての合計で数えます。旅の参加費とは別の年会費で、早割の対象ではありません。</p>
+              <button type="button" class="btn full dao-add needs-js">旅と一緒に、DAOも計算に入れる</button>
+              <a class="link-quiet" href="https://www.tabigaku.party/earth-family-journey">EarthfamilyJourneyとDAOについて</a>
+            </article>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 参加者の声を載せる場合（本人の掲載OKがあるものだけ）：ここに次の形で入れてください。
+<section class="sec s-dusk" id="voices"><div class="wrap">
+  <p class="kicker"><b>＋</b>Voices</p><h2>前回の旅に参加した人の声</h2>
+  <blockquote>本人の言葉のまま</blockquote><p class="fine">○○さん（参加した旅・時期）</p>
+</div></section>
+-->
+
+<!-- ========== 08 申し込みから出発まで ========== -->
+<section class="sec s-dusk2" id="application">
+  <div class="wrap">
+    <p class="kicker"><b>08</b>How to join</p>
+    <h2>申し込みから、<br>出発まで。</h2>
+    <p class="lead join-lead">次の旅を、一緒につくろう。</p>
+    <div class="cap"><b><small>定員</small>12名</b><span>全プラン合わせて。大人・子ども・4歳以下を含め、通し参加も1人として数えます（4人家族なら、3家族で定員になります）。</span></div>
+    <div class="apply-act">
+      <a class="btn full" href="https://earthguide.tabigaku.party/forms/efj-thai-2027">申し込みフォームを開く</a>
+      <a class="btn line full" href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line><img src="/images/line-brand-icon.png" width="26" height="26" alt="" aria-hidden="true">迷ったら、まず公式LINEで相談</a>
+    </div>
+    <p class="fine">申込締切：A・SPECIAL 1月4日／B 1月11日（各日23:59・日本時間）。お申し込みは1世帯につき1件。ひとり参加・ご友人同士は、それぞれお申し込みください。申し込み前に<a href="#cancellation">キャンセルポリシー</a>をご確認ください。</p>
+    <ol class="road">
+      <li data-reveal><span class="rn">1</span><div><h3>フォームから申し込む</h3><p>プラン・人数・連絡先と、LINEグループへご招待するためのご本人のLINE URLを入力します。</p></div></li>
+      <li data-reveal><span class="rn">2</span><div><h3>銀行振込の<wbr>支払い回数を選ぶ</h3><p>JOURNEY LAB・現地サポート費・希望したDAO年会費を合算し、一括・2回・3回から。振込先は受付画面と受付メールでご案内します（<a href="#pay">お支払いの条件</a>）。</p></div></li>
+      <li data-reveal><span class="rn">3</span><div><h3>入金確認後、参加者限定のLINEグループへ</h3><p>事前Zoomミーティング（全2回）で、出発前に顔を合わせます。</p></div></li>
+      <li data-reveal><span class="rn">4</span><div><h3>航空券を手配する</h3><p>集合・解散の詳細をご確認いただいてから、お手配ください。</p></div></li>
+      <li class="goal" data-reveal><span class="rn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg><span class="vh">ゴール</span></span><div><h3>現地で集合</h3><p>A・SPECIAL：1月5日・チェンマイ<br>B：1月12日（集合場所・時刻は別途ご案内）</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 09 よくある質問 ========== -->
+<section class="sec s-night faq" id="faq" style="padding-top:28px">
+  <div class="wrap">
+    <p class="kicker"><b>09</b>Q&amp;A</p>
+    <h2>よくある質問</h2>
+    <details>
+      <summary>海外が初めて。言葉や移動が心配です。</summary>
+      <p>航空券、現地での移動、言葉のこと。気になっていることを、まずはらんぼうに聞かせてください。出発前から相談しながら準備を進め、現地でも旅づくりをサポートします。</p>
+    </details>
+    <details>
+      <summary>ひとりでも参加できますか？</summary>
+      <p>はい。ひとりでも、友人同士でも、家族でも歓迎です。それぞれの暮らしや経験を持つ仲間が出会うことも、この旅の楽しみ。どんな旅をしてみたいか、LINEで聞かせてください。</p>
+    </details>
+    <details>
+      <summary>子ども連れで参加したいです。</summary>
+      <p>ぜひご相談ください。お子さんの現地サポート費は、5歳〜中学生はA・Bプラン<span data-p="A.kid">55,000円</span>、SPECIALプラン<span data-p="SPECIAL.kid">99,000円</span>です。4歳以下は1家族につき1人目無料、2人目以降は1人あたりA・Bプラン<span data-p="A.infant">30,000円</span>、SPECIALプラン<span data-p="SPECIAL.infant">55,000円</span>です。人数やお子さんの年齢、気になっていることをLINEでお伝えください。</p>
+    </details>
+    <details>
+      <summary>湖のコテージや、村の宿泊・トイレは？</summary>
+      <p>湖のコテージは、自然とともにある開放的なオフグリッドの空間で、電気や水は使える量に限りがあります。ラオスの村は快適な設備が整った場所ではなく、複数人で同じ部屋に泊まる場合もあります。トイレなどの設備や使い方も、日本とは異なる場合があります。<a href="#village-stay">村での滞在について</a>もご確認ください。</p>
+    </details>
+    <details>
+      <summary>部屋や、ひとり参加の場合の料金は？</summary>
+      <p>現地サポート費とJOURNEY LABは、<a href="#sim">参加費の計算</a>で人数を入れると確認できます。宿泊費は部屋のタイプによって変わります。個室の希望や宿泊環境のことは、事前にLINEでご相談ください。</p>
+    </details>
+    <details>
+      <summary>早割はいつまでですか？</summary>
+      <p>2026年12月10日（木）までです。この日までにフォームでお申し込みいただいた方に、早割価格を適用します。早割では、JOURNEY LABが<span data-p="feeReg">50,000円</span>から<span data-p="feeEarly">30,000円</span>になります（現地サポート費は変わりません）。12月11日以降は<span data-p="feeReg">50,000円</span>の通常価格になります。</p>
+    </details>
+    <details>
+      <summary>EarthfamilyDAOは、旅に必要ですか？</summary>
+      <p>必須ではありません。旅のあとも仲間とつながり、各地の拠点で暮らしのお手伝いをしながら滞在したい方のための、1年間の会員制コミュニティです。年会費は旅の参加費とは別で、自動引き落としはありません。希望する方は<a href="#dao">こちら</a>から計算に入れて、申し込みフォームでお選びください。</p>
+    </details>
+    <details>
+      <summary>どの村・少数民族の方々を訪ねますか？</summary>
+      <p>B・SPECIALプランではパパイヤビレッジを訪ね、タイから国境を越えて、ラオス北部に暮らすレンテン族の村を訪ねる予定です。滞在日数、宿泊・体験、国境移動の詳細は、現地の方々と調整して確定次第ご案内します。</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec s-night flat" id="cancellation" style="padding-top:12px">
+  <div class="wrap">
+    <h2>キャンセルポリシー</h2>
+    <p>旅の準備は、お申し込みいただいた瞬間から始まっています。やむを得ずキャンセルされる場合は、参加プランの出発日（A・SPECIAL：1月5日／B：1月12日）を基準に、次のキャンセル料がかかります。</p>
+    <table class="plans"><caption class="vh">キャンセル時期とキャンセル料</caption><thead><tr><th scope="col">キャンセル時期</th><th scope="col">キャンセル料</th></tr></thead><tbody><tr><th scope="row">出発日の14日前まで</th><td>50,000円</td></tr><tr><th scope="row">出発日の13日前以降</th><td>参加費の100%</td></tr></tbody></table>
+    <p>体調不良やご家庭の事情など、どうしてもの場合はまずLINEでご相談ください。一緒に最善の方法を考えます。</p>
+  </div>
+</section>
+
+<!-- ========== 最後 ========== -->
+<section class="sec s-end" id="contact">
+  <div class="moon" role="img" aria-label="月あかりに照らされた湖と、デッキの先のはしご" style="background-image:url(/images/thai-2027/00b9483ab1c2f4f1.webp)"></div>
+  <div class="wrap">
+    <h2>わくわくとドキドキがきたら、<br>それはきっと、<br>家族のGOサイン。</h2>
+    <p class="sub">2027年1月、チェンマイから、地球家族の輪を広げよう。<br>ひとりでも、友人同士でも、家族でも。</p>
+    <p class="end-early only-early">早割は12/10（木）まで <span class="count" data-count></span></p>
+    <div class="end-cta">
+      <a class="btn full" href="https://earthguide.tabigaku.party/forms/efj-thai-2027">申し込みフォームを開く</a>
+      <a class="btn line full" href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line><img src="/images/line-brand-icon.png" width="26" height="26" alt="" aria-hidden="true">公式LINEで相談する</a>
+    </div>
+    <p class="cal only-early needs-js"><span>早割の締切をカレンダーに</span><a data-cal="google" href="https://calendar.google.com/calendar/render" target="_blank" rel="noopener">Googleカレンダー</a><a data-cal="ics" href="#" download="thai-2027-hayawari.ics">iPhone・ほかのカレンダー</a></p>
+    <p class="how">ご相談は公式LINEへ。お申し込みはフォームから受け付けています。定員は全プラン合わせて12名です。</p>
+    <div class="share" id="share">
+      <a data-s="x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.tabigaku.party%2Fthai-2027" target="_blank" rel="noopener">Xでシェア</a>
+      <a data-s="line" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fwww.tabigaku.party%2Fthai-2027" target="_blank" rel="noopener">LINEでシェア</a>
+      <a data-s="threads" href="https://www.threads.net/intent/post?text=https%3A%2F%2Fwww.tabigaku.party%2Fthai-2027" target="_blank" rel="noopener">Threadsでシェア</a>
+      <a data-s="fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tabigaku.party%2Fthai-2027" target="_blank" rel="noopener">Facebookでシェア</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <a href="https://www.tabigaku.party">旅する学校</a><a href="https://earthguide.tabigaku.party/">あーすガイド</a><a href="https://www.tabigaku.party/saijai">サージャイ</a><a href="https://www.tabigaku.party/earth-family-journey">EarthfamilyJourneyとは</a>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true">
+  <p class="bar-txt"><b class="only-early">早割 −<span data-p="off">20,000円</span></b><b class="only-regular">2027年1月・タイ旅</b><span class="only-early">12/10まで <span data-count></span></span><span class="only-regular">A・B・SPECIALから選べます</span></p>
+  <a class="bar-line" href="https://lin.ee/vZo2nlJ" target="_blank" rel="noopener noreferrer" data-line tabindex="-1" aria-label="公式LINEで相談する（新しいタブで開きます）"><img src="/images/line-brand-icon.png" width="24" height="24" alt="" aria-hidden="true">相談</a>
+  <a class="btn" href="#application" tabindex="-1">申し込む</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  // ===== 設定（価格・締切・実費の目安は、ここだけ直せばページ内の金額がすべて切り替わります）=====
+  const CFG = {
+    deadline: '2026-12-10T23:59:59.999+09:00',   // 早割の締切（日本時間）
+    deadlineYMD: [2026, 12, 10],             // 残り日数・カレンダー用（年, 月, 日）
+    fee: { reg: 50000, early: 30000 },       // JOURNEY LAB（1家族 / ひとり参加は1人）。早割期間は early
+    A: { sup: 99000, kid: 55000, infant: 30000, days: 7 },        // 5歳〜中学生はkidの固定料金。4歳以下は1人目無料、infantは2人目以降の単価。daysは日数
+    B: { sup: 99000, kid: 55000, infant: 30000, days: 6 },
+    SPECIAL: { sup: 177000, kid: 99000, infant: 55000, days: 13 },
+    real: { min: 8000, max: 12000 },         // 現地での実費の目安（大人1人・1日。宿泊・食事・現地での移動など。航空券は除く）
+    dao: {                                   // EarthfamilyDAO 年会費（1年・オプション・早割なし）
+      lite: { name: 'ライト',       nights: 3,  solo: 11000, family: 22000 },
+      std:  { name: 'スタンダード', nights: 10, solo: 33000, family: 66000 },
+      long: { name: 'ロングステイ', nights: 30, solo: 99000, family: 188000 }
+    }
+  };
+  const PAGE_URL = 'https://www.tabigaku.party/thai-2027';
+  const LINE_URL = 'https://lin.ee/vZo2nlJ';
+  const PLAN = {
+    A: { name: 'Aプラン', when: '1/5（火）〜1/11（月）', id: 'plan-a', why: 'チェンマイのまちを歩き、湖に浮かぶサージャイへ。水辺で遊び、同じ食卓を囲み、何もしない時間も楽しむ7日間。初めての海外旅や、子ども連れの方にも合うプランです。' },
+    B: { name: 'Bプラン', when: '1/12（火）〜1/17（日）', id: 'plan-b', why: 'パパイヤビレッジと、タイから国境を越えたラオスの少数民族・レンテン族の村へ。一緒に食べ、教わり、手を動かして、暮らしや手仕事に触れる6日間です。' },
+    SPECIAL: { name: 'SPECIALプラン', when: '1/5（火）〜1/17（日）', id: 'plan-special', why: '湖のオフグリッドな暮らしと、村に受け継がれてきた手仕事。AとBを通して、どちらにもじっくり触れる13日間です。' }
+  };
+  // ================================================================================
+  const root = document.documentElement;
+  const $ = id => document.getElementById(id);
+  const reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const fmt = n => n.toLocaleString('ja-JP');
+  const yen = n => fmt(n) + '円';
+  const yenHTML = n => '<span class="num">' + fmt(n) + '</span>円';
+  const range = (a, b) => fmt(a) + '〜' + fmt(b) + '円';
+  const rangeHTML = (a, b) => '<span class="num">' + fmt(a) + '〜' + fmt(b) + '</span>円';
+  const isEarly = () => Date.now() <= Date.parse(CFG.deadline);
+  const off = CFG.fee.reg - CFG.fee.early;
+  const enc = encodeURIComponent;
+
+  // ===== ふわっと表示（ほかの処理でエラーが出ても、内容が隠れたままにならないよう最初に）=====
+  const items = document.querySelectorAll('[data-reveal]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const ro = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); ro.unobserve(en.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    items.forEach(el => ro.observe(el));
+  } else items.forEach(el => el.classList.add('in'));
+
+
+  const val = key => {
+    if (key === 'feeReg') return CFG.fee.reg;
+    if (key === 'feeEarly') return CFG.fee.early;
+    if (key === 'off') return off;
+    if (key === 'exA.early') return CFG.A.sup + CFG.fee.early;   // 例：Aプラン・大人1人（早割）
+    if (key === 'exA.reg') return CFG.A.sup + CFG.fee.reg;       // 例：Aプラン・大人1人（通常）
+    if (key === 'exF.early') return CFG.A.sup + CFG.A.kid + CFG.fee.early;   // 例：Aプラン・親子3人（大人・6歳・2歳。2歳は無料）
+    if (key === 'exF.reg') return CFG.A.sup + CFG.A.kid + CFG.fee.reg;
+    const [c, t, u] = key.split('.');       // 'A.sup'（大人）／'A.kid'（5歳〜中学生）／'dao.lite.solo'
+    if (c === 'dao') return CFG.dao[t][u];
+    return CFG[c][t];
+  };
+  document.querySelectorAll('[data-p]').forEach(el => { el.innerHTML = yenHTML(val(el.dataset.p)); });
+  // 実費の目安（大人1人・プランの日数分）
+  const realFor = course => [CFG.real.min * CFG[course].days, CFG.real.max * CFG[course].days];
+  document.querySelectorAll('[data-cost]').forEach(el => { const [a, b] = realFor(el.dataset.cost); el.innerHTML = rangeHTML(a, b); });
+  document.querySelectorAll('[data-cost-day]').forEach(el => { el.textContent = '1日' + range(CFG.real.min, CFG.real.max); });
+
+  // ===== たたんだ所（くわしく）：リンクで飛ぶときは、先に開く =====
+  const openTo = el => { let n = el; while (n) { if (n.tagName === 'DETAILS') n.open = true; n = n.parentElement; } };
+  const hashId = h => { try { return decodeURIComponent((h || '').replace(/^#/, '')); } catch (_) { return ''; } };
+  const openHash = h => { const id = hashId(h); const el = id && $(id); if (el) openTo(el); };
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]');
+    if (a) openHash(a.getAttribute('href'));
+  }, true);
+  if (location.hash) openHash(location.hash);
+  window.addEventListener('hashchange', () => openHash(location.hash));
+  // 移動して、読み上げや次のTabもそこから始まるようにする
+  const go = (el, f = el) => {
+    openTo(el);
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    if (!f.matches('a[href],button,video,summary,input,[tabindex]')) f.tabIndex = -1;
+    try { f.focus({ preventScroll: true }); } catch (_) {}
+  };
+
+  function daysLeft() {
+    const j = new Date(Date.now() + 9 * 3600e3);
+    const today = Date.UTC(j.getUTCFullYear(), j.getUTCMonth(), j.getUTCDate());
+    const [y, m, d] = CFG.deadlineYMD;
+    return Math.round((Date.UTC(y, m - 1, d) - today) / 864e5);
+  }
+  function applyPhase() {
+    const early = isEarly();
+    root.dataset.phase = early ? 'early' : 'regular';
+    const n = daysLeft();
+    const txt = n > 1 ? `あと${n}日` : n === 1 ? 'あと1日（明日まで）' : '本日が最終日';
+    document.querySelectorAll('[data-count]').forEach(el => { el.textContent = early ? txt : ''; });
+  }
+
+  // ===== 参加費の計算 =====
+  const S = { course: 'A', adult: 1, kid: 0, infant: 0, touched: false, dao: false, daoPlan: 'lite', daoType: null };
+  const LIM = { adult: [1, 8], kid: [0, 8], infant: [0, 6] };
+  const daoType = () => S.daoType || (S.adult + S.kid + S.infant >= 2 ? 'family' : 'solo');   // 未選択のあいだは人数から自動
+  const daoLabel = () => `EarthfamilyDAO ${CFG.dao[S.daoPlan].name}（${daoType() === 'family' ? '家族' : 'ひとり'}）`;
+  function calc(early) {
+    const base = CFG[S.course].sup;
+    const kidUnit = CFG[S.course].kid;
+    const infantUnit = CFG[S.course].infant;
+    const paidInfants = Math.max(0, S.infant - 1);
+    const infantFee = paidInfants * infantUnit;
+    const fee = early ? CFG.fee.early : CFG.fee.reg;
+    const dao = S.dao ? CFG.dao[S.daoPlan][daoType()] : 0;
+    return { base, kidUnit, infantUnit, paidInfants, infantFee, fee, dao, total: fee + S.adult * base + S.kid * kidUnit + infantFee + dao };
+  }
+  function realEstimate() {
+    const days = CFG[S.course].days;
+    return { days, min: S.adult * days * CFG.real.min, max: S.adult * days * CFG.real.max };
+  }
+  function shareText(cur, est) {
+    const p = PLAN[S.course];
+    let t = `【EarthfamilyJourney タイ旅2027】\n${p.name}（${p.when}・${CFG[S.course].days}日間）\n大人${S.adult}人・5歳〜中学生${S.kid}人・4歳以下${S.infant}人`;
+    if (S.dao) t += `\n${daoLabel()}も含む`;
+    t += `\nお振り込みの合計（航空券・現地での実費は別）：${yen(cur.total)}`;
+    t += `\n現地での実費の目安（大人分・航空券を除く）：${range(est.min, est.max)}`;
+    if (isEarly()) t += `\n早割は12/10（木）まで`;
+    return t;
+  }
+  function renderSim() {
+    const early = isEarly();
+    const cur = calc(early), reg = calc(false), est = realEstimate();
+    $('infant-unit').innerHTML = yenHTML(cur.infantUnit);
+    $('r-total').innerHTML = yenHTML(cur.total);
+    const saving = reg.total - cur.total;
+    $('r-off').textContent = early && saving > 0 ? `早割で −${yen(saving)}` : '';
+    const rows = [[`JOURNEY LAB（1家族）`, yen(cur.fee)], [`大人 × ${S.adult}`, yen(S.adult * cur.base)]];
+    if (S.kid) rows.push([`5歳〜中学生 × ${S.kid}`, yen(S.kid * cur.kidUnit)]);
+    if (S.infant) rows.push(['4歳以下・1人目', '無料']);
+    if (cur.paidInfants) rows.push([`4歳以下・2人目以降 × ${cur.paidInfants}`, yen(cur.infantFee)]);
+    if (S.dao) rows.push([`${daoLabel()}・1年`, yen(cur.dao)]);
+    $('r-rows').innerHTML = rows.map(r => `<div><dt>${r[0]}</dt><dd>${r[1]}</dd></div>`).join('');
+    $('r-reg').textContent = early ? `通常価格なら ${yen(reg.total)}` : '';
+    $('e-lab').textContent = `現地での実費の目安（大人${S.adult}人×${est.days}日・航空券を除く）`;
+    $('e-real').innerHTML = rangeHTML(est.min, est.max);
+    $('e-total').innerHTML = rangeHTML(cur.total + est.min, cur.total + est.max);
+    $('sim-send').href = 'https://line.me/R/share?text=' + enc(shareText(cur, est) + '\n' + PAGE_URL);
+    ['adult', 'kid', 'infant'].forEach(k => {
+      $('v-' + k).textContent = S[k];
+      document.querySelector(`[data-k="${k}"][data-d="-1"]`).disabled = S[k] <= LIM[k][0];
+      document.querySelector(`[data-k="${k}"][data-d="1"]`).disabled = S[k] >= LIM[k][1];
+    });
+    document.querySelectorAll('.seg button[data-course]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.course === S.course)));
+    $('dao-sw').setAttribute('aria-checked', String(S.dao));
+    $('dao-opts').hidden = !S.dao;
+    document.querySelectorAll('[data-dp]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.dp === S.daoPlan)));
+    document.querySelectorAll('[data-dt]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.dt === daoType())));
+    updateApplicationLinks();
+  }
+  document.querySelectorAll('.step button').forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.k; const [lo, hi] = LIM[k];
+    S[k] = Math.min(hi, Math.max(lo, S[k] + Number(b.dataset.d)));
+    S.touched = true; renderSim();
+  }));
+  document.querySelectorAll('.seg button[data-course]').forEach(b => b.addEventListener('click', () => {
+    S.course = b.dataset.course; S.touched = true; renderSim();
+  }));
+  $('dao-sw').addEventListener('click', () => { S.dao = !S.dao; S.touched = true; renderSim(); });
+  document.querySelectorAll('[data-dp]').forEach(b => b.addEventListener('click', () => { S.daoPlan = b.dataset.dp; S.touched = true; renderSim(); }));
+  document.querySelectorAll('[data-dt]').forEach(b => b.addEventListener('click', () => { S.daoType = b.dataset.dt; S.touched = true; renderSim(); }));
+  document.querySelector('.dao-add').addEventListener('click', () => { S.dao = true; S.touched = true; renderSim(); go($('sim'), $('dao-sw')); });
+
+  // 見積もりを家族に送る：スマホの共有メニューがあれば使い、なければLINEの送信画面へ
+  $('sim-send').addEventListener('click', e => {
+    if (!navigator.share) return;
+    e.preventDefault();
+    const cur = calc(isEarly());
+    navigator.share({ title: 'タイ旅2027の見積もり', text: shareText(cur, realEstimate()), url: PAGE_URL }).catch(() => {});
+  });
+
+  // フォームには個人情報を含めず、コースと人数だけ引き継ぐ。
+  // Keep href current for normal clicks, opening a new tab and copying a link.
+  function updateApplicationLinks() {
+    document.querySelectorAll('a[data-apply]').forEach(a => {
+      const u = new URL(a.href);
+      u.searchParams.delete('daoPlan');
+      u.searchParams.delete('daoType');
+      u.searchParams.set('course', a.dataset.course || S.course);
+      if (a.hasAttribute('data-from-sim')) {
+        u.searchParams.set('adults', String(S.adult));
+        u.searchParams.set('children', String(S.kid));
+        u.searchParams.set('infants', String(S.infant));
+        if (S.dao) {
+          u.searchParams.set('daoPlan', S.daoPlan);
+          u.searchParams.set('daoType', daoType());
+        }
+      }
+      a.href = u.href;
+    });
+  }
+  document.querySelectorAll('[role="radiogroup"]').forEach(group => group.addEventListener('keydown', e => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key)) return;
+    const buttons = [...group.querySelectorAll('[role="radio"]')];
+    if (!buttons.includes(document.activeElement)) return;
+    e.preventDefault();
+    const i = buttons.indexOf(document.activeElement);
+    const next = e.key === 'Home' ? 0 : e.key === 'End' ? buttons.length - 1 : (i + (['ArrowRight', 'ArrowDown'].includes(e.key) ? 1 : -1) + buttons.length) % buttons.length;
+    buttons[next].focus(); buttons[next].click();
+  }));
+
+  // ===== プラン診断（答えはこの画面の中だけで使います）=====
+  const A = {};
+  const finderBox = $('f-result');
+  function decide(a) {
+    let main, alt = null;
+    const notes = [];
+    if (a.days === 'two') {
+      if (a.want === 'lake') { main = 'A'; alt = 'SPECIAL'; }
+      else if (a.want === 'craft') { main = 'B'; alt = 'SPECIAL'; }
+      else main = 'SPECIAL';
+    } else if (a.want === 'lake') main = 'A';
+    else if (a.want === 'craft') main = 'B';
+    else { main = 'A'; alt = 'B'; notes.push('両方を味わいたいときは、AとBを通して参加するSPECIAL（13日間）もあります。'); }
+    if (a.who === 'little') {
+      if (main === 'A') notes.push('4歳以下のお子さんは、1家族につき1人目無料です。');
+      else notes.push('B・SPECIALの村の滞在は、快適な設備が整った場所ではありません。小さなお子さんとの参加は、申し込み前にLINEでご相談ください。');
+    }
+    if (a.who === 'solo') notes.push('ひとり参加も歓迎です。旅先で出会う仲間と一緒に過ごします。');
+    return { main, alt, notes };
+  }
+  function renderFinder() {
+    if (!(A.days && A.want && A.who)) return;
+    const r = decide(A), p = PLAN[r.main], c = CFG[r.main];
+    const [rmin, rmax] = realFor(r.main);
+    const altHTML = r.alt ? `<p class="f-alt">こちらも合いそう：<a href="#${PLAN[r.alt].id}">${PLAN[r.alt].name}（${PLAN[r.alt].when}・${CFG[r.alt].days}日間）</a></p>` : '';
+    finderBox.innerHTML = `<div class="f-card ${r.main}">
+      <p class="f-lab">Your journey</p>
+      <h3>おすすめは、${p.name}<small>${p.when}・${c.days}日間</small></h3>
+      <p class="f-why">${p.why}</p>
+      <p class="f-price">現地サポート費　大人 <b>${yenHTML(c.sup)}</b>（5歳〜中学生 ${yen(c.kid)}）<br>＋JOURNEY LAB（1家族）・航空券<br>＋現地での実費の目安　大人1人 ${range(rmin, rmax)}</p>
+      ${r.notes.length ? `<ul class="f-notes">${r.notes.map(n => `<li>${n}</li>`).join('')}</ul>` : ''}
+      <div class="f-act">
+        <button type="button" class="btn full" data-calc="${r.main}">このプランで費用を計算する</button>
+        <a class="btn ghost full" href="#${p.id}">プランのくわしい内容を見る</a>
+      </div>
+      <a class="f-line" href="${LINE_URL}" target="_blank" rel="noopener noreferrer" data-line data-course="${r.main}">LINEで相談する</a>
+      ${altHTML}
+    </div>
+    <button type="button" class="f-again">答えをやり直す</button>`;
+    $('f-wait').hidden = true;
+  }
+  document.querySelectorAll('[data-q]').forEach(b => b.addEventListener('click', () => {
+    A[b.dataset.q] = b.dataset.v;
+    document.querySelectorAll(`[data-q="${b.dataset.q}"]`).forEach(x => x.setAttribute('aria-checked', String(x === b)));
+    const was = finderBox.innerHTML !== '';
+    renderFinder();
+    if (!was && finderBox.innerHTML !== '') finderBox.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+  }));
+  finderBox.addEventListener('click', e => {
+    const calcBtn = e.target.closest('[data-calc]');
+    if (calcBtn) {
+      S.course = calcBtn.dataset.calc;
+      if (A.who === 'solo') { S.adult = 1; S.kid = 0; S.infant = 0; }
+      S.touched = true; renderSim(); go($('sim'), document.querySelector(`.seg button[data-course="${S.course}"]`));
+      return;
+    }
+    if (e.target.closest('.f-again')) {
+      Object.keys(A).forEach(k => delete A[k]);
+      document.querySelectorAll('[data-q]').forEach(x => x.setAttribute('aria-checked', 'false'));
+      finderBox.innerHTML = '';
+      $('f-wait').hidden = false;
+      go($('finder'), document.querySelector('[data-q]'));
+    }
+  });
+
+  // ===== 動画の切り替え =====
+  const tabs = [...document.querySelectorAll('[data-film]')];
+  tabs.forEach(b => b.addEventListener('click', () => {
+    tabs.forEach(x => {
+      const on = x === b, v = $(x.dataset.film);
+      x.setAttribute('aria-pressed', String(on));
+      v.hidden = !on;
+      if (!on) v.pause();
+    });
+    $('film-ext').href = b.dataset.ext;
+    const v = $(b.dataset.film); if (v.preload === 'none') v.preload = 'metadata';
+  }));
+  // ヒーローの「映像を見る」：映像のところへ移動して再生
+  document.querySelectorAll('[data-film-open]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    const v = $('v-saijai');
+    if (v.hidden) tabs[0].click();
+    // 映像の下（再生ボタンのある所）まで見えるよう、画面のまんなかへ
+    v.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    try { v.focus({ preventScroll: true }); } catch (_) {}
+    try { const p = v.play(); if (p && p.catch) p.catch(() => {}); } catch (_) {}
+  }));
+
+  // ===== LINEボタン：希望内容をコピーして、LINEを開く =====
+  const toast = $('toast'); let tt;
+  function say(t) { toast.textContent = t; toast.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('on'), 4500); }
+  function message(a) {
+    const course = a.dataset.course || (S.touched ? S.course : '');
+    let t = course ? `タイ旅・${course}プラン希望` : 'タイ旅について相談したいです';
+    if (S.touched) t += `\n大人${S.adult}人・5歳〜中学生${S.kid}人・4歳以下${S.infant}人`;
+    if (S.dao) t += `\n${daoLabel()}も希望`;
+    return t;
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[data-line]');
+    if (!a) return;
+    try {
+      navigator.clipboard.writeText(message(a)).then(
+        () => say('希望内容をコピーしました。LINEのトークに貼り付けて送ってください。'),
+        () => {}
+      );
+    } catch (_) {}
+  });
+
+  // ===== 早割の締切をカレンダーに =====
+  (() => {
+    const [y, m, d] = CFG.deadlineYMD;
+    const pad = n => String(n).padStart(2, '0');
+    const nx = new Date(Date.UTC(y, m - 1, d + 1));
+    const start = `${y}${pad(m)}${pad(d)}`, end = `${nx.getUTCFullYear()}${pad(nx.getUTCMonth() + 1)}${pad(nx.getUTCDate())}`;
+    const title = 'タイ旅2027 早割の締切';
+    const details = `EarthfamilyJourney 2027年1月・タイ旅。${m}/${d}までにフォームで申し込むと、JOURNEY LABが${yen(CFG.fee.reg)}→${yen(CFG.fee.early)}（1家族）。`;
+    const google = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${enc(title)}&dates=${start}/${end}&details=${enc(details + '\n' + PAGE_URL)}`;
+    const esc = s => s.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//tabigaku//thai-2027//JA', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      `UID:thai-2027-hayawari-${start}@tabigaku.party`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '')}`,
+      `DTSTART;VALUE=DATE:${start}`, `DTEND;VALUE=DATE:${end}`, `SUMMARY:${esc(title)}`, `DESCRIPTION:${esc(details)}`, `URL:${PAGE_URL}`,
+      'BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${esc(title)}`, 'TRIGGER:-P1D', 'END:VALARM', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    document.querySelectorAll('[data-cal="google"]').forEach(a => { a.href = google; });
+    document.querySelectorAll('[data-cal="ics"]').forEach(a => { a.href = 'data:text/calendar;charset=utf-8,' + enc(ics); });
+  })();
+
+  // ===== 固定バー（ヒーローと最後では隠す）=====
+  const bar = $('bar');
+  let inHero = true, inEnd = false;
+  const upd = () => {
+    const on = !inHero && !inEnd;
+    bar.classList.toggle('on', on);
+    bar.setAttribute('aria-hidden', String(!on));
+    bar.querySelectorAll('a').forEach(a => { a.tabIndex = on ? 0 : -1; });
+  };
+  if ('IntersectionObserver' in window) {
+    // ヒーローの申し込みボタンが見えている間は隠す（LINEやThreadsの中の低い画面では、最初から出る）
+    new IntersectionObserver(e => { inHero = e[0].intersectionRatio > 0.98; upd(); }, { threshold: [0, 0.99] }).observe(document.querySelector('.hero-cta .btn'));
+    new IntersectionObserver(e => { inEnd = e[0].isIntersecting; upd(); }, { threshold: 0.2 }).observe($('contact'));
+  } else { inHero = false; upd(); }
+
+  // ===== 目次：いま読んでいる場所に印 =====
+  const tocLinks = [...document.querySelectorAll('.toc a')];
+  const tocBox = document.querySelector('.toc-in');
+  if ('IntersectionObserver' in window) {
+    // どのセクションを読んでいるときに、どの目次に印をつけるか（物語・申し込み・最後の画面では印なし）
+    const OF = { family: 'family', film: 'film', saijai: 'saijai', scenes: 'saijai', courses: 'courses', flow: 'flow', fees: 'fees', faq: 'faq', cancellation: 'faq' };
+    const byId = new Map(tocLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        const link = byId.get(OF[en.target.id]);
+        tocLinks.forEach(a => a.removeAttribute('aria-current'));
+        if (!link) return;
+        link.setAttribute('aria-current', 'true');
+        const left = link.offsetLeft - (tocBox.clientWidth - link.offsetWidth) / 2;
+        tocBox.scrollTo({ left: Math.max(0, left), behavior: reduce ? 'auto' : 'smooth' });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main > section[id]').forEach(sec => io.observe(sec));
+  }
+
+  // ===== シェアリンク =====
+  const text = '旅で出会えば、地球家族。2027年1月、チェンマイと湖の暮らしへ。B・SPECIALはパパイヤビレッジと、国境を越えてラオスのレンテン族の村へ。EarthfamilyJourney タイ旅';
+  const share = {
+    x: `https://twitter.com/intent/tweet?text=${enc(text)}&url=${enc(PAGE_URL)}`,
+    line: `https://social-plugins.line.me/lineit/share?url=${enc(PAGE_URL)}&text=${enc(text)}`,
+    threads: `https://www.threads.net/intent/post?text=${enc(text + ' ' + PAGE_URL)}`,
+    fb: `https://www.facebook.com/sharer/sharer.php?u=${enc(PAGE_URL)}`
+  };
+  document.querySelectorAll('[data-s]').forEach(a => { a.href = share[a.dataset.s]; });
+
+  applyPhase(); renderSim();
+  // 1分ごとに残り日数を更新。早割が終わった瞬間だけ、計算もやり直す
+  let wasEarly = isEarly();
+  setInterval(() => { applyPhase(); if (isEarly() !== wasEarly) { wasEarly = isEarly(); renderSim(); } }, 60000);
+})();
+</script>
+</body>
+</html>
